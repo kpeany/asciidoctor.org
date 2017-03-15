@@ -10034,7 +10034,7 @@ include::tracks.csv[]
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top" rowspan="3"><p class="tableblock"><code>separator</code></p></td>
-<td class="tableblock halign-left valign-top" rowspan="3"><p class="tableblock">character used to separate cells (psv data format only)</p></td>
+<td class="tableblock halign-left valign-top" rowspan="3"><p class="tableblock">character used to separate cells</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>|</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">default for top-level tables</p></td>
 <td class="tableblock halign-left valign-top" rowspan="3"></td>
@@ -10045,7 +10045,8 @@ include::tracks.csv[]
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">user-defined</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">can be any single character, ideally one not found in the cell content</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">any sequence of literal characters (e.g., <code>&#166;</code> or <code>][</code>).
+<em>Ideally a pattern not found in the cell content.</em></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top" rowspan="4"><p class="tableblock"><code>frame</code></p></td>
@@ -25255,7 +25256,7 @@ In source listings, is the callout the last thing on the line?</p></td>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2017-03-05 23:19:42 UTC
+Last updated 2017-03-15 00:51:19 UTC
 </div>
 </div>
 <script type="text/x-mathjax-config">
