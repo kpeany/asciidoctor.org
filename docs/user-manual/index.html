@@ -22330,7 +22330,7 @@ Consult the <a href="http://asciidoctor.org/docs/migration/">Migration Guide</a>
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><em>italic text</em></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">'italic text'</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">'italic text' or _italic text_</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">_italic text_</p></td>
 </tr>
 <tr>
@@ -22347,27 +22347,19 @@ Consult the <a href="http://asciidoctor.org/docs/migration/">Migration Guide</a>
 <td class="tableblock halign-left valign-top"><p class="tableblock">``double quotes''</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">``double quotes''<br>
 <em>not available in compat mode</em></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">"`double quotes`" or type the Unicode quote characters using your editor</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">"`double quotes`" or insert the Unicode quote characters using your editor</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">`single quotes'</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">`single quotes'<br>
 <em>not available in compat mode</em></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">'`single quotes`' or type the Unicode quote characters using your editor</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">'`single quotes`' or insert the Unicode quote characters using your editor</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Document title <sup>[1]</sup></p></td>
-<td class="tableblock halign-left valign-top"><div><div class="listingblock">
-<div class="content">
-<pre>Title
-=====</pre>
-</div>
-</div></div></td>
-<td class="tableblock halign-left valign-top"><div><div class="listingblock">
-<div class="content">
-<pre>= Title</pre>
-</div>
-</div></div></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Title</code> or <code>= Title</code><br>
+<code>=====</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>= Title</code></p></td>
 </tr>
 </tbody>
 </table>
@@ -22412,8 +22404,13 @@ See <a href="#ifeval-directive">ifeval directive</a>.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">AsciiDoc table cell</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>a|</code> or <code>asciidoc|</code>.</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>a|</code> only.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>a|</code> or <code>asciidoc|</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>a|</code> only</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Table cell separator</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">A Python regular expression.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">One or more literal characters or \t for tab.</p></td>
 </tr>
 </tbody>
 </table>
@@ -25256,7 +25253,7 @@ In source listings, is the callout the last thing on the line?</p></td>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2017-03-15 00:51:19 UTC
+Last updated 2017-03-19 07:36:45 UTC
 </div>
 </div>
 <script type="text/x-mathjax-config">
