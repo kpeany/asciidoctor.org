@@ -19978,37 +19978,37 @@ The value must be set in the document constructor using the <code>:safe</code> o
 <div class="sect2">
 <h3 id="set-attributes-based-on-the-safe-mode"><a class="anchor" href="#set-attributes-based-on-the-safe-mode"></a>75.3. Set Attributes Based on the Safe Mode</h3>
 <div class="paragraph">
-<p>You can enable or disable content within your document based on safe modes using the <code>safe-mode</code> attribute.</p>
+<p>Asciidoctor provides access to the current safe mode through built-in attributes.
+You can use these attributes to enable or disable content based on the current safe mode of the processor.</p>
 </div>
 <div class="paragraph">
-<p>The safe mode can be defined by its integer value or name.
-For example, to assign the <code>SAFE</code> level to the attribute, you could append <code>10</code> or <code>safe</code> to the attribute.</p>
+<p>The safe mode can be referenced by one of the following attributes:</p>
 </div>
-<div class="literalblock">
-<div class="content">
-<pre class="nowrap">safe-mode-10</pre>
-</div>
-</div>
-<div class="paragraph">
-<p>or</p>
-</div>
-<div class="literalblock">
-<div class="content">
-<pre class="nowrap">safe-mode-safe</pre>
-</div>
-</div>
-<div class="paragraph">
-<p>The attributes in the next example enable the author to define replacement text for features that are disabled in high security environments.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>The value of the <code>safe-mode-name</code> attribute (e.g., unsafe, safe, etc.)</p>
+</li>
+<li>
+<p>The value of the <code>safe-mode-level</code> attribute (e.g., 0, 10, etc.)</p>
+</li>
+<li>
+<p>The presense of the <code>safe-mode-&lt;name&gt;</code> attribute, where <code>&lt;name&gt;</code> is the safe mode name.</p>
+</li>
+</ul>
 </div>
 <div class="paragraph">
-<p>For example:</p>
+<p>The attributes in the next example define replacement text for features that are disabled in high security environments:</p>
 </div>
 <div class="listingblock">
 <div class="content">
 <pre class="CodeRay highlight nowrap"><code data-lang="asciidoc">ifdef::safe-mode-secure[]
-Links to chapters.
+Link to chapters instead of including them.
 endif::safe-mode-secure[]</code></pre>
 </div>
+</div>
+<div class="paragraph">
+<p>This feature is particularly handy for rendering content on GitHub, where the safe mode is set to its most restrictive setting, secure.</p>
 </div>
 </div>
 </div>
@@ -25253,7 +25253,7 @@ In source listings, is the callout the last thing on the line?</p></td>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2017-03-20 01:43:45 UTC
+Last updated 2017-03-21 02:06:07 UTC
 </div>
 </div>
 <script type="text/x-mathjax-config">
