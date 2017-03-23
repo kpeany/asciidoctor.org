@@ -9,6 +9,16 @@
 <li><a href="#image-output-location">Image Output Location</a></li>
 <li><a href="#specifying-diagram-generator-paths">Specifying Diagram Generator Paths</a></li>
 <li><a href="#meme">The Meme Extension</a></li>
+<li><a href="#diagram-attributes">Diagram Attributes</a>
+<ul class="sectlevel3">
+<li><a href="#blockdiag">Blockdiag</a></li>
+<li><a href="#ditaa">Ditaa</a></li>
+<li><a href="#graphviz">GraphViz</a></li>
+<li><a href="#meme-2">Meme</a></li>
+<li><a href="#mermaid">Mermaid</a></li>
+<li><a href="#plantuml">PlantUML</a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul></div></div><div class="large-8 columns content"><div id="content"><div id="preamble">
@@ -111,16 +121,18 @@ Diagram in appropriate syntax
 </div>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
-<col style="width: 20%;">
-<col style="width: 20%;">
-<col style="width: 20%;">
-<col style="width: 20%;">
-<col style="width: 20%;">
+<col style="width: 16.6666%;">
+<col style="width: 16.6666%;">
+<col style="width: 16.6666%;">
+<col style="width: 16.6666%;">
+<col style="width: 16.6666%;">
+<col style="width: 16.667%;">
 </colgroup>
 <thead>
 <tr>
 <th class="tableblock halign-right valign-top">Diagram Type</th>
 <th class="tableblock halign-center valign-top">gif</th>
+<th class="tableblock halign-center valign-top">pdf</th>
 <th class="tableblock halign-center valign-top">png</th>
 <th class="tableblock halign-center valign-top">svg</th>
 <th class="tableblock halign-center valign-top">txt</th>
@@ -132,6 +144,7 @@ Diagram in appropriate syntax
 <td class="tableblock halign-center valign-top"></td>
 <td class="tableblock halign-center valign-top"><p class="tableblock"><span class="icon"><i class="fa fa-check"></i></span></p></td>
 <td class="tableblock halign-center valign-top"><p class="tableblock"><span class="icon"><i class="fa fa-check"></i></span></p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><span class="icon"><i class="fa fa-check"></i></span></p></td>
 <td class="tableblock halign-center valign-top"></td>
 </tr>
 <tr>
@@ -139,13 +152,23 @@ Diagram in appropriate syntax
 <td class="tableblock halign-center valign-top"></td>
 <td class="tableblock halign-center valign-top"><p class="tableblock"><span class="icon"><i class="fa fa-check"></i></span></p></td>
 <td class="tableblock halign-center valign-top"><p class="tableblock"><span class="icon"><i class="fa fa-check"></i></span></p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><span class="icon"><i class="fa fa-check"></i></span></p></td>
 <td class="tableblock halign-center valign-top"></td>
 </tr>
 <tr>
 <td class="tableblock halign-right valign-top"><p class="tableblock"><a href="http://ditaa.sourceforge.net/">ditaa</a></p></td>
 <td class="tableblock halign-center valign-top"></td>
+<td class="tableblock halign-center valign-top"></td>
 <td class="tableblock halign-center valign-top"><p class="tableblock"><span class="icon"><i class="fa fa-check"></i></span></p></td>
 <td class="tableblock halign-center valign-top"></td>
+<td class="tableblock halign-center valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-right valign-top"><p class="tableblock"><a href="https://github.com/BurntSushi/erd">erd</a></p></td>
+<td class="tableblock halign-center valign-top"></td>
+<td class="tableblock halign-center valign-top"></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><span class="icon"><i class="fa fa-check"></i></span></p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><span class="icon"><i class="fa fa-check"></i></span></p></td>
 <td class="tableblock halign-center valign-top"></td>
 </tr>
 <tr>
@@ -153,17 +176,20 @@ Diagram in appropriate syntax
 <td class="tableblock halign-center valign-top"></td>
 <td class="tableblock halign-center valign-top"><p class="tableblock"><span class="icon"><i class="fa fa-check"></i></span></p></td>
 <td class="tableblock halign-center valign-top"><p class="tableblock"><span class="icon"><i class="fa fa-check"></i></span></p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><span class="icon"><i class="fa fa-check"></i></span></p></td>
 <td class="tableblock halign-center valign-top"></td>
 </tr>
 <tr>
 <td class="tableblock halign-right valign-top"><p class="tableblock"><a href="#meme">meme</a></p></td>
 <td class="tableblock halign-center valign-top"><p class="tableblock"><span class="icon"><i class="fa fa-check"></i></span></p></td>
+<td class="tableblock halign-center valign-top"></td>
 <td class="tableblock halign-center valign-top"><p class="tableblock"><span class="icon"><i class="fa fa-check"></i></span></p></td>
 <td class="tableblock halign-center valign-top"></td>
 <td class="tableblock halign-center valign-top"></td>
 </tr>
 <tr>
 <td class="tableblock halign-right valign-top"><p class="tableblock"><a href="http://knsv.github.io/mermaid/">mermaid</a></p></td>
+<td class="tableblock halign-center valign-top"></td>
 <td class="tableblock halign-center valign-top"></td>
 <td class="tableblock halign-center valign-top"><p class="tableblock"><span class="icon"><i class="fa fa-check"></i></span></p></td>
 <td class="tableblock halign-center valign-top"><p class="tableblock"><span class="icon"><i class="fa fa-check"></i></span></p></td>
@@ -174,6 +200,7 @@ Diagram in appropriate syntax
 <td class="tableblock halign-center valign-top"></td>
 <td class="tableblock halign-center valign-top"><p class="tableblock"><span class="icon"><i class="fa fa-check"></i></span></p></td>
 <td class="tableblock halign-center valign-top"><p class="tableblock"><span class="icon"><i class="fa fa-check"></i></span></p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><span class="icon"><i class="fa fa-check"></i></span></p></td>
 <td class="tableblock halign-center valign-top"></td>
 </tr>
 <tr>
@@ -181,10 +208,12 @@ Diagram in appropriate syntax
 <td class="tableblock halign-center valign-top"></td>
 <td class="tableblock halign-center valign-top"><p class="tableblock"><span class="icon"><i class="fa fa-check"></i></span></p></td>
 <td class="tableblock halign-center valign-top"><p class="tableblock"><span class="icon"><i class="fa fa-check"></i></span></p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><span class="icon"><i class="fa fa-check"></i></span></p></td>
 <td class="tableblock halign-center valign-top"></td>
 </tr>
 <tr>
 <td class="tableblock halign-right valign-top"><p class="tableblock"><a href="http://plantuml.sourceforge.net">plantuml</a></p></td>
+<td class="tableblock halign-center valign-top"></td>
 <td class="tableblock halign-center valign-top"></td>
 <td class="tableblock halign-center valign-top"><p class="tableblock"><span class="icon"><i class="fa fa-check"></i></span></p></td>
 <td class="tableblock halign-center valign-top"><p class="tableblock"><span class="icon"><i class="fa fa-check"></i></span></p></td>
@@ -195,6 +224,7 @@ Diagram in appropriate syntax
 <td class="tableblock halign-center valign-top"></td>
 <td class="tableblock halign-center valign-top"><p class="tableblock"><span class="icon"><i class="fa fa-check"></i></span></p></td>
 <td class="tableblock halign-center valign-top"><p class="tableblock"><span class="icon"><i class="fa fa-check"></i></span></p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><span class="icon"><i class="fa fa-check"></i></span></p></td>
 <td class="tableblock halign-center valign-top"></td>
 </tr>
 <tr>
@@ -202,17 +232,28 @@ Diagram in appropriate syntax
 <td class="tableblock halign-center valign-top"></td>
 <td class="tableblock halign-center valign-top"><p class="tableblock"><span class="icon"><i class="fa fa-check"></i></span></p></td>
 <td class="tableblock halign-center valign-top"><p class="tableblock"><span class="icon"><i class="fa fa-check"></i></span></p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><span class="icon"><i class="fa fa-check"></i></span></p></td>
 <td class="tableblock halign-center valign-top"></td>
 </tr>
 <tr>
 <td class="tableblock halign-right valign-top"><p class="tableblock"><a href="https://github.com/christiangoltz/shaape">shaape</a></p></td>
 <td class="tableblock halign-center valign-top"></td>
+<td class="tableblock halign-center valign-top"></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><span class="icon"><i class="fa fa-check"></i></span></p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><span class="icon"><i class="fa fa-check"></i></span></p></td>
+<td class="tableblock halign-center valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-right valign-top"><p class="tableblock"><a href="http://www.umlet.com/">umlet</a></p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><span class="icon"><i class="fa fa-check"></i></span></p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><span class="icon"><i class="fa fa-check"></i></span></p></td>
 <td class="tableblock halign-center valign-top"><p class="tableblock"><span class="icon"><i class="fa fa-check"></i></span></p></td>
 <td class="tableblock halign-center valign-top"><p class="tableblock"><span class="icon"><i class="fa fa-check"></i></span></p></td>
 <td class="tableblock halign-center valign-top"></td>
 </tr>
 <tr>
 <td class="tableblock halign-right valign-top"><p class="tableblock"><a href="http://wavedrom.com">wavedrom</a></p></td>
+<td class="tableblock halign-center valign-top"></td>
 <td class="tableblock halign-center valign-top"></td>
 <td class="tableblock halign-center valign-top"><p class="tableblock"><span class="icon"><i class="fa fa-check"></i></span></p></td>
 <td class="tableblock halign-center valign-top"><p class="tableblock"><span class="icon"><i class="fa fa-check"></i></span></p></td>
@@ -374,7 +415,7 @@ The command implicitly sets the <code>-r</code> and <code>-b</code> flags for EP
 </div>
 </div>
 <div class="paragraph">
-<p><code>&lt;extension_name&gt;</code> can be one of <code>blockdiag</code>, <code>ditaa</code>, <code>graphviz</code>, <code>meme</code>, <code>mermaid</code>, <code>plantuml</code>, <code>shaape</code>, or <code>wavedrom</code>.</p>
+<p><code>&lt;extension_name&gt;</code> can be one of <code>blockdiag</code>, <code>ditaa</code>, <code>erd</code>, <code>graphviz</code>, <code>meme</code>, <code>mermaid</code>, <code>plantuml</code>, <code>shaape</code>, or <code>wavedrom</code>.</p>
 </div>
 <div class="paragraph">
 <p>Requiring one or more of these files will automatically register the extensions for all processed documents.</p>
@@ -479,6 +520,11 @@ The following table lists the tools that are required for each diagram type, the
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>java</code></p></td>
 </tr>
 <tr>
+<td class="tableblock halign-right valign-top"><p class="tableblock">erd</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://github.com/BurntSushi/erd">Erd</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>erd</code></p></td>
+</tr>
+<tr>
 <td class="tableblock halign-right valign-top"><p class="tableblock">graphviz</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="http://www.graphviz.org">GraphViz</a></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>dot</code> or <code>graphvizdot</code></p></td>
@@ -524,6 +570,11 @@ The following table lists the tools that are required for each diagram type, the
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>shaape</code></p></td>
 </tr>
 <tr>
+<td class="tableblock halign-right valign-top"><p class="tableblock">umlet</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="http://www.umlet.com/">Umlet</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>umlet</code></p></td>
+</tr>
+<tr>
 <td class="tableblock halign-right valign-top" rowspan="2"><p class="tableblock">wavedrom</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://github.com/wavedrom/wavedrom.github.io/releases">WaveDrom Editor</a></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>wavedrom</code></p></td>
@@ -559,33 +610,271 @@ It&#8217;s usage is easiest to explain with an example.</p>
 The first two positional attributes are <code>top</code> and <code>bottom</code> and are used for the top and bottom label.
 Occurrences of <code>\\</code> surrounded by whitespace are interpreted as line breaks.</p>
 </div>
-<div class="paragraph">
-<p>The block macro also supports the following named attributes:</p>
 </div>
-<div class="olist arabic">
-<ol class="arabic">
-<li>
-<p><code>fillColor</code>: the fill color for the text. Defaults to <code>white</code>.</p>
-</li>
-<li>
-<p><code>strokeColor</code>:  the outline color for the text. Defaults to <code>black</code>.</p>
-</li>
-<li>
-<p><code>strokeWidth</code>:  the width of the text outline. Defaults to <code>2</code>.</p>
-</li>
-<li>
-<p><code>font</code>: the font face to use for the text. Defaults to <code>Impact</code>.</p>
-</li>
-<li>
-<p><code>options</code>: a comma separate list of flags that modify the image rendering. Currently only <code>noupcase</code> is supported which disable upper casing the labels.</p>
-</li>
-<li>
-<p><code>target</code> (3rd positional attribute): the basename of the file to generate. If not specified an auto-generated name will be used.</p>
-</li>
-<li>
-<p><code>format</code> (4th positional attribute): the output image format. The meme extension supports <code>png</code> and <code>gif</code>.</p>
-</li>
-</ol>
+<div class="sect2">
+<h3 id="diagram-attributes"><a class="anchor" href="#diagram-attributes"></a>Diagram Attributes</h3>
+<div class="paragraph">
+<p>Certain diagram types allow image generation to be customized using attributes.
+Each attribute can be specified either at the block level or at the document level.
+This is illustrated for the blockdiag <code>fontpath</code> attribute in the example below.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="nowrap">= Asciidoctor Diagram
+:blockdiag-fontpath: /path/to/font.ttf <i class="conum" data-value="1"></i><b>(1)</b>
+
+[blockdiag] <i class="conum" data-value="2"></i><b>(2)</b>
+....
+....
+
+[blockdiag, fontpath="/path/to/otherfont.ttf"] <i class="conum" data-value="3"></i><b>(3)</b>
+....
+....</pre>
+</div>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><i class="conum" data-value="1"></i><b>1</b></td>
+<td>Block level attributes can be specified at the document level by prefixing them with <code>&lt;blocktype&gt;-</code></td>
+</tr>
+<tr>
+<td><i class="conum" data-value="2"></i><b>2</b></td>
+<td>The first diagram does not specify an explicit value for <code>fontpath</code> so the global value will be used</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="3"></i><b>3</b></td>
+<td>The second diagram specifies a <code>fontpath</code> value which overrrides the global value</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Each attribute can either be specified at the block level or at the document level.
+The attribute name at the block level should be prefixed with the name of the diagram type and a dash.</p>
+</div>
+<div class="sect3">
+<h4 id="blockdiag"><a class="anchor" href="#blockdiag"></a>Blockdiag</h4>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 33.3333%;">
+<col style="width: 33.3333%;">
+<col style="width: 33.3334%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-right valign-top">Name</th>
+<th class="tableblock halign-left valign-top">Default value</th>
+<th class="tableblock halign-left valign-top">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-right valign-top"><p class="tableblock">fontpath</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">unspecified</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The path to the font that should be used by blockdiag</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect3">
+<h4 id="ditaa"><a class="anchor" href="#ditaa"></a>Ditaa</h4>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 33.3333%;">
+<col style="width: 33.3333%;">
+<col style="width: 33.3334%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-right valign-top">Name</th>
+<th class="tableblock halign-left valign-top">Default value</th>
+<th class="tableblock halign-left valign-top">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-right valign-top"><p class="tableblock">scale</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">A scale factor that is applied to the image.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-right valign-top"><p class="tableblock">tabs</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">8</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">An integer value that specifies the tab size as a number of spaces.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-right valign-top"><p class="tableblock">background</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">FFFFFF</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The background colour of the image. The format should be a six-digit hexadecimal number (as in HTML, FF0000 for red). Pass an eight-digit hex to define transparency.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-right valign-top"><p class="tableblock">antialias</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">true</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Enables or disables anti-aliasing.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-right valign-top"><p class="tableblock">separation</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">true</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Prevents the separation of common edges of shapes.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-right valign-top"><p class="tableblock">round-corners</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">false</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Causes all corners to be rendered as round corners.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-right valign-top"><p class="tableblock">shadows</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">true</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Enables or disable drop shadows.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-right valign-top"><p class="tableblock">debug</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">false</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Renders the debug grid over the resulting image.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-right valign-top"><p class="tableblock">fixed-slope</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">false</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Makes sides of parallelograms and trapezoids fixed slope instead of fixed width.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-right valign-top"><p class="tableblock">transparent</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">false</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Makes the background of the image transparent instead of using the background color.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect3">
+<h4 id="graphviz"><a class="anchor" href="#graphviz"></a>GraphViz</h4>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 33.3333%;">
+<col style="width: 33.3333%;">
+<col style="width: 33.3334%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-right valign-top">Name</th>
+<th class="tableblock halign-left valign-top">Default value</th>
+<th class="tableblock halign-left valign-top">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-right valign-top"><p class="tableblock">layout</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">unspecified</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The graphviz layout engine to use (dot -K option).</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect3">
+<h4 id="meme-2"><a class="anchor" href="#meme-2"></a>Meme</h4>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 33.3333%;">
+<col style="width: 33.3333%;">
+<col style="width: 33.3334%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-right valign-top">Name</th>
+<th class="tableblock halign-left valign-top">Default value</th>
+<th class="tableblock halign-left valign-top">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-right valign-top"><p class="tableblock">fillColor</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">white</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The fill color for the text.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-right valign-top"><p class="tableblock">strokeColor</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">black</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The outline color for the text</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-right valign-top"><p class="tableblock">strokeWidth</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">2</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The width of the text outline.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-right valign-top"><p class="tableblock">font</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Impact</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The font face to use for the text.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-right valign-top"><p class="tableblock">options</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">unspecified</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">a comma separate list of flags that modify the image rendering. Currently only <code>noupcase</code> is supported which disable upper casing the labels.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect3">
+<h4 id="mermaid"><a class="anchor" href="#mermaid"></a>Mermaid</h4>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 33.3333%;">
+<col style="width: 33.3333%;">
+<col style="width: 33.3334%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-right valign-top">Name</th>
+<th class="tableblock halign-left valign-top">Default value</th>
+<th class="tableblock halign-left valign-top">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-right valign-top"><p class="tableblock">css</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">unspecified</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Path to a CSS file to pass to mermaid.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-right valign-top"><p class="tableblock">ganttconfig</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">unspecified</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Path to a gantt config file to pass to mermaid.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-right valign-top"><p class="tableblock">sequenceconfig</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">unspecified</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Path to a sequence config file to pass to mermaid.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-right valign-top"><p class="tableblock">width</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">unspecified</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The width of the generated image.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect3">
+<h4 id="plantuml"><a class="anchor" href="#plantuml"></a>PlantUML</h4>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 33.3333%;">
+<col style="width: 33.3333%;">
+<col style="width: 33.3334%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-right valign-top">Name</th>
+<th class="tableblock halign-left valign-top">Default value</th>
+<th class="tableblock halign-left valign-top">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-right valign-top"><p class="tableblock">config</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">unspecified</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Path to a config file to pass to PlantUML.</p></td>
+</tr>
+</tbody>
+</table>
 </div>
 </div>
 </div>
