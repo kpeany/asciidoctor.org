@@ -11670,32 +11670,33 @@ The single quotes around the variable name in the assignment are required to for
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="CodeRay highlight nowrap"><code data-lang="asciidoc">[[img-sunset]] <i class="conum" data-value="1"></i><b>(1)</b>
+<pre class="CodeRay highlight nowrap"><code data-lang="asciidoc">[#img-sunset] <i class="conum" data-value="1"></i><b>(1)</b>
 .A mountain sunset <i class="conum" data-value="2"></i><b>(2)</b>
-image::sunset.jpg[Sunset, 300, 200, link=&quot;http://www.flickr.com/photos/javh/5448336655&quot;]   <i class="conum" data-value="3"></i><b>(3)</b> <i class="conum" data-value="4"></i><b>(4)</b> <i class="conum" data-value="5"></i><b>(5)</b></code></pre>
+[link=http://www.flickr.com/photos/javh/5448336655] <i class="conum" data-value="3"></i><b>(3)</b>
+image::sunset.jpg[Sunset,300,200]  <i class="conum" data-value="4"></i><b>(4)</b> <i class="conum" data-value="5"></i><b>(5)</b></code></pre>
 </div>
 </div>
 <div class="colist arabic">
 <table>
 <tr>
 <td><i class="conum" data-value="1"></i><b>1</b></td>
-<td>ID, see <a href="#anchordef">Defining an Anchor</a>.</td>
+<td>Assigns an ID to the block; see <a href="#anchordef">Defining an Anchor</a>.</td>
 </tr>
 <tr>
 <td><i class="conum" data-value="2"></i><b>2</b></td>
-<td>The title of a block image is displayed underneath the image when rendered.</td>
+<td>Defines the title of the block image, which gets displayed underneath the image when rendered.</td>
 </tr>
 <tr>
 <td><i class="conum" data-value="3"></i><b>3</b></td>
-<td>The first positional attribute, <em>Sunset</em>, is the image&#8217;s alt text.</td>
+<td><code>link</code> makes the image a link (this can also be defined inside the attribute list of the block macro)</td>
 </tr>
 <tr>
 <td><i class="conum" data-value="4"></i><b>4</b></td>
-<td>Image width and height</td>
+<td>The first positional attribute, <em>Sunset</em>, is the image&#8217;s alt text.</td>
 </tr>
 <tr>
 <td><i class="conum" data-value="5"></i><b>5</b></td>
-<td><code>link</code> makes the image a link</td>
+<td>The second and third positional attributes define the width and height, respectively.</td>
 </tr>
 </table>
 </div>
@@ -25317,7 +25318,7 @@ In source listings, is the callout the last thing on the line?</p></td>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2017-04-01 19:48:11 UTC
+Last updated 2017-04-01 21:08:14 UTC
 </div>
 </div>
 <script type="text/x-mathjax-config">
