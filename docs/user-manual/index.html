@@ -680,8 +680,9 @@ table.CodeRay td.code>pre{padding:0}
 <li><a href="#table-width">26.6. Table width</a></li>
 <li><a href="#table-borders">26.7. Table borders</a></li>
 <li><a href="#table-caption">26.8. Table caption</a></li>
-<li><a href="#data-formats">26.9. CSV and DSV Data Formats</a></li>
-<li><a href="#summary-tables">26.10. Summary</a></li>
+<li><a href="#escaping-the-cell-separator">26.9. Escaping the Cell Separator</a></li>
+<li><a href="#data-formats">26.10. CSV and DSV Data Formats</a></li>
+<li><a href="#summary-tables">26.11. Summary</a></li>
 </ul>
 </li>
 <li><a href="#horizontal-rules">27. Horizontal Rules</a>
@@ -9765,7 +9766,70 @@ The caption attribute only sets the caption&#8217;s label, not the whole caption
 </div>
 </div>
 <div class="sect2">
-<h3 id="data-formats"><a class="anchor" href="#data-formats"></a>26.9. CSV and DSV Data Formats</h3>
+<h3 id="escaping-the-cell-separator"><a class="anchor" href="#escaping-the-cell-separator"></a>26.9. Escaping the Cell Separator</h3>
+<div class="paragraph">
+<p>The parser scans for the cell separator to divide the cells <em>before</em> it processes the cell text (no matter what that text contains, even passthroughs).
+If your content includes the cell separator, you must escape that character using a leading backslash.
+Otherwise, it will be interpreted as a cell separator.
+The backslash will be removed from the converted output.</p>
+</div>
+<div class="paragraph">
+<p>Consider the following example:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight nowrap"><code data-lang="asciidoc">[cols=2*]
+|====
+|The default separator in PSV tables is the \| character.
+|The \| character is often referred to as a &quot;`pipe`&quot;.
+|====</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>This table will render as follows:</p>
+</div>
+<table class="tableblock frame-all grid-all spread">
+<caption class="title">Result: Converted PSV table that contains pipe characters</caption>
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The default separator in PSV tables is the | character.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The | character is often referred to as a &#8220;pipe&#8221;.</p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>Notice that the pipe character appears unescaped in the rendered result.</p>
+</div>
+<div class="paragraph">
+<p>Escaping the cell separator character can be tedious.
+There are also times when you can&#8217;t or don&#8217;t want to modify the content in the table cell.
+To handle those cases, AsciiDoc allows you to override the cell separator.
+The cell separator is controlled using the separator attribute on the table block.
+You&#8217;ll want to select a character that will never be used for content.
+A good candidate is the broken bar, or <code>¦</code>.</p>
+</div>
+<div class="paragraph">
+<p>Here&#8217;s the previous example rewritten using a custom separator.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight nowrap"><code data-lang="asciidoc">[cols=2*,separator=¦]
+|====
+¦The default separator in PSV tables is the | character.
+¦The | character is often referred to as a &quot;`pipe`&quot;.
+|====</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Notice that it&#8217;s no longer necessary to escape the pipe character in the content of the table cells.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="data-formats"><a class="anchor" href="#data-formats"></a>26.10. CSV and DSV Data Formats</h3>
 <div class="paragraph">
 <p>Tables can be created from data stored as Comma Separated Values (CSV) and Delimiter Separated Values (DSV).
 To use one of these dataset types, set the value of the <code>format</code> attribute on the table to <code>csv</code> or <code>dsv</code>, respectively.
@@ -9990,7 +10054,7 @@ include::tracks.csv[]
 </table>
 </div>
 <div class="sect2">
-<h3 id="summary-tables"><a class="anchor" href="#summary-tables"></a>26.10. Summary</h3>
+<h3 id="summary-tables"><a class="anchor" href="#summary-tables"></a>26.11. Summary</h3>
 <table class="tableblock frame-all grid-all spread">
 <caption class="title">Table attributes and values</caption>
 <colgroup>
@@ -25253,7 +25317,7 @@ In source listings, is the callout the last thing on the line?</p></td>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2017-03-28 05:00:50 UTC
+Last updated 2017-04-01 02:51:11 UTC
 </div>
 </div>
 <script type="text/x-mathjax-config">
