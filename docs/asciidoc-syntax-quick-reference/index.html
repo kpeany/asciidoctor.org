@@ -283,78 +283,75 @@ The default Asciidoctor stylesheet automatically styles the first paragraph of t
 <div class="listingblock">
 <div class="title">Bold, Italic, and Monospace</div>
 <div class="content">
-<pre class="nowrap">_italic phrase_
+<pre class="nowrap">*bold phrase* &amp; **char**acter**s**
 
-__i__talic le__tt__ers
+_italic phrase_ &amp; __char__acter__s__
 
-*bold phrase*
+*_bold italic phrase_* &amp; **__char__**acter**__s__**
 
-**b**old le**tt**ers
+`monospace phrase` &amp; ``char``acter``s``
 
-*_bold italic phrase_*
+`*monospace bold phrase*` &amp; ``**char**``acter``**s**``
 
-**__b__**old italic le**__tt__**ers
+`_monospace italic phrase_` &amp; ``__char__``acter``__s__``
 
-`monospace phrase` and le``tt``ers
-
-`_monospace italic phrase_` and le``__tt__``ers
-
-`*monospace bold phrase*` and le``**tt**``ers
-
-`*_monospace bold italic phrase_*` and le``**__tt__**``ers</pre>
+`*_monospace bold italic phrase_*` &amp;
+``**__char__**``acter``**__s__**``</pre>
 </div>
 </div>
 <div class="exampleblock result">
 <div class="content">
 <div class="paragraph">
-<p><em>italic phrase</em></p>
+<p><strong>bold phrase</strong> &amp; <strong>char</strong>acter<strong>s</strong></p>
 </div>
 <div class="paragraph">
-<p><em>i</em>talic le<em>tt</em>ers</p>
+<p><em>italic phrase</em> &amp; <em>char</em>acter<em>s</em></p>
 </div>
 <div class="paragraph">
-<p><strong>bold phrase</strong></p>
+<p><strong><em>bold italic phrase</em></strong> &amp; <strong><em>char</em></strong>acter<strong><em>s</em></strong></p>
 </div>
 <div class="paragraph">
-<p><strong>b</strong>old le<strong>tt</strong>ers</p>
+<p><code>monospace phrase</code> &amp; <code>char</code>acter<code>s</code></p>
 </div>
 <div class="paragraph">
-<p><strong><em>bold italic phrase</em></strong></p>
+<p><code><strong>monospace bold phrase</strong></code> &amp; <code><strong>char</strong></code>acter<code><strong>s</strong></code></p>
 </div>
 <div class="paragraph">
-<p><strong><em>b</em></strong>old italic le<strong><em>tt</em></strong>ers</p>
+<p><code><em>monospace italic phrase</em></code> &amp; <code><em>char</em></code>acter<code><em>s</em></code></p>
 </div>
 <div class="paragraph">
-<p><code>monospace phrase</code> and le<code>tt</code>ers</p>
-</div>
-<div class="paragraph">
-<p><code><em>monospace italic phrase</em></code> and le<code><em>tt</em></code>ers</p>
-</div>
-<div class="paragraph">
-<p><code><strong>monospace bold phrase</strong></code> and le<code><strong>tt</strong></code>ers</p>
-</div>
-<div class="paragraph">
-<p><code><strong><em>monospace bold italic phrase</em></strong></code> and le<code><strong><em>tt</em></strong></code>ers</p>
+<p><code><strong><em>monospace bold italic phrase</em></strong></code> &amp;
+<code><strong><em>char</em></strong></code>acter<code><strong><em>s</em></strong></code></p>
 </div>
 </div>
 </div>
 <div class="listingblock">
-<div class="title">Custom Styling</div>
+<div class="title">Marks and Custom Styling</div>
 <div class="content">
-<pre class="nowrap">Werewolves are #allergic to cinnamon#.
+<pre class="nowrap">Werewolves are allergic to #cassia cinnamon#.
 
-Do werewolves believe in [small]#small print#?
+Did the werewolves read the [.small]#small print#?
 
-[big]##O##nce upon an infinite loop.</pre>
+Where did all the [.underline]#cores# run off to?
+
+We need [.line-through]#ten# make that twenty VMs.
+
+[.big]##O##nce upon an infinite loop.</pre>
 </div>
 </div>
 <div class="exampleblock result">
 <div class="content">
 <div class="paragraph">
-<p>Werewolves are <mark>allergic to cinnamon</mark>.</p>
+<p>Werewolves are allergic to <mark>cassia cinnamon</mark>.</p>
 </div>
 <div class="paragraph">
-<p>Do werewolves believe in <span class="small">small print</span>?</p>
+<p>Did the werewolves read the <span class="small">small print</span>?</p>
+</div>
+<div class="paragraph">
+<p>Where did all the <span class="underline">cores</span> run off to?</p>
+</div>
+<div class="paragraph">
+<p>We need <span class="line-through">ten</span> make that twenty VMs.</p>
 </div>
 <div class="paragraph">
 <p><span class="big">O</span>nce upon an infinite loop.</p>
@@ -380,11 +377,11 @@ Do werewolves believe in [small]#small print#?
 </div>
 </div>
 <div class="listingblock">
-<div class="title">Curved Quotation Marks and Apostrophes</div>
+<div class="title">Curved Quotation Marks and Apostrophes (Smart Quotes)</div>
 <div class="content">
-<pre class="nowrap">'`single curved quotes`'
+<pre class="nowrap">"`double curved quotes`"
 
-"`double curved quotes`"
+'`single curved quotes`'
 
 Olaf's desk was a mess.
 
@@ -396,10 +393,10 @@ Olaf had been with the company since the `'60s.</pre>
 <div class="exampleblock result">
 <div class="content">
 <div class="paragraph">
-<p>&#8216;single curved quotes&#8217;</p>
+<p>&#8220;double curved quotes&#8221;</p>
 </div>
 <div class="paragraph">
-<p>&#8220;double curved quotes&#8221;</p>
+<p>&#8216;single curved quotes&#8217;</p>
 </div>
 <div class="paragraph">
 <p>Olaf&#8217;s desk was a mess.</p>
