@@ -4919,10 +4919,10 @@ For example, a level 1 section (<code>==</code>) maps to an <code>&lt;h2&gt;</co
 <p>The value of the <code>idprefix</code> attribute (<code>_</code> by default) is prepended</p>
 </li>
 <li>
-<p>Each invalid ID character is replaced with the value of the <code>idseparator</code> attribute (<code>_</code> by default)</p>
+<p>Character references and invalid ID characters are replaced with the value of the <code>idseparator</code> attribute (<code>_</code> by default)</p>
 </li>
 <li>
-<p>Repeating separator characters are removed</p>
+<p>Repeating separator characters are consolidated</p>
 </li>
 <li>
 <p>If necessary, a sequence number is appended until the ID is unique within the document</p>
@@ -25379,7 +25379,7 @@ In source listings, is the callout the last thing on the line?</p></td>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2017-04-20 01:52:38 UTC
+Last updated 2017-04-20 02:58:17 UTC
 </div>
 </div>
 <script type="text/x-mathjax-config">
