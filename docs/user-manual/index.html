@@ -4942,11 +4942,11 @@ You can customize the replacement characters or toggle ID auto-generation using 
 </div>
 <div class="paragraph">
 <p>You can change the ID prefix by setting the <code>idprefix</code> attribute.
-The value of the <code>idprefix</code> attribute <em>must contain only valid ID characters</em> and can be of any length.</p>
+The value of the <code>idprefix</code> attribute must begin with a valid ID start character, must continue with only valid ID characters, and can have any length.</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="CodeRay highlight nowrap"><code data-lang="asciidoc">:idprefix: -</code></pre>
+<pre class="CodeRay highlight nowrap"><code data-lang="asciidoc">:idprefix: id_</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -5321,7 +5321,7 @@ Documentation is a distillation of many long, squiggly adventures.</pre>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>idprefix</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>_</code>, or user defined text</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code><code>:idprefix: -</code></code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code><code>:idprefix: id_</code></code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Set to autogenerate a <code>_</code> by default</p></td>
 </tr>
 <tr>
@@ -25407,7 +25407,7 @@ In source listings, is the callout the last thing on the line?</p></td>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2017-04-20 04:36:39 UTC
+Last updated 2017-04-20 04:40:43 UTC
 </div>
 </div>
 <script type="text/x-mathjax-config">
