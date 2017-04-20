@@ -4902,9 +4902,40 @@ For example, a level 1 section (<code>==</code>) maps to an <code>&lt;h2&gt;</co
 <div class="sect2">
 <h3 id="auto-generated-ids"><a class="anchor" href="#auto-generated-ids"></a>19.2. Auto-generated IDs</h3>
 <div class="paragraph">
-<p>Section IDs are generated from the section title.
-By default, the ID is prefixed with an underscore (<code>_</code>) and each word in the title is separated by an underscore.
-You can change the prefix using the <code>idprefix</code> attribute.</p>
+<p>If you don&#8217;t specify a custom ID for a section, the processor automatically generates an ID from the section&#8217;s title and assigns it to the section by default.</p>
+</div>
+<div class="paragraph">
+<p>The ID is derived from the section title as follows:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Inline formatting is applied</p>
+</li>
+<li>
+<p>All characters are converted to lowercase</p>
+</li>
+<li>
+<p>The value of the <code>idprefix</code> attribute (<code>_</code> by default) is prepended</p>
+</li>
+<li>
+<p>Each invalid ID character is replaced with the value of the <code>idseparator</code> attribute (<code>_</code> by default)</p>
+</li>
+<li>
+<p>Repeating separator characters are removed</p>
+</li>
+<li>
+<p>If necessary, a sequence number is appended until the ID is unique within the document</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>For example, the section title <code>Wiley &amp; Sons, Inc.</code> produces the ID <code>_wiley_sons_inc</code>.
+You can customize the replacement characters or toggle auto-generation using document attributes.</p>
+</div>
+<div class="paragraph">
+<p>You can change the ID prefix by setting the <code>idprefix</code> attribute.
+The value of the <code>idprefix</code> attribute <em>must contain only valid ID characters</em> and can be of any length.</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -4912,7 +4943,7 @@ You can change the prefix using the <code>idprefix</code> attribute.</p>
 </div>
 </div>
 <div class="paragraph">
-<p>If you want to remove the prefix, assign it to an empty value:</p>
+<p>If you want to remove the prefix, set the attribute to an empty value.</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -4920,7 +4951,8 @@ You can change the prefix using the <code>idprefix</code> attribute.</p>
 </div>
 </div>
 <div class="paragraph">
-<p>You can change the word separator by using the <code>idseparator</code> attribute.</p>
+<p>You can change the word separator using the <code>idseparator</code> attribute.
+The value of the <code>idseparator</code> can be empty or <em>exactly one valid ID character.</em></p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -4928,11 +4960,53 @@ You can change the prefix using the <code>idprefix</code> attribute.</p>
 </div>
 </div>
 <div class="paragraph">
-<p>To disable the auto-generation of section IDs, unset the <code>sectids</code> attribute:</p>
+<p>To disable the auto-generation of section IDs, unset the <code>sectids</code> attribute.</p>
 </div>
 <div class="listingblock">
 <div class="content">
 <pre class="CodeRay highlight nowrap"><code data-lang="asciidoc">:sectids!:</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Custom IDs, covered next, are used even if auto-generation of section IDs is disabled.</p>
+</div>
+<div class="admonitionblock warning">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-warning" title="Warning"></i>
+</td>
+<td class="content">
+If you disable auto-generated section IDs, and you don&#8217;t assign a custom ID to a section, you won&#8217;t be able to link to (i.e., refer to) that section.
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect2">
+<h3 id="custom-ids"><a class="anchor" href="#custom-ids"></a>19.3. Custom IDs</h3>
+<div class="paragraph">
+<p>You can assign a custom ID and reference text (i.e., label) to a section (see <a href="#anchordef">Defining an Anchor</a>).
+The custom ID is used in place of the auto-generated ID.
+This can be useful when you want to define a stable anchor for linking to a section using a cross reference.
+It also centralizes the reference text that refers to that section.</p>
+</div>
+<div class="paragraph">
+<p>Here&#8217;s an example of a section with a custom ID and reference text:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight nowrap"><code data-lang="asciidoc">[[tigers-section, Tigers]]
+=== Subspecies of Tiger</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The ID can be written using the following shorthand (though there&#8217;s no shorthand yet for the reference text):</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight nowrap"><code data-lang="asciidoc">[#tigers-section,reftext=Tigers]
+=== Subspecies of Tiger</code></pre>
 </div>
 </div>
 <div class="admonitionblock important">
@@ -4943,23 +5017,10 @@ You can change the prefix using the <code>idprefix</code> attribute.</p>
 </td>
 <td class="content">
 Asciidoctor permits all valid UTF-8 characters in section IDs.
-If you are generating a PDF from AsciiDoc using a2x and dblatex, see <a href="http://aerostitch.github.io/misc/asciidoc/asciidoc-title_uft8.html">Using UTF-8 titles with a2x</a> to learn about the required <code>latex.encoding=utf8</code> switch.
+If you&#8217;re generating a PDF from AsciiDoc using a2x and dblatex, see <a href="http://aerostitch.github.io/misc/asciidoc/asciidoc-title_uft8.html">Using UTF-8 titles with a2x</a> to learn about the required <code>latex.encoding=utf8</code> switch.
 </td>
 </tr>
 </table>
-</div>
-</div>
-<div class="sect2">
-<h3 id="custom-ids"><a class="anchor" href="#custom-ids"></a>19.3. Custom IDs</h3>
-<div class="paragraph">
-<p>You can also assign a custom ID and reference text label to a section (see <a href="#anchordef">Defining an Anchor</a>).
-This can be useful when you define a cross reference pointing to the section.</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="CodeRay highlight nowrap"><code data-lang="asciidoc">[[tigers-section, Tigers]]
-=== Subspecies of Tiger</code></pre>
-</div>
 </div>
 </div>
 <div class="sect2">
@@ -25318,7 +25379,7 @@ In source listings, is the callout the last thing on the line?</p></td>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2017-04-15 02:37:46 UTC
+Last updated 2017-04-20 01:52:38 UTC
 </div>
 </div>
 <script type="text/x-mathjax-config">
