@@ -4952,12 +4952,33 @@ The value of the <code>idprefix</code> attribute <em>must contain only valid ID 
 </div>
 <div class="paragraph">
 <p>You can change the word separator using the <code>idseparator</code> attribute.
-The value of the <code>idseparator</code> can be empty or <em>exactly one valid ID character.</em></p>
+The value of the <code>idseparator</code> must be <em>exactly one valid ID character.</em></p>
 </div>
 <div class="listingblock">
 <div class="content">
 <pre class="CodeRay highlight nowrap"><code data-lang="asciidoc">:idseparator: -</code></pre>
 </div>
+</div>
+<div class="paragraph">
+<p>If you don&#8217;t want to use a separator, set the attribute to an empty value.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight nowrap"><code data-lang="asciidoc">:idseparator:</code></pre>
+</div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+When a document is rendered on GitHub, the <code>idprefix</code> is set to an empty value and the <code>idseparator</code> is set to <code>-</code>.
+These settings are designed so the IDs that GitHub generates align with the IDs Asciidoctor generates.
+</td>
+</tr>
+</table>
 </div>
 <div class="paragraph">
 <p>To disable the auto-generation of section IDs, unset the <code>sectids</code> attribute.</p>
@@ -25379,7 +25400,7 @@ In source listings, is the callout the last thing on the line?</p></td>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2017-04-20 02:58:47 UTC
+Last updated 2017-04-20 04:28:11 UTC
 </div>
 </div>
 <script type="text/x-mathjax-config">
