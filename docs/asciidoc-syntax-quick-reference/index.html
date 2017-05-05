@@ -2488,18 +2488,6 @@ Notice it's a delimited block.
 |===</pre>
 </div>
 </div>
-<div class="colist arabic">
-<table>
-<tr>
-<td><i class="conum" data-value="1"></i><b>1</b></td>
-<td>Unless the <code>cols</code> attribute is specified, the number of columns is equal to the number of vertical bars on the first non-blank line inside the block delimiters.</td>
-</tr>
-<tr>
-<td><i class="conum" data-value="2"></i><b>2</b></td>
-<td>When a blank line follows a single line of column titles, the column titles row will be styled as a header row by default.</td>
-</tr>
-</table>
-</div>
 <div class="exampleblock result">
 <div class="content">
 <table class="tableblock frame-all grid-all spread">
@@ -2531,6 +2519,18 @@ Notice it's a delimited block.
 </table>
 </div>
 </div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><i class="conum" data-value="1"></i><b>1</b></td>
+<td>Unless the <code>cols</code> attribute is specified, the number of columns is equal to the number of cell separator characters on the first (non-blank) line between the block delimiters.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="2"></i><b>2</b></td>
+<td>When a blank line follows the first non-blank line, the cells in that row will become the table head row.</td>
+</tr>
+</table>
+</div>
 <div class="listingblock">
 <div class="title">Table with two columns, a header, and two rows of content</div>
 <div class="content">
@@ -2546,14 +2546,6 @@ Notice it's a delimited block.
 |Cell in column 2, row 2
 |===</pre>
 </div>
-</div>
-<div class="colist arabic">
-<table>
-<tr>
-<td><i class="conum" data-value="1"></i><b>1</b></td>
-<td>The <code>*</code> in the <code>cols</code> attribute is the repeat operator. It means repeat the column specification for the remainder of columns. In this case, it means to repeat the default formatting across 4 columns. When the header row is not defined on a single line, you must use the cols attribute to set the number of columns and <code>options</code> attributes to make the first row a header.</td>
-</tr>
-</table>
 </div>
 <div class="exampleblock result">
 <div class="content">
@@ -2581,6 +2573,14 @@ Notice it's a delimited block.
 </table>
 </div>
 </div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><i class="conum" data-value="1"></i><b>1</b></td>
+<td>The <code>*</code> in the <code>cols</code> attribute is the repeat operator. It means repeat the column specification for the remainder of columns. In this case, it means to repeat the default formatting across 4 columns. When the header row is not defined on a single line, you must use the cols attribute to set the number of columns and <code>options</code> attributes to make the first row a header.</td>
+</tr>
+</table>
+</div>
 <div class="listingblock">
 <div class="title">Table with three columns, a header, and two rows of content</div>
 <div class="content">
@@ -2603,14 +2603,6 @@ performance, portability.
 Empowers developers to easily create real, automated tests.
 |===</pre>
 </div>
-</div>
-<div class="colist arabic">
-<table>
-<tr>
-<td><i class="conum" data-value="1"></i><b>1</b></td>
-<td>In this example, the <code>cols</code> attribute has two functions. It specifies that this table has three columns, and it sets their relative widths.</td>
-</tr>
-</table>
 </div>
 <div class="exampleblock result">
 <div class="content">
@@ -2645,6 +2637,14 @@ Empowers developers to easily create real, automated tests.</p></td>
 </tbody>
 </table>
 </div>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><i class="conum" data-value="1"></i><b>1</b></td>
+<td>In this example, the <code>cols</code> attribute has two functions. It specifies that this table has three columns, and it sets their relative widths.</td>
+</tr>
+</table>
 </div>
 <div class="listingblock">
 <div class="title">Table with column containing AsciiDoc content</div>
