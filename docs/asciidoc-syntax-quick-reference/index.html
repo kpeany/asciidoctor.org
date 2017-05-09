@@ -1445,9 +1445,11 @@ When they are enabled, you must quote the link text if it contains a comma.
 <div class="content">
 <pre class="nowrap">[[bookmark-a]]Inline anchors make arbitrary content referenceable.
 
-anchor:bookmark-b[]Use a cross reference to link to this location.
+[#bookmark-b]#Inline anchors can be applied to a phrase like this one.#
 
-[[bookmark-c,last paragraph]]The xreflabel attribute will be used as link text in the cross-reference link.</pre>
+anchor:bookmark-c[]Use a cross reference to link to this location.
+
+[[bookmark-d,last paragraph]]The xreflabel attribute will be used as link text in the cross-reference link.</pre>
 </div>
 </div>
 <div class="exampleblock result">
@@ -1456,10 +1458,13 @@ anchor:bookmark-b[]Use a cross reference to link to this location.
 <p><a id="bookmark-a"></a>Inline anchors make arbitrary content referenceable.</p>
 </div>
 <div class="paragraph">
-<p><a id="bookmark-b"></a>Use a cross reference to link to this location.</p>
+<p><a id="bookmark-b"></a>Inline anchors can be applied to a phrase like this one.</p>
 </div>
 <div class="paragraph">
-<p><a id="bookmark-c"></a>The xreflabel attribute will be used as link text in the cross-reference link.</p>
+<p><a id="bookmark-c"></a>Use a cross reference to link to this location.</p>
+</div>
+<div class="paragraph">
+<p><a id="bookmark-d"></a>The xreflabel attribute will be used as link text in the cross-reference link.</p>
 </div>
 </div>
 </div>

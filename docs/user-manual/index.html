@@ -10764,20 +10764,47 @@ This is the anchor definition.</p>
 <div class="sect2">
 <h3 id="anchordef"><a class="anchor" href="#anchordef"></a>30.1. Defining an Anchor</h3>
 <div class="paragraph">
-<p>An anchor can be defined anywhere: header, image, listing or text block.
-The anchor&#8217;s ID is defined between two square brackets.</p>
+<p>An anchor (aka ID) can be defined almost anywhere: on a section title or discrete heading (automatic), on a paragraph, on a block or inline image, on listing or literal block, on a phrase, and so forth.
+The anchor is declared by enclosing a valid ID name in double square brackets or by using the shorthand ID syntax.</p>
+</div>
+<div class="paragraph">
+<p>If you want to reference a block element, all you need to do is assign an ID to that block.
+You can enclose the ID in double square brackets:</p>
 </div>
 <div class="listingblock">
-<div class="title">Defining an inline anchor ID</div>
+<div class="title">Assigning an ID to a paragraph</div>
+<div class="content">
+<pre class="nowrap">[[notice]]
+This paragraph gets a lot of attention.</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>or use the ID shorthand syntax:</p>
+</div>
+<div class="listingblock">
+<div class="title">Assigning an ID to a paragraph using shorthand syntax</div>
+<div class="content">
+<pre class="nowrap">[#notice]
+This paragraph gets a lot of attention.</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>You can also define an anchor anywhere in content that receives normal substitutions (specifically the macro substitution).
+You can enclose the ID in double square brackets:</p>
+</div>
+<div class="listingblock">
+<div class="title">Defining an inline anchor</div>
 <div class="content">
 <pre class="nowrap">[[bookmark-a]]Inline anchors make arbitrary content referenceable.</pre>
 </div>
 </div>
-<div class="exampleblock result">
-<div class="content">
 <div class="paragraph">
-<p><a id="bookmark-a"></a>Inline anchors make arbitrary content referenceable.</p>
+<p>or using the shorthand ID syntax.</p>
 </div>
+<div class="listingblock">
+<div class="title">Defining an inline anchor using shorthand syntax</div>
+<div class="content">
+<pre class="nowrap">[#bookmark-b]#Inline anchors can be applied to a phrase like this one.#</pre>
 </div>
 </div>
 <div class="paragraph">
@@ -10797,7 +10824,7 @@ The anchors in the text get replaced with invisible anchor points in the output.
 <p>Instead, you would put it at the very start of the text of the list item:</p>
 </div>
 <div class="listingblock">
-<div class="title">Defining an inline anchor ID in a list item</div>
+<div class="title">Defining an inline anchor on a list item</div>
 <div class="content">
 <pre class="nowrap">* Fist item
 * [[step2]]Second item
@@ -10805,20 +10832,43 @@ The anchors in the text get replaced with invisible anchor points in the output.
 </div>
 </div>
 <div class="paragraph">
-<p>Another example with headers (the anchor needs to be in the text):</p>
+<p>Here&#8217;s how you can define the ID for a section using an inline anchor:</p>
 </div>
 <div class="listingblock">
-<div class="title">Defining an inline anchor ID in an header</div>
+<div class="title">Defining the ID of a section using an inline anchor</div>
 <div class="content">
-<pre class="nowrap">=== [[current]]Version 4.9</pre>
+<pre class="nowrap">=== Version 4.9 [[version-4_9]]</pre>
 </div>
 </div>
 <div class="paragraph">
-<p>Remember that inline anchor points are discovered where text content is permitted.
+<p>To add additional anchors to a section, place them in front of the title.</p>
+</div>
+<div class="listingblock">
+<div class="title">Adding additional anchors to a section</div>
+<div class="content">
+<pre class="nowrap">=== [[current]]Version 4.9 [[version-4_9]]</pre>
+</div>
+</div>
+<div class="admonitionblock caution">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-caution" title="Caution"></i>
+</td>
+<td class="content">
+If you add additional anchors to a section title, make sure you also assign an explicit ID to that section.
+Otherwise, the anchor tag gets caught up in the generated ID.
+See <a href="https://github.com/asciidoctor/asciidoctor/issues/840">#840</a> for details.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Remember that inline anchors are discovered whereever the macro substitution is applied (e.g., paragraph text).
 If text content doesn&#8217;t belong somewhere, neither does an inline anchor point.</p>
 </div>
 <div class="paragraph">
-<p>It is possible to customize the text that will be used in the cross reference link (called <code>xreflabel</code>).
+<p>It&#8217;s possible to customize the text that will be used in the cross reference link (called <code>xreflabel</code>).
 If not defined, Asciidoctor does it best to find suitable text (the solution differs from case to case).
 In case of an image, the image caption will be used.
 In case of a section header, the text of the section&#8217;s title will be used.</p>
@@ -25420,7 +25470,7 @@ In source listings, is the callout the last thing on the line?</p></td>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2017-05-05 05:00:43 UTC
+Last updated 2017-05-09 02:53:54 UTC
 </div>
 </div>
 <script type="text/x-mathjax-config">
