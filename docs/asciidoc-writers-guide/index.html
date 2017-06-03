@@ -12,6 +12,8 @@
 <ul class="sectlevel3">
 <li><a href="#quoted-text">Quoted text</a></li>
 <li><a href="#preventing-substitution">Preventing substitution</a></li>
+<li><a href="#inline-pass-macro-and-explicit-substitutions">Inline pass macro and explicit substitutions</a></li>
+<li><a href="#triple-plus-passthrough">Triple plus passthrough</a></li>
 <li><a href="#replacements">Replacements</a></li>
 </ul>
 </li>
@@ -505,18 +507,38 @@ When your document is processed, the backslash is removed so it doesn&#8217;t di
 </div>
 </div>
 <div class="paragraph">
-<p>Asciidoctor provides several ways to write a passthrough macro.</p>
+<p>Asciidoctor supports several forms of the passthrough macro.</p>
 </div>
-<div class="paragraph">
-<div class="title">Pass macro</div>
-<p>The <code>pass</code> macro can be applied to inline or block content.
-You can include a comma-separated list of substitutions prior to the passthrough content.</p>
-</div>
-<div class="literalblock">
-<div class="title">Inline pass macro</div>
+<div class="dlist">
+<dl>
+<dt class="hdlist1">inline macro</dt>
+<dd>
+<p>An inline macro named <code>pass</code> that can be used to passthrough content.
+Supports an optional set of substitutions.</p>
+<div class="listingblock">
 <div class="content">
-<pre class="nowrap">pass:optional-substitution-attribute-1,optional-substitution-attribute-x[content passed directly to the output] followed by normal content.</pre>
+<pre class="nowrap">pass:[content like #{variable} passed directly to the output] followed by normal content.
+
+content with only select substitutions applied: pass:c,a[__&lt;{email}&gt;__]</pre>
 </div>
+</div>
+</dd>
+<dt class="hdlist1">single plus</dt>
+<dd>
+<p>A special syntax for preventing text from being formatted.
+Only escapes special characters and doesn&#8217;t support explicit substitutions.</p>
+</dd>
+<dt class="hdlist1">triple plus</dt>
+<dd>
+<p>A special syntax for designating passthrough content.
+Does not apply any substitutions and doesn&#8217;t support explicit substitutions.</p>
+</dd>
+<dt class="hdlist1">double dollar (deprecated)</dt>
+<dd>
+<p>A deprecated special syntax for designating passthrough content.
+Like the triple plus, does not apply any substitutions and doesn&#8217;t support explicit substitutions.</p>
+</dd>
+</dl>
 </div>
 <div class="admonitionblock caution">
 <table>
@@ -525,24 +547,28 @@ You can include a comma-separated list of substitutions prior to the passthrough
 <i class="fa icon-caution" title="Caution"></i>
 </td>
 <td class="content">
-Asciidoctor does not implement the block form of the block macro.
-Instead, you should use a <a href="#pass-bl">pass block</a>.
+Asciidoctor does not implement the block pass macro.
+Instead, you should use a <a href="#pass-blocks">pass block</a>.
 </td>
 </tr>
 </table>
 </div>
+</div>
+<div class="sect3">
+<h4 id="inline-pass-macro-and-explicit-substitutions"><a class="anchor" href="#inline-pass-macro-and-explicit-substitutions"></a>Inline pass macro and explicit substitutions</h4>
 <div class="paragraph">
-<p>To exclude a phrase from substitutions and disable escaping of special characters, enclose it in the inline pass macro:</p>
+<p>To exclude a phrase from substitutions and disable escaping of special characters, enclose it in the inline pass macro.
+For example, here&#8217;s one way to format text as underline when generating HTML from AsciiDoc:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="CodeRay highlight nowrap"><code data-lang="asciidoc">The markup pass:[&lt;u&gt;underline me&lt;/u&gt;] renders as underlined text.</code></pre>
+<pre class="CodeRay highlight nowrap"><code data-lang="asciidoc">The text pass:[&lt;u&gt;underline me&lt;/u&gt;] is underlined.</code></pre>
 </div>
 </div>
 <div class="exampleblock">
 <div class="content">
 <div class="paragraph">
-<p>The markup <u>underline me</u> renders as underlined text.</p>
+<p>The text <u>underline me</u> is underlined.</p>
 </div>
 </div>
 </div>
@@ -551,7 +577,7 @@ Instead, you should use a <a href="#pass-bl">pass block</a>.
 </div>
 <div class="literalblock">
 <div class="content">
-<pre class="nowrap">[subs="verbatim,macros"] <i class="conum" data-value="1"></i><b>(1)</b>
+<pre class="nowrap">[subs=+macros] <i class="conum" data-value="1"></i><b>(1)</b>
 ----
 I better not contain *bold* or _italic_ text.
 pass:quotes[But I should contain *bold* text.] <i class="conum" data-value="2"></i><b>(2)</b>
@@ -571,7 +597,8 @@ pass:quotes[But I should contain *bold* text.] <i class="conum" data-value="2"><
 </table>
 </div>
 <div class="paragraph">
-<p>The inline pass macro does introduce additional markup into the Java source code that makes it invalid in raw form, but the output it produces will be valid when viewed in a viewer (HTML, PDF, etc.).</p>
+<p>The inline pass macro does introduce additional markup into the source code that could make it invalid in raw form.
+However, the output it produces will be valid when viewed in a viewer (HTML, PDF, etc.).</p>
 </div>
 <div class="exampleblock">
 <div class="content">
@@ -613,19 +640,21 @@ But I should contain <strong>bold</strong> text.</pre>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="CodeRay highlight nowrap"><code data-lang="asciidoc">The markup pass:q[&lt;u&gt;underline *me*&lt;/u&gt;] renders as underlined text and &quot;`me`&quot; is bold.</code></pre>
+<pre class="CodeRay highlight nowrap"><code data-lang="asciidoc">The text pass:q[&lt;u&gt;underline *me*&lt;/u&gt;] is underlined and the word &quot;`me`&quot; is bold.</code></pre>
 </div>
 </div>
 <div class="exampleblock">
 <div class="content">
 <div class="paragraph">
-<p>The markup <u>underline <strong>me</strong></u> renders as underlined text and &#8220;me&#8221; is bold.</p>
+<p>The text <u>underline <strong>me</strong></u> is underlined and the word &#8220;me&#8221; is bold.</p>
 </div>
 </div>
 </div>
+</div>
+<div class="sect3">
+<h4 id="triple-plus-passthrough"><a class="anchor" href="#triple-plus-passthrough"></a>Triple plus passthrough</h4>
 <div class="paragraph">
-<div class="title">Triple-plus passthrough</div>
-<p>The triple-plus passthrough works the same way as the pass macro.
+<p>The triple-plus passthrough works much the same way as the pass macro.
 To exclude content from substitutions, enclose it in triple pluses (+++).</p>
 </div>
 <div class="literalblock">
@@ -638,13 +667,13 @@ To exclude content from substitutions, enclose it in triple pluses (+++).</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="CodeRay highlight nowrap"><code data-lang="asciidoc">The markup +++&lt;u&gt;underline me&lt;/u&gt;+++ renders as underlined text.</code></pre>
+<pre class="CodeRay highlight nowrap"><code data-lang="asciidoc">The text +++&lt;u&gt;underline me&lt;/u&gt;+++ is underlined.</code></pre>
 </div>
 </div>
 <div class="exampleblock">
 <div class="content">
 <div class="paragraph">
-<p>The markup <u>underline me</u> renders as underlined text.</p>
+<p>The text <u>underline me</u> is underlined.</p>
 </div>
 </div>
 </div>
