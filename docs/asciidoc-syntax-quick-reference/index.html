@@ -101,10 +101,13 @@ Java is black.</p>
 <div class="content">
 <pre class="nowrap">A normal paragraph.
 
- A sequence of lines that begin with at least one space is a literal paragraph.
- Literal paragraphs are treated as preformatted text.
- The text is shown in a fixed-width font
- and endlines are preserved.
+ A paragraph offset by at least one space becomes a literal paragraph.
+ All lines in a literal paragraph must be adjacent.
+ A literal paragraph is displayed as preformatted text.
+ The text is shown in a fixed-width font.
+ Spaces and newlines,
+ like the ones in this sentence,
+ are preserved.
 
 Another normal paragraph.</pre>
 </div>
@@ -116,10 +119,13 @@ Another normal paragraph.</pre>
 </div>
 <div class="literalblock">
 <div class="content">
-<pre class="nowrap">A sequence of lines that begin with at least one space is a literal paragraph.
-Literal paragraphs are treated as preformatted text.
-The text is shown in a fixed-width font
-and endlines are preserved.</pre>
+<pre class="nowrap">A paragraph offset by at least one space becomes a literal paragraph.
+All lines in a literal paragraph must be adjacent.
+A literal paragraph is displayed as preformatted text.
+The text is shown in a fixed-width font.
+Spaces and newlines,
+like the ones in this sentence,
+are preserved.</pre>
 </div>
 </div>
 <div class="paragraph">
@@ -790,7 +796,7 @@ Assuming the safe mode is less than SECURE, you must also set the <code>allow-ur
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-Blank lines are required before and after a list to separated it from other blocks.
+A blank line is required before and after a list to separated it from other blocks.
 </td>
 </tr>
 </table>
