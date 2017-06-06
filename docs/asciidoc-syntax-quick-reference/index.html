@@ -758,6 +758,31 @@ Assuming the safe mode is less than SECURE, you must also set the <code>allow-ur
 </div>
 </div>
 </div>
+<div class="listingblock">
+<div class="title">Unordered, basic (alt)</div>
+<div class="content">
+<pre class="nowrap">- Edgar Allen Poe
+- Sheri S. Tepper
+- Bill Bryson</pre>
+</div>
+</div>
+<div class="exampleblock result">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>Edgar Allen Poe</p>
+</li>
+<li>
+<p>Sheri S. Tepper</p>
+</li>
+<li>
+<p>Bill Bryson</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
 <div class="admonitionblock note">
 <table>
 <tr>
@@ -765,7 +790,7 @@ Assuming the safe mode is less than SECURE, you must also set the <code>allow-ur
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-Blank lines are required before and after a list.
+Blank lines are required before and after a list to separated it from other blocks.
 </td>
 </tr>
 </table>
@@ -777,8 +802,8 @@ Blank lines are required before and after a list.
 <i class="fa icon-tip" title="Tip"></i>
 </td>
 <td class="content">
-You can force two lists apart with a line comment, as the previous example demonstrates.
-The text in the comment, (<code>^</code>), is optional, but serves as a hint to other authors that this line serves as an &#8220;end of list&#8221; marker.
+You can force two adjacent lists apart by placing a blank line followed by a line comment after the first list.
+The convention is to use <code>//-</code> for the line comment to serve as a hint to other authors that it&#8217;s serving as a list divider.
 </td>
 </tr>
 </table>
@@ -844,47 +869,6 @@ The text in the comment, (<code>^</code>), is optional, but serves as a hint to 
 </td>
 <td class="content">
 The unordered list marker can be changed using <a href="http://asciidoctor.org/docs/user-manual/#custom-markers">block styles</a>.
-</td>
-</tr>
-</table>
-</div>
-<div class="listingblock">
-<div class="title">Checklist</div>
-<div class="content">
-<pre class="nowrap">- [*] checked
-- [x] also checked
-- [ ] not checked
--     normal list item</pre>
-</div>
-</div>
-<div class="exampleblock result">
-<div class="content">
-<div class="ulist checklist">
-<ul class="checklist">
-<li>
-<p><i class="fa fa-check-square-o"></i> checked</p>
-</li>
-<li>
-<p><i class="fa fa-check-square-o"></i> also checked</p>
-</li>
-<li>
-<p><i class="fa fa-square-o"></i> not checked</p>
-</li>
-<li>
-<p>normal list item</p>
-</li>
-</ul>
-</div>
-</div>
-</div>
-<div class="admonitionblock tip">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-tip" title="Tip"></i>
-</td>
-<td class="content">
-Checklists can use <a href="http://asciidoctor.org/docs/user-manual/#checklist">font-based icons and be interactive</a>.
 </td>
 </tr>
 </table>
@@ -1012,6 +996,47 @@ Checklists can use <a href="http://asciidoctor.org/docs/user-manual/#checklist">
 </td>
 <td class="content">
 For ordered lists, Asciidoctor supports <a href="http://asciidoctor.org/docs/user-manual/#numbering-styles">numeration styles</a> such as <code>lowergreek</code> and <code>decimal-leading-zero</code>.
+</td>
+</tr>
+</table>
+</div>
+<div class="listingblock">
+<div class="title">Checklist</div>
+<div class="content">
+<pre class="nowrap">* [*] checked
+* [x] also checked
+* [ ] not checked
+*     normal list item</pre>
+</div>
+</div>
+<div class="exampleblock result">
+<div class="content">
+<div class="ulist checklist">
+<ul class="checklist">
+<li>
+<p><i class="fa fa-check-square-o"></i> checked</p>
+</li>
+<li>
+<p><i class="fa fa-check-square-o"></i> also checked</p>
+</li>
+<li>
+<p><i class="fa fa-square-o"></i> not checked</p>
+</li>
+<li>
+<p>normal list item</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+Checklists can use <a href="http://asciidoctor.org/docs/user-manual/#checklist">font-based icons and be interactive</a>.
 </td>
 </tr>
 </table>
