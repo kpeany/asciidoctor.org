@@ -3145,7 +3145,19 @@ The attributes and their values contained in the list will take precedence over 
 <div class="sect3">
 <h4 id="named-attribute"><a class="anchor" href="#named-attribute"></a>13.5.2. Named Attribute</h4>
 <div class="paragraph">
-<p>Named attributes are assigned a value with an <code>=</code> in an attribute list.</p>
+<p>A named attribute consists of a name and a value separated by an <code>=</code> character.</p>
+</div>
+<div class="paragraph">
+<p>If the value contains spaces, commas, or a quote characters, it must be enclosed in double or single quotes.
+Otherwise, the surrounding quotes are optional.
+If used, the surrounding quotes are stripped from the parsed value.</p>
+</div>
+<div class="paragraph">
+<p>If the value is enclosed in single quotes, normal substitutions get applied to the value at assignment time.
+No special processing is performed if the value is enclosed in double quotes.</p>
+</div>
+<div class="paragraph">
+<p>To use the same quote character in the value that&#8217;s used to enclose the value, escape the character in the value by prefixing it with a backslash (e.g., <code>value="the song \"Dark Horse\""</code>).</p>
 </div>
 <div class="paragraph">
 <p>To undefine a named attribute, set the value to <code>None</code> (case sensitive).</p>
@@ -25557,7 +25569,7 @@ In source listings, is the callout the last thing on the line?</p></td>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2017-06-23 05:40:14 UTC
+Last updated 2017-06-23 05:55:55 UTC
 </div>
 </div>
 <script type="text/x-mathjax-config">
