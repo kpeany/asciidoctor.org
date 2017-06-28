@@ -24,6 +24,9 @@
 <li><a href="#labeled-lists">Labeled lists</a></li>
 <li><a href="#hybrid-lists">Hybrid lists</a></li>
 <li><a href="#complex-list-content">Complex list content</a></li>
+<li><a href="#list-continuation">List continuation</a></li>
+<li><a href="#dropping-the-principle-text">Dropping the principle text</a></li>
+<li><a href="#attaching-to-an-ancestor-list">Attaching to an ancestor list</a></li>
 </ul>
 </li>
 <li><a href="#links-and-images">Links and images</a>
@@ -1598,11 +1601,7 @@ Cloud Providers::
 <h4 id="complex-list-content"><a class="anchor" href="#complex-list-content"></a>Complex list content</h4>
 <div class="paragraph">
 <p>Aside from nested lists, all of the list items you&#8217;ve seen only have one line of text.
-A list item can hold any type of AsciiDoc content, including paragraphs, listing blocks and even tables.
-You just need to <em>attach</em> them to the list item.</p>
-</div>
-<div class="paragraph">
-<p>Like with regular paragraph text, the text in a list item can wrap across any number of lines, as long as all the lines are adjacent.
+But like with regular paragraph text, the text in a list item can wrap across any number of lines, as long as all the lines are adjacent.
 The wrapped lines can be indented and they will still be treated as normal paragraph text.
 For example:</p>
 </div>
@@ -1653,19 +1652,24 @@ When items contain more than one line of text, leave a blank line before the nex
 </table>
 </div>
 <div class="paragraph">
-<p>If you want to attach additional paragraphs to a list item, you &#8220;add&#8221; them together using a <em>list continuation</em>.
-A list continuation is a <code>&#43;</code> symbol on a line by itself, immediately adjacent to the two blocks it&#8217;s connecting.
-Here&#8217;s an example:</p>
+<p>A list item may contain any type of AsciiDoc content, including paragraphs, delimited blocks, and block macros.
+You just need to <em>attach</em> them to the list item.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="list-continuation"><a class="anchor" href="#list-continuation"></a>List continuation</h4>
+<div class="paragraph">
+<p>To add additional paragraphs or other block elements to a list item, you must &#8220;attach&#8221; them (in a series) using a <em>list continuation</em>.
+A list continuation is a <code>&#43;</code> symbol on a line by itself, immediately adjacent to the block being attached.</p>
+</div>
+<div class="paragraph">
+<p>Here&#8217;s an example:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="CodeRay highlight nowrap"><code data-lang="asciidoc">* The header in AsciiDoc must start with a
-  document title.
+<pre class="CodeRay highlight nowrap"><code data-lang="asciidoc">* The header in AsciiDoc must start with a document title.
 +
-The header is optional.
-
-* Optional Author and Revision information
-  immediately follows the header title.</code></pre>
+The header is optional.</code></pre>
 </div>
 </div>
 <div class="exampleblock">
@@ -1673,30 +1677,25 @@ The header is optional.
 <div class="ulist">
 <ul>
 <li>
-<p>The header in AsciiDoc must start with a
-document title.</p>
+<p>The header in AsciiDoc must start with a document title.</p>
 <div class="paragraph">
 <p>The header is optional.</p>
 </div>
-</li>
-<li>
-<p>Optional Author and Revision information
-immediately follows the header title.</p>
 </li>
 </ul>
 </div>
 </div>
 </div>
 <div class="paragraph">
-<p>Using the list continuation, you can attach any type of block element and you can use the list continuation any number of times in a single list item.</p>
+<p>Using the list continuation, you can attach any number of block elements to a list item.
+Each block must be preceded by a list continuation to form a chain of blocks.</p>
 </div>
 <div class="paragraph">
 <p>Here&#8217;s an example that attaches both a listing block and an admonition paragraph to the first item:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="CodeRay highlight nowrap"><code data-lang="asciidoc">* The header in AsciiDoc must start with a
-  document title.
+<pre class="CodeRay highlight nowrap"><code data-lang="asciidoc">* The header in AsciiDoc must start with a document title.
 +
 ----
 = Document Title
@@ -1704,8 +1703,7 @@ immediately follows the header title.</p>
 +
 NOTE: The header is optional.
 
-* Optional Author and Revision information
-  immediately follows the header title.
+* Optional Author and Revision information immediately follows the header title.
 +
 ----
 = Document Title
@@ -1723,8 +1721,7 @@ v1.0, 2013-01-01
 <div class="ulist">
 <ul>
 <li>
-<p>The header in AsciiDoc must start with a
-document title.</p>
+<p>The header in AsciiDoc must start with a document title.</p>
 <div class="listingblock">
 <div class="content">
 <pre class="nowrap">= Document Title</pre>
@@ -1744,8 +1741,7 @@ The header is optional.
 </div>
 </li>
 <li>
-<p>Optional Author and Revision information
-immediately follows the header title.</p>
+<p>Optional Author and Revision information immediately follows the header title.</p>
 <div class="listingblock">
 <div class="content">
 <pre class="nowrap">= Document Title
@@ -1758,6 +1754,9 @@ v1.0, 2013-01-01</pre>
 </div>
 </div>
 </div>
+</div>
+<div class="sect3">
+<h4 id="dropping-the-principle-text"><a class="anchor" href="#dropping-the-principle-text"></a>Dropping the principle text</h4>
 <div class="paragraph">
 <p>If the principle text of a list item is blank, the node for the principle text is dropped.
 This is how you can get the first block (such as a listing block) to line up with the list marker.
@@ -1807,6 +1806,157 @@ print(&quot;one&quot;)
 </ol>
 </div>
 </div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="attaching-to-an-ancestor-list"><a class="anchor" href="#attaching-to-an-ancestor-list"></a>Attaching to an ancestor list</h4>
+<div class="paragraph">
+<p>You may find that you need to attach block content to a parent list item instead of the current one.
+In other words, you want to attach the block content to the parent list item so it becomes a sibling of the child list.
+To do this, you add a blank line before the list continuation.
+The blank line signals to the list continuation to move out of the current list so it attaches the block to the last item of the parent list.</p>
+</div>
+<div class="paragraph">
+<p>Here&#8217;s an example of a paragraph that&#8217;s attached to the parent list item, placing it adjacent to the child list (instead of inside of it).</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight nowrap"><code data-lang="asciidoc">* parent list item
+** child list item
+
++
+paragraph attached to parent list item</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Here&#8217;s how the source is rendered:</p>
+</div>
+<div class="exampleblock">
+<div class="title">A block attached to the parent list item</div>
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>parent list item</p>
+<div class="ulist">
+<ul>
+<li>
+<p>child list item</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>paragraph attached to parent list item</p>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>Each blank line that precedes the list continuation signals a move up one level of nesting.
+Here&#8217;s an example that shows how to attach a paragraph to a grandparent list item using two leading blank lines:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight nowrap"><code data-lang="asciidoc">* grandparent list item
+** parent list item
+*** child list item
+
+
++
+paragraph attached to grandparent list item</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Here&#8217;s how the source is rendered:</p>
+</div>
+<div class="exampleblock">
+<div class="title">A block attached to the grandparent list item</div>
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>grandparent list item</p>
+<div class="ulist">
+<ul>
+<li>
+<p>parent list item</p>
+<div class="ulist">
+<ul>
+<li>
+<p>child list item</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>paragraph attached to grandparent list item</p>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>Using blank lines to back out of the nesting may feel fragile.
+A more robust way to accomplish the same thing is to enclose the nested lists in an open block.
+That way, it&#8217;s clear where the nested list ends and the enclosing list continues.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight nowrap"><code data-lang="asciidoc">* grandparent list item
++
+--
+** parent list item
+*** child list item
+--
++
+paragraph attached to grandparent list item</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Here&#8217;s how the source is rendered:</p>
+</div>
+<div class="exampleblock">
+<div class="title">A nested block enclosed in an open block</div>
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>grandparent list item</p>
+<div class="openblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>parent list item</p>
+<div class="ulist">
+<ul>
+<li>
+<p>child list item</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>paragraph attached to grandparent list item</p>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>As you&#8217;ve learned in this section, the primary text of a list item can wrap to any number of adjacent lines.
+You can also attach any type of content to a list item using the list continuation.
+Combining those features with the open block makes it even easier to create lists with complex content.</p>
 </div>
 </div>
 </div>
