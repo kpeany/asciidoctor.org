@@ -17489,7 +17489,8 @@ The combinator can be &#8220;and&#8221; or &#8220;or&#8221;.</p>
 <dl>
 <dt class="hdlist1">Any attribute (or)</dt>
 <dd>
-<p>Multiple comma-separated (,) directive names evaluate to true if one or more of the directives is defined, otherwise the content is not included.</p>
+<p>Multiple comma-separated (,) directive names evaluate to true, allowing the content to be included, if one or more of the directives is defined.
+Otherwise the content is not included.</p>
 <div class="listingblock">
 <div class="title">Any attribute example</div>
 <div class="content">
@@ -17499,7 +17500,8 @@ The combinator can be &#8220;and&#8221; or &#8220;or&#8221;.</p>
 </dd>
 <dt class="hdlist1">All attributes (and)</dt>
 <dd>
-<p>Multiple plus-separated (+) directive names evaluate to true if all of the directives are defined, otherwise the content is not included.</p>
+<p>Multiple plus-separated (+) directive names evaluate to true, allowing the content to be included, if all of the directives are defined.
+Otherwise the content is not included.</p>
 <div class="listingblock">
 <div class="title">All attributes example</div>
 <div class="content">
@@ -17508,6 +17510,24 @@ The combinator can be &#8220;and&#8221; or &#8220;or&#8221;.</p>
 </div>
 </dd>
 </dl>
+</div>
+<div class="paragraph">
+<p>The <code>ifndef</code> directive negates the results of the expression.</p>
+</div>
+<div class="admonitionblock warning">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-warning" title="Warning"></i>
+</td>
+<td class="content">
+Starting in Asciidoctor 1.5.6, the operator logic in the <code>ifndef</code> directive changed to align with the behavior of AsciiDoc Python.
+Specifically, when attributes are separated by commas, content is only included if none of the attributes are defined.
+When attributes are separated by pluses, content is included if at least one of the attributes is undefined.
+See <a href="https://github.com/asciidoctor/asciidoctor/issues/1983">issue #1983</a> to find the discussion about this behavior and the rational for the change.
+</td>
+</tr>
+</table>
 </div>
 </div>
 <div class="sect2">
@@ -25725,7 +25745,7 @@ In source listings, is the callout the last thing on the line?</p></td>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2017-06-28 05:31:18 UTC
+Last updated 2017-06-30 05:36:46 UTC
 </div>
 </div>
 <script type="text/x-mathjax-config">
