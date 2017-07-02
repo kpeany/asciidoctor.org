@@ -19897,14 +19897,14 @@ Manual pages provide a unified help catalog for all commands in the system.
 For a full description, see the <a href="http://man7.org/linux/man-pages/man7/roff.7.html">roff man page</a> (or type <code>man roff</code> or <code>man 7 man</code>).</p>
 </div>
 <div class="paragraph">
-<p>Asciidoctor can produce roff-formatted man pages if the structure of the AsciiDoc document follows certain rules (described later in this section).</p>
+<p>Asciidoctor can produce roff-formatted man pages if the structure of the AsciiDoc document adheres to the manpage doctype structure (described later in this section).</p>
 </div>
 <div class="paragraph">
-<p>To produce a roff-formatted man page from an AsciiDoc file, run:</p>
+<p>To produce a roff-formatted man page from an AsciiDoc file that declares the manpage doctype, run:</p>
 </div>
 <div class="literalblock">
 <div class="content">
-<pre class="nowrap">$ asciidoctor -d manpage -b manpage source.adoc</pre>
+<pre class="nowrap">$ asciidoctor -b manpage source.adoc</pre>
 </div>
 </div>
 <div class="paragraph">
@@ -19916,17 +19916,18 @@ To see the man page in HTML instead, run:</p>
 </div>
 <div class="literalblock">
 <div class="content">
-<pre class="nowrap">$ asciidoctor -d manpage source.adoc</pre>
+<pre class="nowrap">$ asciidoctor source.adoc</pre>
 </div>
 </div>
 <div class="paragraph">
-<p>Here is a man page for the command <code>eve</code> written in AsciiDoc:</p>
+<p>Here is an example man page composed in AsciiDoc for the <code>eve</code> command:</p>
 </div>
 <div class="listingblock">
 <div class="content">
 <pre class="CodeRay highlight nowrap"><code data-lang="asciidoc">= eve(1)
 Andrew Stanton
 v1.0.0
+:doctype: manpage
 :manmanual: EVE
 :mansource: EVE
 :man-linkstyle: pass:[blue R &lt; &gt;]
@@ -19968,7 +19969,7 @@ Free use of this software is granted under the terms of the MIT License.</code><
 </div>
 </div>
 <div class="paragraph">
-<p>The AsciiDoc document has the following required parts:</p>
+<p>The manpage doctype has the following required parts:</p>
 </div>
 <div class="dlist">
 <dl>
@@ -25745,7 +25746,7 @@ In source listings, is the callout the last thing on the line?</p></td>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2017-06-30 05:36:46 UTC
+Last updated 2017-07-02 02:33:46 UTC
 </div>
 </div>
 <script type="text/x-mathjax-config">
