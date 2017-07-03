@@ -701,7 +701,8 @@ table.CodeRay td.code>pre{padding:0}
 <ul class="sectlevel2">
 <li><a href="#anchordef">30.1. Defining an Anchor</a></li>
 <li><a href="#internal-cross-references">30.2. Internal Cross References</a></li>
-<li><a href="#inter-document-cross-references">30.3. Inter-document Cross References</a></li>
+<li><a href="#customizing-the-cross-reference-text">30.3. Customizing the Cross Reference Text</a></li>
+<li><a href="#inter-document-cross-references">30.4. Inter-document Cross References</a></li>
 </ul>
 </li>
 <li><a href="#include-directive">31. Include Directive</a>
@@ -11082,20 +11083,20 @@ However, the title must begin with an uppercase letter (in basic Latin) without 
 <div class="listingblock">
 <div class="title">Cross reference using a section&#8217;s title</div>
 <div class="content">
-<pre class="CodeRay highlight nowrap"><code data-lang="asciidoc">Refer to &lt;&lt;Internal cross references&gt;&gt;.</code></pre>
+<pre class="CodeRay highlight nowrap"><code data-lang="asciidoc">Refer to &lt;&lt;Internal Cross References&gt;&gt;.</code></pre>
 </div>
 </div>
 <div class="exampleblock">
 <div class="title">Rendered cross reference using a section&#8217;s title</div>
 <div class="content">
 <div class="paragraph">
-<p>Refer to <a href="#Internal cross references">[Internal cross references]</a>.</p>
+<p>Refer to <a href="#internal-cross-references">Internal Cross References</a>.</p>
 </div>
 </div>
 </div>
 <div class="paragraph">
-<p>Some converters, such as the HTML converter, will use the <code>xreflabel</code> as the default text of the link.
-However, you can also customize this text.
+<p>Some converters, such as the HTML converter, will use the reftext of the target as the default text of the link.
+However, you can override this text.
 After the ID, add a comma and then enter the custom text you want the cross reference to display.</p>
 </div>
 <div class="listingblock">
@@ -11123,7 +11124,13 @@ After the ID, add a comma and then enter the custom text you want the cross refe
 </div>
 </div>
 <div class="sect2">
-<h3 id="inter-document-cross-references"><a class="anchor" href="#inter-document-cross-references"></a>30.3. Inter-document Cross References</h3>
+<h3 id="customizing-the-cross-reference-text"><a class="anchor" href="#customizing-the-cross-reference-text"></a>30.3. Customizing the Cross Reference Text</h3>
+<div class="paragraph">
+<p>Unresolved directive in user-manual.adoc - include::_includes/xrefstyle.adoc[]</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="inter-document-cross-references"><a class="anchor" href="#inter-document-cross-references"></a>30.4. Inter-document Cross References</h3>
 <div class="paragraph">
 <p>The xref inline macro can also link to IDs in other AsciiDoc documents.
 This eliminates the need to use direct links between documents that are coupled to a particular converter (e.g., HTML links).
@@ -11187,7 +11194,7 @@ If not, it will generate a link to <em class="file">document-b.html</em>, intell
 <p>Now you can create inter-document cross references without the headache.</p>
 </div>
 <div class="sect3">
-<h4 id="navigating-between-source-files"><a class="anchor" href="#navigating-between-source-files"></a>30.3.1. Navigating Between Source Files</h4>
+<h4 id="navigating-between-source-files"><a class="anchor" href="#navigating-between-source-files"></a>30.4.1. Navigating Between Source Files</h4>
 <div class="paragraph">
 <p>In certain environments, such as GitHub and the browser preview extensions, you view the generated HTML through the AsciiDoc source URL.
 This has consequences for inter-document cross references.</p>
@@ -23894,13 +23901,21 @@ Useful if you want to store the output in a source code control system as it pre
 <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#admonition">Admonition</a>, <a href="#customizing-labels">Translating built-in labels</a></p></td>
 </tr>
 <tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">chapter-caption</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Sets the prefix added to chapter titles (i.e., level-1 section titles when doctype is book) in cross reference text.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Chapter</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em>any</em></p></td>
+<td class="tableblock halign-center valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#book-parts-and-chapters">Book Parts and Chapters</a>, <a href="#sections">Sections</a>, <a href="#customizing-labels">Translating built-in labels</a></p></td>
+</tr>
+<tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">chapter-label</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Sets the prefix added to chapter titles (i.e., level-1 section titles when doctype is book).
 <em>(pdf converter only)</em></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Chapter</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><em>any</em></p></td>
 <td class="tableblock halign-center valign-top"></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#book-parts">[book-parts]</a>, <a href="#sections">Sections</a>, <a href="#customizing-labels">Translating built-in labels</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#book-parts-and-chapters">Book Parts and Chapters</a>, <a href="#sections">Sections</a>, <a href="#customizing-labels">Translating built-in labels</a></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">example-caption</p></td>
@@ -23982,6 +23997,14 @@ Unsetting it will remove the label and time from the footer.</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><em>any</em></p></td>
 <td class="tableblock halign-center valign-top"></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#user-preface">Preface</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">section-caption</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Sets the prefix added to section titles in cross reference text.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Section</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em>any</em></p></td>
+<td class="tableblock halign-center valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#book-parts-and-chapters">Book Parts and Chapters</a>, <a href="#sections">Sections</a>, <a href="#customizing-labels">Translating built-in labels</a></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">table-caption</p></td>
@@ -24491,6 +24514,15 @@ The value populates the <code>family</code> query string parameter in the Google
 <td class="tableblock halign-left valign-top"><p class="tableblock"><em>empty</em> (alias for the DocBook namespace) or a valid XML namespace.</p></td>
 <td class="tableblock halign-center valign-top"><p class="tableblock"><span class="icon green"><i class="fa fa-check"></i></span></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#docbook">DocBook</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">xrefstyle</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The formatting style to apply to cross reference text.
+<em>Introduced in 1.5.6.</em></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em>not set</em></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">full, short, or basic</p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><span class="icon green"><i class="fa fa-check"></i></span></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#customizing-the-cross-reference">[customizing-the-cross-reference]</a></p></td>
 </tr>
 <tr>
 <th class="tableblock halign-left valign-top" colspan="6"><p class="tableblock">Images and icons</p></th>
@@ -25754,7 +25786,7 @@ In source listings, is the callout the last thing on the line?</p></td>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2017-07-02 08:51:34 UTC
+Last updated 2017-07-03 06:00:40 UTC
 </div>
 </div>
 <script type="text/x-mathjax-config">
