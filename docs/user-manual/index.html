@@ -11126,7 +11126,110 @@ After the ID, add a comma and then enter the custom text you want the cross refe
 <div class="sect2">
 <h3 id="customizing-the-cross-reference-text"><a class="anchor" href="#customizing-the-cross-reference-text"></a>30.3. Customizing the Cross Reference Text</h3>
 <div class="paragraph">
-<p>Unresolved directive in user-manual.adoc - include::_includes/xrefstyle.adoc[]</p>
+<p>In the native converters (HTML, PDF, and EPUB3), you can customize the style of the cross reference text using the <code>xrefstyle</code> document attribute.
+The xrefstyle attribute is designed to port the behavior of the DocBook toolchain to the native converters.</p>
+</div>
+<div class="paragraph">
+<p>By default, the cross reference uses the reftext of the target, which falls back to the title if reftext is not specified.
+For example, if you&#8217;re linking to a section titled “Installation”, the text of the cross reference link is shown as:</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre class="nowrap">Installation</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>There are three built-in styles you can select from to customize the text of a cross reference using the xrefstyle attribute.</p>
+</div>
+<div class="dlist">
+<dl>
+<dt class="hdlist1">full</dt>
+<dd>
+<p>the reference label followed by the reference number and emphasized title (e.g., Section 2.2, “Architecture” or Figure 1, “Big Cats”).</p>
+</dd>
+<dt class="hdlist1">short</dt>
+<dd>
+<p>the reference label followed by the reference number (e.g., Section 2.2 or Figure 1).</p>
+</dd>
+<dt class="hdlist1">basic</dt>
+<dd>
+<p>the title only (Architecture or Big Cats).</p>
+</dd>
+</dl>
+</div>
+<div class="paragraph">
+<p>This formatting only applies to references that have both a number and a title.</p>
+</div>
+<div class="paragraph">
+<p>Let&#8217;s assume you want reference a section titled “Installation” that has the number 3.2.2.
+The full style is displayed as follows:</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre class="nowrap">Section 3.2.2, “Installation”</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The short style is displayed as follows:</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre class="nowrap">Section 3.2.2</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The basic style is displayed as follows:</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre class="nowrap">Installation</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>If the reference is a chapter or an appendix, the title is displayed in italics instead of quotes (even when the xrefstyle is basic).</p>
+</div>
+<div class="paragraph">
+<p>You can customize the label of the reference using one of the caption attributes.
+For example, to customize the word “Section”, you&#8217;d define the <code>section-caption</code> attribute:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight nowrap"><code data-lang="asciidoc">:section-caption: Sect</code></pre>
+</div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+In the future, the suffix of these attributes will likely change from <code>-caption</code> to <code>-label</code>.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>If you unset the attribute, the label is dropped from the cross reference text.
+For example, if you unset the <code>section-caption</code> attribute in the document header:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight nowrap"><code data-lang="asciidoc">:!section-caption:</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Then the full xrefstyle will display as:</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre class="nowrap">3.2.2, “Installation”</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Currently, only these built-in styles are supported.
+In the future, there are plans to allow a custom formatting string.
+Refer to <a href="https://github.com/asciidoctor/asciidoctor/issues/2212">#2212</a> for details.</p>
 </div>
 </div>
 <div class="sect2">
@@ -25786,7 +25889,7 @@ In source listings, is the callout the last thing on the line?</p></td>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2017-07-03 06:03:01 UTC
+Last updated 2017-07-03 08:10:53 UTC
 </div>
 </div>
 <script type="text/x-mathjax-config">
