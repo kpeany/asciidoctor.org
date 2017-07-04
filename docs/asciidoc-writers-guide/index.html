@@ -2208,8 +2208,12 @@ However, the title must begin with an uppercase letter (in basic Latin) without 
 </div>
 </div>
 <div class="paragraph">
-<p>Some converters, such as the HTML converter, will use the reftext of the target as the default text of the link.
-However, you can override this text.
+<p>Converters usually use the reftext of the target as the default text of the link.
+When the document is parsed, attribute references in the reftext are substituted immediately.
+When the reftext is displayed, additional reftext substitutions are applied to the text (specialchars, quotes, and replacements).</p>
+</div>
+<div class="paragraph">
+<p>You can override the reftext of the target by specifying alternative text at the location of the cross reference.
 After the ID, add a comma and then enter the custom text you want the cross reference to display.</p>
 </div>
 <div class="listingblock">

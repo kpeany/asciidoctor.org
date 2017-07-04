@@ -11095,8 +11095,12 @@ However, the title must begin with an uppercase letter (in basic Latin) without 
 </div>
 </div>
 <div class="paragraph">
-<p>Some converters, such as the HTML converter, will use the reftext of the target as the default text of the link.
-However, you can override this text.
+<p>Converters usually use the reftext of the target as the default text of the link.
+When the document is parsed, attribute references in the reftext are substituted immediately.
+When the reftext is displayed, additional reftext substitutions are applied to the text (specialchars, quotes, and replacements).</p>
+</div>
+<div class="paragraph">
+<p>You can override the reftext of the target by specifying alternative text at the location of the cross reference.
 After the ID, add a comma and then enter the custom text you want the cross reference to display.</p>
 </div>
 <div class="listingblock">
@@ -11126,8 +11130,8 @@ After the ID, add a comma and then enter the custom text you want the cross refe
 <div class="sect2">
 <h3 id="customizing-the-cross-reference-text"><a class="anchor" href="#customizing-the-cross-reference-text"></a>30.3. Customizing the Cross Reference Text</h3>
 <div class="paragraph">
-<p>In the native converters (HTML, PDF, and EPUB3), you can customize the style of the cross reference text using the <code>xrefstyle</code> document attribute.
-The xrefstyle attribute is designed to port the behavior of the DocBook toolchain to the native converters.</p>
+<p>In the native converters (HTML, PDF, and EPUB3), you can customize the style of the automatic cross reference text using the <code>xrefstyle</code> document attribute.
+The xrefstyle attribute is designed to port the behavior of the DocBook toolchain to the native Asciidoctor converters.</p>
 </div>
 <div class="paragraph">
 <p>By default, the cross reference uses the reftext of the target, which falls back to the title if reftext is not specified.
@@ -11139,7 +11143,12 @@ For example, if you&#8217;re linking to a section titled “Installation”, the
 </div>
 </div>
 <div class="paragraph">
-<p>There are three built-in styles you can select from to customize the text of a cross reference using the xrefstyle attribute.</p>
+<p>If the reftext attribute is specified on the referenced element, that value is always used as is.
+Attribute references are substituted in the reftext value during parsing and reftext substitutions (specialchars, quotes, and replacements) are substituted in the value when it is used during conversion.</p>
+</div>
+<div class="paragraph">
+<p>If the reftext is not specified, the cross reference text is automatically generated.
+There are three built-in styles you can choose from to customize the generated text of a cross reference, as specified by the xrefstyle attribute.</p>
 </div>
 <div class="dlist">
 <dl>
@@ -11158,7 +11167,7 @@ For example, if you&#8217;re linking to a section titled “Installation”, the
 </dl>
 </div>
 <div class="paragraph">
-<p>This formatting only applies to references that have both a number and a title.</p>
+<p>This formatting only applies to references that have both a number and a title and do not have explicit reftext.</p>
 </div>
 <div class="paragraph">
 <p>Let&#8217;s assume you want reference a section titled “Installation” that has the number 3.2.2.
@@ -25889,7 +25898,7 @@ In source listings, is the callout the last thing on the line?</p></td>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2017-07-03 08:10:53 UTC
+Last updated 2017-07-04 05:24:51 UTC
 </div>
 </div>
 <script type="text/x-mathjax-config">
