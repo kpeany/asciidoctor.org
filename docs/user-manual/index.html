@@ -11131,10 +11131,10 @@ After the ID, add a comma and then enter the custom text you want the cross refe
 <h3 id="customizing-the-cross-reference-text"><a class="anchor" href="#customizing-the-cross-reference-text"></a>30.3. Customizing the Cross Reference Text</h3>
 <div class="paragraph">
 <p>When using one of the native converters (HTML, PDF, and EPUB3), you can customize the style of the automatic cross reference text using the <code>xrefstyle</code> document attribute.
-The xrefstyle attribute is designed to port the cross reference text capability from the DocBook toolchain to the native Asciidoctor converters.</p>
+The xrefstyle attribute is designed to port the cross reference text formatting from the DocBook toolchain to the native Asciidoctor converters.</p>
 </div>
 <div class="paragraph">
-<p>By default, the cross reference uses the reftext of the target, which falls back to the title if the reftext is not specified.
+<p>By default, the cross reference uses the reftext defined on the target, which falls back to its title if the reftext is not specified.
 For example, if you&#8217;re refering to a section titled “Installation”, the text of the cross reference link is shown as:</p>
 </div>
 <div class="literalblock">
@@ -11144,7 +11144,24 @@ For example, if you&#8217;re refering to a section titled “Installation”, th
 </div>
 <div class="paragraph">
 <p>If the reftext attribute is specified on the referenced element, that value is always preferred.
-Attribute references are substituted in the reftext value during parsing and reftext substitutions (specialchars, quotes, and replacements) are substituted in the value when it is used during conversion.</p>
+For example, if the section from the previous example were defined as:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight nowrap"><code data-lang="asciidoc">[reftext=&quot;Installation Procedure&quot;]
+== Installation</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Then the text of the cross reference link would be shown as:</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre class="nowrap">Installation Procedure</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Attribute references are substituted in the reftext value during parsing and reftext substitutions (specialchars, quotes, and replacements) are substituted in the value when it is used during conversion.</p>
 </div>
 <div class="paragraph">
 <p>If the reftext is not specified, the text of the cross reference is automatically generated.
@@ -11155,11 +11172,11 @@ There are three built-in styles you can choose from to customize the generated t
 <dl>
 <dt class="hdlist1">full</dt>
 <dd>
-<p>the reference label followed by the reference number and emphasized title (e.g., Section 2.2, “Architecture” or Figure 1, “Big Cats”).</p>
+<p>the reference signifier followed by the reference number and emphasized title (e.g., Section 2.2, “Architecture” or Figure 1, “Big Cats”).</p>
 </dd>
 <dt class="hdlist1">short</dt>
 <dd>
-<p>the reference label followed by the reference number (e.g., Section 2.2 or Figure 1).</p>
+<p>the reference signifier followed by the reference number (e.g., Section 2.2 or Figure 1).</p>
 </dd>
 <dt class="hdlist1">basic</dt>
 <dd>
@@ -11168,10 +11185,10 @@ There are three built-in styles you can choose from to customize the generated t
 </dl>
 </div>
 <div class="paragraph">
-<p>This formatting only applies to references that have both a number and a title and do not have explicit reftext.</p>
+<p>This formatting only applies to references that have both a title and number (or explicit caption), but without explicit reftext.</p>
 </div>
 <div class="paragraph">
-<p>Let&#8217;s assume you want reference a section titled “Installation” that has the number 3.2.2.
+<p>Let&#8217;s assume you want to reference a section titled “Installation” that has the number 3.2.2.
 The full style is displayed as follows:</p>
 </div>
 <div class="literalblock">
@@ -11196,11 +11213,11 @@ The full style is displayed as follows:</p>
 </div>
 </div>
 <div class="paragraph">
-<p>If the reference is a chapter or an appendix, the title is displayed in italics instead of quotes (even when the xrefstyle is basic).</p>
+<p>If the reference is a chapter or an appendix, the title is always displayed in italics instead of quotes (even when the xrefstyle is basic).</p>
 </div>
 <div class="paragraph">
-<p>You can customize the signifier that is used in front of the number, indicating the reference&#8217;s type.
-For example, to customize the word “Section”, define the <code>section-sigref</code> attribute:</p>
+<p>You can customize the signifier that precedes the number, hinting at the reference&#8217;s type (e.g., Chapter, Section, etc).
+For example, to customize the word “Section”, define the <code>section-sigref</code> document attribute:</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -11217,7 +11234,7 @@ For example, if you unset the <code>section-sigref</code> attribute in the docum
 </div>
 </div>
 <div class="paragraph">
-<p>Then the full xrefstyle will display just the number and title:</p>
+<p>Then the full xrefstyle will display only the number and title:</p>
 </div>
 <div class="literalblock">
 <div class="content">
@@ -25899,7 +25916,7 @@ In source listings, is the callout the last thing on the line?</p></td>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2017-07-09 20:22:13 UTC
+Last updated 2017-07-09 20:46:16 UTC
 </div>
 </div>
 <script type="text/x-mathjax-config">
