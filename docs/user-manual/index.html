@@ -11176,11 +11176,11 @@ There are three built-in styles you can choose from to customize the generated t
 <dl>
 <dt class="hdlist1">:xrefstyle: full</dt>
 <dd>
-<p>Uses the reference signifier (e.g., Section) followed by the reference number and emphasized (chapter or appendix) or quoted title (e.g., Section 2.3, “Installation” or Figure 1, “Big Cats”).</p>
+<p>Uses the signifier for the reference (e.g., Section) followed by the reference number and emphasized (chapter or appendix) or quoted title (e.g., Section 2.3, “Installation” or Figure 1, “Big Cats”).</p>
 </dd>
 <dt class="hdlist1">:xrefstyle: short</dt>
 <dd>
-<p>Uses the reference signifier (e.g., Section) followed by the reference number (e.g., Section 2.3 or Figure 1).</p>
+<p>Uses the signifier for the reference (e.g., Section) followed by the reference number (e.g., Section 2.3 or Figure 1).</p>
 </dd>
 <dt class="hdlist1">:xrefstyle: basic</dt>
 <dd>
@@ -11229,18 +11229,18 @@ The <strong>full</strong> style is displayed as:</p>
 <div class="ulist">
 <ul>
 <li>
-<p><code>chapter-refsig</code>&#8201;&#8212;&#8201;defines the reference signifier for a chapter (default: Chapter)</p>
+<p><code>chapter-refsig</code>&#8201;&#8212;&#8201;defines the signifier for a cross reference to a chapter (default: Chapter)</p>
 </li>
 <li>
-<p><code>section-refsig</code>&#8201;&#8212;&#8201;defines the reference signifier for a section (default: Section)</p>
+<p><code>section-refsig</code>&#8201;&#8212;&#8201;defines the signifier for a cross reference to a section (default: Section)</p>
 </li>
 <li>
-<p><code>appendix-refsig</code>&#8201;&#8212;&#8201;defines the reference signifier for an appendix (default: Appendix)</p>
+<p><code>appendix-refsig</code>&#8201;&#8212;&#8201;defines the signifier for a cross reference to an appendix (default: Appendix)</p>
 </li>
 </ul>
 </div>
 <div class="paragraph">
-<p>(The attribute for the part reference signifier will be introduced once part numeration is supported).</p>
+<p>(The signifier attribute for a part cross reference will be introduced once numeration is supported for parts).</p>
 </div>
 <div class="paragraph">
 <p>For example, to customize the word “Section”, define the <code>section-refsig</code> attribute in the document header:</p>
@@ -11300,7 +11300,7 @@ For example:</p>
 </div>
 </div>
 <div class="paragraph">
-<p>The <strong>basic</strong> xrefstyle is unaffected by the value of the reference signifier.</p>
+<p>The <strong>basic</strong> xrefstyle is unaffected by the value of the signifier.</p>
 </div>
 <div class="paragraph">
 <p>Currently, only the aforementioned styles are provided out of the box.
@@ -25977,7 +25977,7 @@ In source listings, is the callout the last thing on the line?</p></td>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2017-07-10 01:09:40 UTC
+Last updated 2017-07-10 07:48:53 UTC
 </div>
 </div>
 <script type="text/x-mathjax-config">
