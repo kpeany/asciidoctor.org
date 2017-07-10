@@ -11134,7 +11134,7 @@ After the ID, add a comma and then enter the custom text you want the cross refe
 This customization brings the cross reference text formatting from the DocBook toolchain to the native Asciidoctor converters.</p>
 </div>
 <div class="paragraph">
-<p>By default, the cross reference text is the reftext defined on the target node, which falls back to the node&#8217;s title if the reftext is not specified.
+<p>By default, the cross reference text is the title of the referenced element.
 For example, if you&#8217;re refering to a section titled “Installation”, the text of the cross reference link is shown as:</p>
 </div>
 <div class="literalblock">
@@ -11143,7 +11143,7 @@ For example, if you&#8217;re refering to a section titled “Installation”, th
 </div>
 </div>
 <div class="paragraph">
-<p>If the reftext attribute is specified on the referenced element, that value is always preferred.
+<p>If the reftext attribute is specified on the referenced element, that value is preferred over the title.
 For example, if the section from the previous example were defined as:</p>
 </div>
 <div class="listingblock">
@@ -11161,7 +11161,7 @@ For example, if the section from the previous example were defined as:</p>
 </div>
 </div>
 <div class="paragraph">
-<p>Attribute references are substituted in the reftext during parsing and reftext substitutions (specialchars, quotes, and replacements) are substituted in the value when it&#8217;s used during conversion.</p>
+<p>Attribute references are substituted in the reftext during parsing and reftext substitutions (specialchars, quotes, and replacements) are applied to the value when it&#8217;s used during conversion.</p>
 </div>
 <div class="paragraph">
 <p>If the reftext is not specified, the text of the cross reference is automatically generated.
@@ -25916,7 +25916,7 @@ In source listings, is the callout the last thing on the line?</p></td>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2017-07-09 22:28:29 UTC
+Last updated 2017-07-10 00:27:44 UTC
 </div>
 </div>
 <script type="text/x-mathjax-config">
