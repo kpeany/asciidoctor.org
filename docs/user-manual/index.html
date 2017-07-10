@@ -11224,7 +11224,7 @@ For example, to customize the word “Section”, define the <code>section-refsi
 </div>
 <div class="paragraph">
 <p>If you unset the attribute, the signifier is dropped from the cross reference text.
-For example, if you unset the <code>section-refsig</code> attribute in the document header:</p>
+For example:</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -11232,12 +11232,23 @@ For example, if you unset the <code>section-refsig</code> attribute in the docum
 </div>
 </div>
 <div class="paragraph">
-<p>Then the full xrefstyle will display only the number and title:</p>
+<p>In this case, the <strong>full</strong> xrefstyle will display only the number and title:</p>
 </div>
 <div class="literalblock">
 <div class="content">
 <pre class="nowrap">2.3, “Installation”</pre>
 </div>
+</div>
+<div class="paragraph">
+<p>The <strong>short</strong> xrefstyle will fall back to the number only:</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre class="nowrap">2.3</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The <strong>basic</strong> xrefstyle is unaffected by the value of the reference signifier.</p>
 </div>
 <div class="paragraph">
 <p>Currently, only the aforementioned styles are provided out of the box.
@@ -25914,7 +25925,7 @@ In source listings, is the callout the last thing on the line?</p></td>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2017-07-10 00:37:16 UTC
+Last updated 2017-07-10 00:41:48 UTC
 </div>
 </div>
 <script type="text/x-mathjax-config">
