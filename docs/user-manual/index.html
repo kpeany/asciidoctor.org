@@ -11135,7 +11135,7 @@ This customization brings the cross reference text formatting from the DocBook t
 </div>
 <div class="paragraph">
 <p>By default, the cross reference text is the title of the referenced element.
-For example, if you&#8217;re linking to a section titled “Installation”, the text of the cross reference appears as:</p>
+For example, if you&#8217;re linking to a section titled “Installation”, the text of the cross reference link appears as:</p>
 </div>
 <div class="literalblock">
 <div class="content">
@@ -11143,8 +11143,8 @@ For example, if you&#8217;re linking to a section titled “Installation”, the
 </div>
 </div>
 <div class="paragraph">
-<p>If the reftext attribute is specified on the referenced element, that value is preferred over the title.
-For example, if the section from the previous example were defined as:</p>
+<p>If the reftext attribute is specified on the referenced element, that value is preferred over its title.
+For example, let&#8217;s assume the section from the previous example is written as:</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -11153,7 +11153,7 @@ For example, if the section from the previous example were defined as:</p>
 </div>
 </div>
 <div class="paragraph">
-<p>In this case, the text of the cross reference link would be shown as:</p>
+<p>In this case, the text of the cross reference link is shown as:</p>
 </div>
 <div class="literalblock">
 <div class="content">
@@ -11186,11 +11186,11 @@ There are three built-in styles you can choose from to customize the generated t
 </div>
 <div class="paragraph">
 <p>This formatting only applies to references that have both a title and number (or explicit caption), but no explicit reftext.
-If the reference is a chapter or an appendix, the title is always displayed in italics instead of quotes (even when the xrefstyle is basic).</p>
+If the reference is a chapter or an appendix, the title is displayed in italics instead of quotes (even when the xrefstyle is basic).</p>
 </div>
 <div class="paragraph">
 <p>Let&#8217;s assume you want to reference a section titled “Installation” that has the number 2.3.
-The <strong>full</strong> style is displayed as follows:</p>
+The <strong>full</strong> style is displayed as:</p>
 </div>
 <div class="literalblock">
 <div class="content">
@@ -11198,7 +11198,7 @@ The <strong>full</strong> style is displayed as follows:</p>
 </div>
 </div>
 <div class="paragraph">
-<p>The <strong>short</strong> style is displayed as follows:</p>
+<p>The <strong>short</strong> style is displayed as:</p>
 </div>
 <div class="literalblock">
 <div class="content">
@@ -11206,7 +11206,7 @@ The <strong>full</strong> style is displayed as follows:</p>
 </div>
 </div>
 <div class="paragraph">
-<p>The <strong>basic</strong> style is displayed as follows:</p>
+<p>The <strong>basic</strong> style is displayed as:</p>
 </div>
 <div class="literalblock">
 <div class="content">
@@ -11220,6 +11220,14 @@ For example, to customize the word “Section”, define the <code>section-refsi
 <div class="listingblock">
 <div class="content">
 <pre class="CodeRay highlight nowrap"><code data-lang="asciidoc">:section-refsig: Sect.</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The <strong>full</strong> xrefstyle would then be displayed as:</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre class="nowrap">Sect. 2.3, “Installation”</pre>
 </div>
 </div>
 <div class="paragraph">
@@ -25925,7 +25933,7 @@ In source listings, is the callout the last thing on the line?</p></td>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2017-07-10 00:42:41 UTC
+Last updated 2017-07-10 00:46:31 UTC
 </div>
 </div>
 <script type="text/x-mathjax-config">
