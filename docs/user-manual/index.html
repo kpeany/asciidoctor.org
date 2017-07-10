@@ -11214,8 +11214,26 @@ The <strong>full</strong> style is displayed as:</p>
 </div>
 </div>
 <div class="paragraph">
-<p>You can customize the signifier that precedes the reference number, indicating the reference&#8217;s type (e.g., Chapter, Section, etc.).
-For example, to customize the word “Section”, define the <code>section-refsig</code> document attribute:</p>
+<p>You can use a document attribute to customize the signifier that precedes the reference number, indicating the reference&#8217;s type (e.g., Chapter or Section).</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>chapter-refsig</code> - reference signifier for a chapter (default: Chapter)</p>
+</li>
+<li>
+<p><code>section-refsig</code> - reference signifier for a section (default: Section)</p>
+</li>
+<li>
+<p><code>appendix-refsig</code> - reference signifier for an appendix (default: Appendix)</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>(The part signifier will be added once part numbering is supported).</p>
+</div>
+<div class="paragraph">
+<p>For example, to customize the word “Section”, define the <code>section-refsig</code> attribute in the document header:</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -25933,7 +25951,7 @@ In source listings, is the callout the last thing on the line?</p></td>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2017-07-10 00:55:44 UTC
+Last updated 2017-07-10 00:57:52 UTC
 </div>
 </div>
 <script type="text/x-mathjax-config">
