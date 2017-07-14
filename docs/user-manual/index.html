@@ -3848,29 +3848,32 @@ Use <a href="https://github.com/asciidoctor/asciidoctor.org/issues/445">Issue 44
 <h2 id="doc-header"><a class="anchor" href="#doc-header"></a>17. Header</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>The document header is a special group of contiguous lines at the start of the document that encapsulates the document title, author attribution, revision information, and document-wide attributes configured or defined by the user.</p>
+<p>The document header is a special set of contiguous lines at the start of the document that encapsulates the document title, author and revision information, and document-wide attributes (either built-in or user-defined).</p>
 </div>
 <div class="paragraph">
 <p>The header typically begins with a document title, though this element is optional.
-If a document title is specified, it may be immediately followed by two optional lines of text that set the author attribution and revision information.
-Finally, any document-wide settings are declared using attribute entries.
-These attributes may proceed the document title as well.
-A header may even consist of attribute entries only.
-The first blank line marks the end of the header.</p>
+If a document title is specified, it may be immediately followed by two optional lines of text to set the author and revision information.
+Finally, the header may declare document-wide attributes (built-in or user-defined) using attribute entries.
+These attribute declarations may also proceed the document title.
+Since the document title is optional, it&#8217;s possible for the header to only consist of attribute entries.</p>
+</div>
+<div class="paragraph">
+<p>The first blank line in the document marks the end of the header.
+Any attributes defined below the first blank line will <em>not</em> be scoped to the document header.</p>
 </div>
 <div class="paragraph lead">
 <p><strong>The document header must <em>not</em> contain any blank lines!</strong></p>
 </div>
 <div class="paragraph">
-<p>Comment lines may be included in the header, as long as those lines are directly adjacent to the other lines in the header.</p>
+<p>Line comments may be used in the header, but only if those lines are directly adjacent to other lines in the header.</p>
 </div>
 <div class="paragraph">
-<p>The header is <em>not required</em> when the <code>doctype</code> is <code>article</code> or <code>book</code>.
-However, a header must be present when the document type is <code>manpage</code>.
+<p>The header is <em>optional</em> when the <code>doctype</code> is <code>article</code> or <code>book</code>.
+However, a header is required when the document type is <code>manpage</code>.
 The requirements for a manual page (man page) are described in the <a href="#man-pages">man pages</a> section.</p>
 </div>
 <div class="paragraph">
-<p>The header is included by default when converting to a standalone document.
+<p>The header (document title, author, and revision informatino) is included by default when converting to a standalone document.
 If you do not want the header of a document to be displayed, set the <code>noheader</code> attribute in the document&#8217;s header (or set the attribute using the API or CLI).</p>
 </div>
 <div class="sidebarblock">
@@ -25978,7 +25981,7 @@ In source listings, is the callout the last thing on the line?</p></td>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2017-07-11 17:13:33 UTC
+Last updated 2017-07-14 06:37:12 UTC
 </div>
 </div>
 <script type="text/x-mathjax-config">
