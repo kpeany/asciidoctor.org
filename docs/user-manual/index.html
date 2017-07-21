@@ -620,7 +620,7 @@ table.CodeRay td.code>pre{padding:0}
 <li><a href="#links">19.4. Links</a></li>
 <li><a href="#anchors">19.5. Anchors</a></li>
 <li><a href="#numbering">19.6. Numbering</a></li>
-<li><a href="#discrete-or-floating-section-titles">19.7. Discrete or Floating Section Titles</a></li>
+<li><a href="#discrete-headings-aka-floating-titles">19.7. Discrete Headings (aka Floating Titles)</a></li>
 <li><a href="#section-styles">19.8. Section Styles</a></li>
 <li><a href="#sections-summary">19.9. Sections Summary</a></li>
 </ul>
@@ -5214,37 +5214,10 @@ At the time of writing, <code>sectnums</code> is unique in this way, though othe
 </div>
 </div>
 <div class="sect2">
-<h3 id="discrete-or-floating-section-titles"><a class="anchor" href="#discrete-or-floating-section-titles"></a>19.7. Discrete or Floating Section Titles</h3>
+<h3 id="discrete-headings-aka-floating-titles"><a class="anchor" href="#discrete-headings-aka-floating-titles"></a>19.7. Discrete Headings (aka Floating Titles)</h3>
 <div class="paragraph">
-<p>The <code>discrete</code> attribute can be applied to any section titles that start with two to six equal signs (<code>==</code>).
-A discrete title is styled like a section title but is not part of the content hierarchy (i.e., it ignores section nesting rules).
-Nor will it be included in the ToC.</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="CodeRay highlight nowrap"><code data-lang="asciidoc">[discrete] <i class="conum" data-value="1"></i><b>(1)</b>
-== Discrete Title for a Sidebar <i class="conum" data-value="2"></i><b>(2)</b>
-
-**** <i class="conum" data-value="3"></i><b>(3)</b>
-Discrete titles are useful for labeling large sidebar and admonition blocks.
-****</code></pre>
-</div>
-</div>
-<div class="colist arabic">
-<table>
-<tr>
-<td><i class="conum" data-value="1"></i><b>1</b></td>
-<td>Set the <code>discrete</code> attribute above the title</td>
-</tr>
-<tr>
-<td><i class="conum" data-value="2"></i><b>2</b></td>
-<td>The title must be designated by two to six equal signs</td>
-</tr>
-<tr>
-<td><i class="conum" data-value="3"></i><b>3</b></td>
-<td>Delimiter specifying the beginning of a sidebar block</td>
-</tr>
-</table>
+<p>To make a discrete heading, you add the <code>discrete</code> attribute to any section title (i.e., a line that starts with one to six equal (<code>=</code>) signs.
+A discrete heading is styled in a manner similar to a section title, but is not part of the content hierarchy (i.e., it ignores section nesting rules), nor is it included in the TOC.</p>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -5253,9 +5226,41 @@ Discrete titles are useful for labeling large sidebar and admonition blocks.
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-You can also use the <code>float</code> attribute to create a discrete title.
-However, the content in the discrete section will not be repositioned (i.e., float) to the left or right of other content blocks.
+Alternately, you may use the <code>float</code> attribute to create a discrete heading.
+In this case, &#8220;float&#8221; does not imply layout.
+The content in the discrete section is not repositioned (i.e., float) to the left or right of other content blocks.
 </td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Here&#8217;s an example of a discrete heading in use.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight nowrap"><code data-lang="asciidoc">**** <i class="conum" data-value="1"></i><b>(1)</b>
+Discrete headings are useful for making headings inside of other blocks, like this sidebar.
+
+[discrete] <i class="conum" data-value="2"></i><b>(2)</b>
+== Discrete Heading <i class="conum" data-value="3"></i><b>(3)</b>
+
+Discrete headings can be used where sections are not permitted.
+****</code></pre>
+</div>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><i class="conum" data-value="1"></i><b>1</b></td>
+<td>A delimiter line indicating the start of a sidebar block</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="2"></i><b>2</b></td>
+<td>Set the <code>discrete</code> attribute above the section title</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="3"></i><b>3</b></td>
+<td>The title must be designated by one to six equal signs</td>
 </tr>
 </table>
 </div>
@@ -25981,7 +25986,7 @@ In source listings, is the callout the last thing on the line?</p></td>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2017-07-17 20:24:27 UTC
+Last updated 2017-07-21 05:45:47 UTC
 </div>
 </div>
 <script type="text/x-mathjax-config">
