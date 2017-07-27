@@ -8,7 +8,7 @@
 <meta name="description" content="Frequently asked questions (FAQ) about the Asciidoctor project, Asciidoctor syntax and processor, and the AsciiDoc syntax. Tips for fixing installation, syntax, processing, and rendering problems when using Asciidoctor.">
 <meta name="keywords" content="Asciidoctor, AsciiDoc, syntax, question, render, process, problem, issue, tips">
 <meta name="author" content="Sarah White">
-<title>FAQs and Troubleshooting</title>
+<title>Frequently Asked Questions (FAQs) and Troubleshooting</title>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic%7CNoto+Serif:400,400italic,700,700italic%7CDroid+Sans+Mono:400,700">
 <style>
 /* Asciidoctor default stylesheet | MIT License | http://asciidoctor.org */
@@ -514,82 +514,48 @@ table.CodeRay td.code>pre{padding:0}
 </head>
 <body class="article">
 <div id="header">
-<h1>FAQs and Troubleshooting</h1>
+<h1>Frequently Asked Questions (FAQs) and Troubleshooting</h1>
 <div class="details">
 <span id="author" class="author">Sarah White</span><br>
 <span id="email" class="email"><a href="https://github.com/graphitefriction">@graphitefriction</a></span><br>
 </div>
+<div id="toc" class="toc">
+<div id="toctitle">Table of Contents</div>
+<ul class="sectlevel1">
+<li><a href="#faqs">FAQs</a>
+<ul class="sectlevel2">
+<li><a href="#does-asciidoctor-only-process-text-that-is-us-ascii-encoded">Does Asciidoctor only process text that is US-ASCII encoded?</a></li>
+<li><a href="#how-do-i-make-relative-links-to-other-asciidoc-files-to-work-correctly-on-github">How do I make relative links to other AsciiDoc files to work correctly on GitHub?</a></li>
+<li><a href="#what-is-the-media-type-for-asciidoc">What is the media type for AsciiDoc?</a></li>
+<li><a href="#how-do-i-enable-syntax-highlighting-in-the-deck-js-backend">How do I enable syntax highlighting in the deck.js backend?</a></li>
+</ul>
+</li>
+<li><a href="#troubleshooting">Troubleshooting</a>
+<ul class="sectlevel2">
+<li><a href="#part-way-through-the-document-the-blocks-stop-rendering-correctly-what-went-wrong">Part way through the document, the blocks stop rendering correctly. What went wrong?</a></li>
+<li><a href="#why-don-t-links-to-urls-that-contain-an-underscore-or-caret-work">Why don&#8217;t links to URLs that contain an underscore or caret work?</a></li>
+</ul>
+</li>
+</ul>
+</div>
 </div>
 <div id="content">
 <div class="sect1">
-<h2 id="frequently-asked-questions"><a class="anchor" href="#frequently-asked-questions"></a>Frequently Asked Questions</h2>
+<h2 id="faqs"><a class="anchor" href="#faqs"></a>FAQs</h2>
 <div class="sectionbody">
-<div class="qlist qanda">
-<ol>
-<li>
-<p><em>Does Asciidoctor only encode in US-ASCII?</em></p>
+<div class="sect2">
+<h3 id="does-asciidoctor-only-process-text-that-is-us-ascii-encoded"><a class="anchor" href="#does-asciidoctor-only-process-text-that-is-us-ascii-encoded"></a>Does Asciidoctor only process text that is US-ASCII encoded?</h3>
+<div class="paragraph">
 <p>No.
-Asciidoctor encodes in UTF-8 and has full Unicode support.</p>
-</li>
-<li>
-<p><em>How do I enable syntax highlighting in the deck.js backend?</em></p>
-<div class="openblock">
-<div class="content">
-<div class="paragraph">
-<p>You begin by setting the <code>source-highlighter</code> attribute to one of the accepted values, such as <code>coderay</code>.</p>
-</div>
-<div class="literalblock">
-<div class="content">
-<pre class="nowrap">:source-highlighter: coderay</pre>
-</div>
+Asciidoctor has full support for Unicode.
+👌</p>
 </div>
 <div class="paragraph">
-<p>That only gets you half way, though.
-The problem is that Asciidoctor only performs syntax highlighting when the "base" backend attribute (i.e., basebackend attribute) is html.
-The basebackend attribute is determined by removing the trailing numbers from the backend name.
-For instance, html5 becomes html.
-However, deckjs becomes&#8230;&#8203;deckjs.
-There in lies our problem (see <a href="https://github.com/asciidoctor/asciidoctor/issues/891">issue #891</a>).</p>
-</div>
-<div class="paragraph">
-<p>The workaround is to set the backend to html5 (or just don&#8217;t set it) and point the -T command argument to the <em class="file">haml/deckjs</em> folder under the <a href="https://github.com/asciidoctor/asciidoctor-backends">asciidoctor-backends</a> directory.
-For example:</p>
-</div>
-<div class="literalblock">
-<div class="content">
-<pre class="nowrap">$ asciidoctor -T /path/to/asciidoctor-backends/haml/deckjs deck.adoc</pre>
+<p>Asciidoctor assumes input is encoded in UTF-8 and it encodes output documents in UTF-8 as well.</p>
 </div>
 </div>
-<div class="paragraph">
-<p>Notice that the backend attribute <em>is not set</em>.
-The templates will be used in exactly the same way as if you had set the backend to <code>deckjs</code>, except this time syntax highlighting will work!</p>
-</div>
-<div class="admonitionblock tip">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-tip" title="Tip"></i>
-</td>
-<td class="content">
-<div class="paragraph">
-<p>If you want to have CodeRay embed the styles inline instead of using CSS classes, set the following attribute in your AsciiDoc document:</p>
-</div>
-<div class="literalblock">
-<div class="content">
-<pre class="nowrap">:coderay-css: style</pre>
-</div>
-</div>
-</td>
-</tr>
-</table>
-</div>
-</div>
-</div>
-</li>
-<li>
-<p><em>How do I make relative links to other AsciiDoc files to work correctly on GitHub?</em></p>
-<div class="openblock">
-<div class="content">
+<div class="sect2">
+<h3 id="how-do-i-make-relative-links-to-other-asciidoc-files-to-work-correctly-on-github"><a class="anchor" href="#how-do-i-make-relative-links-to-other-asciidoc-files-to-work-correctly-on-github"></a>How do I make relative links to other AsciiDoc files to work correctly on GitHub?</h3>
 <div class="paragraph">
 <p>In certain environments, such as GitHub and the browser preview extensions, you view the generated HTML through the AsciiDoc source URL.
 This has consequences for inter-document cross references.</p>
@@ -649,14 +615,13 @@ Any cross reference that resolves to the path <code>filename.html</code> is now 
 Since this change is specific to the website architecture described, you want to be sure to only set these attributes in that particular environment (either using an ifdef directive or via the API).</p>
 </div>
 </div>
-</div>
-</li>
-<li>
-<p><em>What is the <a href="http://en.wikipedia.org/wiki/Internet_media_type">internet mime type</a> (aka MIME type) for AsciiDoc?</em></p>
-<div class="openblock">
-<div class="content">
+<div class="sect2">
+<h3 id="what-is-the-media-type-for-asciidoc"><a class="anchor" href="#what-is-the-media-type-for-asciidoc"></a>What is the media type for AsciiDoc?</h3>
 <div class="paragraph">
-<p>The first idea that emerged from the <a href="http://discuss.asciidoctor.org/Mimetype-for-Asciidoc-td211.html">Mimetype for AsciiDoc</a> discussion on the Asciidoctor mailinglist was:</p>
+<p>A <a href="http://en.wikipedia.org/wiki/Internet_media_type">media type</a>, or MIME type, is a code for identifying file formats and format contents transmitted on the Internet.</p>
+</div>
+<div class="paragraph">
+<p>The first idea for an official MIME type for AsciiDoc came from the <a href="http://discuss.asciidoctor.org/Mimetype-for-Asciidoc-td211.html">Mimetype for AsciiDoc</a> discussion on the Asciidoctor mailinglist:</p>
 </div>
 <div class="literalblock">
 <div class="content">
@@ -664,7 +629,7 @@ Since this change is specific to the website architecture described, you want to
 </div>
 </div>
 <div class="paragraph">
-<p>Recently, the internet media type <code>text/markdown</code> was registered for Markdown, so another option to consider is:</p>
+<p>Recently, the internet media type <code>text/markdown</code> was registered for Markdown, so a stronger case can now be made for:</p>
 </div>
 <div class="literalblock">
 <div class="content">
@@ -675,33 +640,78 @@ Since this change is specific to the website architecture described, you want to
 <p>Either one will do, though it probably makes sense to align with Markdown on this one.</p>
 </div>
 </div>
+<div class="sect2">
+<h3 id="how-do-i-enable-syntax-highlighting-in-the-deck-js-backend"><a class="anchor" href="#how-do-i-enable-syntax-highlighting-in-the-deck-js-backend"></a>How do I enable syntax highlighting in the deck.js backend?</h3>
+<div class="paragraph">
+<p>You begin by setting the <code>source-highlighter</code> attribute to one of the accepted values, such as <code>coderay</code>.</p>
 </div>
-</li>
-</ol>
+<div class="literalblock">
+<div class="content">
+<pre class="nowrap">:source-highlighter: coderay</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>That only gets you half way, though.
+The problem is that Asciidoctor only performs syntax highlighting when the "base" backend attribute (i.e., basebackend attribute) is html.
+The basebackend attribute is determined by removing the trailing numbers from the backend name.
+For instance, html5 becomes html.
+However, deckjs becomes&#8230;&#8203;deckjs.
+There in lies our problem (see <a href="https://github.com/asciidoctor/asciidoctor/issues/891">issue #891</a>).</p>
+</div>
+<div class="paragraph">
+<p>The workaround is to set the backend to html5 (or just don&#8217;t set it) and point the -T command argument to the <em class="file">haml/deckjs</em> folder under the <a href="https://github.com/asciidoctor/asciidoctor-backends">asciidoctor-backends</a> directory.
+For example:</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre class="nowrap">$ asciidoctor -T /path/to/asciidoctor-backends/haml/deckjs deck.adoc</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Notice that the backend attribute <em>is not set</em>.
+The templates will be used in exactly the same way as if you had set the backend to <code>deckjs</code>, except this time syntax highlighting will work!</p>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>If you want to have CodeRay embed the styles inline instead of using CSS classes, set the following attribute in your AsciiDoc document:</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre class="nowrap">:coderay-css: style</pre>
+</div>
+</div>
+</td>
+</tr>
+</table>
+</div>
 </div>
 </div>
 </div>
 <div class="sect1">
 <h2 id="troubleshooting"><a class="anchor" href="#troubleshooting"></a>Troubleshooting</h2>
 <div class="sectionbody">
-<div class="qlist qanda">
-<ol>
-<li>
-<p><em>Part way through the document, the blocks stop rendering correctly. What went wrong?</em></p>
+<div class="sect2">
+<h3 id="part-way-through-the-document-the-blocks-stop-rendering-correctly-what-went-wrong"><a class="anchor" href="#part-way-through-the-document-the-blocks-stop-rendering-correctly-what-went-wrong"></a>Part way through the document, the blocks stop rendering correctly. What went wrong?</h3>
+<div class="paragraph">
 <p>When content is not rendered as you expect in the later part of a document, it&#8217;s usually due to a delimited block missing its closing delimiter line.
 The most devious culprit is the <a href="../user-manual/#open-blocks">open block</a>.
 An open block doesn&#8217;t have any special styling, but its contents have the same restrictions as other delimited blocks, i.e. it can not contain section titles.</p>
+</div>
 <div class="paragraph">
 <p>To solve this problem, first look for missing delimiter lines.
 <a href="../user-manual/#text-editor">Syntax highlighting in your text editor</a> can help with this.
 Also look at the rendered output to see if the block styles are extending past where you intended.
-When working with open blocks, you may need to add custom styles (such as a red border) to the class selector <code>.openblock</code> so that you can see its boundaries.</p>
+When working with open blocks, you may need to add custom styles (such as a red border) to the class openblock so you can see its boundaries.</p>
 </div>
-</li>
-<li>
-<p><em>Why don&#8217;t URLs containing underscores (<code>_</code>) or carets (<code>{caret}</code>) work after they&#8217;re rendered?</em></p>
-<div class="openblock">
-<div class="content">
+</div>
+<div class="sect2">
+<h3 id="why-don-t-links-to-urls-that-contain-an-underscore-or-caret-work"><a class="anchor" href="#why-don-t-links-to-urls-that-contain-an-underscore-or-caret-work"></a>Why don&#8217;t links to URLs that contain an underscore or caret work?</h3>
 <div class="paragraph">
 <p>This problem occurs because the markup parser interprets parts of the URL (i.e., the link target) as valid <a href="../user-manual/#text-formatting">text formatting markup</a>.
 Most lightweight markup languages have this issue because they don&#8217;t use a grammar-based parser.
@@ -760,15 +770,11 @@ However, when you use this approach, Asciidoctor won&#8217;t recognize it as a U
 </div>
 </div>
 </div>
-</li>
-</ol>
-</div>
-</div>
 </div>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2017-07-27 05:55:16 UTC
+Last updated 2017-07-27 06:25:36 UTC
 </div>
 </div>
 <script>

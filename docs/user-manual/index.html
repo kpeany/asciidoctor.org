@@ -23616,14 +23616,20 @@ Refer to the commit history of <a href="https://github.com/github/gitscm-next/co
 <ol>
 <li>
 <p><em>Part way through the document, the blocks stop rendering correctly. What went wrong?</em></p>
+<div class="openblock">
+<div class="content">
+<div class="paragraph">
 <p>When content is not rendered as you expect in the later part of a document, it&#8217;s usually due to a delimited block missing its closing delimiter line.
 The most devious culprit is the <a href="#open-blocks">open block</a>.
 An open block doesn&#8217;t have any special styling, but its contents have the same restrictions as other delimited blocks, i.e. it can not contain section titles.</p>
+</div>
 <div class="paragraph">
 <p>To solve this problem, first look for missing delimiter lines.
 <a href="#text-editor">Syntax highlighting in your text editor</a> can help with this.
 Also look at the rendered output to see if the block styles are extending past where you intended.
-When working with open blocks, you may need to add custom styles (such as a red border) to the class selector .openblock so that you can see its boundaries.</p>
+When working with open blocks, you may need to add custom styles (such as a red border) to the class openblock so you can see its boundaries.</p>
+</div>
+</div>
 </div>
 </li>
 <li>
@@ -26102,7 +26108,7 @@ In source listings, is the callout the last thing on the line?</p></td>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2017-07-27 05:55:16 UTC
+Last updated 2017-07-27 06:25:36 UTC
 </div>
 </div>
 <script type="text/x-mathjax-config">
