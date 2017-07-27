@@ -23830,14 +23830,14 @@ For example, if the backend is <code>docbook5</code>, the basebackend is <code>d
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>docdate</code></p></td>
 <td class="tableblock halign-left valign-top"><div><div class="paragraph">
-<p>Last modified date of the source document.<sup>[1,2]</sup></p>
+<p>Last modified date of the source document.<sup>[<a href="#note_docdatetime">1</a>,<a href="#note_sourcedateepoch">2</a>]</sup></p>
 </div></div></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>2015-01-04</code></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>docdatetime</code></p></td>
 <td class="tableblock halign-left valign-top"><div><div class="paragraph">
-<p>Last modified date and time of the source document.<sup>[1,2]</sup></p>
+<p>Last modified date and time of the source document.<sup>[<a href="#note_docdatetime">1</a>,<a href="#note_sourcedateepoch">2</a>]</sup></p>
 </div></div></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>2015-01-04 19:26:06 GMT+0000</code></p></td>
 </tr>
@@ -23873,7 +23873,7 @@ For example, if the backend is <code>docbook5</code>, the basebackend is <code>d
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>doctime</code></p></td>
 <td class="tableblock halign-left valign-top"><div><div class="paragraph">
-<p>Last modified time of the source document.<sup>[1,2]</sup></p>
+<p>Last modified time of the source document.<sup>[<a href="#note_docdatetime">1</a>,<a href="#note_sourcedateepoch">2</a>]</sup></p>
 </div></div></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>19:26:06 GMT+0000</code></p></td>
 </tr>
@@ -23915,21 +23915,21 @@ For example, if the backend is <code>docbook5</code>, the basebackend is <code>d
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>localdate</code></p></td>
 <td class="tableblock halign-left valign-top"><div><div class="paragraph">
-<p>Date when the document was converted.<sup>[2]</sup></p>
+<p>Date when the document was converted.<sup>[<a href="#note_sourcedateepoch">2</a>]</sup></p>
 </div></div></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>2016-02-17</code></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>localdatetime</code></p></td>
 <td class="tableblock halign-left valign-top"><div><div class="paragraph">
-<p>Date and time when the document was converted.<sup>[2]</sup></p>
+<p>Date and time when the document was converted.<sup>[<a href="#note_sourcedateepoch">2</a>]</sup></p>
 </div></div></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>2016-02-17 19:31:05 GMT+0000</code></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>localtime</code></p></td>
 <td class="tableblock halign-left valign-top"><div><div class="paragraph">
-<p>Time when the document was converted.<sup>[2]</sup></p>
+<p>Time when the document was converted.<sup>[<a href="#note_sourcedateepoch">2</a>]</sup></p>
 </div></div></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>19:31:05 GMT+0000</code></p></td>
 </tr>
@@ -24017,8 +24017,11 @@ Resolves to <code>.</code> if the safe mode is SERVER or greater.</p>
 </tbody>
 </table>
 <div class="paragraph">
-<p><sup>[1]</sup> Only reflects the last modified time of the source document file, not files which are included.<br>
-<sup>[2]</sup> If the SOURCE_DATE_EPOCH environment variable is set, the value assigned to this attribute is built from a UTC date object that corresponds to the timestamp (integer) stored in that environment variable.
+<p><a id="note_docdatetime"></a><sup>[1]</sup> Only reflects the last modified time of the source document file.
+It does not consider the last modified time of files which are included.</p>
+</div>
+<div class="paragraph">
+<p><a id="note_sourcedateepoch"></a><sup>[2]</sup> If the SOURCE_DATE_EPOCH environment variable is set, the value assigned to this attribute is built from a UTC date object that corresponds to the timestamp (as an integer) stored in that environment variable.
 This override offers one way to make the conversion reproducible.
 See <a href="https://reproducible-builds.org/specs/source-date-epoch/" class="bare">https://reproducible-builds.org/specs/source-date-epoch/</a> for more information about the SOURCE_DATE_EPOCH environment variable.</p>
 </div>
@@ -24130,7 +24133,7 @@ Useful if you want to store the output in a source code control system as it pre
 <td class="tableblock halign-left valign-top"></td>
 </tr>
 <tr>
-<th class="tableblock halign-left valign-top" colspan="6"><p class="tableblock"><a id="builtin-attributes-i18n"></a>Internationalization</p></th>
+<th class="tableblock halign-left valign-top" colspan="6"><p class="tableblock"><a id="builtin-attributes-i18n"></a>Internationalization and numbering</p></th>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">appendix-caption</p></td>
@@ -24139,6 +24142,14 @@ Useful if you want to store the output in a source code control system as it pre
 <td class="tableblock halign-left valign-top"><p class="tableblock"><em>any</em></p></td>
 <td class="tableblock halign-center valign-top"></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#user-appendix">Appendix</a>, <a href="#customizing-labels">Translating built-in labels</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">appendix-number</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Stores the number (aka letter) for the current appendix.<sup>[<a href="#note_blocknum">2</a>]</sup></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">A</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em>letter</em></p></td>
+<td class="tableblock halign-center valign-top"></td>
+<td class="tableblock halign-left valign-top"></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">appendix-refsig</p></td>
@@ -24156,6 +24167,14 @@ Unset to disable.</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><em>any</em></p></td>
 <td class="tableblock halign-center valign-top"></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#admonition">Admonition</a>, <a href="#customizing-labels">Translating built-in labels</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">chapter-number</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Stores the number for the current chapter.<sup>[<a href="#note_blocknum">2</a>]</sup></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">2</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em>integer</em></p></td>
+<td class="tableblock halign-center valign-top"></td>
+<td class="tableblock halign-left valign-top"></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">chapter-refsig</p></td>
@@ -24184,12 +24203,28 @@ Unset to disable.</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#customizing-labels">Translating built-in labels</a></p></td>
 </tr>
 <tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">example-number</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Stores the number for the current numbered example.<sup>[<a href="#note_blocknum">2</a>]</sup></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">5</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em>integer</em></p></td>
+<td class="tableblock halign-center valign-top"></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">figure-caption</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Sets the text used to label figures.</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Figure</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><em>any</em></p></td>
 <td class="tableblock halign-center valign-top"></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#images">Images</a>, <a href="#customizing-labels">Translating built-in labels</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">figure-number</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Stores the number for the current numbered figure.<sup>[<a href="#note_blocknum">2</a>]</sup></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">3</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em>integer</em></p></td>
+<td class="tableblock halign-center valign-top"></td>
+<td class="tableblock halign-left valign-top"></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">important-caption</p></td>
@@ -24223,6 +24258,14 @@ Unsetting it will remove the label and time from the footer.</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><em>any</em></p></td>
 <td class="tableblock halign-center valign-top"></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#customizing-labels">Translating built-in labels</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">listing-number</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Stores the number for the current numbered listing.<sup>[<a href="#note_blocknum">2</a>]</sup></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">5</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em>integer</em></p></td>
+<td class="tableblock halign-center valign-top"></td>
+<td class="tableblock halign-left valign-top"></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">manname-title</p></td>
@@ -24273,6 +24316,14 @@ To turn off table caption labels and numbers, add the <code>table-caption</code>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><em>any</em></p></td>
 <td class="tableblock halign-center valign-top"></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#customizing-labels">Translating built-in labels</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">table-number</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Stores the number for the current numbered table.<sup>[<a href="#note_blocknum">2</a>]</sup></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">5</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em>integer</em></p></td>
+<td class="tableblock halign-center valign-top"></td>
+<td class="tableblock halign-left valign-top"></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">tip-caption</p></td>
@@ -25145,6 +25196,12 @@ Since attributes can reference other attributes, it would be possible to create 
 <p><sup>[1]</sup> The default value isn&#8217;t necessarily the value you will get by entering <code>{name}</code>.
 It may be the fallback value which Asciidoctor uses if the attribute is not defined.
 The effect is the same either way.</p>
+</div>
+<div class="paragraph">
+<p><a id="note_blocknum"></a><sup>[2]</sup> The <code>-number</code> attributes are created and managed automatically by Asciidoctor for numbered blocks.
+They are only used if the corresponding <code>-caption</code> attribute is set (e.g., <code>listing-caption</code>) and the block has a title.
+In the current version of Asciidoctor, setting the <code>-number</code> attributes will influence the number used for subsequent numbered blocks of that type.
+However, you should not rely on this behavior as it may change in future versions.</p>
 </div>
 </div>
 <div class="sect2">
@@ -26045,7 +26102,7 @@ In source listings, is the callout the last thing on the line?</p></td>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2017-07-27 05:27:32 UTC
+Last updated 2017-07-27 05:55:16 UTC
 </div>
 </div>
 <script type="text/x-mathjax-config">
