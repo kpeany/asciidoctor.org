@@ -679,10 +679,11 @@ table.CodeRay td.code>pre{padding:0}
 <li><a href="#footer-row">26.5. Footer Row</a></li>
 <li><a href="#table-width">26.6. Table Width</a></li>
 <li><a href="#table-borders">26.7. Table Borders</a></li>
-<li><a href="#table-caption">26.8. Table Caption</a></li>
-<li><a href="#escaping-the-cell-separator">26.9. Escaping the Cell Separator</a></li>
-<li><a href="#data-formats">26.10. CSV and DSV Data Formats</a></li>
-<li><a href="#summary-tables">26.11. Summary</a></li>
+<li><a href="#orientation">26.8. Orientation</a></li>
+<li><a href="#table-caption">26.9. Table Caption</a></li>
+<li><a href="#escaping-the-cell-separator">26.10. Escaping the Cell Separator</a></li>
+<li><a href="#data-formats">26.11. CSV and DSV Data Formats</a></li>
+<li><a href="#summary-tables">26.12. Summary</a></li>
 </ul>
 </li>
 <li><a href="#horizontal-rules">27. Horizontal Rules</a>
@@ -9896,7 +9897,37 @@ If you set the <code>grid</code> attribute, you can override the default value w
 </div>
 </div>
 <div class="sect2">
-<h3 id="table-caption"><a class="anchor" href="#table-caption"></a>26.8. Table Caption</h3>
+<h3 id="orientation"><a class="anchor" href="#orientation"></a>26.8. Orientation</h3>
+<div class="paragraph">
+<p>A table can be displayed in landscape (rotated 90 degrees counterclockwise) using the <code>rotate</code> option (preferred):</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="nowrap">[%rotate]
+|===
+|a |b
+|c |d
+|===</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>or the <code>orientation</code> attribute:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="nowrap">[orientation=landscape]
+|===
+|a |b
+|c |d
+|===</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Currently, this is only implemented by the DocBook backend (it sets the attribute <code>orient="land"</code>).</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="table-caption"><a class="anchor" href="#table-caption"></a>26.9. Table Caption</h3>
 <div class="paragraph">
 <p>If you specify a title on a table, the title will be used as part of the table&#8217;s caption.
 Adding a title also designates the table as a <em class="term">formal table</em>.</p>
@@ -10036,7 +10067,7 @@ The caption attribute only sets the caption&#8217;s label, not the whole caption
 </div>
 </div>
 <div class="sect2">
-<h3 id="escaping-the-cell-separator"><a class="anchor" href="#escaping-the-cell-separator"></a>26.9. Escaping the Cell Separator</h3>
+<h3 id="escaping-the-cell-separator"><a class="anchor" href="#escaping-the-cell-separator"></a>26.10. Escaping the Cell Separator</h3>
 <div class="paragraph">
 <p>The parser scans for the cell separator to divide the cells <em>before</em> it processes the cell text (no matter what that text contains, even passthroughs).
 If your content includes the cell separator, you must escape that character using a leading backslash.
@@ -10099,7 +10130,7 @@ A good candidate is the broken bar, or <code>¦</code>.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="data-formats"><a class="anchor" href="#data-formats"></a>26.10. CSV and DSV Data Formats</h3>
+<h3 id="data-formats"><a class="anchor" href="#data-formats"></a>26.11. CSV and DSV Data Formats</h3>
 <div class="paragraph">
 <p>Tables can be created from data stored as Comma Separated Values (CSV) and Delimiter Separated Values (DSV).
 To use one of these dataset types, set the value of the <code>format</code> attribute on the table to <code>csv</code> or <code>dsv</code>, respectively.
@@ -10324,7 +10355,7 @@ include::tracks.csv[]
 </table>
 </div>
 <div class="sect2">
-<h3 id="summary-tables"><a class="anchor" href="#summary-tables"></a>26.11. Summary</h3>
+<h3 id="summary-tables"><a class="anchor" href="#summary-tables"></a>26.12. Summary</h3>
 <table class="tableblock frame-all grid-all spread">
 <caption class="title">Table attributes and values</caption>
 <colgroup>
@@ -10482,8 +10513,16 @@ Define instead using column or cell specifiers (e.g., <code>3*&gt;</code>), whic
 <td class="tableblock halign-left valign-top"><p class="tableblock">aligns the cell contents to the middle of the cell</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top" rowspan="5"><p class="tableblock"><code>options</code></p></td>
-<td class="tableblock halign-left valign-top" rowspan="5"><p class="tableblock">comma separated list of option names</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>orientation</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">rotates the table</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>landscape</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">rotated 90 degrees counterclockwise</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Equivalent to setting the rotate option, which is preferred.
+DocBook only.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" rowspan="6"><p class="tableblock"><code>options</code></p></td>
+<td class="tableblock halign-left valign-top" rowspan="6"><p class="tableblock">comma separated list of option names</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>header</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">promotes first row to the table header</p></td>
 <td class="tableblock halign-left valign-top" rowspan="2"><p class="tableblock">header and footer rows are omitted by default</p></td>
@@ -10496,7 +10535,7 @@ Define instead using column or cell specifiers (e.g., <code>3*&gt;</code>), whic
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>breakable</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">allows the table to split across a page (default)</p></td>
 <td class="tableblock halign-left valign-top" rowspan="2"><p class="tableblock">Mutually exclusive.
-Only applies to DocBook output when generating PDF using FOP.</p></td>
+DocBook only (specifically for generating PDF output).</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>unbreakable</code></p></td>
@@ -10506,6 +10545,12 @@ Only applies to DocBook output when generating PDF using FOP.</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>autowidth</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">disables explicit column widths (ignores <code>cols</code> attribute)</p></td>
 <td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>rotate</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Prints the table in landscape</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Equivalent to setting the orientation to landscape.
+DocBook only.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>width</code></p></td>
@@ -26000,7 +26045,7 @@ In source listings, is the callout the last thing on the line?</p></td>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2017-07-23 23:51:07 UTC
+Last updated 2017-07-27 05:27:32 UTC
 </div>
 </div>
 <script type="text/x-mathjax-config">
