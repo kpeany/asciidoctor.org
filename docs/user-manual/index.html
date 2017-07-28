@@ -2622,7 +2622,7 @@ While they can be used, they have to be placed so strategically that they are ra
 <div class="sectionbody">
 <div class="paragraph">
 <p>Attributes are one of the features that sets Asciidoctor apart from other lightweight markup languages.
-Attributes can activate features (behaviors, styles, integrations, etc) or hold replacement content.</p>
+Attributes can activate features (behaviors, styles, integrations, etc) or hold replacement (i.e., variable) content.</p>
 </div>
 <div class="paragraph">
 <p>In Asciidoctor, attributes are classified as:</p>
@@ -2652,7 +2652,7 @@ Attributes can activate features (behaviors, styles, integrations, etc) or hold 
 <div class="sect2">
 <h3 id="attribute-restrictions"><a class="anchor" href="#attribute-restrictions"></a>13.1. Attribute Restrictions</h3>
 <div class="paragraph">
-<p>All attributes have a name and a value.</p>
+<p>All attributes have a name and a value (though the value may be implicit).</p>
 </div>
 <div class="paragraph">
 <p>The attribute name:</p>
@@ -2674,9 +2674,11 @@ Attributes can activate features (behaviors, styles, integrations, etc) or hold 
 <p>In other words, the name cannot contain dots or spaces.</p>
 </div>
 <div class="paragraph">
-<p>Currently, case is ignored when resolving attributes, so <code>URI</code>, <code>Uri</code> and <code>uRI</code> are all the same as <code>uri</code>.
+<p>Although uppercase characters are permitted in an attribute entry (the place where an attribute is defined), the attribute name is converted to lowercase before being stored.
+The attribute name in an attribute reference is also converted to lowercase before the attribute is resolved.
+For example, <code>URI</code>, <code>Uri</code> and <code>uRI</code> are all treated as <code>uri</code>.
 (See <a href="https://github.com/asciidoctor/asciidoctor/issues/509">issue #509</a> for a proposed change to this restriction).
-A best practice is to only use lower case for letters in the name and avoid starting the name with a number.</p>
+A best practice is to only use lowercase for letters in the name and avoid starting the name with a number.</p>
 </div>
 <div class="paragraph">
 <p>The attribute value:</p>
@@ -26172,7 +26174,7 @@ In source listings, is the callout the last thing on the line?</p></td>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2017-07-28 06:14:40 UTC
+Last updated 2017-07-28 06:23:13 UTC
 </div>
 </div>
 <script type="text/x-mathjax-config">
