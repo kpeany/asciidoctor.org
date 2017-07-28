@@ -14657,7 +14657,7 @@ However, Asciidoctor doesn&#8217;t process and replace Unicode escape sequences 
 </td>
 <td class="content">
 Asciidoctor also provides numerous built-in attributes for representing characters and symbols.
-These attributes and their corresponding output are listed in <a href="#char-ref-table">Appendix B</a>.
+These attributes and their corresponding output are listed in <a href="#charref-attributes-table">Predefined attributes for character replacements <sup>[1][2][3]</sup></a>.
 </td>
 </tr>
 </table>
@@ -16052,7 +16052,7 @@ Jamie Moriarty
 <td class="content">
 You can still use both interpreters in the same document.
 The value of the <code>stem</code> attribute merely sets the default interpreter.
-To set the interpreter explicitly for a given block or inline span, just use <code>asciimath</code> or <code>latexmath</code> in place of <code>stem</code> as explained in <a href="#Using multiple stem interpreters">[Using multiple stem interpreters]</a>.
+To set the interpreter explicitly for a given block or inline span, just use <code>asciimath</code> or <code>latexmath</code> in place of <code>stem</code> as explained in <a href="#using-multiple-stem-interpreters">Using Multiple Stem Interpreters</a>.
 </td>
 </tr>
 </table>
@@ -23474,7 +23474,7 @@ These are some of the more interesting ones when migrating:</p>
 <div class="ulist">
 <ul>
 <li>
-<p><a href="#include-directive-2">Partial includes</a></p>
+<p><a href="#include-partial">Partial includes</a></p>
 </li>
 <li>
 <p><a href="#running-asciidoctor-securely">Additional safe modes</a></p>
@@ -24625,7 +24625,7 @@ Also used as a fallback when the document title is not specified.
 <td class="tableblock halign-left valign-top"><p class="tableblock">0</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">(+/-)0&#8211;5. (A leading + or - makes it relative).</p></td>
 <td class="tableblock halign-center valign-top"></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#relative-leveloffset">[relative-leveloffset]</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#include-partitioning">Partitioning large documents and using leveloffset</a></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">sectanchors</p></td>
@@ -24732,7 +24732,7 @@ Also used as a fallback when the document title is not specified.
 <td class="tableblock halign-left valign-top"><p class="tableblock"><em>not set</em></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Comma-separated list of the following values: shared, private, shared-head, private-head, shared-footer or private-footer</p></td>
 <td class="tableblock halign-center valign-top"><p class="tableblock"><span class="icon green"><i class="fa fa-check"></i></span></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#docinfo-attributes-and-file-names">[docinfo-attributes-and-file-names]</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#naming-docinfo-files">Naming docinfo files</a></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">docinfodir</p></td>
@@ -24740,7 +24740,7 @@ Also used as a fallback when the document title is not specified.
 <td class="tableblock halign-left valign-top"><p class="tableblock">The base directory.</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Directory</p></td>
 <td class="tableblock halign-center valign-top"><p class="tableblock"><span class="icon green"><i class="fa fa-check"></i></span></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#docinfo-attributes-and-file-names">[docinfo-attributes-and-file-names]</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#locating-docinfo-files">Locating docinfo files</a></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">docinfosubs</p></td>
@@ -24748,7 +24748,7 @@ Also used as a fallback when the document title is not specified.
 <td class="tableblock halign-left valign-top"><p class="tableblock">attributes</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Comma-separated list of substitution names. Set value to empty or <code>none</code> to disable substitutions.</p></td>
 <td class="tableblock halign-center valign-top"><p class="tableblock"><span class="icon green"><i class="fa fa-check"></i></span></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#docinfo-attributes-and-file-names">[docinfo-attributes-and-file-names]</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#attribute-substitution-in-docinfo-files">Attribute substitution in docinfo files</a></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">doctype</p></td>
@@ -24904,7 +24904,7 @@ The value populates the <code>family</code> query string parameter in the Google
 <td class="tableblock halign-left valign-top"><p class="tableblock"><em>not set</em></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">full, short, or basic</p></td>
 <td class="tableblock halign-center valign-top"><p class="tableblock"><span class="icon green"><i class="fa fa-check"></i></span></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#customizing-the-cross-reference">[customizing-the-cross-reference]</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#customizing-the-cross-reference-text">Customizing the Cross Reference Text</a></p></td>
 </tr>
 <tr>
 <th class="tableblock halign-left valign-top" colspan="6"><p class="tableblock">Images and icons</p></th>
@@ -26116,7 +26116,7 @@ If it is a URI and <code>-a allow-uri-read</code> is set, does it exist?</p></td
 <td class="tableblock halign-left valign-top"><p class="tableblock">WARNING</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">&lt;docname&gt; include file not found: &lt;file&gt;</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Probably a typo or missing file. If not, make sure you understand the search process.</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#include-directive-2">[include-directive-2]</a>, <a href="#include-resolution">File resolution</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#include-directive">Include Directive</a>, <a href="#include-resolution">File resolution</a></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">WARNING</p></td>
@@ -26174,7 +26174,7 @@ In source listings, is the callout the last thing on the line?</p></td>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2017-07-28 06:23:13 UTC
+Last updated 2017-07-28 06:40:59 UTC
 </div>
 </div>
 <script type="text/x-mathjax-config">
