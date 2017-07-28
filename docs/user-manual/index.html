@@ -11755,19 +11755,20 @@ The content is inserted as is (after being normalized).</p>
 <div class="sect2">
 <h3 id="include-partial"><a class="anchor" href="#include-partial"></a>31.5. Select Portions of a Document to Include</h3>
 <div class="paragraph">
-<p>The include directive supports extracting portions of content from within a document.
-The content is specified either by user-defined tags or a range of line numbers.</p>
+<p>The include directive supports selecting only portions of the document to include.
+Using the <code>tags</code> attribute (or <code>tag</code> attribute for the singular case), you can select lines that fall between regions marked with user-defined tags.
+Using the <code>lines</code> attribute, you can include ranges of line numbers.</p>
 </div>
 <div class="paragraph">
-<p>When including multiple line ranges or multiple tags, the individual values can be separated either by a comma or a semi-colon.
-If commas are used, then the entire attribute value must be enclosed in quotes.
-Using the semi-colon as the data separator alleviates this requirement.</p>
+<p>When including multiple line ranges or multiple tags, each entry in the list must be separated by either a comma or a semi-colon.
+If commas are used, the entire value must be enclosed in quotes.
+Using the semi-colon as the data separator relieves this requirement.</p>
 </div>
 <div class="sect3">
 <h4 id="by-tagged-regions"><a class="anchor" href="#by-tagged-regions"></a>31.5.1. By tagged regions</h4>
 <div class="paragraph">
 <p>Tags are useful when you want to display specific regions of content from an include file instead of all of its content.
-You can select tagged regions of content with the <code>tag</code> macro and the <code>tags</code> attribute.
+You can select regions of content between tag/end directives using the <code>tags</code> attribute.
 The example below shows how you tag a region of content inside a file containing multiple code examples.</p>
 </div>
 <div class="listingblock">
@@ -11795,7 +11796,7 @@ doc
 </tr>
 <tr>
 <td><i class="conum" data-value="2"></i><b>2</b></td>
-<td>Assign a unique name to the tag macro. In this example the tag is called <em>timings</em>.</td>
+<td>Assign a unique name to the <code>tag</code> directive. In this example the tag is called <em>timings</em>.</td>
 </tr>
 <tr>
 <td><i class="conum" data-value="3"></i><b>3</b></td>
@@ -11803,7 +11804,7 @@ doc
 </tr>
 <tr>
 <td><i class="conum" data-value="4"></i><b>4</b></td>
-<td>Assign the name of the region you want to terminate to the <code>end</code> macro.</td>
+<td>Assign the name of the region you want to terminate to the <code>end</code> directive.</td>
 </tr>
 <tr>
 <td><i class="conum" data-value="5"></i><b>5</b></td>
@@ -11836,20 +11837,21 @@ In the previous example, we choose to prefix the lines with a hash (<code>#</cod
 <i class="fa icon-tip" title="Tip"></i>
 </td>
 <td class="content">
-Asciidoctor supports targets that include spaces and the <code>{sp}</code> attribute references.
+For languages that only have circumfix comments, such as XML, you can enclose the tag and end directives in the respective circumfix comment markers.
+For example, in XML files, you can use <code>&lt;!-- tag::name[] --&gt;</code> and <code>&lt;!-- end::name[] --&gt;</code> (the spaces around the tag are required).
 </td>
 </tr>
 </table>
 </div>
 <div class="paragraph">
-<p>In the next example, the tagged region named <em>parse</em> is called by the <code>include</code> directive.</p>
+<p>In the next example, the tagged region named <em>parse</em> is selected by the <code>include</code> directive.</p>
 </div>
 <div class="listingblock">
-<div class="title">Calling the <em>parse</em> code snippet from a document</div>
+<div class="title">Selecting the <em>parse</em> code snippet from a document</div>
 <div class="content">
 <pre class="CodeRay highlight nowrap"><code data-lang="asciidoc">[source,ruby]
 ----
-include::core.rb[tags=parse] <i class="conum" data-value="1"></i><b>(1)</b>
+include::core.rb[tag=parse] <i class="conum" data-value="1"></i><b>(1)</b>
 ----</code></pre>
 </div>
 </div>
@@ -11865,7 +11867,7 @@ include::core.rb[tags=parse] <i class="conum" data-value="1"></i><b>(1)</b>
 <p>You can include multiple tags from the same file.</p>
 </div>
 <div class="listingblock">
-<div class="title">Calling the <em>timings</em> and the <em>parse</em> code snippets from a document</div>
+<div class="title">Selecting the <em>timings</em> and the <em>parse</em> code snippets from a document</div>
 <div class="content">
 <pre class="CodeRay highlight nowrap"><code data-lang="asciidoc">[source,ruby]
 ----
@@ -11913,24 +11915,85 @@ snippet b</code></pre>
 <div class="paragraph">
 <p>Notice that none of the lines with the tag directives are displayed.</p>
 </div>
-<div class="admonitionblock note">
+</div>
+<div class="sect3">
+<h4 id="tag-filtering"><a class="anchor" href="#tag-filtering"></a>31.5.2. Tag filtering</h4>
+<div class="paragraph">
+<p>The previous section showed how to select tagged regions explictly, but you can also use wildcards and exclusions:</p>
+</div>
+<div class="hdlist">
 <table>
 <tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
+<td class="hdlist1">
+<code>*</code>
 </td>
-<td class="content">
-for XML files you can use the <code>&lt;!-- tag::name[] --&gt;</code> and <code>&lt;!-- end::name[] --&gt;</code> delimiters
+<td class="hdlist2">
+<p>Select all tagged regions.</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+<code>**</code>
+</td>
+<td class="hdlist2">
+<p>Select all the lines in the document.</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+<code>!</code>
+</td>
+<td class="hdlist2">
+<p>Negate the match.</p>
 </td>
 </tr>
 </table>
 </div>
 <div class="paragraph">
-<p>Alternately, you can select content by line number.</p>
+<p>The wildcards are applied first, then the exclusions are applied.
+Technically, the order you list them doesn&#8217;t matter, but it&#8217;s customary to list them in this order.</p>
+</div>
+<div class="paragraph">
+<p>Here are some of the permutations that you can use:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>**</code>&#8201;&#8212;&#8201;selects all the lines in the document; mimics the default behavior of the include directive.</p>
+</li>
+<li>
+<p><code>*</code>&#8201;&#8212;&#8201;selects all tagged regions of the document.</p>
+</li>
+<li>
+<p><code>foo;!bar</code>&#8201;&#8212;&#8201;selects regions tagged <em>foo</em>, but excludes any nested regions tagged <em>bar</em>.</p>
+</li>
+<li>
+<p><code>*;!foo</code>&#8201;&#8212;&#8201;selects all tagged regions, but excludes any regions tagged <em>foo</em> (nested or otherwise).</p>
+</li>
+<li>
+<p><code>**;!foo</code>&#8201;&#8212;&#8201;selects all the lines of the document except for regions tagged <em>foo</em>.</p>
+</li>
+<li>
+<p><code>**;!*</code>&#8201;&#8212;&#8201;selects only the regions of the document outside of tags (i.e., non-tagged regions).</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>There are also some shorthands if only exclusions are specified:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>!foo</code>&#8201;&#8212;&#8201;equivalent to <code>**;!foo</code>; an exclusion without an inclusion implicitly starts by selecting all the lines.</p>
+</li>
+<li>
+<p><code>!foo</code>&#8201;&#8212;&#8201;equivalent to <code><strong>*;!</strong></code>; selects non-tagged regions only.</p>
+</li>
+</ul>
 </div>
 </div>
 <div class="sect3">
-<h4 id="by-line-ranges"><a class="anchor" href="#by-line-ranges"></a>31.5.2. By line ranges</h4>
+<h4 id="by-line-ranges"><a class="anchor" href="#by-line-ranges"></a>31.5.3. By line ranges</h4>
 <div class="paragraph">
 <p>To include content by line range, assign a starting line number and an ending line number separated by a pair of dots (e.g., <code>lines=1..5</code>) to the <code>lines</code> attribute.</p>
 </div>
@@ -26108,7 +26171,7 @@ In source listings, is the callout the last thing on the line?</p></td>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2017-07-27 06:25:36 UTC
+Last updated 2017-07-28 06:07:08 UTC
 </div>
 </div>
 <script type="text/x-mathjax-config">
