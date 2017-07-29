@@ -10134,8 +10134,8 @@ A good candidate is the broken bar, or <code>¦</code>.</p>
 <div class="sect2">
 <h3 id="data-formats"><a class="anchor" href="#data-formats"></a>26.11. Delimited-Separated Values</h3>
 <div class="paragraph">
-<p>Tables can also be populated from data stored as <a href="https://en.wikipedia.org/wiki/Delimiter-separated_values">delimiter-separated values</a>.
-In contrast with the PSV format, in which the delimiter is placed in front of each cell value, in a delimiter-separated format, the delimiter is placed between the cell values as a <em>separator</em>.
+<p>Tables can also be populated from data formatted as <a href="https://en.wikipedia.org/wiki/Delimiter-separated_values">delimiter-separated values</a>.
+In contrast with the PSV format, in which the delimiter is placed in front of each cell value, in a delimiter-separated format, the delimiter is placed between the cell values (called a <em>separator</em>).
 Each line of data is assumed to represent a single row, though you&#8217;ll learn that&#8217;s not a strict rule.
 How the data in a table gets interpreted is controlled by the <code>format</code> and <code>separator</code> attributes on the table.</p>
 </div>
@@ -10144,25 +10144,25 @@ How the data in a table gets interpreted is controlled by the <code>format</code
 <div class="title">What the delimiter?</div>
 <div class="paragraph">
 <p>Are comma-separated values a subset of delimiter-separated values or something different?
-Well, it kind of depends on who you ask.</p>
+Well, it kind of depends on who you consult.</p>
 </div>
 <div class="paragraph">
-<p>The term &#8220;delimiter-separated values&#8221; in this text refers to the family of delimited data formats, including comma-separated values (CSV), tab-separated values (TSV) and delimited data (DSV), all of which are supported in AsciiDoc.
-CSV is the data format encountered most often.</p>
+<p>The term &#8220;delimiter-separated values&#8221; in this text refers to the family of delimited data formats, including comma-separated values (CSV), tab-separated values (TSV) and delimited data (DSV), all of which are supported in AsciiDoc tables.</p>
 </div>
 <div class="paragraph">
-<p>But &#8220;comma-separated values&#8221; is misleading since CSV can use a delimiter other than <code>,</code> as the field separator.
+<p>But &#8220;comma-separated values&#8221; is misleading since CSV can use a delimiter other than <code>,</code> as the field separator (which, in this context, separate cells).
 What we&#8217;re really talking about is <a href="#delimited-data-formats">how the data is interpeted</a>.</p>
 </div>
 <div class="paragraph">
 <p>CSV and TSV both use a delimiter and an optional enclosing character.
-DSV (i.e., delimited data) only uses a delimiter (which can be escaped); an enclosing character is not recognized.</p>
+DSV (i.e., delimited data) only uses a delimiter (which can be escaped); an enclosing character is not recognized.
+CSV is the data format encountered most often.</p>
 </div>
 </div>
 </div>
 <div class="paragraph">
-<p>Let&#8217;s consider an example of using comma-separated values (CSV) to populate a table with data.
-To instruct the processor to read the data as CSV, you set the value of the <code>format</code> attribute on the table to <code>csv</code>.
+<p>Let&#8217;s consider an example of using comma-separated values (CSV) to populate an AsciiDoc table with data.
+To instruct the processor to read the data as CSV, set the value of the <code>format</code> attribute on the table to <code>csv</code>.
 When the <code>format</code> attribute is set to <code>csv</code>, the default data separator is a comma (<code>,</code>), as seen in the table below.</p>
 </div>
 <div class="listingblock">
@@ -10204,7 +10204,7 @@ The Lumineers,Ho Hey,Folk Rock
 </table>
 <div class="paragraph">
 <p>This feature is particularly useful when you want to populate a table in your manuscript from data stored in a separate file.
-You can do so using the <a href="#include-directive">include directive</a> inside the table delimiters, as shown here:</p>
+You can do so using the <a href="#include-directive">include directive</a> between the table delimiters, as shown here:</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -10218,9 +10218,9 @@ include::tracks.csv[]
 <p>If you&#8217;re data is separated by tabs instead of commas, set the <code>format</code> to <code>tsv</code> (tab-separated values) instead.</p>
 </div>
 <div class="paragraph">
-<p>Now let&#8217;s consider an example of using delimited data (DSV) to populate a table with data.
+<p>Now let&#8217;s consider an example of using delimited data (DSV) to populate an AsciiDoc table with data.
 To instruct the processor to read the data as CSV, set the value of the <code>format</code> attribute on the table to <code>dsv</code>.
-When the <code>format</code> attribute is set to <code>dsv</code>, the default data separator is a comma (<code>,</code>), as seen in the table below.</p>
+When the <code>format</code> attribute is set to <code>dsv</code>, the default data separator is a colon (<code>:</code>), as seen in the table below.</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -10262,11 +10262,11 @@ The Piano Guys:Code Name Vivaldi:Classical
 <div class="sect3">
 <h4 id="delimited-data-formats"><a class="anchor" href="#delimited-data-formats"></a>26.11.1. Delimited Data Formats</h4>
 <div class="paragraph">
-<p>The CSV and TSV formats are parsed differently from the DSV format.
+<p>The CSV and TSV data formats are parsed differently from the DSV data format.
 This section outlines those differences.</p>
 </div>
 <div class="paragraph">
-<p>The CSV and TSV formats are parsed according to the following rules, loosely based on <a href="http://tools.ietf.org/html/rfc4180">RFC 4180</a>:</p>
+<p>CSV and TSV data is parsed according to the following rules, loosely based on <a href="http://tools.ietf.org/html/rfc4180">RFC 4180</a>:</p>
 </div>
 <div class="ulist">
 <ul>
@@ -10311,7 +10311,7 @@ This section outlines those differences.</p>
 </ul>
 </div>
 <div class="paragraph">
-<p>The DSV format is parsed according to the following rules:</p>
+<p>DSV data is parsed according to the following rules:</p>
 </div>
 <div class="ulist">
 <ul>
@@ -10336,7 +10336,7 @@ This section outlines those differences.</p>
 <div class="sect3">
 <h4 id="custom-delimiters"><a class="anchor" href="#custom-delimiters"></a>26.11.2. Custom Delimiters</h4>
 <div class="paragraph">
-<p>Although each data format has a default separator associated with it, the separator can be changed to any character (or even a string of characters) by setting the <code>separator</code> attribute on the table.</p>
+<p>Each data format has a default separator associated with it (csv = comma, tsv = tab, dsv = colon), but the separator can be changed to any character (or even a string of characters) by setting the <code>separator</code> attribute on the table.</p>
 </div>
 <div class="paragraph">
 <p>Here&#8217;s an example of a DSV table that uses a custom separator character (i.e., delimiter):</p>
@@ -10366,7 +10366,7 @@ Though the <code>tsv</code> format is preferred.
 </div>
 <div class="paragraph">
 <p>The separator is independant of the processing rules for the format.
-If you set <code>format=dsv</code> and <code>separator=,</code>, the data will be processed using the dsv rules, even though the data looks like CSV.</p>
+If you set <code>format=dsv</code> and <code>separator=,</code>, the data will be processed using the DSV rules, even though the data looks like CSV.</p>
 </div>
 </div>
 <div class="sect3">
@@ -26291,7 +26291,7 @@ In source listings, is the callout the last thing on the line?</p></td>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2017-07-29 06:48:46 UTC
+Last updated 2017-07-29 07:03:40 UTC
 </div>
 </div>
 <script type="text/x-mathjax-config">
