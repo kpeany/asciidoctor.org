@@ -682,7 +682,7 @@ table.CodeRay td.code>pre{padding:0}
 <li><a href="#orientation">26.8. Orientation</a></li>
 <li><a href="#table-caption">26.9. Table Caption</a></li>
 <li><a href="#escaping-the-cell-separator">26.10. Escaping the Cell Separator</a></li>
-<li><a href="#data-formats">26.11. CSV and DSV Data Formats</a></li>
+<li><a href="#data-formats">26.11. Delimited-Separated Values</a></li>
 <li><a href="#summary-tables">26.12. Summary</a></li>
 </ul>
 </li>
@@ -10132,18 +10132,42 @@ A good candidate is the broken bar, or <code>¦</code>.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="data-formats"><a class="anchor" href="#data-formats"></a>26.11. CSV and DSV Data Formats</h3>
+<h3 id="data-formats"><a class="anchor" href="#data-formats"></a>26.11. Delimited-Separated Values</h3>
 <div class="paragraph">
-<p>Tables can be created from data stored as Comma Separated Values (CSV) and Delimiter Separated Values (DSV).
-To use one of these dataset types, set the value of the <code>format</code> attribute on the table to <code>csv</code> or <code>dsv</code>, respectively.
-The main difference between tables with one of these formats and <code>psv</code> tables is how the data inside the table delimiters is arranged.</p>
+<p>Tables can also be populated from data stored as <a href="https://en.wikipedia.org/wiki/Delimiter-separated_values">delimiter-separated values</a>.
+In contrast with the PSV format, in which the delimiter is placed in front of each cell value, in a delimiter-separated format, the delimiter is placed between the cell values as a <em>separator</em>.
+Each line of data is assumed to represent a single row, though you&#8217;ll learn that&#8217;s not a strict rule.
+How the data in a table gets interpreted is controlled by the <code>format</code> and <code>separator</code> attributes on the table.</p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="title">What the delimiter?</div>
+<div class="paragraph">
+<p>Are comma-separated values a subset of delimiter-separated values or something different?
+Well, it kind of depends on who you ask.</p>
 </div>
 <div class="paragraph">
-<p>When the format attribute is set to <code>csv</code>, the data separator is a comma (<code>,</code>), as seen in the table below.</p>
+<p>The term &#8220;delimiter-separated values&#8221; in this text refers to the family of delimited data formats, including comma-separated values (CSV), tab-separated values (TSV) and delimited data (DSV), all of which are supported in AsciiDoc.
+CSV is the data format encountered most often.</p>
+</div>
+<div class="paragraph">
+<p>But &#8220;comma-separated values&#8221; is misleading since CSV can use a delimiter other than <code>,</code> as the field separator.
+What we&#8217;re really talking about is <a href="#delimited-data-formats">how the data is interpeted</a>.</p>
+</div>
+<div class="paragraph">
+<p>CSV and TSV both use a delimiter and an optional enclosing character.
+DSV (i.e., delimited data) only uses a delimiter (which can be escaped); an enclosing character is not recognized.</p>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>Let&#8217;s consider an example of using comma-separated values (CSV) to populate a table with data.
+To instruct the processor to read the data as CSV, you set the value of the <code>format</code> attribute on the table to <code>csv</code>.
+When the <code>format</code> attribute is set to <code>csv</code>, the default data separator is a comma (<code>,</code>), as seen in the table below.</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="CodeRay highlight nowrap"><code data-lang="asciidoc">[format=&quot;csv&quot;, options=&quot;header&quot;]
+<pre class="CodeRay highlight nowrap"><code data-lang="asciidoc">[%header,format=csv]
 |===
 Artist,Track,Genre
 Baauer,Harlem Shake,Hip Hop
@@ -10179,11 +10203,28 @@ The Lumineers,Ho Hey,Folk Rock
 </tbody>
 </table>
 <div class="paragraph">
-<p>When the format attribute is set to <code>dsv</code>, the data separator is a colon (<code>:</code>).</p>
+<p>This feature is particularly useful when you want to populate a table in your manuscript from data stored in a separate file.
+You can do so using the <a href="#include-directive">include directive</a> inside the table delimiters, as shown here:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="CodeRay highlight nowrap"><code data-lang="asciidoc">[format=&quot;dsv&quot;, options=&quot;header&quot;]
+<pre class="CodeRay highlight nowrap"><code data-lang="asciidoc">[%header,format=csv]
+|===
+include::tracks.csv[]
+|===</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>If you&#8217;re data is separated by tabs instead of commas, set the <code>format</code> to <code>tsv</code> (tab-separated values) instead.</p>
+</div>
+<div class="paragraph">
+<p>Now let&#8217;s consider an example of using delimited data (DSV) to populate a table with data.
+To instruct the processor to read the data as CSV, set the value of the <code>format</code> attribute on the table to <code>dsv</code>.
+When the <code>format</code> attribute is set to <code>dsv</code>, the default data separator is a comma (<code>,</code>), as seen in the table below.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight nowrap"><code data-lang="asciidoc">[%header,format=dsv]
 |===
 Artist:Track:Genre
 Robyn:Indestructable:Dance
@@ -10218,12 +10259,124 @@ The Piano Guys:Code Name Vivaldi:Classical
 </tr>
 </tbody>
 </table>
+<div class="sect3">
+<h4 id="delimited-data-formats"><a class="anchor" href="#delimited-data-formats"></a>26.11.1. Delimited Data Formats</h4>
 <div class="paragraph">
-<p>Asciidoctor also provides shorthand notation for setting CSV and DSV table formats.
-The first position of the table block delimiter (i.e., <code>|===</code>) can be replaced by the data delimiter to set the table format (e.g., <code>,===</code>).</p>
+<p>The CSV and TSV formats are parsed differently from the DSV format.
+This section outlines those differences.</p>
 </div>
 <div class="paragraph">
-<p>To set the format of the table to CSV using shorthand notation, simply replace the leading pipe (<code>|</code>) in the table delimiter with a command (<code>,</code>), as shown here:</p>
+<p>The CSV and TSV formats are parsed according to the following rules, loosely based on <a href="http://tools.ietf.org/html/rfc4180">RFC 4180</a>:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>The default delimiter for CSV is a comma (<code>,</code>) while the default delimiter for TSV is a tab.</p>
+</li>
+<li>
+<p>Blank lines are skipped (unless enclosed in a quoted value).</p>
+</li>
+<li>
+<p>Whitespace surrounding each value is stripped.</p>
+</li>
+<li>
+<p>Values can be enclosed in double quotes (<code>"</code>).</p>
+<div class="ulist">
+<ul>
+<li>
+<p>A quoted value may contain the separator or newline character or double quotes.</p>
+</li>
+<li>
+<p>Although newlines in a quoted value should be retained, due to bug <a href="https://github.com/asciidoctor/asciidoctor/issues/2041">#2041</a>, each one is converted to a single space.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>A double quote character can be used inside a quoted value if escaped using a double quote (<code>""</code>).</p>
+</li>
+<li>
+<p>If rows do not have the same number of cells (&#8220;ragged&#8221; tables), cells are shuffled to fully fill the rows.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>This is different behavior than Excel, which pads short rows with empty cells.</p>
+</li>
+<li>
+<p>As a rule of thumb, data for a single row should be on the same line.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>The DSV format is parsed according to the following rules:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>The default delimiter for DSV is a colon (<code>:</code>).</p>
+</li>
+<li>
+<p>Blank lines are skipped.</p>
+</li>
+<li>
+<p>Whitespace surrounding each value is stripped.</p>
+</li>
+<li>
+<p>The delimiter character can be included in the value if escaped using a single backslash (<code>\:</code>).</p>
+</li>
+<li>
+<p>If rows do not have the same number of cells (&#8220;ragged&#8221; tables), cells are shuffled to fully fill the rows.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="custom-delimiters"><a class="anchor" href="#custom-delimiters"></a>26.11.2. Custom Delimiters</h4>
+<div class="paragraph">
+<p>Although each data format has a default separator associated with it, the separator can be changed to any character (or even a string of characters) by setting the <code>separator</code> attribute on the table.</p>
+</div>
+<div class="paragraph">
+<p>Here&#8217;s an example of a DSV table that uses a custom separator character (i.e., delimiter):</p>
+</div>
+<div class="listingblock">
+<div class="title">A DSV table with a custom separator</div>
+<div class="content">
+<pre class="CodeRay highlight nowrap"><code data-lang="asciidoc">[format=dsv,separator=;]
+|===
+a;b;c
+d;e;f
+|===</code></pre>
+</div>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+To make a TSV table, you can set the <code>format</code> attribute to <code>csv</code> and the separator to <code>\t</code>.
+Though the <code>tsv</code> format is preferred.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>The separator is independant of the processing rules for the format.
+If you set <code>format=dsv</code> and <code>separator=,</code>, the data will be processed using the dsv rules, even though the data looks like CSV.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="table-format-shorthands"><a class="anchor" href="#table-format-shorthands"></a>26.11.3. Table Format Shorthands</h4>
+<div class="paragraph">
+<p>Asciidoctor provides shorthand notation for specifying the data format of a table.
+The first position of the table block delimiter (i.e., <code>|===</code>) can be replaced by a built-in delimiter to set the table format (e.g., <code>,===</code> for CSV).</p>
+</div>
+<div class="paragraph">
+<p>To make a CSV table, you can use <code>,===</code> as the table block delimiter:</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -10257,7 +10410,7 @@ Baauer,Harlem Shake,Hip Hop
 </tbody>
 </table>
 <div class="paragraph">
-<p>In the same way, the DSV format can be specified by replacing the leading pipe (<code>|</code>) with a colon (<code>:</code>).</p>
+<p>To make a DSV table, you can use <code>:===</code> as the table block delimiter:</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -10291,70 +10444,30 @@ Robyn:Indestructable:Dance
 </tbody>
 </table>
 <div class="paragraph">
-<p>DSV and CSV datasets don&#8217;t support formatting of individual cells.
-However, you can apply formatting, such as the AsciiDoc style, to a column of cells using a table-wide column spec:</p>
+<p>When using either the CSV or DSV shorthand, you do not need to set the <code>format</code> attribute as it&#8217;s implied.</p>
+</div>
+<div class="paragraph">
+<p>To make a TSV table, you can set the <code>format</code> attribute to <code>tsv</code> instead of having to set the <code>format</code> to <code>csv</code> and the separator to <code>\t</code>.
+In this case, you can use either <code>|===</code> or <code>,===</code> as the table block delimiter.
+There is no special delimited block notation for a TSV table.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="cell-formatting"><a class="anchor" href="#cell-formatting"></a>26.11.4. Cell Formatting</h4>
+<div class="paragraph">
+<p>The delimited formats do not provide a way to express formatting of individual table cells.
+Instead, you can apply cell formatting to all cells in a given column using the <code>cols</code> spec on the table:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="CodeRay highlight nowrap"><code data-lang="asciidoc">[cols=&quot;1h,1a&quot;]
-,===
+<pre class="CodeRay highlight nowrap"><code data-lang="asciidoc">[format=csv,cols=&quot;1h,1a&quot;]
+|===
 Sky,image::sky.jpg[]
 Forest,image::forest.jpg[]
-,===</code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p>Keep in mind that endlines are not preserved in CSV and DSV data.
-That does somewhat limit the type of content you can put in these cells, particularly when using the AsciiDoc cell style.</p>
-</div>
-<div class="paragraph">
-<p>DSV and CSV datasets can be, and often are, inserted into a table using the <a href="#include-directive">include directive</a>.</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="CodeRay highlight nowrap"><code data-lang="asciidoc">[format=&quot;csv&quot;, options=&quot;header&quot;]
-|===
-include::tracks.csv[]
 |===</code></pre>
 </div>
 </div>
-<table class="tableblock frame-all grid-all" style="width: 90%;">
-<caption class="title">Result: Rendered table of CSV data pulled from a separate file</caption>
-<colgroup>
-<col style="width: 33.3333%;">
-<col style="width: 33.3333%;">
-<col style="width: 33.3334%;">
-</colgroup>
-<thead>
-<tr>
-<th class="tableblock halign-left valign-top">Artist</th>
-<th class="tableblock halign-left valign-top">Track</th>
-<th class="tableblock halign-left valign-top">Genre</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Baauer</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Harlem Shake</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Hip Hop</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">The Lumineers</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Ho Hey</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Folk Rock</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Robyn</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Indestructable</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Dance</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">The Piano Guys</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Code Name Vivaldi</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Classical</p></td>
-</tr>
-</tbody>
-</table>
+</div>
 </div>
 <div class="sect2">
 <h3 id="summary-tables"><a class="anchor" href="#summary-tables"></a>26.12. Summary</h3>
@@ -10385,11 +10498,11 @@ include::tracks.csv[]
 <td class="tableblock halign-left valign-top"></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top" rowspan="3"><p class="tableblock"><code>format</code></p></td>
-<td class="tableblock halign-left valign-top" rowspan="3"><p class="tableblock">data format of the table&#8217;s contents</p></td>
+<td class="tableblock halign-left valign-top" rowspan="4"><p class="tableblock"><code>format</code></p></td>
+<td class="tableblock halign-left valign-top" rowspan="4"><p class="tableblock">data format of the table&#8217;s contents</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>psv</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">cells are delimited by <code>separator</code> (default <code>|</code>) (aka prefix-separated values)</p></td>
-<td class="tableblock halign-left valign-top" rowspan="3"></td>
+<td class="tableblock halign-left valign-top" rowspan="4"></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>dsv</code></p></td>
@@ -10398,6 +10511,10 @@ include::tracks.csv[]
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>csv</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">cells are delimited by a comma (<code>,</code>) (aka comma-separated values)</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>tsv</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">cells are delimited by a tab character (aka tab-separated values)</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top" rowspan="3"><p class="tableblock"><code>separator</code></p></td>
@@ -26174,7 +26291,7 @@ In source listings, is the callout the last thing on the line?</p></td>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2017-07-28 06:40:59 UTC
+Last updated 2017-07-29 06:48:46 UTC
 </div>
 </div>
 <script type="text/x-mathjax-config">
