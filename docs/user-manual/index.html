@@ -10468,7 +10468,7 @@ There is no special delimited block notation for a TSV table.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="formatting-cells-in-data-tables"><a class="anchor" href="#formatting-cells-in-data-tables"></a>26.11.4. Formatting Cells in Data Tables</h4>
+<h4 id="formatting-cells-in-a-data-table"><a class="anchor" href="#formatting-cells-in-a-data-table"></a>26.11.4. Formatting Cells in a Data Table</h4>
 <div class="paragraph">
 <p>The delimited formats do not provide a way to express formatting of individual table cells.
 Instead, you can apply cell formatting to all cells in a given column using the <code>cols</code> spec on the table:</p>
@@ -10481,6 +10481,10 @@ Sky,image::sky.jpg[]
 Forest,image::forest.jpg[]
 |===</code></pre>
 </div>
+</div>
+<div class="paragraph">
+<p>Data tables do not support cells that span multiple rows or columns, since that information can only be expressed at the cell level.
+You are advised to use the PSV format if you need that functionality.</p>
 </div>
 </div>
 </div>
@@ -26313,7 +26317,7 @@ In source listings, is the callout the last thing on the line?</p></td>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2017-07-30 20:44:35 UTC
+Last updated 2017-07-30 20:47:21 UTC
 </div>
 </div>
 <script type="text/x-mathjax-config">
