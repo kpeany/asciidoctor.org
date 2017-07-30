@@ -10271,15 +10271,17 @@ The Piano Guys:Code Name Vivaldi:Classical
 <h4 id="data-table-formats"><a class="anchor" href="#data-table-formats"></a>26.11.1. Data Table Formats</h4>
 <div class="paragraph">
 <p>The CSV and TSV data formats are parsed differently from the DSV data format.
-This section outlines those differences.</p>
+The following two sections outline those differences.</p>
 </div>
+<div class="sect4">
+<h5 id="csv-and-tsv"><a class="anchor" href="#csv-and-tsv"></a>CSV and TSV</h5>
 <div class="paragraph">
-<p>CSV and TSV data are parsed according to the following rules, loosely based on <a href="http://tools.ietf.org/html/rfc4180">RFC 4180</a>:</p>
+<p>Table data in either CSV or TSV format is parsed according to the following rules, loosely based on <a href="http://tools.ietf.org/html/rfc4180">RFC 4180</a>:</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>The default delimiter for CSV is a comma (<code>,</code>) while the default delimiter for TSV is a tab.</p>
+<p>The default delimiter for CSV is a comma (<code>,</code>) while the default delimiter for TSV is a tab character.</p>
 </li>
 <li>
 <p>Blank lines are skipped (unless enclosed in a quoted value).</p>
@@ -10292,16 +10294,16 @@ This section outlines those differences.</p>
 <div class="ulist">
 <ul>
 <li>
-<p>A quoted value may contain the separator, newline character or double quotes.</p>
+<p>A quoted value may contain zero or more separator or newline characters.</p>
+</li>
+<li>
+<p>A quoted value may include the double quote character if escaped using another double quote (<code>""</code>).</p>
 </li>
 <li>
 <p>Although newlines in quoted values should be retained, due to bug <a href="https://github.com/asciidoctor/asciidoctor/issues/2041">#2041</a>, each one is converted to a single space.</p>
 </li>
 </ul>
 </div>
-</li>
-<li>
-<p>A double quote character can be used inside a quoted value if escaped using a double quote (<code>""</code>).</p>
 </li>
 <li>
 <p>If rows do not have the same number of cells (&#8220;ragged&#8221; tables), cells are shuffled to fully fill the rows.</p>
@@ -10318,8 +10320,11 @@ This section outlines those differences.</p>
 </li>
 </ul>
 </div>
+</div>
+<div class="sect4">
+<h5 id="dsv"><a class="anchor" href="#dsv"></a>DSV</h5>
 <div class="paragraph">
-<p>DSV data is parsed according to the following rules:</p>
+<p>Table data in DSV format is parsed according to the following rules:</p>
 </div>
 <div class="ulist">
 <ul>
@@ -10339,6 +10344,7 @@ This section outlines those differences.</p>
 <p>If rows do not have the same number of cells (&#8220;ragged&#8221; tables), cells are shuffled to fully fill the rows.</p>
 </li>
 </ul>
+</div>
 </div>
 </div>
 <div class="sect3">
@@ -26306,7 +26312,7 @@ In source listings, is the callout the last thing on the line?</p></td>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2017-07-30 20:30:21 UTC
+Last updated 2017-07-30 20:40:53 UTC
 </div>
 </div>
 <script type="text/x-mathjax-config">
