@@ -10158,7 +10158,7 @@ Well, it really depends on who you consult.</p>
 <p>The term &#8220;delimiter-separated values&#8221; in this text refers to the family of data formats that use a delimiter, including comma-separated values (CSV), tab-separated values (TSV) and delimited data (DSV), all of which are supported in AsciiDoc tables.</p>
 </div>
 <div class="paragraph">
-<p>&#8220;Comma-separated values&#8221; is really a misleading term since CSV can use delimiters other than <code>,</code> as the field separator (which, in this context, separate cells).
+<p>&#8220;Comma-separated values&#8221; is really a misleading term since CSV can use delimiters other than <code>,</code> as the field separator (which, in this context, separates cells).
 What we&#8217;re really talking about is <a href="#data-table-formats">how the data is interpeted</a>.</p>
 </div>
 <div class="paragraph">
@@ -10223,7 +10223,7 @@ include::tracks.csv[]
 </div>
 </div>
 <div class="paragraph">
-<p>If you&#8217;re data is separated by tabs instead of commas, set the <code>format</code> to <code>tsv</code> (tab-separated values) instead.</p>
+<p>If your data is separated by tabs instead of commas, set the <code>format</code> to <code>tsv</code> (tab-separated values) instead.</p>
 </div>
 <div class="paragraph">
 <p>Now let&#8217;s consider an example of using delimited data (DSV) to populate an AsciiDoc table with data.
@@ -10274,7 +10274,7 @@ The Piano Guys:Code Name Vivaldi:Classical
 This section outlines those differences.</p>
 </div>
 <div class="paragraph">
-<p>CSV and TSV data is parsed according to the following rules, loosely based on <a href="http://tools.ietf.org/html/rfc4180">RFC 4180</a>:</p>
+<p>CSV and TSV data are parsed according to the following rules, loosely based on <a href="http://tools.ietf.org/html/rfc4180">RFC 4180</a>:</p>
 </div>
 <div class="ulist">
 <ul>
@@ -10292,10 +10292,10 @@ This section outlines those differences.</p>
 <div class="ulist">
 <ul>
 <li>
-<p>A quoted value may contain the separator or newline character or double quotes.</p>
+<p>A quoted value may contain the separator, newline character or double quotes.</p>
 </li>
 <li>
-<p>Although newlines in a quoted value should be retained, due to bug <a href="https://github.com/asciidoctor/asciidoctor/issues/2041">#2041</a>, each one is converted to a single space.</p>
+<p>Although newlines in quoted values should be retained, due to bug <a href="https://github.com/asciidoctor/asciidoctor/issues/2041">#2041</a>, each one is converted to a single space.</p>
 </li>
 </ul>
 </div>
@@ -26306,7 +26306,7 @@ In source listings, is the callout the last thing on the line?</p></td>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2017-07-29 23:54:07 UTC
+Last updated 2017-07-30 20:30:21 UTC
 </div>
 </div>
 <script type="text/x-mathjax-config">
