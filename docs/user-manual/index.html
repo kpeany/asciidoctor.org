@@ -680,10 +680,11 @@ table.CodeRay td.code>pre{padding:0}
 <li><a href="#table-width">26.6. Table Width</a></li>
 <li><a href="#table-borders">26.7. Table Borders</a></li>
 <li><a href="#orientation">26.8. Orientation</a></li>
-<li><a href="#table-caption">26.9. Table Caption</a></li>
-<li><a href="#escaping-the-cell-separator">26.10. Escaping the Cell Separator</a></li>
-<li><a href="#delimiter-separated-values">26.11. Delimiter-Separated Values</a></li>
-<li><a href="#summary-tables">26.12. Summary</a></li>
+<li><a href="#nested-tables">26.9. Nested Tables</a></li>
+<li><a href="#table-caption">26.10. Table Caption</a></li>
+<li><a href="#escaping-the-cell-separator">26.11. Escaping the Cell Separator</a></li>
+<li><a href="#delimiter-separated-values">26.12. Delimiter-Separated Values</a></li>
+<li><a href="#summary-tables">26.13. Summary</a></li>
 </ul>
 </li>
 <li><a href="#horizontal-rules">27. Horizontal Rules</a>
@@ -9937,7 +9938,106 @@ If you set the <code>grid</code> attribute, you can override the default value w
 </div>
 </div>
 <div class="sect2">
-<h3 id="table-caption"><a class="anchor" href="#table-caption"></a>26.9. Table Caption</h3>
+<h3 id="nested-tables"><a class="anchor" href="#nested-tables"></a>26.9. Nested Tables</h3>
+<div class="paragraph">
+<p>Asciidoctor table cells can contain any Asciidoc content, even another table, aka a nested table.</p>
+</div>
+<div class="paragraph">
+<p>To distinguish the inner table from the outer one, use <code>!===</code> as its table delimiter, and <code>!</code> as its cell separator.
+Finally make sure the table cell or column is formated with <code>a</code> so that it is interpreted as Asciidoc markup.</p>
+</div>
+<div class="paragraph">
+<p>The following example has a nested table in the last cell.
+Notice that the nested table has its own format, independant of that of the outer table:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="nowrap">[cols="1,2a"]
+|===
+| Col 1 | Col 2
+
+| Cell 1.1
+| Cell 1.2
+
+| Cell 2.1
+| Cell 2.2
+
+[cols="2,1"]
+!===
+! Col1 ! Col2
+
+! C11
+! C12
+
+!===
+
+|===</pre>
+</div>
+</div>
+<table class="tableblock frame-all grid-all spread">
+<caption class="title">Result: a nested table</caption>
+<colgroup>
+<col style="width: 33.3333%;">
+<col style="width: 66.6667%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Col 1</th>
+<th class="tableblock halign-left valign-top">Col 2</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Cell 1.1</p></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>Cell 1.2</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Cell 2.1</p></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>Cell 2.2</p>
+</div>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 66.6666%;">
+<col style="width: 33.3334%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Col1</th>
+<th class="tableblock halign-left valign-top">Col2</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">C11</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">C12</p></td>
+</tr>
+</tbody>
+</table></div></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>Some caveats:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Nested tables should be very rare.
+There is usually a better way to present the information.</p>
+</li>
+<li>
+<p>Check that it works with your output format.
+Currently (v1.5.6.1) it works in html but not pdf.
+Nested tables are not valid in DocBook 5.0, but FOP processes them anyway.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="table-caption"><a class="anchor" href="#table-caption"></a>26.10. Table Caption</h3>
 <div class="paragraph">
 <p>If you specify a title on a table, the title will be used as part of the table&#8217;s caption.
 Adding a title also designates the table as a <em class="term">formal table</em>.</p>
@@ -10077,7 +10177,7 @@ The caption attribute only sets the caption&#8217;s label, not the whole caption
 </div>
 </div>
 <div class="sect2">
-<h3 id="escaping-the-cell-separator"><a class="anchor" href="#escaping-the-cell-separator"></a>26.10. Escaping the Cell Separator</h3>
+<h3 id="escaping-the-cell-separator"><a class="anchor" href="#escaping-the-cell-separator"></a>26.11. Escaping the Cell Separator</h3>
 <div class="paragraph">
 <p>The parser scans for the cell separator to divide the cells <em>before</em> it processes the cell text (no matter what that text contains, even passthroughs).
 If your content includes the cell separator, you must escape that character using a leading backslash.
@@ -10140,7 +10240,7 @@ A good candidate is the broken bar, or <code>¦</code>.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="delimiter-separated-values"><a class="anchor" href="#delimiter-separated-values"></a>26.11. Delimiter-Separated Values</h3>
+<h3 id="delimiter-separated-values"><a class="anchor" href="#delimiter-separated-values"></a>26.12. Delimiter-Separated Values</h3>
 <div class="paragraph">
 <p>Tables can also be populated from data formatted as delimiter-separated values (i.e., data tables).
 In contrast with the PSV format, in which the delimiter is placed in front of each cell value, the delimiter in a delimiter-separated format (CSV, TSV, DSV) is placed between the cell values (called a <em>separator</em>) and does not accept a cell formatting spec.
@@ -10269,7 +10369,7 @@ The Piano Guys:Code Name Vivaldi:Classical
 </tbody>
 </table>
 <div class="sect3">
-<h4 id="data-table-formats"><a class="anchor" href="#data-table-formats"></a>26.11.1. Data Table Formats</h4>
+<h4 id="data-table-formats"><a class="anchor" href="#data-table-formats"></a>26.12.1. Data Table Formats</h4>
 <div class="paragraph">
 <p>The CSV and TSV data formats are parsed differently from the DSV data format.
 The following two sections outline those differences.</p>
@@ -10349,7 +10449,7 @@ The following two sections outline those differences.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="custom-delimiters"><a class="anchor" href="#custom-delimiters"></a>26.11.2. Custom Delimiters</h4>
+<h4 id="custom-delimiters"><a class="anchor" href="#custom-delimiters"></a>26.12.2. Custom Delimiters</h4>
 <div class="paragraph">
 <p>Each data format has a default separator associated with it (csv = comma, tsv = tab, dsv = colon), but the separator can be changed to any character (or even a string of characters) by setting the <code>separator</code> attribute on the table.</p>
 </div>
@@ -10385,7 +10485,7 @@ If you set <code>format=dsv</code> and <code>separator=,</code>, the data will b
 </div>
 </div>
 <div class="sect3">
-<h4 id="shorthand-notation-for-data-tables"><a class="anchor" href="#shorthand-notation-for-data-tables"></a>26.11.3. Shorthand Notation for Data Tables</h4>
+<h4 id="shorthand-notation-for-data-tables"><a class="anchor" href="#shorthand-notation-for-data-tables"></a>26.12.3. Shorthand Notation for Data Tables</h4>
 <div class="paragraph">
 <p>Asciidoctor provides shorthand notation for specifying the data format of a table.
 The first position of the table block delimiter (i.e., <code>|===</code>) can be replaced by a built-in delimiter to set the table format (e.g., <code>,===</code> for CSV).</p>
@@ -10468,7 +10568,7 @@ There is no special delimited block notation for a TSV table.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="formatting-cells-in-a-data-table"><a class="anchor" href="#formatting-cells-in-a-data-table"></a>26.11.4. Formatting Cells in a Data Table</h4>
+<h4 id="formatting-cells-in-a-data-table"><a class="anchor" href="#formatting-cells-in-a-data-table"></a>26.12.4. Formatting Cells in a Data Table</h4>
 <div class="paragraph">
 <p>The delimited formats do not provide a way to express formatting of individual table cells.
 Instead, you can apply cell formatting to all cells in a given column using the <code>cols</code> spec on the table:</p>
@@ -10489,7 +10589,7 @@ You are advised to use the PSV format if you need that functionality.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="summary-tables"><a class="anchor" href="#summary-tables"></a>26.12. Summary</h3>
+<h3 id="summary-tables"><a class="anchor" href="#summary-tables"></a>26.13. Summary</h3>
 <table class="tableblock frame-all grid-all spread">
 <caption class="title">Table attributes and values</caption>
 <colgroup>
@@ -26317,7 +26417,7 @@ In source listings, is the callout the last thing on the line?</p></td>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2017-08-01 07:55:48 UTC
+Last updated 2017-08-02 05:57:02 UTC
 </div>
 </div>
 <script type="text/x-mathjax-config">
