@@ -2986,12 +2986,12 @@ When Asciidoctor processes a document it uses a set of six text substitution ele
 In the header, only <a href="#special-characters">special characters</a> and <a href="#attributes-2">attribute references</a> are replaced.</p>
 </div>
 <div class="paragraph">
-<p>However, if you require other substitutions to be applied to an attribute&#8217;s value, use the <a href="#pass-macros">pass inline macro</a>.
+<p>However, if you require other substitutions to be applied to an attribute&#8217;s value, use the <a href="#pass-macros">inline pass macro</a>.
 This macro has special meaning in an attribute entry.
 It allows the substitutions to be applied at the time the attribute is defined.</p>
 </div>
 <div class="paragraph">
-<p>The pass inline macro accepts a list of substitutions in the <code>target</code> slot.
+<p>The inline pass macro accepts a list of substitutions in the <code>target</code> slot.
 In the next example, we&#8217;ll apply the <a href="#quotes">quotes substitution</a> to an attribute entry&#8217;s value.</p>
 </div>
 <div class="listingblock">
@@ -8760,7 +8760,7 @@ When no style name is provided column contents will be processed as regular inli
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">AsciiDoc</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>a</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Any block-level elements (paragraphs, delimited blocks and block macros) may be contained within the column.
+<td class="tableblock halign-left valign-top"><p class="tableblock">Any block-level elements (paragraphs, delimited blocks, and block macros) may be contained within the column.
 The elements will be processed and rendered.</p></td>
 </tr>
 <tr>
@@ -11347,7 +11347,7 @@ image::tiger.png[]</pre>
 <div class="sect2">
 <h3 id="internal-cross-references"><a class="anchor" href="#internal-cross-references"></a>30.2. Internal Cross References</h3>
 <div class="paragraph">
-<p>In Asciidoctor, the xref inline macro is used to create cross references (also called in-text or page citations) to sections, blocks or phrases that have an ID (regardless of whether that ID is explicit or auto-generated).</p>
+<p>In Asciidoctor, the inline xref macro is used to create cross references (also called in-text or page citations) to sections, blocks or phrases that have an ID (regardless of whether that ID is explicit or auto-generated).</p>
 </div>
 <div class="paragraph">
 <p>An implicit cross reference is created by enclosing the ID of the target block or section (or the path of another document with an optional anchor) in double angled brackets.</p>
@@ -11603,7 +11603,7 @@ Until then, you can implement custom formatting in a custom converter or overrid
 <div class="sect2">
 <h3 id="inter-document-cross-references"><a class="anchor" href="#inter-document-cross-references"></a>30.4. Inter-document Cross References</h3>
 <div class="paragraph">
-<p>The xref inline macro can also link to IDs in other AsciiDoc documents.
+<p>The inline xref macro can also link to IDs in other AsciiDoc documents.
 This eliminates the need to use direct links between documents that are coupled to a particular converter (e.g., HTML links).
 It also captures the intent of the author to establish a reference to a section in another document.</p>
 </div>
@@ -13369,7 +13369,7 @@ For a more detailed example, see <a href="http://discuss.asciidoctor.org/Unit-of
 <h2 id="video"><a class="anchor" href="#video"></a>33. Video</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>The <code>video</code> block macro enables you to embed videos into your documentation.
+<p>The block video macro enables you to embed videos into your documentation.
 You can embed self-hosted videos or videos shared on popular video hosting sites such as YouTube and Vimeo.</p>
 </div>
 <div class="paragraph">
@@ -18933,14 +18933,14 @@ To fix this problem, just set the <code>toc</code> attribute to an empty value (
 </div>
 <div class="paragraph">
 <p>To place the TOC anywhere else in the document, set the <code>toc</code> attribute to <code>macro</code>.
-Then, put the <code>toc::[]</code> block macro at the location in the document where you want the TOC to appear.
-The <code>toc::[]</code> macro should appear at most once in any document.</p>
+Then, put the block toc macro (<code>toc::[]</code>) at the location in the document where you want the TOC to appear.
+The toc macro should appear at most once in any document.</p>
 </div>
 <div class="paragraph">
-<p>If <code>toc</code> is not set to <code>macro</code>, any <code>toc::[]</code> macros will silently be ignored.</p>
+<p>If <code>toc</code> is not set to <code>macro</code>, any toc macro in the document will be silently ignored.</p>
 </div>
 <div class="listingblock">
-<div class="title">Setting toc value to macro and using the <code>toc::[]</code> macro</div>
+<div class="title">Setting toc value to macro and using the block toc macro</div>
 <div class="content">
 <pre class="nowrap">= The Dangerous and Thrilling Documentation Chronicles
 Kismet Chameleon
@@ -18959,16 +18959,16 @@ The river rages through the cavern, rattling its content...</pre>
 <table>
 <tr>
 <td><i class="conum" data-value="1"></i><b>1</b></td>
-<td>The toc attribute must be set to macro in order to enable the use of the <code>toc::[]</code> macro.</td>
+<td>The toc attribute must be set to <code>macro</code> in order to enable the use of the toc macro.</td>
 </tr>
 <tr>
 <td><i class="conum" data-value="2"></i><b>2</b></td>
-<td>In this example, the <code>toc::[]</code> macro is placed below the first section&#8217;s title, indicating that this is the location where the TOC will be displayed once the document is rendered.</td>
+<td>In this example, the toc macro is placed below the first section&#8217;s title, indicating that this is the location where the TOC will be displayed once the document is rendered.</td>
 </tr>
 </table>
 </div>
 <div class="exampleblock">
-<div class="title">Result: Setting toc value to macro and using the <code>toc::[]</code> macro</div>
+<div class="title">Result: Setting toc value to macro and using the block toc macro</div>
 <div class="content">
 <div class="imageblock">
 <div class="content">
@@ -26429,7 +26429,7 @@ In source listings, is the callout the last thing on the line?</p></td>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2017-08-04 06:14:40 UTC
+Last updated 2017-08-04 06:23:25 UTC
 </div>
 </div>
 <script type="text/x-mathjax-config">
