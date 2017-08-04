@@ -15670,8 +15670,8 @@ The example below shows a listing block with <code>source</code> and the languag
 <div class="listingblock">
 <div class="title">Source block syntax</div>
 <div class="content">
-<pre class="CodeRay highlight nowrap"><code data-lang="asciidoc">[source,ruby]
-.app.rb
+<pre class="CodeRay highlight nowrap"><code data-lang="asciidoc">.app.rb
+[source,ruby]
 ----
 require 'sinatra'
 
@@ -17088,9 +17088,9 @@ The generated HTML will load the required source files from a CDN (or custom URL
 <div class="listingblock">
 <div class="title">Code block with title and syntax highlighting</div>
 <div class="content">
-<pre class="nowrap">[[src-listing]] <i class="conum" data-value="1"></i><b>(1)</b>
-[source,ruby] <i class="conum" data-value="2"></i><b>(2)</b> <i class="conum" data-value="3"></i><b>(3)</b>
-.app.rb <i class="conum" data-value="4"></i><b>(4)</b>
+<pre class="nowrap">.app.rb <i class="conum" data-value="1"></i><b>(1)</b>
+[[src-listing]] <i class="conum" data-value="2"></i><b>(2)</b>
+[source,ruby] <i class="conum" data-value="3"></i><b>(3)</b> <i class="conum" data-value="4"></i><b>(4)</b>
 ---- <i class="conum" data-value="5"></i><b>(5)</b>
 require 'sinatra'
 
@@ -17104,19 +17104,19 @@ end
 <table>
 <tr>
 <td><i class="conum" data-value="1"></i><b>1</b></td>
-<td>An optional ID can be added to the block. See <a href="#anchordef">Defining an Anchor</a>.</td>
+<td>An optional title can be added to the block.</td>
 </tr>
 <tr>
 <td><i class="conum" data-value="2"></i><b>2</b></td>
-<td>Assign the block name <code>source</code> to the first position in the attribute list.</td>
+<td>An optional ID can be added to the block. See <a href="#anchordef">Defining an Anchor</a>.</td>
 </tr>
 <tr>
 <td><i class="conum" data-value="3"></i><b>3</b></td>
-<td>Assign a source language to the second position.</td>
+<td>Assign the block name <code>source</code> to the first position in the attribute list.</td>
 </tr>
 <tr>
 <td><i class="conum" data-value="4"></i><b>4</b></td>
-<td>An optional title can be added to the block.</td>
+<td>Assign a source language to the second position.</td>
 </tr>
 <tr>
 <td><i class="conum" data-value="5"></i><b>5</b></td>
@@ -26429,7 +26429,7 @@ In source listings, is the callout the last thing on the line?</p></td>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2017-08-04 06:23:25 UTC
+Last updated 2017-08-04 06:27:48 UTC
 </div>
 </div>
 <script type="text/x-mathjax-config">
