@@ -637,7 +637,7 @@ For example, <em>Section Level 1</em> becomes an <code>&lt;h2&gt;</code> heading
 <div class="listingblock">
 <div class="title">Explicit id</div>
 <div class="content">
-<pre class="nowrap">[[primitives-nulls]]
+<pre class="nowrap">[#primitives-nulls]
 == Primitive types and null values</pre>
 </div>
 </div>
@@ -1817,8 +1817,7 @@ DEPENDENCIES
 <div class="listingblock">
 <div class="title">Code block with title and syntax highlighting</div>
 <div class="content">
-<pre class="nowrap">[[app-listing]]
-[source,ruby]
+<pre class="nowrap">[source,ruby]
 .app.rb
 ----
 require 'sinatra'
@@ -1831,7 +1830,7 @@ end
 </div>
 <div class="exampleblock result">
 <div class="content">
-<div id="app-listing" class="listingblock">
+<div class="listingblock">
 <div class="title">app.rb</div>
 <div class="content">
 <pre class="CodeRay highlight nowrap"><code data-lang="ruby">require <span class="string"><span class="delimiter">'</span><span class="content">sinatra</span><span class="delimiter">'</span></span>
@@ -2415,7 +2414,7 @@ or it can masquerade as any other block.</p>
 <h2 id="block-id-role-and-options"><a class="anchor" href="#block-id-role-and-options"></a>Block Id, Role and Options</h2>
 <div class="sectionbody">
 <div class="listingblock">
-<div class="title">Traditional markup method for assigning block id and role</div>
+<div class="title">Traditional (longhand) markup method for assigning block id and role</div>
 <div class="content">
 <pre class="nowrap">[[goals]]
 [role="incremental"]
@@ -2453,7 +2452,7 @@ or it can masquerade as any other block.</p>
 </table>
 </div>
 <div class="listingblock">
-<div class="title">Traditional markup method for assigning quoted text anchor (id) and role</div>
+<div class="title">Traditional (longhand) markup method for assigning quoted text anchor (id) and role</div>
 <div class="content">
 <pre class="nowrap">[[free_the_world]][big goal]_free the world_</pre>
 </div>
@@ -2467,11 +2466,11 @@ or it can masquerade as any other block.</p>
 <div class="listingblock">
 <div class="title">Role assigned to text enclosed in backticks</div>
 <div class="content">
-<pre class="nowrap">[rolename]`monospace text`</pre>
+<pre class="nowrap">[.rolename]`monospace text`</pre>
 </div>
 </div>
 <div class="listingblock">
-<div class="title">Traditional markup method for assigning block options</div>
+<div class="title">Traditional (longhand) markup method for assigning block options</div>
 <div class="content">
 <pre class="nowrap">[options="header,footer,autowidth"]
 |===
