@@ -2047,7 +2047,9 @@ http://asciidoctor.org</code></pre>
 <div class="paragraph">
 <p>When a URL does not start with one of the <a href="#schemes">common schemes</a>, you must use the <code>link</code> macro.
 The URL is preceded by <code>link:</code> and followed by square brackets.
-The square brackets can include optional link text, target preference, and roles.</p>
+The square brackets may include optional link text.
+The URL is used for the text of the link if link text is not specified.
+If the <code>linkattrs</code> document attribute is set, the square brackets also accepts attributes, which allows a window name or role to be specified.</p>
 </div>
 <div class="listingblock">
 <div class="title">Anatomy of a link macro</div>
@@ -2074,8 +2076,9 @@ The square brackets can include optional link text, target preference, and roles
 <div class="sect3">
 <h4 id="target-window-and-role-attributes-for-links"><a class="anchor" href="#target-window-and-role-attributes-for-links"></a>Target window and role attributes for links</h4>
 <div id="link-macro-attributes" class="paragraph">
-<p>When you set attributes in the link macro, you must also set the <code>linkattrs</code> attribute in the document&#8217;s header because Asciidoctor does not parse attributes in the link macro by default.
-Once you&#8217;ve set linkattrs in the header, you can then specify the name of the target window using the <code>window</code> attribute.</p>
+<p>Remember, when you use attributes in the link macro, you must also set the <code>linkattrs</code> document attribute in the header.
+Asciidoctor <em>does not</em> parse attributes in the link macro by default.
+Once you&#8217;ve activated the <code>linkattrs</code> attribute, you can then specify the name of the target window using the <code>window</code> attribute.</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -2114,7 +2117,7 @@ If you use the caret syntax more than once in a single paragraph, you may need t
 </table>
 </div>
 <div class="paragraph">
-<p>When linkattrs is set, you can add a role (i.e., CSS class) to the link.</p>
+<p>When the <code>linkattrs</code> attribute is set, you can add a role (i.e., CSS class) to the link.</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -2136,7 +2139,7 @@ If you use the caret syntax more than once in a single paragraph, you may need t
 </td>
 <td class="content">
 Links with attributes (including the subject and body segments on mailto links) are a feature unique to Asciidoctor.
-When they are enabled, you must surround the link text in double quotes if it contains a comma.
+When they&#8217;re enabled, you must surround the link text in double quotes if it contains a comma.
 </td>
 </tr>
 </table>
