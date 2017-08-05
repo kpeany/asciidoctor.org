@@ -863,7 +863,12 @@ table.CodeRay td.code>pre{padding:0}
 <li><a href="#user-appendix">61. Appendix</a></li>
 <li><a href="#user-glossary">62. Glossary</a></li>
 <li><a href="#user-biblio">63. Bibliography</a></li>
-<li><a href="#user-index">64. Index</a></li>
+<li><a href="#user-index">64. Index</a>
+<ul class="sectlevel2">
+<li><a href="#index-terms">64.1. Index Terms</a></li>
+<li><a href="#index-catalog">64.2. Index Catalog</a></li>
+</ul>
+</li>
 <li><a href="#user-footnotes">65. Footnotes</a></li>
 </ul>
 </li>
@@ -19731,9 +19736,11 @@ From Journeyman to Master. Addison-Wesley. 1999.</p>
 <h2 id="user-index"><a class="anchor" href="#user-index"></a>64. Index</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>You can define index terms in AsciiDoc content.
-Index terms form a controlled vocabulary that can be used to navigate the document by keyword.</p>
+<p>You can mark index terms explicitly in AsciiDoc content.
+Index terms form a controlled vocabulary that can be used to navigate the document by keyword starting from an index.</p>
 </div>
+<div class="sect2">
+<h3 id="index-terms"><a class="anchor" href="#index-terms"></a>64.1. Index Terms</h3>
 <div class="paragraph">
 <p>There are two types of index terms in AsciiDoc:</p>
 </div>
@@ -19743,7 +19750,7 @@ Index terms form a controlled vocabulary that can be used to navigate the docume
 <dd>
 <p><code>indexterm2:[&lt;primary&gt;]</code> or <code>((&lt;primary&gt;))</code></p>
 <div class="paragraph">
-<p>An index term that appears in both the text flow and the index.
+<p>An index term that appears in the flow of text (i.e., a visible term) and in the index.
 This type of index term can only be used to define a primary entry.</p>
 </div>
 </dd>
@@ -19813,6 +19820,22 @@ indexterm:[knight, "Arthur, King"]</pre>
 (((knight, "Arthur, King")))</pre>
 </div>
 </div>
+</div>
+<div class="sect2">
+<h3 id="index-catalog"><a class="anchor" href="#index-catalog"></a>64.2. Index Catalog</h3>
+<div class="paragraph">
+<p>Although index terms are always processed, only Asciidoctor PDF and the DocBook toolchain support creating an index catalog automatically.
+To create an index, define a level-1 section marked with the style <code>index</code> at the end of your document.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="nowrap">[index]
+== Index</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Both Asciidoctor PDF and the DocBook toolchain will automatically populate an index into this seed section.</p>
+</div>
 <div class="admonitionblock warning">
 <table>
 <tr>
@@ -19820,12 +19843,12 @@ indexterm:[knight, "Arthur, King"]</pre>
 <i class="fa icon-warning" title="Warning"></i>
 </td>
 <td class="content">
-Asciidoctor does not currently generate the index when using the built-in HTML5 converter (a limitation that was inherited by the design of AsciiDoc Python).
-To generate an index in the interim, you have to either write a custom extension or produce HTML5 by way of DocBook using the DocBook toolchain (<code>a2x</code> or <code>fopub</code>).
-We&#8217;re tracking support for native index generation when using the built-in HTML5 converter in <a href="https://github.com/asciidoctor/asciidoctor/issues/450">issue #450</a>.
+The built-in HTML5 converter in Asciidoctor does not currently generate an index.
+Follow <a href="https://github.com/asciidoctor/asciidoctor/issues/450">issue #450</a> to track the progress of this feature.
 </td>
 </tr>
 </table>
+</div>
 </div>
 </div>
 </div>
@@ -26432,7 +26455,7 @@ In source listings, is the callout the last thing on the line?</p></td>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2017-08-05 01:41:20 UTC
+Last updated 2017-08-05 06:01:33 UTC
 </div>
 </div>
 <script type="text/x-mathjax-config">
