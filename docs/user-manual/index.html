@@ -14760,8 +14760,8 @@ For example, on the command line, type <code>-a toc-title="Sections, Tables &amp
 <td class="tableblock halign-center valign-top"><div class="literal"><pre>--</pre></div></td>
 <td class="tableblock halign-center valign-top"><div class="literal"><pre>&amp;#8212;</pre></div></td>
 <td class="tableblock halign-center valign-top"><p class="tableblock">&#8201;&#8212;&#8201;</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Only replaced if it is a word, i.e. surrounded by white space, line start, or line end.
-</p><p class="tableblock">When white space characters are detected on both sides of the em dash, they are replaced by thin spaces (&amp;#8201;).</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Only replaced if between two word characters, between a word character and a line boundary, or flanked by spaces.
+</p><p class="tableblock">When flanked by space characters (e.g., <code>a -- b</code>), the normal spaces are replaced by thin spaces (&amp;#8201;).</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">ellipses</p></td>
@@ -26455,7 +26455,7 @@ In source listings, is the callout the last thing on the line?</p></td>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2017-08-05 20:24:39 UTC
+Last updated 2017-08-05 20:41:05 UTC
 </div>
 </div>
 <script type="text/x-mathjax-config">
