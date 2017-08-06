@@ -11637,7 +11637,7 @@ If the target section is in a separate document, <em class="file">document-b.ado
 </div>
 <div class="paragraph">
 <p>However, this link is coupled to HTML output.
-What&#8217;s worse, if <em class="file">document-b.adoc</em> is included in the same master as <em class="file">document-a.adoc</em>, then the link will refer to a document that doesn&#8217;t even exist!</p>
+What&#8217;s worse, if <em class="file">document-b.adoc</em> is included in the same document as <em class="file">document-a.adoc</em>, the link will refer to a document that doesn&#8217;t even exist!</p>
 </div>
 <div class="paragraph">
 <p>These problems can be alleviated by using an inter-document xref:</p>
@@ -11653,7 +11653,7 @@ Preceding the hash is the name of the reference document (the file extension is 
 We&#8217;ve also added a label since Asciidoctor cannot (yet) resolve the section title in a separate document.</p>
 </div>
 <div class="paragraph">
-<p>When Asciidoctor generates the link for this cross reference, it first checks to see if <em class="file">document-b.adoc</em> is included in the same master as <em class="file">document-a.doc</em>.
+<p>When Asciidoctor generates the link for this cross reference, it first checks to see if <em class="file">document-b.adoc</em> is included in the same document as <em class="file">document-a.doc</em>.
 If not, it will generate a link to <em class="file">document-b.html</em>, intelligently substituting the original file extension with the file extension of the output file.</p>
 </div>
 <div class="listingblock">
@@ -11662,7 +11662,7 @@ If not, it will generate a link to <em class="file">document-b.html</em>, intell
 </div>
 </div>
 <div class="paragraph">
-<p>If <em class="file">document-b.adoc</em> is included in the same master as <em class="file">document-a.doc</em>, then the document will be dropped in the link target and look like the output of a normal cross reference:</p>
+<p>If <em class="file">document-b.adoc</em> is included in the same document as <em class="file">document-a.doc</em>, then the document will be dropped in the link target and look like the output of a normal cross reference:</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -26455,7 +26455,7 @@ In source listings, is the callout the last thing on the line?</p></td>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2017-08-05 20:43:18 UTC
+Last updated 2017-08-06 05:34:04 UTC
 </div>
 </div>
 <script type="text/x-mathjax-config">
