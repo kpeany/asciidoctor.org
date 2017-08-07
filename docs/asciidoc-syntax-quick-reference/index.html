@@ -3859,36 +3859,52 @@ The ToC <a href="http://asciidoctor.org/docs/user-manual/#user-toc">title, level
 <h2 id="bibliography"><a class="anchor" href="#bibliography"></a>Bibliography</h2>
 <div class="sectionbody">
 <div class="listingblock">
-<div class="title">References</div>
+<div class="title">Bibliography with inbound references</div>
 <div class="content">
-<pre class="nowrap">_The Pragmatic Programmer_ &lt;&lt;prag&gt;&gt; should be required reading for
-all developers.
+<pre class="nowrap">_The Pragmatic Programmer_ &lt;&lt;pp&gt;&gt; should be required reading for all developers.
+To learn all about design patterns, refer to the book by the "`Gang of Four`" &lt;&lt;gof&gt;&gt;.
 
 [bibliography]
-- [[[prag]]] Andy Hunt &amp; Dave Thomas. The Pragmatic Programmer:
+== References
+
+- [[[pp]]] Andy Hunt &amp; Dave Thomas. The Pragmatic Programmer:
   From Journeyman to Master. Addison-Wesley. 1999.
-- [[[seam]]] Dan Allen. Seam in Action. Manning Publications.
-  2008.</pre>
+- [[[gof,2]]] Erich Gamma, Richard Helm, Ralph Johnson &amp; John Vlissides. Design Patterns:
+  Elements of Reusable Object-Oriented Software. Addison-Wesley. 1994.</pre>
 </div>
 </div>
 <div class="exampleblock result">
 <div class="content">
-<div class="paragraph">
-<p><em>The Pragmatic Programmer</em> <a href="#prag">[prag]</a> should be required reading for
-all developers.</p>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 100%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p><em>The Pragmatic Programmer</em> <a href="#pp">[pp]</a> should be required reading for all developers.
+To learn all about design patterns, refer to the book by the &#8220;Gang of Four&#8221; <a href="#gof">[2]</a>.</p>
 </div>
+<div class="sect1">
+<h2 id="references"><a class="anchor" href="#references"></a>References</h2>
+<div class="sectionbody">
 <div class="ulist bibliography">
 <ul class="bibliography">
 <li>
-<p><a id="prag"></a>[prag] Andy Hunt &amp; Dave Thomas. The Pragmatic Programmer:
+<p><a id="pp"></a>[pp] Andy Hunt &amp; Dave Thomas. The Pragmatic Programmer:
 From Journeyman to Master. Addison-Wesley. 1999.</p>
 </li>
 <li>
-<p><a id="seam"></a>[seam] Dan Allen. Seam in Action. Manning Publications.
-2008.</p>
+<p><a id="gof"></a>[2] Erich Gamma, Richard Helm, Ralph Johnson &amp; John Vlissides. Design Patterns:
+Elements of Reusable Object-Oriented Software. Addison-Wesley. 1994.</p>
 </li>
 </ul>
 </div>
+</div>
+</div></div></td>
+</tr>
+</tbody>
+</table>
 </div>
 </div>
 </div>

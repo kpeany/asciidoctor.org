@@ -19726,38 +19726,90 @@ rain::
 <div class="sect1">
 <h2 id="user-biblio"><a class="anchor" href="#user-biblio"></a><a class="link" href="#user-biblio">63. Bibliography</a></h2>
 <div class="sectionbody">
+<div class="paragraph">
+<p>AsciiDoc has basic support for bibliographies.
+While the structure of the bibliography entry is entirely freeform, AsciiDoc provides a way to reference the entries from the text and outputs the bibliography with proper semantics for processing by other toolchains (such as DocBook).</p>
+</div>
+<div class="paragraph">
+<p>AsciiDoc allows you to assign an anchor to a bibliography entry by prefixing the entry with a label enclosed in triple square brackets (e.g., <code>[[[label]]]</code>).
+With this anchor, you can reference the entry from anywhere in the text using a normal cross reference macro (e.g., <code>&lt;&lt;label&gt;&gt;</code>).</p>
+</div>
+<div class="paragraph">
+<p>By default, the reference to bibliography entry is rendered as [&lt;label&gt;], where &lt;label&gt; is the ID of the entry.
+If you specify xreftext on the bibliography anchor (e.g., <code>[[[label,xreftext]]]</code>), the reference to the bibliography entry is rendered as [&lt;xreftext&gt;] instead.</p>
+</div>
+<div class="paragraph">
+<p>The bibliography entries themselves are declared as items in an unordered list.
+You promote a normal unordered list to a bibliography list by adding the <code>bibliography</code> style.
+However, to be conforming, bibliography lists must be contained inside a bibliography section.
+A bibliography section is a section with the special <code>bibliography</code> style.
+By adding the <code>bibliography</code> style to the section, you implicitly add it to each unordered list in that section.</p>
+</div>
+<div class="admonitionblock warning">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-warning" title="Warning"></i>
+</td>
+<td class="content">
+If the bibliography style is used on an unordered list outside of a bibliography section, the resulting behavior is undefined.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Let&#8217;s consider an example.</p>
+</div>
 <div class="listingblock">
-<div class="title">References</div>
+<div class="title">Bibliography with inbound references</div>
 <div class="content">
-<pre class="nowrap">_The Pragmatic Programmer_ &lt;&lt;prag&gt;&gt; should be required reading for
-all developers.
+<pre class="nowrap">_The Pragmatic Programmer_ &lt;&lt;pp&gt;&gt; should be required reading for all developers.
+To learn all about design patterns, refer to the book by the "`Gang of Four`" &lt;&lt;gof&gt;&gt;.
 
 [bibliography]
-- [[[prag]]] Andy Hunt &amp; Dave Thomas. The Pragmatic Programmer:
+== References
+
+- [[[pp]]] Andy Hunt &amp; Dave Thomas. The Pragmatic Programmer:
   From Journeyman to Master. Addison-Wesley. 1999.
-- [[[seam]]] Dan Allen. Seam in Action. Manning Publications.
-  2008.</pre>
+- [[[gof,2]]] Erich Gamma, Richard Helm, Ralph Johnson &amp; John Vlissides. Design Patterns:
+  Elements of Reusable Object-Oriented Software. Addison-Wesley. 1994.</pre>
 </div>
 </div>
-<div class="exampleblock">
-<div class="content">
 <div class="paragraph">
-<p><em>The Pragmatic Programmer</em> <a href="#prag">[prag]</a> should be required reading for
-all developers.</p>
+<p>This renders as:</p>
 </div>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 100%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p><em>The Pragmatic Programmer</em> <a href="#pp">[pp]</a> should be required reading for all developers.
+To learn all about design patterns, refer to the book by the &#8220;Gang of Four&#8221; <a href="#gof">[2]</a>.</p>
+</div>
+<div class="sect1">
+<h2 id="references"><a class="anchor" href="#references"></a><a class="link" href="#references">References</a></h2>
+<div class="sectionbody">
 <div class="ulist bibliography">
 <ul class="bibliography">
 <li>
-<p><a id="prag"></a>[prag] Andy Hunt &amp; Dave Thomas. The Pragmatic Programmer:
+<p><a id="pp"></a>[pp] Andy Hunt &amp; Dave Thomas. The Pragmatic Programmer:
 From Journeyman to Master. Addison-Wesley. 1999.</p>
 </li>
 <li>
-<p><a id="seam"></a>[seam] Dan Allen. Seam in Action. Manning Publications.
-2008.</p>
+<p><a id="gof"></a>[2] Erich Gamma, Richard Helm, Ralph Johnson &amp; John Vlissides. Design Patterns:
+Elements of Reusable Object-Oriented Software. Addison-Wesley. 1994.</p>
 </li>
 </ul>
 </div>
 </div>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>If you want more advanced features such as automatic numbering and custom citation styles, try the <a href="https://github.com/asciidoctor/asciidoctor-bibtex">asciidoctor-bibtex</a> project.</p>
 </div>
 </div>
 </div>
@@ -26484,7 +26536,7 @@ In source listings, is the callout the last thing on the line?</p></td>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2017-08-07 05:55:47 UTC
+Last updated 2017-08-07 06:00:42 UTC
 </div>
 </div>
 <script type="text/x-mathjax-config">
