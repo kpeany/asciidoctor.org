@@ -1466,13 +1466,13 @@ http://example.org["Google, Yahoo, Bing^", role="teal"]</pre>
 <div class="exampleblock result">
 <div class="content">
 <div class="paragraph">
-<p><a href="http://discuss.asciidoctor.org" class="external" target="_blank">Discuss Asciidoctor</a></p>
+<p><a href="http://discuss.asciidoctor.org" class="external" target="_blank" rel="noopener">Discuss Asciidoctor</a></p>
 </div>
 <div class="paragraph">
-<p><a href="http://discuss.asciidoctor.org" target="_blank">Discuss Asciidoctor</a></p>
+<p><a href="http://discuss.asciidoctor.org" target="_blank" rel="noopener">Discuss Asciidoctor</a></p>
 </div>
 <div class="paragraph">
-<p><a href="http://example.org" class="teal" target="_blank">Google, Yahoo, Bing</a></p>
+<p><a href="http://example.org" class="teal" target="_blank" rel="noopener">Google, Yahoo, Bing</a></p>
 </div>
 </div>
 </div>
@@ -2202,7 +2202,7 @@ Another paragraph.
 <td class="content">
 <div class="title">Admonition and callout icons</div>
 <div class="paragraph">
-<p>Asciidoctor can &#8220;draw&#8221; icons using <a href="http://fortawesome.github.io/Font-Awesome/" target="_blank">Font Awesome</a> and CSS.</p>
+<p>Asciidoctor can &#8220;draw&#8221; icons using <a href="http://fortawesome.github.io/Font-Awesome/" target="_blank" rel="noopener">Font Awesome</a> and CSS.</p>
 </div>
 <div class="paragraph">
 <p>To use this feature, set the value of the <code>icons</code> document attribute to <code>font</code>.
@@ -3017,10 +3017,10 @@ Select menu:View[Zoom &gt; Reset] to reset the zoom level to the default setting
 <div class="exampleblock result">
 <div class="content">
 <div class="paragraph">
-<p>To save the file, select <span class="menuseq"><span class="menu">File</span>&#160;&#9656; <span class="menuitem">Save</span></span>.</p>
+<p>To save the file, select <span class="menuseq"><b class="menu">File</b>&#160;<i class="fa fa-angle-right caret"></i> <b class="menuitem">Save</b></span>.</p>
 </div>
 <div class="paragraph">
-<p>Select <span class="menuseq"><span class="menu">View</span>&#160;&#9656; <span class="submenu">Zoom</span>&#160;&#9656; <span class="menuitem">Reset</span></span> to reset the zoom level to the default setting.</p>
+<p>Select <span class="menuseq"><b class="menu">View</b>&#160;<i class="fa fa-angle-right caret"></i> <b class="submenu">Zoom</b>&#160;<i class="fa fa-angle-right caret"></i> <b class="menuitem">Reset</b></span> to reset the zoom level to the default setting.</p>
 </div>
 </div>
 </div>
@@ -3139,82 +3139,82 @@ To make an attribute value that is passed to the API or CLI have a lower precede
 <tbody>
 <tr>
 <td class="tableblock halign-center valign-top"><div class="literal"><pre>blank</pre></div></td>
-<td class="tableblock halign-center valign-top"><div class="literal"><pre><em>nothing</em></pre></div></td>
+<td class="tableblock halign-center valign-top"><div class="literal"><pre>_nothing_</pre></div></td>
 <td class="tableblock halign-center valign-top"></td>
 </tr>
 <tr>
 <td class="tableblock halign-center valign-top"><div class="literal"><pre>empty</pre></div></td>
-<td class="tableblock halign-center valign-top"><div class="literal"><pre><em>nothing</em></pre></div></td>
+<td class="tableblock halign-center valign-top"><div class="literal"><pre>_nothing_</pre></div></td>
 <td class="tableblock halign-center valign-top"></td>
 </tr>
 <tr>
 <td class="tableblock halign-center valign-top"><div class="literal"><pre>sp</pre></div></td>
-<td class="tableblock halign-center valign-top"><div class="literal"><pre><em>single space</em></pre></div></td>
-<td class="tableblock halign-center valign-top"></td>
+<td class="tableblock halign-center valign-top"><div class="literal"><pre>_single space_</pre></div></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock"> </p></td>
 </tr>
 <tr>
 <td class="tableblock halign-center valign-top"><div class="literal"><pre>nbsp</pre></div></td>
-<td class="tableblock halign-center valign-top"><div class="literal"><pre>&amp;#160;</pre></div></td>
+<td class="tableblock halign-center valign-top"><div class="literal"><pre>\&amp;#160;</pre></div></td>
 <td class="tableblock halign-center valign-top"><p class="tableblock">&#160;</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-center valign-top"><div class="literal"><pre>zwsp<sup>[4]</sup></pre></div></td>
-<td class="tableblock halign-center valign-top"><div class="literal"><pre>&amp;#8203;</pre></div></td>
+<td class="tableblock halign-center valign-top"><div class="literal"><pre>zwsp^[4]^</pre></div></td>
+<td class="tableblock halign-center valign-top"><div class="literal"><pre>\&amp;#8203;</pre></div></td>
 <td class="tableblock halign-center valign-top"><p class="tableblock">&#8203;</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-center valign-top"><div class="literal"><pre>wj<sup>[5]</sup></pre></div></td>
-<td class="tableblock halign-center valign-top"><div class="literal"><pre>&amp;#8288;</pre></div></td>
+<td class="tableblock halign-center valign-top"><div class="literal"><pre>wj^[5]^</pre></div></td>
+<td class="tableblock halign-center valign-top"><div class="literal"><pre>\&amp;#8288;</pre></div></td>
 <td class="tableblock halign-center valign-top"><p class="tableblock">&#8288;</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-center valign-top"><div class="literal"><pre>apos</pre></div></td>
-<td class="tableblock halign-center valign-top"><div class="literal"><pre>&amp;#39;</pre></div></td>
+<td class="tableblock halign-center valign-top"><div class="literal"><pre>\&amp;#39;</pre></div></td>
 <td class="tableblock halign-center valign-top"><p class="tableblock">&#39;</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-center valign-top"><div class="literal"><pre>quot</pre></div></td>
-<td class="tableblock halign-center valign-top"><div class="literal"><pre>&amp;#34;</pre></div></td>
+<td class="tableblock halign-center valign-top"><div class="literal"><pre>\&amp;#34;</pre></div></td>
 <td class="tableblock halign-center valign-top"><p class="tableblock">&#34;</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-center valign-top"><div class="literal"><pre>lsquo</pre></div></td>
-<td class="tableblock halign-center valign-top"><div class="literal"><pre>&amp;#8216;</pre></div></td>
+<td class="tableblock halign-center valign-top"><div class="literal"><pre>\&amp;#8216;</pre></div></td>
 <td class="tableblock halign-center valign-top"><p class="tableblock">&#8216;</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-center valign-top"><div class="literal"><pre>rsquo</pre></div></td>
-<td class="tableblock halign-center valign-top"><div class="literal"><pre>&amp;#8217;</pre></div></td>
+<td class="tableblock halign-center valign-top"><div class="literal"><pre>\&amp;#8217;</pre></div></td>
 <td class="tableblock halign-center valign-top"><p class="tableblock">&#8217;</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-center valign-top"><div class="literal"><pre>ldquo</pre></div></td>
-<td class="tableblock halign-center valign-top"><div class="literal"><pre>&amp;#8220;</pre></div></td>
+<td class="tableblock halign-center valign-top"><div class="literal"><pre>\&amp;#8220;</pre></div></td>
 <td class="tableblock halign-center valign-top"><p class="tableblock">&#8220;</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-center valign-top"><div class="literal"><pre>rdquo</pre></div></td>
-<td class="tableblock halign-center valign-top"><div class="literal"><pre>&amp;#8221;</pre></div></td>
+<td class="tableblock halign-center valign-top"><div class="literal"><pre>\&amp;#8221;</pre></div></td>
 <td class="tableblock halign-center valign-top"><p class="tableblock">&#8221;</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-center valign-top"><div class="literal"><pre>deg</pre></div></td>
-<td class="tableblock halign-center valign-top"><div class="literal"><pre>&amp;#176;</pre></div></td>
+<td class="tableblock halign-center valign-top"><div class="literal"><pre>\&amp;#176;</pre></div></td>
 <td class="tableblock halign-center valign-top"><p class="tableblock">&#176;</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-center valign-top"><div class="literal"><pre>plus</pre></div></td>
-<td class="tableblock halign-center valign-top"><div class="literal"><pre>&amp;#43;</pre></div></td>
+<td class="tableblock halign-center valign-top"><div class="literal"><pre>\&amp;#43;</pre></div></td>
 <td class="tableblock halign-center valign-top"><p class="tableblock">&#43;</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-center valign-top"><div class="literal"><pre>brvbar</pre></div></td>
-<td class="tableblock halign-center valign-top"><div class="literal"><pre>&amp;#166;</pre></div></td>
+<td class="tableblock halign-center valign-top"><div class="literal"><pre>\&amp;#166;</pre></div></td>
 <td class="tableblock halign-center valign-top"><p class="tableblock">&#166;</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-center valign-top"><div class="literal"><pre>vbar</pre></div></td>
-<td class="tableblock halign-center valign-top"><div class="literal"><pre>|</pre></div></td>
+<td class="tableblock halign-center valign-top"><div class="literal"><pre>{vbar}</pre></div></td>
 <td class="tableblock halign-center valign-top"><p class="tableblock">|</p></td>
 </tr>
 <tr>
@@ -3333,7 +3333,7 @@ Instead, use numeric character references (e.g., &amp;#8364;).</p>
 <td class="tableblock halign-left valign-top"><div><div class="paragraph">
 <p>Asciidoctor version.</p>
 </div></div></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>1.5.4</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>1.5.6.1</code></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>backend</code></p></td>
@@ -3685,72 +3685,72 @@ Resolves to <code>.</code> if the safe mode is SERVER or greater.</p>
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Copyright</p></td>
-<td class="tableblock halign-center valign-top"><div class="literal"><pre>(C)</pre></div></td>
-<td class="tableblock halign-center valign-top"><div class="literal"><pre>&amp;#169;</pre></div></td>
+<td class="tableblock halign-center valign-top"><div class="literal"><pre>\(C)</pre></div></td>
+<td class="tableblock halign-center valign-top"><div class="literal"><pre>\&amp;#169;</pre></div></td>
 <td class="tableblock halign-center valign-top"><p class="tableblock">&#169;</p></td>
 <td class="tableblock halign-left valign-top"></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Registered</p></td>
-<td class="tableblock halign-center valign-top"><div class="literal"><pre>(R)</pre></div></td>
-<td class="tableblock halign-center valign-top"><div class="literal"><pre>&amp;#174;</pre></div></td>
+<td class="tableblock halign-center valign-top"><div class="literal"><pre>\(R)</pre></div></td>
+<td class="tableblock halign-center valign-top"><div class="literal"><pre>\&amp;#174;</pre></div></td>
 <td class="tableblock halign-center valign-top"><p class="tableblock">&#174;</p></td>
 <td class="tableblock halign-left valign-top"></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Trademark</p></td>
-<td class="tableblock halign-center valign-top"><div class="literal"><pre>(TM)</pre></div></td>
-<td class="tableblock halign-center valign-top"><div class="literal"><pre>&amp;#8482;</pre></div></td>
+<td class="tableblock halign-center valign-top"><div class="literal"><pre>\(TM)</pre></div></td>
+<td class="tableblock halign-center valign-top"><div class="literal"><pre>\&amp;#8482;</pre></div></td>
 <td class="tableblock halign-center valign-top"><p class="tableblock">&#8482;</p></td>
 <td class="tableblock halign-left valign-top"></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Em dash</p></td>
-<td class="tableblock halign-center valign-top"><div class="literal"><pre>--</pre></div></td>
-<td class="tableblock halign-center valign-top"><div class="literal"><pre>&amp;#8212;</pre></div></td>
+<td class="tableblock halign-center valign-top"><div class="literal"><pre>\--</pre></div></td>
+<td class="tableblock halign-center valign-top"><div class="literal"><pre>\&amp;#8212;</pre></div></td>
 <td class="tableblock halign-center valign-top"><p class="tableblock">&#8201;&#8212;&#8201;</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Only replaced if between two word characters, between a word character and a line boundary, or flanked by spaces.
-</p><p class="tableblock">When flanked by space characters (e.g., <code>a -- b</code>), the normal spaces are replaced by thin spaces (&amp;#8201;).</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Only replaced if between two word characters, between a word character and a line boundary, or flanked by spaces.</p>
+<p class="tableblock">When flanked by space characters (e.g., <code>a -- b</code>), the normal spaces are replaced by thin spaces (&amp;#8201;).</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">ellipses</p></td>
-<td class="tableblock halign-center valign-top"><div class="literal"><pre>...</pre></div></td>
-<td class="tableblock halign-center valign-top"><div class="literal"><pre>&amp;#8230;</pre></div></td>
+<td class="tableblock halign-center valign-top"><div class="literal"><pre>\...</pre></div></td>
+<td class="tableblock halign-center valign-top"><div class="literal"><pre>\&amp;#8230;</pre></div></td>
 <td class="tableblock halign-center valign-top"><p class="tableblock">&#8230;&#8203;</p></td>
 <td class="tableblock halign-left valign-top"></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">right single arrow</p></td>
-<td class="tableblock halign-center valign-top"><div class="literal"><pre>-&gt;</pre></div></td>
-<td class="tableblock halign-center valign-top"><div class="literal"><pre>&amp;#8594;</pre></div></td>
+<td class="tableblock halign-center valign-top"><div class="literal"><pre>\-&gt;</pre></div></td>
+<td class="tableblock halign-center valign-top"><div class="literal"><pre>\&amp;#8594;</pre></div></td>
 <td class="tableblock halign-center valign-top"><p class="tableblock">&#8594;</p></td>
 <td class="tableblock halign-left valign-top"></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">right double arrow</p></td>
-<td class="tableblock halign-center valign-top"><div class="literal"><pre>=&gt;</pre></div></td>
-<td class="tableblock halign-center valign-top"><div class="literal"><pre>&amp;#8658;</pre></div></td>
+<td class="tableblock halign-center valign-top"><div class="literal"><pre>\=&gt;</pre></div></td>
+<td class="tableblock halign-center valign-top"><div class="literal"><pre>\&amp;#8658;</pre></div></td>
 <td class="tableblock halign-center valign-top"><p class="tableblock">&#8658;</p></td>
 <td class="tableblock halign-left valign-top"></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">left single arrow</p></td>
-<td class="tableblock halign-center valign-top"><div class="literal"><pre>&lt;-</pre></div></td>
-<td class="tableblock halign-center valign-top"><div class="literal"><pre>&amp;#8592;</pre></div></td>
+<td class="tableblock halign-center valign-top"><div class="literal"><pre>\&lt;-</pre></div></td>
+<td class="tableblock halign-center valign-top"><div class="literal"><pre>\&amp;#8592;</pre></div></td>
 <td class="tableblock halign-center valign-top"><p class="tableblock">&#8592;</p></td>
 <td class="tableblock halign-left valign-top"></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">left double arrow</p></td>
-<td class="tableblock halign-center valign-top"><div class="literal"><pre>&lt;=</pre></div></td>
-<td class="tableblock halign-center valign-top"><div class="literal"><pre>&amp;#8656;</pre></div></td>
+<td class="tableblock halign-center valign-top"><div class="literal"><pre>\&lt;=</pre></div></td>
+<td class="tableblock halign-center valign-top"><div class="literal"><pre>\&amp;#8656;</pre></div></td>
 <td class="tableblock halign-center valign-top"><p class="tableblock">&#8656;</p></td>
 <td class="tableblock halign-left valign-top"></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">apostrophe</p></td>
-<td class="tableblock halign-center valign-top"><div class="literal"><pre>Sam's</pre></div></td>
-<td class="tableblock halign-center valign-top"><div class="literal"><pre>Sam&amp;#8217;s</pre></div></td>
+<td class="tableblock halign-center valign-top"><div class="literal"><pre>Sam\'s</pre></div></td>
+<td class="tableblock halign-center valign-top"><div class="literal"><pre>Sam\&amp;#8217;s</pre></div></td>
 <td class="tableblock halign-center valign-top"><p class="tableblock">Sam&#8217;s</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">The vertical form apostrophe is replaced with the curved form apostrophe.</p></td>
 </tr>

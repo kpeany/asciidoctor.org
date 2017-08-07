@@ -479,9 +479,9 @@ To turn our vision into reality, the Asciidoctor project needs funding.&lt;/p&gt
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;In order to ensure the continued success and sustainability of the Asciidoctor project, we’ve setup &lt;a href=&quot;https://salt.bountysource.com/teams/asciidoctor&quot; target=&quot;_blank&quot;&gt;an account for Asciidoctor&lt;/a&gt; on &lt;a href=&quot;https://github.com/bountysource/frontend/wiki/Salt-Frequently-Asked-Questions&quot; target=&quot;_blank&quot;&gt;Salt&lt;/a&gt;, the new funding platform from Bountysource.
+&lt;p&gt;In order to ensure the continued success and sustainability of the Asciidoctor project, we’ve setup &lt;a href=&quot;https://salt.bountysource.com/teams/asciidoctor&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;an account for Asciidoctor&lt;/a&gt; on &lt;a href=&quot;https://github.com/bountysource/frontend/wiki/Salt-Frequently-Asked-Questions&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Salt&lt;/a&gt;, the new funding platform from Bountysource.
 &lt;em&gt;(Bountysource is like Kickstarter for open source projects).&lt;/em&gt;
-You can read more details about this campaign, how it works and our initial goals on the &lt;a href=&quot;https://salt.bountysource.com/teams/asciidoctor&quot; target=&quot;_blank&quot;&gt;Asciidoctor campaign page&lt;/a&gt;.&lt;/p&gt;
+You can read more details about this campaign, how it works and our initial goals on the &lt;a href=&quot;https://salt.bountysource.com/teams/asciidoctor&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Asciidoctor campaign page&lt;/a&gt;.&lt;/p&gt;
 &lt;/div&gt;
 &lt;div class=&quot;paragraph&quot;&gt;
 &lt;p&gt;The Salt platform will enable us to accept financial backing for Asciidoctor from both organizations and individuals and allocate the money the way we think best suits the project.
@@ -2243,7 +2243,7 @@ To give you a picture of how fast it is now, the Spring Framework Reference Guid
 &lt;div class=&quot;paragraph&quot;&gt;
 &lt;p&gt;Asciidoctor is now in use by even more open source projects, including Groovy, Griffon, GroovyFX, Infinispan, Weld, Hibernate OGM, Spring Data and git-scm.com.
 It’s also used to produce NFJS, the Magazine.
-Best of all, &lt;a href=&quot;https://github.com/graphitefriction&quot;&gt;Sarah&lt;/a&gt; has been hard at work filling in Asciidoctor’s own &lt;a href=&quot;http://asciidoctor.org/docs/user-manual&quot;&gt;user manual&lt;/a&gt; and helping teams understand how to &lt;a href=&quot;http://graphitefriction.com/decks&quot; target=&quot;_blank&quot;&gt;write better documentation&lt;/a&gt;.&lt;/p&gt;
+Best of all, &lt;a href=&quot;https://github.com/graphitefriction&quot;&gt;Sarah&lt;/a&gt; has been hard at work filling in Asciidoctor’s own &lt;a href=&quot;http://asciidoctor.org/docs/user-manual&quot;&gt;user manual&lt;/a&gt; and helping teams understand how to &lt;a href=&quot;http://graphitefriction.com/decks&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;write better documentation&lt;/a&gt;.&lt;/p&gt;
 &lt;/div&gt;
 &lt;div class=&quot;paragraph&quot;&gt;
 &lt;p&gt;In case you didn’t notice, the Asciidoctor project is on &lt;span class=&quot;icon red&quot;&gt;&lt;i class=&quot;fa fa-fire&quot;&gt;&lt;/i&gt;&lt;/span&gt;.
@@ -3954,7 +3954,7 @@ But that’s just the start.&lt;/p&gt;
 &lt;div class=&quot;paragraph&quot;&gt;
 &lt;p&gt;Once again, the valuable feedback we’ve received from Asciidoctor’s &lt;a href=&quot;#acknowledgments&quot;&gt;awesome community&lt;/a&gt; has helped push Asciidoctor’s compliance with the AsciiDoc syntax &lt;em&gt;beyond&lt;/em&gt; the Python implementation.
 Asciidoctor has also achieved another &lt;strong&gt;15% increase in speed&lt;/strong&gt; over the previous release.
-Just to give you an idea of how fast the processor is, the 16,000-line &lt;a href=&quot;http://enterprisewebbook.com&quot; target=&quot;_blank&quot;&gt;Enterprise Web Development: From Desktop to Mobile&lt;/a&gt; book, published by O’Reilly, renders to HTML in &lt;em&gt;0.85 seconds&lt;/em&gt; on an Ultrabook.&lt;/p&gt;
+Just to give you an idea of how fast the processor is, the 16,000-line &lt;a href=&quot;http://enterprisewebbook.com&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Enterprise Web Development: From Desktop to Mobile&lt;/a&gt; book, published by O’Reilly, renders to HTML in &lt;em&gt;0.85 seconds&lt;/em&gt; on an Ultrabook.&lt;/p&gt;
 &lt;/div&gt;
 &lt;div class=&quot;paragraph&quot;&gt;
 &lt;p&gt;Asciidoctor is now in use by major open source projects, most notably Groovy, Spring XD, Spring Security, OpenShift Origin, Neo4j, CRaSH, RichFaces and Granite DS, among others.
@@ -7244,7 +7244,8 @@ Do you contribute to, maintain or organize any of the following?&lt;/p&gt;
 &lt;div class=&quot;sect2&quot;&gt;
 &lt;h3 id=&quot;trainers&quot;&gt;&lt;a class=&quot;anchor&quot; href=&quot;#trainers&quot;&gt;&lt;/a&gt;Trainers&lt;/h3&gt;
 &lt;div class=&quot;openblock&quot;&gt;
-&lt;div class=&quot;title&quot;&gt;&lt;span class=&quot;image thumb right&quot;&gt;&lt;a class=&quot;image&quot; href=&quot;https://github.com/mojavelinux&quot;&gt;&lt;img src=&quot;https://github.com/mojavelinux.png&quot; alt=&quot;Dan Allen&quot; width=&quot;150&quot; height=&quot;150&quot; /&gt;&lt;/a&gt;&lt;/span&gt; Dan Allen&lt;/div&gt;&lt;div class=&quot;content&quot;&gt;
+&lt;div class=&quot;title&quot;&gt;&lt;span class=&quot;image thumb right&quot;&gt;&lt;a class=&quot;image&quot; href=&quot;https://github.com/mojavelinux&quot;&gt;&lt;img src=&quot;https://github.com/mojavelinux.png&quot; alt=&quot;Dan Allen&quot; width=&quot;150&quot; height=&quot;150&quot; /&gt;&lt;/a&gt;&lt;/span&gt; Dan Allen&lt;/div&gt;
+&lt;div class=&quot;content&quot;&gt;
 &lt;div class=&quot;paragraph&quot;&gt;
 &lt;p&gt;Dan is an open source advocate, community catalyst, author and speaker. He proudly pursues these passions as a Red Hat employee and community member.&lt;/p&gt;
 &lt;/div&gt;
@@ -7256,7 +7257,8 @@ Besides drinking a Trappist beer or indulging in Belgian chocolate, there’s no
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;div class=&quot;openblock&quot;&gt;
-&lt;div class=&quot;title&quot;&gt;&lt;span class=&quot;image thumb right&quot;&gt;&lt;a class=&quot;image&quot; href=&quot;https://github.com/graphitefriction&quot;&gt;&lt;img src=&quot;https://github.com/graphitefriction.png&quot; alt=&quot;Sarah White&quot; width=&quot;150&quot; height=&quot;150&quot; /&gt;&lt;/a&gt;&lt;/span&gt; Sarah White&lt;/div&gt;&lt;div class=&quot;content&quot;&gt;
+&lt;div class=&quot;title&quot;&gt;&lt;span class=&quot;image thumb right&quot;&gt;&lt;a class=&quot;image&quot; href=&quot;https://github.com/graphitefriction&quot;&gt;&lt;img src=&quot;https://github.com/graphitefriction.png&quot; alt=&quot;Sarah White&quot; width=&quot;150&quot; height=&quot;150&quot; /&gt;&lt;/a&gt;&lt;/span&gt; Sarah White&lt;/div&gt;
+&lt;div class=&quot;content&quot;&gt;
 &lt;div class=&quot;paragraph&quot;&gt;
 &lt;p&gt;Sarah is the content strategist for both the Arquillian and Asciidoctor projects—​an ideal position for someone passionate about open source, alien invasions and writing.&lt;/p&gt;
 &lt;/div&gt;
@@ -7960,7 +7962,7 @@ Here’s the TL;DR version if you’re in a hurry.&lt;/p&gt;
 &lt;p&gt;Support for Markdown blockquotes and headings (to join fenced code blocks)&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
-&lt;p&gt;Font-based admonition icons powered by &lt;a href=&quot;http://fortawesome.github.io/Font-Awesome&quot; target=&quot;_blank&quot;&gt;Font Awesome&lt;/a&gt; and CSS-based callout icons&lt;/p&gt;
+&lt;p&gt;Font-based admonition icons powered by &lt;a href=&quot;http://fortawesome.github.io/Font-Awesome&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Font Awesome&lt;/a&gt; and CSS-based callout icons&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;Linked section titles as floating anchors or linked title text&lt;/p&gt;
@@ -7969,7 +7971,7 @@ Here’s the TL;DR version if you’re in a hurry.&lt;/p&gt;
 &lt;p&gt;Target window and role (i.e., CSS class) attributes for links&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
-&lt;p&gt;Option to use &lt;a href=&quot;https://code.google.com/p/google-code-prettify&quot; target=&quot;_blank&quot;&gt;google-code-prettify&lt;/a&gt; to highlight source code blocks&lt;/p&gt;
+&lt;p&gt;Option to use &lt;a href=&quot;https://code.google.com/p/google-code-prettify&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;google-code-prettify&lt;/a&gt; to highlight source code blocks&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;Attributes resolved in target of include macro&lt;/p&gt;
@@ -8240,8 +8242,8 @@ When the President does it, that means that it's not illegal.
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;&lt;a href=&quot;http://en.wikipedia.org/wiki/Air_quotes&quot; target=&quot;_blank&quot;&gt;Air quotes\&lt;/a&gt; are two double quotes on each line, emulating the gesture of making quote marks with two fingers on each hand.
-This gesture is reminiscinet of the &lt;a href=&quot;http://www.flickr.com/photos/lee20sk/3942032514&quot; target=&quot;_blank&quot;&gt;V for Victory gesture&lt;/a&gt; made famous by Richard Nixon.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;http://en.wikipedia.org/wiki/Air_quotes&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Air quotes\&lt;/a&gt; are two double quotes on each line, emulating the gesture of making quote marks with two fingers on each hand.
+This gesture is reminiscinet of the &lt;a href=&quot;http://www.flickr.com/photos/lee20sk/3942032514&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;V for Victory gesture&lt;/a&gt; made famous by Richard Nixon.&lt;/p&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;div class=&quot;sect3&quot;&gt;
@@ -8403,7 +8405,7 @@ Asciidoctor 0.1.3 introduces Font-based admonition and CSS-based callout icons.&
 &lt;div class=&quot;paragraph&quot;&gt;
 &lt;p&gt;Icons can make your document look sharp, but they are a pain to manage.
 That is, until now!
-Asciidoctor can &quot;draw&quot; icons using &lt;a href=&quot;http://fortawesome.github.io/Font-Awesome&quot; target=&quot;_blank&quot;&gt;Font Awesome&lt;/a&gt; and CSS.&lt;/p&gt;
+Asciidoctor can &quot;draw&quot; icons using &lt;a href=&quot;http://fortawesome.github.io/Font-Awesome&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Font Awesome&lt;/a&gt; and CSS.&lt;/p&gt;
 &lt;/div&gt;
 &lt;div class=&quot;paragraph&quot;&gt;
 &lt;p&gt;To use this feature, just set the value of the &lt;code&gt;icons&lt;/code&gt; document attribute to &lt;code&gt;font&lt;/code&gt;.
@@ -8710,10 +8712,10 @@ Select menu:View[Zoom &amp;gt; Reset] to reset the zoom level to the default set
 &lt;div class=&quot;exampleblock&quot;&gt;
 &lt;div class=&quot;content&quot;&gt;
 &lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;To save the file, select &lt;span class=&quot;menuseq&quot;&gt;&lt;span class=&quot;menu&quot;&gt;File&lt;/span&gt; ▸ &lt;span class=&quot;menuitem&quot;&gt;Save&lt;/span&gt;&lt;/span&gt;.&lt;/p&gt;
+&lt;p&gt;To save the file, select &lt;span class=&quot;menuseq&quot;&gt;&lt;b class=&quot;menu&quot;&gt;File&lt;/b&gt; &lt;i class=&quot;fa fa-angle-right caret&quot;&gt;&lt;/i&gt; &lt;b class=&quot;menuitem&quot;&gt;Save&lt;/b&gt;&lt;/span&gt;.&lt;/p&gt;
 &lt;/div&gt;
 &lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;Select &lt;span class=&quot;menuseq&quot;&gt;&lt;span class=&quot;menu&quot;&gt;View&lt;/span&gt; ▸ &lt;span class=&quot;submenu&quot;&gt;Zoom&lt;/span&gt; ▸ &lt;span class=&quot;menuitem&quot;&gt;Reset&lt;/span&gt;&lt;/span&gt; to reset the zoom level to the default setting.&lt;/p&gt;
+&lt;p&gt;Select &lt;span class=&quot;menuseq&quot;&gt;&lt;b class=&quot;menu&quot;&gt;View&lt;/b&gt; &lt;i class=&quot;fa fa-angle-right caret&quot;&gt;&lt;/i&gt; &lt;b class=&quot;submenu&quot;&gt;Zoom&lt;/b&gt; &lt;i class=&quot;fa fa-angle-right caret&quot;&gt;&lt;/i&gt; &lt;b class=&quot;menuitem&quot;&gt;Reset&lt;/b&gt;&lt;/span&gt; to reset the zoom level to the default setting.&lt;/p&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
@@ -11110,7 +11112,7 @@ DocBook 4.5 and other formats.&lt;/p&gt;
 &lt;h2 id=&quot;installation&quot;&gt;&lt;a class=&quot;anchor&quot; href=&quot;#installation&quot;&gt;&lt;/a&gt;Installation&lt;/h2&gt;
 &lt;div class=&quot;sectionbody&quot;&gt;
 &lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;You can install the Asciidoctor RubyGem using the gem
+&lt;p&gt;You can install the Asciidoctor RubyGem using the &lt;code&gt;gem&lt;/code&gt;
 command:&lt;/p&gt;
 &lt;/div&gt;
 &lt;div class=&quot;literalblock&quot;&gt;
@@ -11121,7 +11123,7 @@ command:&lt;/p&gt;
 &lt;div class=&quot;paragraph&quot;&gt;
 &lt;p&gt;On Fedora, you can install via an RPM package
 (&lt;a href=&quot;https://bugzilla.redhat.com/show_bug.cgi?id=889011&quot;&gt;pending&lt;/a&gt;)
-using the yum command:&lt;/p&gt;
+using the &lt;code&gt;yum&lt;/code&gt; command:&lt;/p&gt;
 &lt;/div&gt;
 &lt;div class=&quot;literalblock&quot;&gt;
 &lt;div class=&quot;content&quot;&gt;
@@ -11156,7 +11158,7 @@ using the yum command:&lt;/p&gt;
 &lt;/ul&gt;
 &lt;/div&gt;
 &lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;'Give it a try!'&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;Give it a try!&lt;/em&gt;&lt;/p&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;&lt;/div&gt;&lt;/td&gt;

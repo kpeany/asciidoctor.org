@@ -10,6 +10,7 @@
 <li><a href="#program-information">Program Information</a></li>
 </ul>
 </li>
+<li><a href="#environment">ENVIRONMENT</a></li>
 <li><a href="#exit-status">EXIT STATUS</a></li>
 <li><a href="#bugs">BUGS</a></li>
 <li><a href="#authors">AUTHORS</a></li>
@@ -49,7 +50,7 @@
 <dd>
 <p>Base directory containing the document and resources.
 Defaults to the directory containing the source file, or the working directory if the source is read from a stream.
-Can be used as a way to chroot the execution of the program.</p>
+When combined with the safe mode setting, can be used to chroot the execution of the program.</p>
 </dd>
 <dt class="hdlist1"><strong>-S, --safe-mode</strong>=<em>SAFE_MODE</em></dt>
 <dd>
@@ -60,7 +61,7 @@ If not set, the safe mode level defaults to <em>unsafe</em> when Asciidoctor is 
 <dt class="hdlist1"><strong>--safe</strong></dt>
 <dd>
 <p>Set safe mode level to <em>safe</em>.
-Enables include macros, but restricts access to ancestor paths of source file.
+Enables include directives, but prevents access to ancestor paths of source file.
 Provided for compatibility with the asciidoc command.
 If not set, the safe mode level defaults to <em>unsafe</em> when Asciidoctor is invoked using this script.</p>
 </dd>
@@ -74,7 +75,7 @@ If not set, the safe mode level defaults to <em>unsafe</em> when Asciidoctor is 
 <dt class="hdlist1"><strong>-a, --attribute</strong>=<em>ATTRIBUTE</em></dt>
 <dd>
 <p>Define, override or delete a document attribute.
-Command-line attributes take precedence over attributes defined in the source file.</p>
+Command-line attributes take precedence over attributes defined in the source file unless the value ends with <em>@</em>.</p>
 <div class="paragraph">
 <p><em>ATTRIBUTE</em> is normally formatted as a key-value pair, in the form <em>NAME=VALUE</em>.
 Alternate acceptable forms are <em>NAME</em> (where the <em>VALUE</em> defaults to an empty string), <em>NAME!</em> (unassigns the <em>NAME</em> attribute) and <em>NAME=VALUE@</em> (where <em>VALUE</em> does not override value of <em>NAME</em> attribute if it&#8217;s already defined in the source document).
@@ -88,15 +89,15 @@ Values containing spaces should be enclosed in quotes.</p>
 <dd>
 <p>Backend output file format: <em>html5</em>, <em>docbook5</em>, <em>docbook45</em> and <em>manpage</em> are supported out of the box.
 You can also use the backend alias names <em>html</em> (aliased to <em>html5</em>) or <em>docbook</em> (aliased to <em>docbook5</em>).
-Defaults to <em>html5</em>.
-Other options can be passed, but if Asciidoctor cannot find the backend, it will fail during conversion.</p>
+Other values can be passed, but if Asciidoctor cannot resolve the backend to a converter, it will fail.
+Defaults to <em>html5</em>.</p>
 </dd>
 <dt class="hdlist1"><strong>-d, --doctype</strong>=<em>DOCTYPE</em></dt>
 <dd>
 <p>Document type: <em>article</em>, <em>book</em>, <em>manpage</em> or <em>inline</em>.
 Sets the root element when using the <em>docbook</em> backend and the style class on the HTML body element when using the <em>html</em> backend.
 The <em>book</em> document type allows multiple level-0 section titles in a single document.
-The <em>manpage</em> document type enables parsing of metadata necessary to produce a manpage.
+The <em>manpage</em> document type enables parsing of metadata necessary to produce a man page.
 The <em>inline</em> document type allows the content of a single paragraph to be formatted and returned without wrapping it in a containing element.
 Defaults to <em>article</em>.</p>
 </dd>
@@ -145,9 +146,9 @@ Synonym for <strong>--attribute numbered</strong>.</p>
 <dd>
 <p>Write output to file <em>OUT_FILE</em>.
 Defaults to the base name of the input file suffixed with <em>backend</em> extension.
-If the input is read from standard input, then the output file defaults to stdout.
-If <em>OUT_FILE</em> is <em>-</em> then the standard output is also used.
-If specified, the file is resolved relative to the working directory.</p>
+The file is resolved relative to the working directory.
+If the input is read from standard input or a named pipe (fifo), then the output file defaults to stdout.
+If <em>OUT_FILE</em> is <em>-</em>, then the output file is written to standard output.</p>
 </dd>
 <dt class="hdlist1"><strong>-r, --require</strong>=<em>LIBRARY</em></dt>
 <dd>
@@ -202,9 +203,11 @@ Not enabled by default.</p>
 <h3 id="program-information"><a class="anchor" href="#program-information"></a>Program Information</h3>
 <div class="dlist">
 <dl>
-<dt class="hdlist1"><strong>-h, --help</strong></dt>
+<dt class="hdlist1"><strong>-h, --help</strong> [<em>TOPIC</em>]</dt>
 <dd>
-<p>Show the help message.</p>
+<p>Print the help message.
+Show the command usage if <em>TOPIC</em> is not specified (or not recognized).
+Dump the Asciidoctor man page (in troff/groff format) if <em>TOPIC</em> is <em>manpage</em>.</p>
 </dd>
 <dt class="hdlist1"><strong>-V, --version</strong></dt>
 <dd>
@@ -215,6 +218,16 @@ Not enabled by default.</p>
 </dd>
 </dl>
 </div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="environment"><a class="anchor" href="#environment"></a>ENVIRONMENT</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p><strong>Asciidoctor</strong> honors the <strong>SOURCE_DATE_EPOCH</strong> environment variable.
+If this variable is assigned an integer value, that value is used as the epoch of all input documents and as the local date and time.
+See <a href="https://reproducible-builds.org/specs/source-date-epoch/" class="bare">https://reproducible-builds.org/specs/source-date-epoch/</a> for more information about this environment variable.</p>
 </div>
 </div>
 </div>
@@ -275,7 +288,7 @@ Not enabled by default.</p>
 <h2 id="copying"><a class="anchor" href="#copying"></a>COPYING</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Copyright (C) 2012-2016 Dan Allen, Ryan Waldron and the Asciidoctor Project.
+<p>Copyright (C) 2012-2017 Dan Allen, Ryan Waldron and the Asciidoctor Project.
 Free use of this software is granted under the terms of the MIT License.</p>
 </div>
 </div>
