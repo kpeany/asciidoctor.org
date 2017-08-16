@@ -57,6 +57,7 @@
 <li><a href="#admonition-blocks">Admonition blocks</a></li>
 <li><a href="#listing-and-source-code-blocks">Listing and source code blocks</a></li>
 <li><a href="#open-blocks">Open blocks</a></li>
+<li><a href="#pass-blocks">Passthrough blocks</a></li>
 </ul>
 </li>
 <li><a href="#delimiters-optional">Delimiters optional</a></li>
@@ -2206,7 +2207,7 @@ However, the title must begin with an uppercase letter (in basic Latin) without 
 <div class="title">Rendered cross reference using a section&#8217;s title</div>
 <div class="content">
 <div class="paragraph">
-<p>Refer to <a href="#Internal Cross References">[Internal Cross References]</a>.</p>
+<p>Refer to <a href="#cross-references">Internal Cross References</a>.</p>
 </div>
 </div>
 </div>
@@ -2250,13 +2251,13 @@ For links to another AsciiDoc document, this is the preferred way.</p>
 <p>The trailing hash (<code>#</code>) means that you refer to the top of the document.</p>
 </div>
 <div class="listingblock">
-<div class="title">Cross reference to the top of a relative Asciidoc document</div>
+<div class="title">Cross reference to the top of a relative AsciiDoc document</div>
 <div class="content">
 <pre class="CodeRay highlight nowrap"><code data-lang="asciidoc">Refer to &lt;&lt;document-b.adoc#,Document B&gt;&gt; for more information.</code></pre>
 </div>
 </div>
 <div class="exampleblock">
-<div class="title">Rendered cross reference to the top of a relative Asciidoc document</div>
+<div class="title">Rendered cross reference to the top of a relative AsciiDoc document</div>
 <div class="content">
 <div class="paragraph">
 <p>Refer to <a href="../document-b/">Document B</a> for more information.</p>
@@ -2267,13 +2268,13 @@ For links to another AsciiDoc document, this is the preferred way.</p>
 <p>To link directly to a section in the document, append the section&#8217;s ID after the hash (<code>#</code>)</p>
 </div>
 <div class="listingblock">
-<div class="title">Cross reference to a specific section of a relative Asciidoc document</div>
+<div class="title">Cross reference to a specific section of a relative AsciiDoc document</div>
 <div class="content">
 <pre class="CodeRay highlight nowrap"><code data-lang="asciidoc">Refer to &lt;&lt;document-b.adoc#section-b,Section B&gt;&gt; for more information.</code></pre>
 </div>
 </div>
 <div class="exampleblock">
-<div class="title">Rendered cross reference to a specific section of a relative Asciidoc document</div>
+<div class="title">Rendered cross reference to a specific section of a relative AsciiDoc document</div>
 <div class="content">
 <div class="paragraph">
 <p>Refer to <a href="../document-b/#section-b">Section B</a> for more information.</p>
@@ -3270,6 +3271,38 @@ This is aside text.
 It is used to present information related to the main content.
 --</code></pre>
 </div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="pass-blocks"><a class="anchor" href="#pass-blocks"></a>Passthrough blocks</h4>
+<div class="paragraph">
+<p>The &#8220;anything goes&#8221; mechanism in AsciiDoc is the passthrough block.
+As the name implies, this block passes the content of the block directly through to the output document.
+When you&#8217;ve encountered a complex requirement that you cannot meet using the AsciiDoc syntax, a passthrough block can come in very handy.</p>
+</div>
+<div class="paragraph">
+<p>For example, let&#8217;s say you want to embed a GitHub gist into your document.
+You can define the following passthrough block:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight nowrap"><code data-lang="asciidoc">++++
+&lt;script src=&quot;https://gist.github.com/piscisaureus/3342247.js&quot;&gt;&lt;/script&gt;
+++++</code></pre>
+</div>
+</div>
+<div class="admonitionblock caution">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-caution" title="Caution"></i>
+</td>
+<td class="content">
+Using a passthrough block couples your content to a specific output format, such as HTML.
+If you&#8217;re going to use a passthrough block, we recommend using <a href="http://asciidoctor.org/docs/user-manual#conditional-preprocessor-directives">conditional preprocessor directives</a> to associate the format-specific content with each backend you intend to support.
+</td>
+</tr>
+</table>
 </div>
 </div>
 </div>
