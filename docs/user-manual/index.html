@@ -1011,13 +1011,14 @@ table.CodeRay td.code>pre{padding:0}
 <li><a href="#convert-docbook-xml-to-asciidoc">96. Convert DocBook XML to AsciiDoc</a></li>
 <li><a href="#convert-markdown-to-asciidoc">97. Convert Markdown to AsciiDoc</a></li>
 <li><a href="#convert-confluence-xhtml-to-asciidoc">98. Convert Confluence XHTML to AsciiDoc</a></li>
+<li><a href="#convert-ms-word-to-asciidoc">99. Convert MS Word to AsciiDoc</a></li>
 </ul>
 </li>
 <li><a href="#resources">Resources</a>
 <ul class="sectlevel1">
-<li><a href="#copyright-and-license">99. Copyright and License</a></li>
-<li><a href="#authors">100. Authors</a></li>
-<li><a href="#troubleshoot">101. Troubleshooting</a></li>
+<li><a href="#copyright-and-license">100. Copyright and License</a></li>
+<li><a href="#authors">101. Authors</a></li>
+<li><a href="#troubleshoot">102. Troubleshooting</a></li>
 <li><a href="#glossary">Glossary</a></li>
 <li><a href="#attribute-catalog">Appendix A: Catalog of Document Attributes</a>
 <ul class="sectlevel2">
@@ -1233,12 +1234,14 @@ That&#8217;s why mapping to an enterprise documentation format like DocBook rema
 But what truly makes AsciiDoc the right investment is that its syntax was designed to be extended as a core feature.
 This extensibility not only means that AsciiDoc has a more to offer, with room to grow, it also fulfills the objective of ensuring your content is maximally reusable.</p>
 </div>
-<div class="paragraph">
-<p>You can find more links to discussions about the differences between AsciiDoc and Markdown in the comments of <a href="https://github.com/asciidoctor/asciidoctor.org/issues/34">issue #34</a></p>
-</div>
 <div class="sect3">
-<h4 id="a-basic-comparison-by-example"><a class="anchor" href="#a-basic-comparison-by-example"></a><a class="link" href="#a-basic-comparison-by-example">1.5.1. A basic comparison by example</a></h4>
-<table class="tableblock frame-all grid-all spread">
+<h4 id="comparison-by-example"><a class="anchor" href="#comparison-by-example"></a><a class="link" href="#comparison-by-example">1.5.1. Comparison by example</a></h4>
+<div class="paragraph">
+<p>The following table shows the AsciiDoc syntax as it compares to Markdown.
+Since AsciiDoc supports a broader range of syntax than Markdown, this side-by-side comparison focuses mainly on areas where the syntax overlaps.</p>
+</div>
+<table id="asciidoc-vs-markdown" class="tableblock frame-all grid-all spread">
+<caption class="title">AsciiDoc language features as they compare to Markdown</caption>
 <colgroup>
 <col style="width: 25%;">
 <col style="width: 37.5%;">
@@ -23157,11 +23160,6 @@ require <span class="string"><span class="delimiter">'</span><span class="conten
 </div>
 </div>
 <h1 id="build-integrations-and-implementations" class="sect0"><a class="anchor" href="#build-integrations-and-implementations"></a><a class="link" href="#build-integrations-and-implementations">Build Integrations and Implementations</a></h1>
-<div class="openblock partintro">
-<div class="content">
-NOTE: Section pending
-</div>
-</div>
 <div class="sect1">
 <h2 id="java"><a class="anchor" href="#java"></a><a class="link" href="#java">87. Java</a></h2>
 <div class="sectionbody">
@@ -23177,6 +23175,11 @@ Use <a href="https://github.com/asciidoctor/asciidoctor.org/issues/455">Issue 45
 </td>
 </tr>
 </table>
+</div>
+<div class="paragraph">
+<p><a href="https://github.com/asciidoctor/asciidoctorj">AsciidoctorJ</a> is the official library for running Asciidoctor on the JVM.
+Using AsciidoctorJ, you can convert AsciiDoc content or analyze the structure of a parsed AsciiDoc document from Java and other JVM languages.
+For details see <a href="http://asciidoctor.org/docs/asciidoctorj">Getting Started with Asciidoctor in Java using AsciidoctorJ</a>.</p>
 </div>
 </div>
 </div>
@@ -23196,6 +23199,10 @@ Use <a href="https://github.com/asciidoctor/asciidoctor.org/issues/456">Issue 45
 </tr>
 </table>
 </div>
+<div class="paragraph">
+<p>The <a href="https://github.com/asciidoctor/asciidoctor-gradle-plugin">Asciidoctor Gradle Plugin</a> is the official means of using Asciidoctor to convert all your AsciiDoc documentation using Gradle.
+For details see <a href="http://asciidoctor.org/docs/asciidoctor-gradle-plugin/">Getting Started with the Asciidoctor Gradle Plugin</a>.</p>
+</div>
 </div>
 </div>
 <div class="sect1">
@@ -23213,6 +23220,10 @@ Use <a href="https://github.com/asciidoctor/asciidoctor.org/issues/457">Issue 45
 </td>
 </tr>
 </table>
+</div>
+<div class="paragraph">
+<p>The <a href="https://github.com/asciidoctor/asciidoctor-maven-plugin">Asciidoctor Maven Plugin</a> is the official way to convert your AsciiDoc documentation using Asciidoctor from an Apache Maven build.
+For details see <a href="http://asciidoctor.org/docs/asciidoctor-maven-plugin">Installing and Using the Asciidoctor Maven Plugin</a>.</p>
 </div>
 </div>
 </div>
@@ -23261,6 +23272,13 @@ Use <a href="https://github.com/asciidoctor/asciidoctor.org/issues/458">Issue 45
 </tr>
 </table>
 </div>
+<div class="paragraph">
+<p>Using the <a href="https://github.com/asciidoctor/asciidoclet">Asciidoctor doclet</a>, you can write your Javadoc comments using all the features of Asciidoctor including tables, lists, code examples with syntax highlighting, and pictures.</p>
+</div>
+<div class="paragraph">
+<p>If you want to incorporate your Javadoc into another document instead, there is an experimental doclet that exports them to AsciiDoc files.
+See the <a href="https://github.com/johncarl81/exportdoclet">exportdoclet project</a> and the <a href="http://discuss.asciidoctor.org/Export-Javadoc-strings-td4172.html">related discussion thread</a> for details.</p>
+</div>
 </div>
 </div>
 <div class="sect1">
@@ -23278,6 +23296,11 @@ Use <a href="https://github.com/asciidoctor/asciidoctor.org/issues/459">Issue 45
 </td>
 </tr>
 </table>
+</div>
+<div class="paragraph">
+<p><a href="https://github.com/asciidoctor/asciidoctor.js">Asciidoctor.js</a> is a JavaScript port of Asciidoctor, transpiled directly from the Ruby version.
+Asciidoctor.js brings the AsciiDoc syntax to the browser and the Node.js ecosystem.
+For details see <a href="http://asciidoctor.org/docs/install-and-use-asciidoctorjs">Installing and Using Asciidoctor.js</a>.</p>
 </div>
 </div>
 </div>
@@ -23904,6 +23927,11 @@ Use <a href="https://github.com/asciidoctor/asciidoctor.org/issues/462">Issue 46
 </tr>
 </table>
 </div>
+<div class="paragraph">
+<p>Asciidoctor recognizes a fair amount of Markdown syntax, thus allowing you to migrate from Markdown to AsciiDoc gradually.
+See <a href="http://asciidoctor.org/docs/asciidoc-syntax-quick-reference/#markdown-compatibility">Markdown Compatibility</a> to learn what syntax is shared.
+The syntax you must change is listed in <a href="#asciidoc-vs-markdown">AsciiDoc language features as they compare to Markdown</a>.</p>
+</div>
 </div>
 </div>
 <div class="sect1">
@@ -24005,6 +24033,14 @@ You can find the source of this script hosted at this <a href="https://gist.gith
 </div>
 </div>
 </div>
+<div class="sect1">
+<h2 id="convert-ms-word-to-asciidoc"><a class="anchor" href="#convert-ms-word-to-asciidoc"></a><a class="link" href="#convert-ms-word-to-asciidoc">99. Convert MS Word to AsciiDoc</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>See <a href="http://asciidoctor.org/docs/migrating-from-msword">Migrating to AsciiDoc from MS Word</a>.</p>
+</div>
+</div>
+</div>
 <h1 id="resources" class="sect0"><a class="anchor" href="#resources"></a><a class="link" href="#resources">Resources</a></h1>
 <div class="openblock partintro">
 <div class="content">
@@ -24012,7 +24048,7 @@ NOTE: Section pending
 </div>
 </div>
 <div class="sect1">
-<h2 id="copyright-and-license"><a class="anchor" href="#copyright-and-license"></a><a class="link" href="#copyright-and-license">99. Copyright and License</a></h2>
+<h2 id="copyright-and-license"><a class="anchor" href="#copyright-and-license"></a><a class="link" href="#copyright-and-license">100. Copyright and License</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>Copyright &#169; 2012-2014 Dan Allen and Ryan Waldron.
@@ -24024,7 +24060,7 @@ Free use of this software is granted under the terms of the MIT License.</p>
 </div>
 </div>
 <div class="sect1">
-<h2 id="authors"><a class="anchor" href="#authors"></a><a class="link" href="#authors">100. Authors</a></h2>
+<h2 id="authors"><a class="anchor" href="#authors"></a><a class="link" href="#authors">101. Authors</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p><strong>Asciidoctor</strong> was written by <a href="https://github.com/mojavelinux">Dan Allen</a>, <a href="https://github.com/erebor">Ryan Waldron</a>, <a href="https://github.com/lightguard">Jason Porter</a>, <a href="http://github.com/nickh">Nick Hengeveld</a> and <a href="https://github.com/asciidoctor/asciidoctor/graphs/contributors">other contributors</a>.</p>
@@ -24039,7 +24075,7 @@ Refer to the commit history of <a href="https://github.com/github/gitscm-next/co
 </div>
 </div>
 <div class="sect1">
-<h2 id="troubleshoot"><a class="anchor" href="#troubleshoot"></a><a class="link" href="#troubleshoot">101. Troubleshooting</a></h2>
+<h2 id="troubleshoot"><a class="anchor" href="#troubleshoot"></a><a class="link" href="#troubleshoot">102. Troubleshooting</a></h2>
 <div class="sectionbody">
 <div class="qlist qanda">
 <ol>
@@ -26544,7 +26580,7 @@ In source listings, is the callout the last thing on the line?</p></td>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2017-08-18 05:32:52 UTC
+Last updated 2017-08-18 05:50:43 UTC
 </div>
 </div>
 <script type="text/x-mathjax-config">
