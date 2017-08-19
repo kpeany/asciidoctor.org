@@ -6594,7 +6594,7 @@ Each block must be preceded by a list continuation to form a chain of blocks.</p
 = Document Title
 ----
 +
-NOTE: The header is optional.
+Keep in mind that the header is optional.
 
 * Optional Author and Revision information immediately follows the header title.
 +
@@ -6620,17 +6620,8 @@ v1.0, 2013-01-01
 <pre class="nowrap">= Document Title</pre>
 </div>
 </div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-The header is optional.
-</td>
-</tr>
-</table>
+<div class="paragraph">
+<p>Keep in mind that the header is optional.</p>
 </div>
 </li>
 <li>
@@ -6646,6 +6637,87 @@ v1.0, 2013-01-01</pre>
 </ul>
 </div>
 </div>
+</div>
+<div class="paragraph">
+<p>If you&#8217;re attaching more than one block to a list item, you&#8217;re strongly encouraged to wrap the content inside an open block.
+That way, you only need a single list continuation line to attach the open block to the list item.
+Within the open block, you write like you normally would, no longer having to worry about adding list continuations between the blocks to keep them attached to the list item.</p>
+</div>
+<div class="paragraph">
+<p>Here&#8217;s an example of wrapping complex list content in an open block:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight nowrap"><code data-lang="asciidoc">* The header in AsciiDoc must start with a document title.
++
+--
+Here's an example of a document title:
+
+----
+= Document Title
+----
+
+NOTE: The header is optional.
+--</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Here&#8217;s how that content is rendered:</p>
+</div>
+<div class="exampleblock">
+<div class="title">A list with complex content wrapped in an open block</div>
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>The header in AsciiDoc must start with a document title.</p>
+<div class="openblock">
+<div class="content">
+<div class="paragraph">
+<p>Here&#8217;s an example of a document title:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="nowrap">= Document Title</pre>
+</div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+The header is optional.
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>The open block wrapper is also useful if you&#8217;re including content from a shared file into a list item.
+For example:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight nowrap"><code data-lang="asciidoc">* list item
++
+--
+Unresolved directive in _includes/u-list-complex.adoc - include::shared-content.adoc[]
+--</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>By wrapping the include directive in an open block, the content can be used unmodified.</p>
+</div>
+<div class="paragraph">
+<p>The only limitation of this technique is that the content itself may not contain an open block (since open blocks cannot be nested).</p>
 </div>
 </div>
 <div class="sect3">
@@ -26580,7 +26652,7 @@ In source listings, is the callout the last thing on the line?</p></td>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2017-08-18 05:50:43 UTC
+Last updated 2017-08-19 06:05:49 UTC
 </div>
 </div>
 <script type="text/x-mathjax-config">
