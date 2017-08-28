@@ -3159,16 +3159,27 @@ The attributes and their values contained in the list will take precedence over 
 <div class="sect3">
 <h4 id="positional-attribute"><a class="anchor" href="#positional-attribute"></a><a class="link" href="#positional-attribute">13.5.1. Positional Attribute</a></h4>
 <div class="paragraph">
-<p>in an attribute list</p>
+<p>Positional attributes are un-named values at the start of the attribute list.
+The attribute that they are assigned to depends on the type of the element:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>icon:</code> (1) size</p>
+</li>
+<li>
+<p><code>image:</code> and <code>image::</code> (1) alt text, (2) width, (3) height</p>
+</li>
+<li>
+<p>Delimited blocks: (1) block name (aka style)</p>
+</li>
+<li>
+<p>Other inline quoted text: (1) role</p>
+</li>
+</ul>
 </div>
 <div class="paragraph">
-<p>not named</p>
-</div>
-<div class="paragraph">
-<p>the first positional attribute in the list on inline quoted text is referred to as the role attribute</p>
-</div>
-<div class="paragraph">
-<p>the first positional attribute in the list on blocks and macros is known as the style attribute</p>
+<p>For example, <code><span class="image"><img src="/images/sunset.jpg" alt="Sunset" width="300" height="400"></span></code> is equivalent to <code><span class="image"><img src="/images/sunset.jpg" alt="Sunset" width="300" height="400"></span></code>.</p>
 </div>
 </div>
 <div class="sect3">
@@ -26652,7 +26663,7 @@ In source listings, is the callout the last thing on the line?</p></td>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2017-08-20 06:19:23 UTC
+Last updated 2017-08-28 06:40:32 UTC
 </div>
 </div>
 <script type="text/x-mathjax-config">
