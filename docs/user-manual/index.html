@@ -20665,7 +20665,25 @@ For a full description, see the <a href="http://man7.org/linux/man-pages/man7/ro
 </div>
 </div>
 <div class="paragraph">
-<p>Note that the manpage converter sets the output file name to <code>progname.1</code>, where <code>progname</code> is the name of the command and <code>1</code> is the volume number, as defined in the source document.</p>
+<p>Note that the manpage converter sets the output file name to <code>progname.1</code>, where <code>progname</code> is the name of the command and <code>1</code> is the volume number, as defined by the doctitle of the source document.</p>
+</div>
+<div class="paragraph">
+<p>When converting to the man page format, Asciidoctor uppercases the titles of all level-0 and level-1 sections.
+This saves you from having to type section titles in all uppercase.
+It also makes the document portable to other output formats since this style is only needed in the man page output to align with conventions.</p>
+</div>
+<div class="admonitionblock caution">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-caution" title="Caution"></i>
+</td>
+<td class="content">
+If you&#8217;re use Ruby 2.4 or better, Asciidoctor will uppercase any letter in the title that is recognized by the Unicode specification as having an uppercase equivalent (which includes non-Latin letters).
+Prior to Ruby 2.4, Ruby could only uppercase Latin letters.
+</td>
+</tr>
+</table>
 </div>
 <div class="paragraph">
 <p>Asciidoctor can also produce HTML and PDF versions similar to the <code>man</code> output for viewing in other contexts.
@@ -20689,15 +20707,15 @@ v1.0.0
 :mansource: EVE
 :man-linkstyle: pass:[blue R &lt; &gt;]
 
-== NAME
+== Name
 
 eve - analyzes an image to determine if it's a picture of a life form
 
-== SYNOPSIS
+== Synopsis
 
 *eve* ['OPTION']... 'FILE'...
 
-== OPTIONS
+== Options
 
 *-o, --out-file*=_OUT_FILE_::
   Write result to file _OUT_FILE_.
@@ -20705,7 +20723,7 @@ eve - analyzes an image to determine if it's a picture of a life form
 *-c, --capture*::
   Capture specimen if it's a picture of a life form.
 
-== EXIT STATUS
+== Exit status
 
 *0*::
   Success.
@@ -20715,11 +20733,11 @@ eve - analyzes an image to determine if it's a picture of a life form
   Failure.
   Image is not a picture of a life form.
 
-== RESOURCES
+== Resources
 
 *Project web site:* http://eve.example.org
 
-== COPYING
+== Copying
 
 Copyright (C) 2008 {author}. +
 Free use of this software is granted under the terms of the MIT License.</code></pre>
@@ -26680,7 +26698,7 @@ In source listings, is the callout the last thing on the line?</p></td>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2017-10-08 05:53:28 UTC
+Last updated 2017-10-09 06:14:45 UTC
 </div>
 </div>
 <script type="text/x-mathjax-config">
