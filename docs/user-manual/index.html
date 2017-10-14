@@ -2996,15 +2996,18 @@ If you&#8217;re familiar with writing in XML, you&#8217;ll recognize document at
 <div class="sect3">
 <h4 id="substitutions-in-an-attribute-entry"><a class="anchor" href="#substitutions-in-an-attribute-entry"></a><a class="link" href="#substitutions-in-an-attribute-entry">13.4.1. Substitutions in an attribute entry</a></h4>
 <div class="paragraph">
-<p>The <code>header</code> substitution group is applied to the header of your document.
-<a href="#subs">Text substitution elements</a> replace characters, markup, attribute references, and macros with converter specific styles and values.
-When Asciidoctor processes a document it uses a set of six text substitution elements.
-In the header, only <a href="#special-characters">special characters</a> and <a href="#attributes-2">attribute references</a> are replaced.</p>
+<p>When Asciidoctor processes a document it uses a set of six text substitution elements.
+<a href="#subs">Text substitution elements</a> replace characters, markup, attribute references, and macros with converter-specific styles and values.</p>
 </div>
 <div class="paragraph">
-<p>However, if you require other substitutions to be applied to an attribute&#8217;s value, use the <a href="#pass-macros">inline pass macro</a>.
-This macro has special meaning in an attribute entry.
-It allows the substitutions to be applied at the time the attribute is defined.</p>
+<p>The header substitution group replaces <a href="#special-characters">special characters</a> and <a href="#attributes-2">attribute references</a> in text to which it is applied.
+The header substitution group is applied to metadata lines (author and revision information) in the document header.
+This group is also applied to the values of attribute entries, regardless of whether those entries are defined in the header or elsewhere in the document.</p>
+</div>
+<div class="paragraph">
+<p>If you require different substitutions to be applied to an attribute&#8217;s value, you can use the <a href="#pass-macros">inline pass macro</a>.
+In order for the inline macro to be processed, it must completely enclose the attribute value.
+It&#8217;s used to apply alternate substitutions to the enclosed text at the time the attribute is defined.</p>
 </div>
 <div class="paragraph">
 <p>The inline pass macro accepts a list of substitutions in the <code>target</code> slot.
@@ -26698,7 +26701,7 @@ In source listings, is the callout the last thing on the line?</p></td>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2017-10-12 08:36:29 UTC
+Last updated 2017-10-14 05:39:19 UTC
 </div>
 </div>
 <script type="text/x-mathjax-config">
