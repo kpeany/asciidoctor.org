@@ -20478,33 +20478,32 @@ You may not be familiar with these http://en.wikipedia.org/wiki/Wolpertinger[rav
 <p>To convert AsciiDoc to XHTML, set the backend to <code>xhtml5</code>.</p>
 </div>
 <div class="listingblock">
-<div class="title">Set the backend to xhtml5 in the CLI</div>
+<div class="title">Produce XHTML using the built-in HTML converter</div>
 <div class="content">
 <pre class="CodeRay highlight nowrap"><code data-lang="console">asciidoctor -b xhtml5 document.adoc</code></pre>
 </div>
 </div>
 <div class="paragraph">
-<p>You can also set the backend using the <code>backend</code> attribute in the document header and assigning it the <code>xhtml5</code> value.</p>
-</div>
-<div class="paragraph">
-<p>To emit XHTML when using the deck.js templates, set both the backend and the <code>htmlsyntax</code> attribute:</p>
+<p>To produce XHTML instead of HTML when using converter templates (such as those for deck.js), set the <code>htmlsyntax</code> attribute to <code>xml</code> in addition to the backend option:</p>
 </div>
 <div class="listingblock">
-<div class="title">Using htmlsyntax with a custom converter</div>
+<div class="title">Produce XHTML using custom templates</div>
 <div class="content">
-<pre class="CodeRay highlight nowrap"><code data-lang="console">asciidoctor -T /path/to/asciidoctor-backends -b deckjs -a htmlsyntax=html deck.adoc</code></pre>
+<pre class="CodeRay highlight nowrap"><code data-lang="console">asciidoctor -T /path/to/templates -b deckjs -a htmlsyntax=xml document.adoc</code></pre>
 </div>
 </div>
 <div class="sidebarblock">
 <div class="content">
-<div class="title">Black Box Decoded: xhtml and htmlsyntax</div>
+<div class="title">Black Box Decoded: XHTML and htmlsyntax</div>
 <div class="paragraph">
-<p>The XHTML converter is built on the HTML 5 converter, but when you use the XHTML converter the <code>htmlsyntax</code> attribute is implicitly assigned the value <code>xml</code>.
-The HTML 5 converter implicitly assigns <code>html</code> to the htmlsyntax attribute</p>
+<p>XHTML output is a special mode of the built-in HTML5 converter.
+It is activated by prefixing the backend value with <code>x</code> (e.g., <code>xhtml</code> or <code>xhtml5</code>).
+This hint implicitly assigns the <code>htmlsyntax</code> attribute to the value <code>xml</code>, which normally has the value <code>html</code>.</p>
 </div>
 <div class="paragraph">
-<p>For all other backends, htmlsyntax is not set explicitly.
-If you want to set the <code>:format</code> option to <code>:html5</code> when using Slim or Haml, you need to set the htmlsyntax attribute to xml explicitly.</p>
+<p>For all other converters, the <code>htmlsyntax</code> attribute is not set explicitly.
+If you want a converter template that&#8217;s written in Slim or Haml to output XHTML instead of the default HTML, you simply need to set the <code>htmlsyntax</code> attribute to <code>xml</code> explicitly.
+Asciidoctor will pass on this preference to the Slim or Haml template engine by setting the <code>:format</code> option to <code>:html5</code>.</p>
 </div>
 </div>
 </div>
@@ -26703,7 +26702,7 @@ In source listings, is the callout the last thing on the line?</p></td>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2017-10-18 06:23:10 UTC
+Last updated 2017-10-19 06:25:01 UTC
 </div>
 </div>
 <script type="text/x-mathjax-config">
