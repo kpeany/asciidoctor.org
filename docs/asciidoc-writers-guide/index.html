@@ -2246,10 +2246,10 @@ When they&#8217;re enabled, you must surround the link text in double quotes if 
 <p>A link to another location within an AsciiDoc document or between AsciiDoc documents is called a <em>cross reference</em> (also referred to as an <em>xref</em>).</p>
 </div>
 <div class="paragraph">
-<p>In Asciidoctor, the inline xref macro is used to create cross references (also called in-text or page citations) to sections, blocks or phrases that have an ID (regardless of whether that ID is explicit or auto-generated).</p>
+<p>In Asciidoctor, the inline xref macro is used to create cross references (also called in-text or page citations) to content elements (sections, blocks, or phrases) that have an ID (regardless of whether that ID is explicit or auto-generated).</p>
 </div>
 <div class="paragraph">
-<p>An implicit cross reference is created by enclosing the ID of the target block or section (or the path of another document with an optional anchor) in double angled brackets.</p>
+<p>You create a cross reference by enclosing the ID of the target block or section (or the path of another document with an optional anchor) in double angled brackets.</p>
 </div>
 <div class="listingblock">
 <div class="title">Cross reference using the ID of the target section</div>
@@ -2266,8 +2266,9 @@ When they&#8217;re enabled, you must surround the link text in double quotes if 
 </div>
 </div>
 <div class="paragraph">
-<p>You can also link to a block or section using the title by referencing its title.
-However, the title must begin with an uppercase letter (in basic Latin) without any leading formatting marks.</p>
+<p>You can also link to a block or section using the title by referencing its title, referred to as a <em class="term">natural cross reference</em>.
+The title must contain at least one space character or contain at least one uppercase letter.
+(If you are using Ruby &lt; 2.4, that uppercase letter is restricted to the basic Latin charset).</p>
 </div>
 <div class="listingblock">
 <div class="title">Cross reference using a section&#8217;s title</div>

@@ -709,10 +709,11 @@ table.CodeRay td.code>pre{padding:0}
 </li>
 <li><a href="#xref">30. Cross References</a>
 <ul class="sectlevel2">
-<li><a href="#anchordef">30.1. Defining an Anchor</a></li>
-<li><a href="#internal-cross-references">30.2. Internal Cross References</a></li>
-<li><a href="#customizing-the-cross-reference-text">30.3. Customizing the Cross Reference Text</a></li>
-<li><a href="#inter-document-cross-references">30.4. Inter-document Cross References</a></li>
+<li><a href="#automatic-anchors">30.1. Automatic Anchors</a></li>
+<li><a href="#anchordef">30.2. Defining an Anchor</a></li>
+<li><a href="#internal-cross-references">30.3. Internal Cross References</a></li>
+<li><a href="#customizing-the-cross-reference-text">30.4. Customizing the Cross Reference Text</a></li>
+<li><a href="#inter-document-cross-references">30.5. Inter-document Cross References</a></li>
 </ul>
 </li>
 <li><a href="#include-directive">31. Include Directive</a>
@@ -11319,12 +11320,39 @@ When they&#8217;re enabled, you must surround the link text in double quotes if 
 <h2 id="xref"><a class="anchor" href="#xref"></a><a class="link" href="#xref">30. Cross References</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>A link to another location within an AsciiDoc document or between AsciiDoc documents is called a <em>cross reference</em> (also referred to as an <em>xref</em>).
-To be able to create a cross reference, you first need to define the location where the reference will point to.
-This is the anchor definition.</p>
+<p>A link to another location within the current AsciiDoc document or in another AsciiDoc document is called a <em class="term">cross reference</em> (also referred to as an <em>xref</em>).
+To create a cross reference, you first need to define the location where the reference will point (i.e., the anchor).
+Then, you need to use one of the forms of the inline xref macro to create a reference to that location.
+From there, you can customize the text of the reference in various ways.</p>
 </div>
 <div class="sect2">
-<h3 id="anchordef"><a class="anchor" href="#anchordef"></a><a class="link" href="#anchordef">30.1. Defining an Anchor</a></h3>
+<h3 id="automatic-anchors"><a class="anchor" href="#automatic-anchors"></a><a class="link" href="#automatic-anchors">30.1. Automatic Anchors</a></h3>
+<div class="paragraph">
+<p>It&#8217;s important to understand that many anchors are already defined for you.
+Using default settings, Asciidoctor automatically creates an anchor for every section and discrete heading.
+It does so by generating an ID for that section (or discrete heading) and registering that ID in the references catalog.
+You can then use that ID as the target of an cross reference.</p>
+</div>
+<div class="paragraph">
+<p>For example, considering the following section.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="nowrap">= Section Title</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Asciidoctor automatically assigns the ID <code>_section_title</code> to this section, which you can then use as the target of an xref to create a reference to this section.
+You can also customize how this ID is generated.
+Refer to <a href="#auto-generated-ids">Auto-generated IDs</a> for more information about how Asciidoctor generates these IDs.</p>
+</div>
+<div class="paragraph">
+<p>If you&#8217;re refering to a content element other than a section, you&#8217;ll need to define an anchor on that element explicitly.
+Read on to learn how.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="anchordef"><a class="anchor" href="#anchordef"></a><a class="link" href="#anchordef">30.2. Defining an Anchor</a></h3>
 <div class="paragraph">
 <p>An anchor (aka ID) can be defined almost anywhere: on a section title or discrete heading (automatic), on a paragraph, on a block or inline image, on listing or literal block, on a phrase, and so forth.
 The anchor is declared by enclosing a valid ID name in double square brackets or by using the shorthand ID syntax.</p>
@@ -11457,12 +11485,12 @@ image::tiger.png[]</pre>
 </div>
 </div>
 <div class="sect2">
-<h3 id="internal-cross-references"><a class="anchor" href="#internal-cross-references"></a><a class="link" href="#internal-cross-references">30.2. Internal Cross References</a></h3>
+<h3 id="internal-cross-references"><a class="anchor" href="#internal-cross-references"></a><a class="link" href="#internal-cross-references">30.3. Internal Cross References</a></h3>
 <div class="paragraph">
-<p>In Asciidoctor, the inline xref macro is used to create cross references (also called in-text or page citations) to sections, blocks or phrases that have an ID (regardless of whether that ID is explicit or auto-generated).</p>
+<p>In Asciidoctor, the inline xref macro is used to create cross references (also called in-text or page citations) to content elements (sections, blocks, or phrases) that have an ID (regardless of whether that ID is explicit or auto-generated).</p>
 </div>
 <div class="paragraph">
-<p>An implicit cross reference is created by enclosing the ID of the target block or section (or the path of another document with an optional anchor) in double angled brackets.</p>
+<p>You create a cross reference by enclosing the ID of the target block or section (or the path of another document with an optional anchor) in double angled brackets.</p>
 </div>
 <div class="listingblock">
 <div class="title">Cross reference using the ID of the target section</div>
@@ -11479,8 +11507,9 @@ image::tiger.png[]</pre>
 </div>
 </div>
 <div class="paragraph">
-<p>You can also link to a block or section using the title by referencing its title.
-However, the title must begin with an uppercase letter (in basic Latin) without any leading formatting marks.</p>
+<p>You can also link to a block or section using the title by referencing its title, referred to as a <em class="term">natural cross reference</em>.
+The title must contain at least one space character or contain at least one uppercase letter.
+(If you are using Ruby &lt; 2.4, that uppercase letter is restricted to the basic Latin charset).</p>
 </div>
 <div class="listingblock">
 <div class="title">Cross reference using a section&#8217;s title</div>
@@ -11530,7 +11559,7 @@ After the ID, add a comma and then enter the custom text you want the cross refe
 </div>
 </div>
 <div class="sect2">
-<h3 id="customizing-the-cross-reference-text"><a class="anchor" href="#customizing-the-cross-reference-text"></a><a class="link" href="#customizing-the-cross-reference-text">30.3. Customizing the Cross Reference Text</a></h3>
+<h3 id="customizing-the-cross-reference-text"><a class="anchor" href="#customizing-the-cross-reference-text"></a><a class="link" href="#customizing-the-cross-reference-text">30.4. Customizing the Cross Reference Text</a></h3>
 <div class="paragraph">
 <p>Starting in Asciidoctor 1.5.6, when you use one of the native converters (HTML, PDF, and EPUB3), you can customize the style of the automatic cross reference text using the <code>xrefstyle</code> document attribute.
 This customization brings the cross reference text formatting from the DocBook toolchain to the native Asciidoctor converters.</p>
@@ -11718,7 +11747,7 @@ Until then, you can implement custom formatting in a custom converter or overrid
 </div>
 </div>
 <div class="sect2">
-<h3 id="inter-document-cross-references"><a class="anchor" href="#inter-document-cross-references"></a><a class="link" href="#inter-document-cross-references">30.4. Inter-document Cross References</a></h3>
+<h3 id="inter-document-cross-references"><a class="anchor" href="#inter-document-cross-references"></a><a class="link" href="#inter-document-cross-references">30.5. Inter-document Cross References</a></h3>
 <div class="paragraph">
 <p>The inline xref macro can also link to IDs in other AsciiDoc documents.
 This eliminates the need to use direct links between documents that are coupled to a particular converter (e.g., HTML links).
@@ -11782,7 +11811,7 @@ If not, it will generate a link to <em class="file">document-b.html</em>, intell
 <p>Now you can create inter-document cross references without the headache.</p>
 </div>
 <div class="sect3">
-<h4 id="navigating-between-source-files"><a class="anchor" href="#navigating-between-source-files"></a><a class="link" href="#navigating-between-source-files">30.4.1. Navigating Between Source Files</a></h4>
+<h4 id="navigating-between-source-files"><a class="anchor" href="#navigating-between-source-files"></a><a class="link" href="#navigating-between-source-files">30.5.1. Navigating Between Source Files</a></h4>
 <div class="paragraph">
 <p>In certain environments, such as a source repository or the browser preview extensions, you view the generated HTML through the AsciiDoc source URL.
 This has consequences for inter-document cross references.</p>
@@ -26702,7 +26731,7 @@ In source listings, is the callout the last thing on the line?</p></td>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2017-10-21 06:05:57 UTC
+Last updated 2017-10-23 04:14:52 UTC
 </div>
 </div>
 <script type="text/x-mathjax-config">
