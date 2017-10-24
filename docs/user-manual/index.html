@@ -975,10 +975,11 @@ table.CodeRay td.code>pre{padding:0}
 <li><a href="#preprocessor-example">86.1. Preprocessor Example</a></li>
 <li><a href="#tree-processor-example">86.2. Tree Processor Example</a></li>
 <li><a href="#postprocessor-example">86.3. Postprocessor Example</a></li>
-<li><a href="#block-processor-example">86.4. Block Processor Example</a></li>
-<li><a href="#block-macro-processor-example">86.5. Block Macro Processor Example</a></li>
-<li><a href="#inline-macro-processor-example">86.6. Inline Macro Processor Example</a></li>
-<li><a href="#include-processor-example">86.7. Include Processor Example</a></li>
+<li><a href="#docinfo-processor-example">86.4. Docinfo Processor Example</a></li>
+<li><a href="#block-processor-example">86.5. Block Processor Example</a></li>
+<li><a href="#block-macro-processor-example">86.6. Block Macro Processor Example</a></li>
+<li><a href="#inline-macro-processor-example">86.7. Inline Macro Processor Example</a></li>
+<li><a href="#include-processor-example">86.8. Include Processor Example</a></li>
 </ul>
 </li>
 </ul>
@@ -22825,6 +22826,10 @@ When that switch occurs, there will either be some sort of adapter or required m
 <dd>
 <p>Processes the output after the document has been rendered, but before it&#8217;s written to disk.</p>
 </dd>
+<dt class="hdlist1">DocinfoProcessor</dt>
+<dd>
+<p>Adds additional content to the header or footer regions of the generated document.</p>
+</dd>
 <dt class="hdlist1">Block processor</dt>
 <dd>
 <p>Processes a block of content marked with a custom block style (i.e., <code>[custom]</code>). (similar to an AsciiDoc filter)</p>
@@ -22852,6 +22857,7 @@ When that switch occurs, there will either be some sort of adapter or required m
   preprocessor <span class="constant">FrontMatterPreprocessor</span>
   tree_processor <span class="constant">ShellSessionTreeProcessor</span>
   postprocessor <span class="constant">CopyrightFooterPostprocessor</span>
+  docinfo_processor <span class="constant">TrackingCodeDocinfoProcessor</span> <span class="keyword">if</span> document.basebackend? <span class="string"><span class="delimiter">'</span><span class="content">html</span><span class="delimiter">'</span></span>
   block <span class="constant">ShoutBlock</span>
   block_macro <span class="constant">GistBlockMacro</span> <span class="keyword">if</span> document.basebackend? <span class="string"><span class="delimiter">'</span><span class="content">html</span><span class="delimiter">'</span></span>
   inline_macro <span class="constant">ManInlineMacro</span>
@@ -23082,7 +23088,49 @@ Asciidoctor.convert_file 'sample-with-copyright-footer.adoc', :safe =&gt; :safe<
 </div>
 </div>
 <div class="sect2">
-<h3 id="block-processor-example"><a class="anchor" href="#block-processor-example"></a><a class="link" href="#block-processor-example">86.4. Block Processor Example</a></h3>
+<h3 id="docinfo-processor-example"><a class="anchor" href="#docinfo-processor-example"></a><a class="link" href="#docinfo-processor-example">86.4. Docinfo Processor Example</a></h3>
+<div class="dlist">
+<dl>
+<dt class="hdlist1">Purpose</dt>
+<dd>
+<p>Appends the Google Analytics tracking code to the bottom of an HTML document.</p>
+</dd>
+</dl>
+</div>
+<div class="listingblock">
+<div class="title">GoogleAnalyticsDocinfoProcessor</div>
+<div class="content">
+<pre class="CodeRay highlight nowrap"><code data-lang="ruby"><span class="keyword">class</span> <span class="class">GoogleAnalyticsDocinfoProcessor</span> &lt; <span class="constant">Asciidoctor</span>::<span class="constant">Extensions</span>::<span class="constant">DocinfoProcessor</span>
+  use_dsl
+  at_location <span class="symbol">:footer</span>
+  <span class="keyword">def</span> <span class="function">process</span> document
+    <span class="keyword">return</span> <span class="keyword">unless</span> (ga_account_id = document.attr <span class="string"><span class="delimiter">'</span><span class="content">google-analytics-account</span><span class="delimiter">'</span></span>)
+    <span class="string"><span class="delimiter">%(</span><span class="content">&lt;script&gt;
+</span><span class="content">(</span><span class="content">function</span><span class="content">(</span><span class="content">i,s,o,g,r,a,m</span><span class="content">)</span><span class="content">{i['GoogleAnalyticsObject']=r;i[r]=i[r]||function</span><span class="content">(</span><span class="content">)</span><span class="content">{
+</span><span class="content">(</span><span class="content">i[r].q=i[r].q||[]</span><span class="content">)</span><span class="content">.push</span><span class="content">(</span><span class="content">arguments</span><span class="content">)</span><span class="content">},i[r].l=1*new Date</span><span class="content">(</span><span class="content">)</span><span class="content">;a=s.createElement</span><span class="content">(</span><span class="content">o</span><span class="content">)</span><span class="content">,
+m=s.getElementsByTagName</span><span class="content">(</span><span class="content">o</span><span class="content">)</span><span class="content">[0];a.async=1;a.src=g;m.parentNode.insertBefore</span><span class="content">(</span><span class="content">a,m</span><span class="content">)</span><span class="content">
+}</span><span class="content">)</span><span class="content">(</span><span class="content">window,document,'script','https://www.google-analytics.com/analytics.js','ga'</span><span class="content">)</span><span class="content">;
+ga</span><span class="content">(</span><span class="content">'create','</span><span class="inline"><span class="inline-delimiter">#{</span>ga_account_id<span class="inline-delimiter">}</span></span><span class="content">','auto'</span><span class="content">)</span><span class="content">;
+ga</span><span class="content">(</span><span class="content">'send','pageview'</span><span class="content">)</span><span class="content">;
+&lt;/script&gt;</span><span class="delimiter">)</span></span>
+  <span class="keyword">end</span>
+<span class="keyword">end</span></code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="title">Usage</div>
+<div class="content">
+<pre class="CodeRay highlight nowrap"><code data-lang="ruby"><span class="constant">Asciidoctor</span>::<span class="constant">Extensions</span>.register <span class="keyword">do</span>
+  docinfo_processor <span class="constant">GoogleAnalyticsDocinfoProcessor</span>
+<span class="keyword">end</span>
+
+<span class="constant">Asciidoctor</span>.convert_file <span class="string"><span class="delimiter">'</span><span class="content">sample.adoc</span><span class="delimiter">'</span></span>, <span class="symbol">:safe</span> =&gt; <span class="symbol">:safe</span>,
+    <span class="symbol">:attributes</span> =&gt; <span class="string"><span class="delimiter">'</span><span class="content">UA-ABCXYZ123</span><span class="delimiter">'</span></span></code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="block-processor-example"><a class="anchor" href="#block-processor-example"></a><a class="link" href="#block-processor-example">86.5. Block Processor Example</a></h3>
 <div class="dlist">
 <dl>
 <dt class="hdlist1">Purpose</dt>
@@ -23133,7 +23181,7 @@ require <span class="string"><span class="delimiter">'</span><span class="conten
 </div>
 </div>
 <div class="sect2">
-<h3 id="block-macro-processor-example"><a class="anchor" href="#block-macro-processor-example"></a><a class="link" href="#block-macro-processor-example">86.5. Block Macro Processor Example</a></h3>
+<h3 id="block-macro-processor-example"><a class="anchor" href="#block-macro-processor-example"></a><a class="link" href="#block-macro-processor-example">86.6. Block Macro Processor Example</a></h3>
 <div class="dlist">
 <dl>
 <dt class="hdlist1">Purpose</dt>
@@ -23187,7 +23235,7 @@ require <span class="string"><span class="delimiter">'</span><span class="conten
 </div>
 </div>
 <div class="sect2">
-<h3 id="inline-macro-processor-example"><a class="anchor" href="#inline-macro-processor-example"></a><a class="link" href="#inline-macro-processor-example">86.6. Inline Macro Processor Example</a></h3>
+<h3 id="inline-macro-processor-example"><a class="anchor" href="#inline-macro-processor-example"></a><a class="link" href="#inline-macro-processor-example">86.7. Inline Macro Processor Example</a></h3>
 <div class="dlist">
 <dl>
 <dt class="hdlist1">Purpose</dt>
@@ -23241,7 +23289,7 @@ require <span class="string"><span class="delimiter">'</span><span class="conten
 </div>
 </div>
 <div class="sect2">
-<h3 id="include-processor-example"><a class="anchor" href="#include-processor-example"></a><a class="link" href="#include-processor-example">86.7. Include Processor Example</a></h3>
+<h3 id="include-processor-example"><a class="anchor" href="#include-processor-example"></a><a class="link" href="#include-processor-example">86.8. Include Processor Example</a></h3>
 <div class="dlist">
 <dl>
 <dt class="hdlist1">Purpose</dt>
@@ -26731,7 +26779,7 @@ In source listings, is the callout the last thing on the line?</p></td>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2017-10-24 06:43:48 UTC
+Last updated 2017-10-24 06:44:40 UTC
 </div>
 </div>
 <script type="text/x-mathjax-config">
