@@ -973,7 +973,7 @@ table.CodeRay td.code>pre{padding:0}
 <li><a href="#example-extensions">86. Example Extensions</a>
 <ul class="sectlevel2">
 <li><a href="#preprocessor-example">86.1. Preprocessor Example</a></li>
-<li><a href="#treeprocessor-example">86.2. Treeprocessor Example</a></li>
+<li><a href="#tree-processor-example">86.2. Tree Processor Example</a></li>
 <li><a href="#postprocessor-example">86.3. Postprocessor Example</a></li>
 <li><a href="#block-processor-example">86.4. Block Processor Example</a></li>
 <li><a href="#block-macro-processor-example">86.5. Block Macro Processor Example</a></li>
@@ -15489,7 +15489,7 @@ System.out.println(&quot;Hello *bold* text&quot;).
 </div>
 </div>
 <div class="paragraph">
-<p>Another way to ensure consistency and keep your documents clean and simple is to use the <a href="#treeprocessor-example">Treeprocessor extension</a>.</p>
+<p>Another way to ensure consistency and keep your documents clean and simple is to use the <a href="#tree-processor-example">TreeProcessor extension</a>.</p>
 </div>
 </td>
 </tr>
@@ -22817,7 +22817,7 @@ When that switch occurs, there will either be some sort of adapter or required m
 <dd>
 <p>Processes the raw source lines before they are passed to the parser.</p>
 </dd>
-<dt class="hdlist1">Treeprocessor</dt>
+<dt class="hdlist1">TreeProcessor</dt>
 <dd>
 <p>Processes the <span class="class">Asciidoctor::Document</span> (AST) once parsing is complete.</p>
 </dd>
@@ -22850,7 +22850,7 @@ When that switch occurs, there will either be some sort of adapter or required m
 <div class="content">
 <pre class="CodeRay highlight nowrap"><code data-lang="ruby"><span class="constant">Asciidoctor</span>::<span class="constant">Extensions</span>.register <span class="keyword">do</span> |document|
   preprocessor <span class="constant">FrontMatterPreprocessor</span>
-  treeprocessor <span class="constant">ShellSessionTreeprocessor</span>
+  tree_processor <span class="constant">ShellSessionTreeProcessor</span>
   postprocessor <span class="constant">CopyrightFooterPostprocessor</span>
   block <span class="constant">ShoutBlock</span>
   block_macro <span class="constant">GistBlockMacro</span> <span class="keyword">if</span> document.basebackend? <span class="string"><span class="delimiter">'</span><span class="content">html</span><span class="delimiter">'</span></span>
@@ -22971,7 +22971,7 @@ require <span class="string"><span class="delimiter">'</span><span class="conten
 </div>
 </div>
 <div class="sect2">
-<h3 id="treeprocessor-example"><a class="anchor" href="#treeprocessor-example"></a><a class="link" href="#treeprocessor-example">86.2. Treeprocessor Example</a></h3>
+<h3 id="tree-processor-example"><a class="anchor" href="#tree-processor-example"></a><a class="link" href="#tree-processor-example">86.2. Tree Processor Example</a></h3>
 <div class="dlist">
 <dl>
 <dt class="hdlist1">Purpose</dt>
@@ -22990,9 +22990,9 @@ require <span class="string"><span class="delimiter">'</span><span class="conten
 </div>
 </div>
 <div class="listingblock">
-<div class="title">ShellSessionTreeprocessor</div>
+<div class="title">ShellSessionTreeProcessor</div>
 <div class="content">
-<pre class="CodeRay highlight nowrap"><code data-lang="ruby"><span class="keyword">class</span> <span class="class">ShellSessionTreeprocessor</span> &lt; <span class="constant">Asciidoctor</span>::<span class="constant">Extensions</span>::<span class="constant">Treeprocessor</span>
+<pre class="CodeRay highlight nowrap"><code data-lang="ruby"><span class="keyword">class</span> <span class="class">ShellSessionTreeProcessor</span> &lt; <span class="constant">Asciidoctor</span>::<span class="constant">Extensions</span>::<span class="constant">TreeProcessor</span>
   <span class="keyword">def</span> <span class="function">process</span> document
     <span class="keyword">return</span> <span class="keyword">unless</span> document.blocks?
     process_blocks document
@@ -23035,7 +23035,7 @@ require <span class="string"><span class="delimiter">'</span><span class="conten
 <div class="title">Usage</div>
 <div class="content">
 <pre class="CodeRay highlight nowrap"><code data-lang="ruby"><span class="constant">Asciidoctor</span>::<span class="constant">Extensions</span>.register <span class="keyword">do</span> |document|
-  treeprocessor <span class="constant">ShellSessionTreeprocessor</span>
+  treeprocessor <span class="constant">ShellSessionTreeProcessor</span>
 <span class="keyword">end</span>
 
 <span class="constant">Asciidoctor</span>.convert_file <span class="string"><span class="delimiter">'</span><span class="content">sample-with-shell-session.adoc</span><span class="delimiter">'</span></span>, <span class="symbol">:safe</span> =&gt; <span class="symbol">:safe</span></code></pre>
@@ -26731,7 +26731,7 @@ In source listings, is the callout the last thing on the line?</p></td>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2017-10-24 06:24:57 UTC
+Last updated 2017-10-24 06:43:48 UTC
 </div>
 </div>
 <script type="text/x-mathjax-config">
