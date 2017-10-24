@@ -324,17 +324,17 @@ _italic phrase_ &amp; __char__acter__s__
 <p><strong><em>bold italic phrase</em></strong> &amp; <strong><em>char</em></strong>acter<strong><em>s</em></strong></p>
 </div>
 <div class="paragraph">
-<p><code>monospace phrase</code> &amp; <code>char</code>acter<code>s</code></p>
+<p><code>monospace phrase</code> &amp; ``char``acter``s``</p>
 </div>
 <div class="paragraph">
-<p><code><strong>monospace bold phrase</strong></code> &amp; <code><strong>char</strong></code>acter<code><strong>s</strong></code></p>
+<p><code>*monospace bold phrase*</code> &amp; ``<strong>char</strong>``acter``<strong>s</strong>``</p>
 </div>
 <div class="paragraph">
-<p><code><em>monospace italic phrase</em></code> &amp; <code><em>char</em></code>acter<code><em>s</em></code></p>
+<p><code>_monospace italic phrase_</code> &amp; ``<em>char</em>``acter``<em>s</em>``</p>
 </div>
 <div class="paragraph">
-<p><code><strong><em>monospace bold italic phrase</em></strong></code> &amp;
-<code><strong><em>char</em></strong></code>acter<code><strong><em>s</em></strong></code></p>
+<p><code>*_monospace bold italic phrase_*</code> &amp;
+``<strong><em>char</em></strong>``acter``<strong><em>s</em></strong>``</p>
 </div>
 </div>
 </div>
@@ -406,10 +406,10 @@ Olaf had been with the company since the `'60s.</pre>
 <div class="exampleblock result">
 <div class="content">
 <div class="paragraph">
-<p>&#8220;double curved quotes&#8221;</p>
+<p>"<code>double curved quotes</code>"</p>
 </div>
 <div class="paragraph">
-<p>&#8216;single curved quotes&#8217;</p>
+<p><em><code>single curved quotes</code></em></p>
 </div>
 <div class="paragraph">
 <p>Olaf&#8217;s desk was a mess.</p>
@@ -1311,7 +1311,7 @@ a list continuation on a line adjacent to both blocks.</p>
 <dl>
 <dt class="hdlist1">list continuation</dt>
 <dd>
-<p>a plus sign (<code>&#43;</code>) on a line by itself</p>
+<p>a plus sign (<code>{plus}</code>) on a line by itself</p>
 </dd>
 </dl>
 </div>
@@ -1392,7 +1392,7 @@ link:http://example.org/?q=%5Ba%20b%5D[URL with special characters]</pre>
 <div class="exampleblock result">
 <div class="content">
 <div class="paragraph">
-<p><a href="http://example.org/?q=[a b]">URL with special characters</a></p>
+<p>link:<code><a href="http://example.org/?q=">a b</a></code>[URL with special characters]</p>
 </div>
 <div class="paragraph">
 <p><a href="http://example.org/?q=%5Ba%20b%5D">URL with special characters</a></p>
@@ -2202,7 +2202,7 @@ Another paragraph.
 <td class="content">
 <div class="title">Admonition and callout icons</div>
 <div class="paragraph">
-<p>Asciidoctor can &#8220;draw&#8221; icons using <a href="http://fortawesome.github.io/Font-Awesome/" target="_blank" rel="noopener">Font Awesome</a> and CSS.</p>
+<p>Asciidoctor can "<code>draw</code>" icons using <a href="http://fortawesome.github.io/Font-Awesome/" target="_blank" rel="noopener">Font Awesome</a> and CSS.</p>
 </div>
 <div class="paragraph">
 <p>To use this feature, set the value of the <code>icons</code> document attribute to <code>font</code>.
@@ -2631,7 +2631,7 @@ Notice it's a delimited block.
 <table>
 <tr>
 <td><i class="conum" data-value="1"></i><b>1</b></td>
-<td>The <code>*</code> in the <code>cols</code> attribute is the repeat operator.
+<td>The <code>+*+</code> in the <code>cols</code> attribute is the repeat operator.
 It means repeat the column specification across the remaining of columns.
 In this case, we are repeating the default formatting across 2 columns.
 When the cells in the header are not defined on a single line, you must use the <code>cols</code> attribute to set the number of columns in the table and the <code>%header</code> option (or <code>options=header</code> attribute) to promote the first row to the table header.</td>
@@ -3011,7 +3011,7 @@ You <strong>must</strong> set the <code>experimental</code> attribute in the doc
 </div>
 </div>
 <div class="listingblock">
-<div class="title">Menu selections (inline menu macro)</div>
+<div class="title">Menu selections (inline <code>menu</code> macro)</div>
 <div class="content">
 <pre class="nowrap">To save the file, select menu:File[Save].
 
@@ -3029,7 +3029,7 @@ Select menu:View[Zoom &gt; Reset] to reset the zoom level to the default setting
 </div>
 </div>
 <div class="listingblock">
-<div class="title">Buttons (inline btn macro)</div>
+<div class="title">Buttons (inline <code>btn</code> macro)</div>
 <div class="content">
 <pre class="nowrap">Press the btn:[OK] button when you are finished.
 
@@ -3615,7 +3615,7 @@ Resolves to <code>.</code> if the safe mode is SERVER or greater.</p>
 <code>post_replacements</code>
 </td>
 <td class="hdlist2">
-<p>Replaces the line break character (<code>&#43;</code>)</p>
+<p>Replaces the line break character (<code>{plus}</code>)</p>
 </td>
 </tr>
 </table>
@@ -3714,7 +3714,7 @@ Resolves to <code>.</code> if the safe mode is SERVER or greater.</p>
 <td class="tableblock halign-center valign-top"><div class="literal"><pre>&amp;#8212;</pre></div></td>
 <td class="tableblock halign-center valign-top"><p class="tableblock">&#8201;&#8212;&#8201;</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Only replaced if between two word characters, between a word character and a line boundary, or flanked by spaces.</p>
-<p class="tableblock">When flanked by space characters (e.g., <code>a -- b</code>), the normal spaces are replaced by thin spaces (&amp;#8201;).</p></td>
+<p class="tableblock">When flanked by space characters (e.g., <code>+a -- b+</code>), the normal spaces are replaced by thin spaces (&amp;#8201;).</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">ellipses</p></td>
@@ -3887,7 +3887,7 @@ To learn all about design patterns, refer to the book by the "`Gang of Four`" &l
 <tr>
 <td class="tableblock halign-left valign-top"><div><div class="paragraph">
 <p><em>The Pragmatic Programmer</em> <a href="#pp">[pp]</a> should be required reading for all developers.
-To learn all about design patterns, refer to the book by the &#8220;Gang of Four&#8221; <a href="#gof">[2]</a>.</p>
+To learn all about design patterns, refer to the book by the "<code>Gang of Four</code>" <a href="#gof">[2]</a>.</p>
 </div>
 <div class="sect1">
 <h2 id="references"><a class="anchor" href="#references"></a>References</h2>
