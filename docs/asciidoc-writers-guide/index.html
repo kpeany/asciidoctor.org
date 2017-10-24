@@ -2810,11 +2810,11 @@ That means the outline of a Markdown document will render just fine as an AsciiD
 </table>
 </div>
 <div class="paragraph">
-<p>To have the processor auto-number the sections, define the <code>numbered</code> attribute in the document header:</p>
+<p>To have the processor auto-number the sections, define the <code>sectnums</code> attribute in the document header:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="CodeRay highlight nowrap"><code data-lang="asciidoc">:numbered:</code></pre>
+<pre class="CodeRay highlight nowrap"><code data-lang="asciidoc">:sectnums:</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -2823,7 +2823,7 @@ When you want to turn off the numbering, add an exclamation point to the end of 
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="CodeRay highlight nowrap"><code data-lang="asciidoc">:numbered!:
+<pre class="CodeRay highlight nowrap"><code data-lang="asciidoc">:sectnums!:
 
 == Unnumbered Section</code></pre>
 </div>
@@ -2981,55 +2981,55 @@ Since a listing block is typically used for source code, substitutions are not d
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">comment</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>////</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="literal"><pre>////</pre></div></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Private notes that are not displayed in the output</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">none</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">example</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>====</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="literal"><pre>====</pre></div></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Designates example content or defines an admonition block</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">normal</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">literal</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>....</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="literal"><pre>....</pre></div></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Output text to be displayed exactly as entered</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">verbatim</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">listing, source</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>----</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="literal"><pre>----</pre></div></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Source code or keyboard input to be displayed as entered</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">verbatim</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">open</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>--</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="literal"><pre>--</pre></div></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Anonymous block that can act as any other block (except <em>pass</em> or <em>table</em>)</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">varies</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">pass</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>++++</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="literal"><pre>++++</pre></div></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Raw text to be passed through unprocessed</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">none</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">quote, verse</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>____</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="literal"><pre>____</pre></div></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">A quotation or verse with optional attribution</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">normal</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">sidebar</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>****</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="literal"><pre>****</pre></div></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Aside text rendered outside the flow of the document</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">normal</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">table</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>|===</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="literal"><pre>|===</pre></div></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Used to display tabular content or advanced layouts</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">varies</p></td>
 </tr>
@@ -3056,55 +3056,59 @@ The reader will never see the long delimiters anyway since they are not carried 
 </div>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
-<col style="width: 12.5%;">
-<col style="width: 12.5%;">
-<col style="width: 12.5%;">
-<col style="width: 12.5%;">
-<col style="width: 12.5%;">
-<col style="width: 12.5%;">
-<col style="width: 12.5%;">
-<col style="width: 12.5%;">
+<col style="width: 25%;">
+<col style="width: 25%;">
+<col style="width: 25%;">
+<col style="width: 25%;">
 </colgroup>
 <thead>
 <tr>
-<th class="tableblock halign-left valign-top">Group</th>
-<th class="tableblock halign-left valign-top">Special characters</th>
-<th class="tableblock halign-left valign-top">Callouts</th>
-<th class="tableblock halign-left valign-top">Quotes</th>
-<th class="tableblock halign-left valign-top">Attributes</th>
-<th class="tableblock halign-left valign-top">Replacements</th>
-<th class="tableblock halign-left valign-top">Macros</th>
-<th class="tableblock halign-left valign-top">Post replacements</th>
+<th class="tableblock halign-left valign-top">Group / Substitution</th>
+<th class="tableblock halign-left valign-top">Normal</th>
+<th class="tableblock halign-left valign-top">Verbatim</th>
+<th class="tableblock halign-left valign-top">None</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<th class="tableblock halign-left valign-top"><p class="tableblock">Normal</p></th>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Yes</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">No</p></td>
+<th class="tableblock halign-left valign-top"><p class="tableblock">Special chars</p></th>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Yes</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Yes</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Yes</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Yes</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Yes</p></td>
-</tr>
-<tr>
-<th class="tableblock halign-left valign-top"><p class="tableblock">Verbatim</p></th>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Yes</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Yes</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">No</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">No</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">No</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">No</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">No</p></td>
 </tr>
 <tr>
-<th class="tableblock halign-left valign-top"><p class="tableblock">None</p></th>
+<th class="tableblock halign-left valign-top"><p class="tableblock">Callouts</p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock">No</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Yes</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">No</p></td>
+</tr>
+<tr>
+<th class="tableblock halign-left valign-top"><p class="tableblock">Quotes</p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Yes</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">No</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">No</p></td>
+</tr>
+<tr>
+<th class="tableblock halign-left valign-top"><p class="tableblock">Attributes</p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Yes</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">No</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">No</p></td>
+</tr>
+<tr>
+<th class="tableblock halign-left valign-top"><p class="tableblock">Replacements</p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Yes</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">No</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">No</p></td>
+</tr>
+<tr>
+<th class="tableblock halign-left valign-top"><p class="tableblock">Macros</p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Yes</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">No</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">No</p></td>
+</tr>
+<tr>
+<th class="tableblock halign-left valign-top"><p class="tableblock">Post replacements</p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Yes</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">No</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">No</p></td>
 </tr>
@@ -3428,7 +3432,7 @@ Each list represents one row in the table and must share the same number of item
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="CodeRay highlight nowrap"><code data-lang="asciidoc">[cols=&quot;2*&quot;]
+<pre class="CodeRay highlight nowrap"><code data-lang="asciidoc">[cols=2*]
 |===
 |Firefox
 |Web Browser
@@ -3453,7 +3457,7 @@ In this case, it means to repeat no special formatting (since none is present) a
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="CodeRay highlight nowrap"><code data-lang="asciidoc">[cols=&quot;2*&quot;, options=&quot;header&quot;]
+<pre class="CodeRay highlight nowrap"><code data-lang="asciidoc">[cols=2*,options=header]
 |===
 |Name
 |Group
@@ -3466,6 +3470,14 @@ In this case, it means to repeat no special formatting (since none is present) a
 
 ...
 |===</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>You can also define the <code>header</code> option using the following shorthand:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight nowrap"><code data-lang="asciidoc">[%header,cols=2*]</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -3580,7 +3592,7 @@ Just set the <code>format</code> block attribute to <code>csv</code> and insert 
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="CodeRay highlight nowrap"><code data-lang="asciidoc">[format=&quot;csv&quot;, options=&quot;header&quot;]
+<pre class="CodeRay highlight nowrap"><code data-lang="asciidoc">[%header,format=csv]
 |===
 Artist,Track,Genre
 Baauer,Harlem Shake,Hip Hop
@@ -3593,7 +3605,7 @@ The Lumineers,Ho Hey,Folk Rock
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="CodeRay highlight nowrap"><code data-lang="asciidoc">[format=&quot;csv&quot;, options=&quot;header&quot;]
+<pre class="CodeRay highlight nowrap"><code data-lang="asciidoc">[%header,format=csv]
 |===
 include::tracks.csv[]
 |===</code></pre>
