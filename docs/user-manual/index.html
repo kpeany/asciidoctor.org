@@ -2998,31 +2998,43 @@ If you&#8217;re familiar with writing in XML, you&#8217;ll recognize document at
 <div class="sect3">
 <h4 id="substitutions-in-an-attribute-entry"><a class="anchor" href="#substitutions-in-an-attribute-entry"></a><a class="link" href="#substitutions-in-an-attribute-entry">13.4.1. Substitutions in an attribute entry</a></h4>
 <div class="paragraph">
-<p>When Asciidoctor processes a document it uses a set of six text substitution elements.
+<p>When Asciidoctor processes a document, it uses a set of six text substitution elements.
 <a href="#subs">Text substitution elements</a> replace characters, markup, attribute references, and macros with converter-specific styles and values.</p>
 </div>
 <div class="paragraph">
-<p>The header substitution group replaces <a href="#special-characters">special characters</a> and <a href="#attributes-2">attribute references</a> in text to which it is applied.
-The header substitution group is applied to metadata lines (author and revision information) in the document header.
-This group is also applied to the values of attribute entries, regardless of whether those entries are defined in the header or elsewhere in the document.</p>
+<p>The header substitution group replaces <a href="#special-characters">special characters</a> and <a href="#attributes-2">attribute references</a> in text.
+This group gets applied to metadata lines (author and revision information) in the document header.
+It also gets applied to values of attribute entries, regardless of whether those entries are defined in the header or elsewhere in the document.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="altering-attribute-entry-substitutions"><a class="anchor" href="#altering-attribute-entry-substitutions"></a><a class="link" href="#altering-attribute-entry-substitutions">13.4.2. Altering attribute entry substitutions</a></h4>
+<div class="paragraph">
+<p>If you want different substitutions to be applied to the value of an attribute entry, you can use the <a href="#pass-macros">inline pass macro</a>.
+The inline pass macro accepts a list of substitutions in the target slot, which can be used to control which substitutions are applied to the value.</p>
 </div>
 <div class="paragraph">
-<p>If you require different substitutions to be applied to an attribute entry&#8217;s value, you can use the <a href="#pass-macros">inline pass macro</a>.
-The inline pass macro accepts a list of substitutions in the <code>target</code> slot.</p>
+<p>In order for the inline macro to work in this context, it must completely surround the attribute value.
+If it&#8217;s used anywhere else in the value, it is ignored.</p>
 </div>
 <div class="paragraph">
-<p>In order for the inline macro to work here, it must completely enclose the attribute value.
-Basically, it works on that value like a sort of preprocessor:
-Each attribute value is checked first for an inline pass macro around it.
-If the macro is absent, the value is processed with the header substitution group.</p>
-</div>
-<div class="paragraph">
-<p>If the macro is present, its list of substitutions will determine instead the substitutions (if any) used on the value.
-In the next example, we&#8217;ll apply the <a href="#quotes">quotes substitution</a> to an attribute entry&#8217;s value.</p>
+<p>Here&#8217;s how we can apply the <a href="#quotes">quotes substitution</a> to the value of an attribute entry:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap">:app-name: pass:quotes[MyApp^(C)^]</pre>
+<pre class="nowrap">:app-name: pass:quotes[MyApp^2^]</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Internally, the value is stored as <code>MyApp&lt;sup&gt;2&lt;/sup&gt;</code>.
+You can inspect the value stored in an attribute using this trick:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="nowrap">[subs=attributes+]
+----
+{app-name}
+----</pre>
 </div>
 </div>
 <div class="paragraph">
@@ -3030,23 +3042,49 @@ In the next example, we&#8217;ll apply the <a href="#quotes">quotes substitution
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap">:app-name: pass:q[MyApp^(C)^]</pre>
+<pre class="nowrap">:app-name: pass:q[MyApp^2^]</pre>
 </div>
 </div>
 <div class="paragraph">
-<p>Another approach is to change the order of substitutions that are applied where the attribute is referenced.</p>
+<p>The inline pass macro kind of works like an attribute value preprocessor.
+If the processor detects that an inline pass macro completely surrounds the attribute value, it:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>reads the list of substitutions from the target slot of the macro</p>
+</li>
+<li>
+<p>unwraps the value from the macro</p>
+</li>
+<li>
+<p>applies the substitutions to the value</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>If the macro is absent, the value is processed with the header substitution group.</p>
+</div>
+<div class="paragraph">
+<p>You can also change the substitutions that are applied to an attribute at the time it is resolved.
+This is done by manipulating the substitutions applied to the text where it is referenced.
+For example, here&#8217;s how we could get the processor to apply quote substitutions to the value of an attribute:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap">:app-name: MyApp^(C)^
+<pre class="nowrap">:app-name: MyApp^2^
 
 [subs="specialchars,attributes,quotes,replacements,macros,post_replacements"]
 The application is called {app-name}.</pre>
 </div>
 </div>
+<div class="paragraph">
+<p>Notice that we&#8217;ve swapped the order of the <code>attributes</code> and <code>quotes</code> substitutions.
+This strategy is akin to postprocessing the attribute value.</p>
+</div>
 </div>
 <div class="sect3">
-<h4 id="splitting-attribute-values-over-multiple-lines"><a class="anchor" href="#splitting-attribute-values-over-multiple-lines"></a><a class="link" href="#splitting-attribute-values-over-multiple-lines">13.4.2. Splitting attribute values over multiple lines</a></h4>
+<h4 id="splitting-attribute-values-over-multiple-lines"><a class="anchor" href="#splitting-attribute-values-over-multiple-lines"></a><a class="link" href="#splitting-attribute-values-over-multiple-lines">13.4.3. Splitting attribute values over multiple lines</a></h4>
 <div class="paragraph">
 <p>When an attribute value is very long, it&#8217;s possible to split it (i.e., soft-wrap) across multiple lines.</p>
 </div>
@@ -3091,7 +3129,7 @@ Now get back to work!</pre>
 </div>
 </div>
 <div class="sect3">
-<h4 id="attribute-limitations"><a class="anchor" href="#attribute-limitations"></a><a class="link" href="#attribute-limitations">13.4.3. Attribute limitations</a></h4>
+<h4 id="attribute-limitations"><a class="anchor" href="#attribute-limitations"></a><a class="link" href="#attribute-limitations">13.4.4. Attribute limitations</a></h4>
 <div class="paragraph">
 <p>Attributes let you do a surprising amount of formatting for what is fundamentally a text replacement tool.</p>
 </div>
@@ -26784,7 +26822,7 @@ In source listings, is the callout the last thing on the line?</p></td>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2017-10-25 05:55:26 UTC
+Last updated 2017-10-25 06:22:30 UTC
 </div>
 </div>
 <script type="text/x-mathjax-config">
