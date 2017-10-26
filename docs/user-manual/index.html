@@ -16875,7 +16875,7 @@ NOTE: Asciidoctor supports font-based admonition icons, powered by Font Awesome!
 <div class="listingblock">
 <div class="title">Result: HTML output when the icons attribute is set</div>
 <div class="content">
-<pre class="CodeRay highlight nowrap"><code data-lang="xml"><span class="tag">&lt;div</span> <span class="attribute-name">class</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">admonitionblock note</span><span class="delimiter">&quot;</span></span><span class="tag">&gt;</span>
+<pre class="CodeRay highlight nowrap"><code data-lang="html"><span class="tag">&lt;div</span> <span class="attribute-name">class</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">admonitionblock note</span><span class="delimiter">&quot;</span></span><span class="tag">&gt;</span>
 <span class="tag">&lt;table&gt;</span>
 <span class="tag">&lt;tr&gt;</span>
 <span class="tag">&lt;td</span> <span class="attribute-name">class</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">icon</span><span class="delimiter">&quot;</span></span><span class="tag">&gt;</span>
@@ -16914,8 +16914,72 @@ Asciidoctor supports font-based admonition icons, powered by Font Awesome!
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="CodeRay highlight nowrap"><code data-lang="xml"><span class="tag">&lt;link</span> <span class="attribute-name">rel</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">stylesheet</span><span class="delimiter">&quot;</span></span>
+<pre class="CodeRay highlight nowrap"><code data-lang="html"><span class="tag">&lt;link</span> <span class="attribute-name">rel</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">stylesheet</span><span class="delimiter">&quot;</span></span>
   <span class="attribute-name">href</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">http://cdnjs.cloudflare.com/ajax/libs/font-awesome/3.1.0/css/font-awesome.min.css</span><span class="delimiter">&quot;</span></span><span class="tag">&gt;</span></code></pre>
+</div>
+</div>
+<div class="sect3">
+<h4 id="unicode-admonition-icons"><a class="anchor" href="#unicode-admonition-icons"></a><a class="link" href="#unicode-admonition-icons">48.1.1. Unicode Admonition Icons</a></h4>
+<div class="paragraph">
+<p>Instead of image or font-based icons, it&#8217;s possible to use Unicode glyphs for admonition icons by applying a little trick.</p>
+</div>
+<div class="paragraph">
+<p>If the <code>icons</code> attribute is not set on the document, Asciidoctor outputs a textual label that identifies the admonition type.
+The text for this label comes from an AsciiDoc attribute.
+The name of the attribute is <code>&lt;type&gt;-caption</code>, where <code>&lt;type&gt;</code> is the admonition type in lowercase.
+For example, the attribute for a tip admonition is <code>tip-caption</code>.</p>
+</div>
+<div class="paragraph">
+<p>Instead of a word, you can assign a Unicode glyph to this attribute:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight nowrap"><code data-lang="asciidoc">:tip-caption: 💡
+
+[TIP]
+It's possible to use Unicode glyphs as admonition icons.</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Here&#8217;s the HTML that Asciidoctor outputs for the icon cell:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight nowrap"><code data-lang="html"><span class="tag">&lt;td</span> <span class="attribute-name">class</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">icon</span><span class="delimiter">&quot;</span></span><span class="tag">&gt;</span>
+<span class="tag">&lt;div</span> <span class="attribute-name">class</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">title</span><span class="delimiter">&quot;</span></span><span class="tag">&gt;</span>💡<span class="tag">&lt;/div&gt;</span>
+<span class="tag">&lt;/td&gt;</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Instead of entering the glyph directly, you can enter a character reference instead.
+However, since you&#8217;re defining the character reference in an attribute entry, you (currently) have to disable substitutions on the value.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight nowrap"><code data-lang="asciidoc">:tip-caption: pass:[&amp;#128161;]
+
+[TIP]
+It's possible to use Unicode glyphs as admonition icons.</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>On GitHub, the HTML output that Asciidoctor emits is run through a postprocessing filter that substitutes emoji shortcodes with emoji symbols.
+That means you can use these shortcodes in the value of the attribute:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight nowrap"><code data-lang="asciidoc">ifdef::env-github[]
+:tip-caption: :bulb:
+endif::[]
+
+[TIP]
+It's possible to use emojis as admonition icons on GitHub.</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>When the document is processed through the GitHub interface, the shortcodes get replaced with real emojis.
+This is the only known way to get admonition icons to work on GitHub.
+Give it a try!</p>
 </div>
 </div>
 </div>
@@ -26822,7 +26886,7 @@ In source listings, is the callout the last thing on the line?</p></td>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2017-10-25 06:22:30 UTC
+Last updated 2017-10-26 06:26:46 UTC
 </div>
 </div>
 <script type="text/x-mathjax-config">
