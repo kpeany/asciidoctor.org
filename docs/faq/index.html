@@ -617,7 +617,7 @@ When resolving the path of an inter-document cross reference, if the <code>relfi
 Let&#8217;s look at an example of when these two attributes are used together.</p>
 </div>
 <div class="paragraph">
-<p>A common practice in website architecture is to move files into their own folder to make the path format agnostic (called "<code>indexify</code>").
+<p>A common practice in website architecture is to move files into their own folder to make the path format agnostic (called &#8220;indexify&#8221;).
 For example, the path <code>filename.html</code> becomes <code>filename/</code> (which targets <code>filename/index.html</code>).
 However, this is problematic for inter-document cross references.
 Any cross reference that resolves to the path <code>filename.html</code> is now invalid since the file has moved to a subfolder (and thus no longer a sibling of the referencing document).</p>
@@ -632,7 +632,7 @@ Any cross reference that resolves to the path <code>filename.html</code> is now 
 </div>
 </div>
 <div class="paragraph">
-<p>Now, the cross reference <code>+&lt;&lt;filename#,Label&gt;&gt;+</code> will resolve to <code>../filename/</code> instead of <code>filename.html</code>.
+<p>Now, the cross reference <code>&lt;&lt;filename#,Label&gt;&gt;</code> will resolve to <code>../filename/</code> instead of <code>filename.html</code>.
 Since this change is specific to the website architecture described, you want to be sure to only set these attributes in that particular environment (either using an ifdef directive or via the API).</p>
 </div>
 </div>
@@ -747,7 +747,7 @@ Thankfully, there are many ways to include URLs of arbitrary complexity using th
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="CodeRay highlight nowrap"><code data-lang="asciidoc">= Document Title
+<pre class="CodeRay highlight nowrap"><code>= Document Title
 :link-with-underscores: http://www.asciidoctor.org/now_this__link_works.html
 
 This URL has repeating underscores {link-with-underscores}.</code></pre>
@@ -769,7 +769,7 @@ If you want to display a URL, and have it preserved, put it inside the pass macr
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="CodeRay highlight nowrap"><code data-lang="asciidoc">This URL has repeating underscores pass:macros[http://www.asciidoctor.org/now_this__link_works.html].</code></pre>
+<pre class="CodeRay highlight nowrap"><code>This URL has repeating underscores pass:macros[http://www.asciidoctor.org/now_this__link_works.html].</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -781,7 +781,7 @@ However, when you use this approach, Asciidoctor won&#8217;t recognize it as a U
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="CodeRay highlight nowrap"><code data-lang="asciidoc">This URL has repeating underscores link:++http://www.asciidoctor.org/now_this__link_works.html++[].</code></pre>
+<pre class="CodeRay highlight nowrap"><code>This URL has repeating underscores link:++http://www.asciidoctor.org/now_this__link_works.html++[].</code></pre>
 </div>
 </div>
 </div>
@@ -795,7 +795,7 @@ However, when you use this approach, Asciidoctor won&#8217;t recognize it as a U
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2017-10-28 05:40:31 UTC
+Last updated 2017-10-28 05:58:56 UTC
 </div>
 </div>
 </body>

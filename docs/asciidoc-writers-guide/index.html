@@ -235,7 +235,7 @@ If you want to find out how to render the document to HTML, DocBook or PDF, skip
 The line breaks won&#8217;t appear in the output.</p>
 </div>
 <div class="paragraph">
-<p>However, if you want the line breaks in a paragraph to be preserved, you can either use a space followed by a plus sign (<code>{plus}</code>) or the <code>hardbreaks</code> attribute.
+<p>However, if you want the line breaks in a paragraph to be preserved, you can either use a space followed by a plus sign (<code>&#43;</code>) or the <code>hardbreaks</code> attribute.
 This results in a visible line break (e.g., <code>&lt;br&gt;</code>) following each line.</p>
 </div>
 <div class="listingblock">
@@ -385,7 +385,7 @@ AsciiDoc refers to this markup as <em>quoted text</em>.</p>
 <div class="sect3">
 <h4 id="quoted-text"><a class="anchor" href="#quoted-text"></a>Quoted text</h4>
 <div class="paragraph">
-<p>For instance, in an e-mail, you might "<code>speak</code>" a word louder by enclosing it in asterisks.</p>
+<p>For instance, in an e-mail, you might &#8220;speak&#8221; a word louder by enclosing it in asterisks.</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -404,7 +404,7 @@ This is one example of quoted (i.e., formatted) text.</p>
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-The term "<code>quote</code>" is used liberally here to apply to any symbols that surround text in order to apply emphasis or special meaning.
+The term &#8220;quote&#8221; is used liberally here to apply to any symbols that surround text in order to apply emphasis or special meaning.
 </td>
 </tr>
 </table>
@@ -447,17 +447,17 @@ _italic phrase_ &amp; __char__acter__s__
 <p><strong><em>bold italic phrase</em></strong> &amp; <strong><em>char</em></strong>acter<strong><em>s</em></strong></p>
 </div>
 <div class="paragraph">
-<p><code>monospace phrase</code> &amp; ``char``acter``s``</p>
+<p><code>monospace phrase</code> &amp; <code>char</code>acter<code>s</code></p>
 </div>
 <div class="paragraph">
-<p><code>*monospace bold phrase*</code> &amp; ``<strong>char</strong>``acter``<strong>s</strong>``</p>
+<p><code><strong>monospace bold phrase</strong></code> &amp; <code><strong>char</strong></code>acter<code><strong>s</strong></code></p>
 </div>
 <div class="paragraph">
-<p><code>_monospace italic phrase_</code> &amp; ``<em>char</em>``acter``<em>s</em>``</p>
+<p><code><em>monospace italic phrase</em></code> &amp; <code><em>char</em></code>acter<code><em>s</em></code></p>
 </div>
 <div class="paragraph">
-<p><code>*_monospace bold italic phrase_*</code> &amp;
-``<strong><em>char</em></strong>``acter``<strong><em>s</em></strong>``</p>
+<p><code><strong><em>monospace bold italic phrase</em></strong></code> &amp;
+<code><strong><em>char</em></strong></code>acter<code><strong><em>s</em></strong></code></p>
 </div>
 </div>
 </div>
@@ -473,7 +473,7 @@ For instance:</p>
 </div>
 </div>
 <div class="paragraph">
-<p>When rendering to HTML, the word "<code>asciidoc</code>" is wrapped in <code>&lt;span&gt;</code> tags and the role is used as the element&#8217;s CSS class:</p>
+<p>When rendering to HTML, the word &#8220;asciidoc&#8221; is wrapped in <code>&lt;span&gt;</code> tags and the role is used as the element&#8217;s CSS class:</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -495,7 +495,7 @@ In those cases, you&#8217;ll need to use markup to escape the text.</p>
 </div>
 <div class="paragraph">
 <p>To prevent punctuation from being interpreted as formatting markup, precede it with a backslash (<code>\</code>).
-If the formatting punctuation begins with two characters (e.g., <code>+__+</code>), you need to precede it with two backslashes (<code>+\\+</code>).
+If the formatting punctuation begins with two characters (e.g., <code>__</code>), you need to precede it with two backslashes (<code>\\</code>).
 This is also how you can prevent character and attribute references from substitution.
 When your document is processed, the backslash is removed so it doesn&#8217;t display in your output.</p>
 </div>
@@ -650,7 +650,7 @@ But I should contain <strong>bold</strong> text.</pre>
 <div class="exampleblock">
 <div class="content">
 <div class="paragraph">
-<p>The text <u>underline <strong>me</strong></u> is underlined and the word "<code>me</code>" is bold.</p>
+<p>The text <u>underline <strong>me</strong></u> is underlined and the word &#8220;me&#8221; is bold.</p>
 </div>
 </div>
 </div>
@@ -742,7 +742,7 @@ To exclude content from substitutions, enclose it in triple pluses (+++).</p>
 <td class="tableblock halign-center valign-top"><div class="literal"><pre>&amp;#8212;</pre></div></td>
 <td class="tableblock halign-center valign-top"><p class="tableblock">&#8201;&#8212;&#8201;</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Only replaced if between two word characters, between a word character and a line boundary, or flanked by spaces.</p>
-<p class="tableblock">When flanked by space characters (e.g., <code>+a -- b+</code>), the normal spaces are replaced by thin spaces (&amp;#8201;).</p></td>
+<p class="tableblock">When flanked by space characters (e.g., <code>a -- b</code>), the normal spaces are replaced by thin spaces (&amp;#8201;).</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">ellipses</p></td>
@@ -832,7 +832,7 @@ We&#8217;ll also look at how to put complex content inside a list item.</p>
 Chances are, you&#8217;d mark list items using the same characters that Asciidoctor uses to find list items.</p>
 </div>
 <div class="paragraph">
-<p>In the example below, each list item is marked using an asterisk (<code>{asterisk}</code>), the AsciiDoc syntax specifying an unordered list item.</p>
+<p>In the example below, each list item is marked using an asterisk (<code>*</code>), the AsciiDoc syntax specifying an unordered list item.</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -842,7 +842,7 @@ Chances are, you&#8217;d mark list items using the same characters that Asciidoc
 </div>
 </div>
 <div class="paragraph">
-<p>A list item&#8217;s first line of text must be offset from the marker (<code>{asterisk}</code>) by at least one space.
+<p>A list item&#8217;s first line of text must be offset from the marker (<code>*</code>) by at least one space.
 If you prefer, you can indent list items.
 Blank lines are required before and after a list.
 Additionally, blank lines are permitted, but not required, between list items.</p>
@@ -917,7 +917,7 @@ Now that we&#8217;ve mentioned nested lists, let&#8217;s go to the next section 
 <div class="paragraph">
 <p>If you have adjacent lists, they have the tendency to want to fuse together.
 To force lists apart, insert a line comment (<code>//</code>) surrounded by blank lines between the two lists.
-Here&#8217;s an example, where the <code>-</code> text in the line comment indicates the line serves as an "<code>end of list</code>" marker:</p>
+Here&#8217;s an example, where the <code>-</code> text in the line comment indicates the line serves as an &#8220;end of list&#8221; marker:</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -933,7 +933,7 @@ Here&#8217;s an example, where the <code>-</code> text in the line comment indic
 </div>
 </div>
 <div class="paragraph">
-<p>To nest an item, just add another asterisk (<code>{asterisk}</code>) in front of it.</p>
+<p>To nest an item, just add another asterisk (<code>*</code>) in front of it.</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -1660,8 +1660,8 @@ You just need to <em>attach</em> them to the list item.</p>
 <div class="sect3">
 <h4 id="list-continuation"><a class="anchor" href="#list-continuation"></a>List continuation</h4>
 <div class="paragraph">
-<p>To add additional paragraphs or other block elements to a list item, you must "<code>attach</code>" them (in a series) using a <em>list continuation</em>.
-A list continuation is a <code>{plus}</code> symbol on a line by itself, immediately adjacent to the block being attached.</p>
+<p>To add additional paragraphs or other block elements to a list item, you must &#8220;attach&#8221; them (in a series) using a <em>list continuation</em>.
+A list continuation is a <code>&#43;</code> symbol on a line by itself, immediately adjacent to the block being attached.</p>
 </div>
 <div class="paragraph">
 <p>Here&#8217;s an example:</p>
@@ -1833,7 +1833,7 @@ include::shared-content.adoc[]
 <div class="paragraph">
 <p>If the principal text of a list item is blank, the node for the principal text is dropped.
 This is how you can get the first block (such as a listing block) to line up with the list marker.
-You can make the principal text blank by using the <code>+{blank}+</code> attribute reference.</p>
+You can make the principal text blank by using the <code>{blank}</code> attribute reference.</p>
 </div>
 <div class="paragraph">
 <p>Here&#8217;s an example of a list that has items with <em>only</em> complex content.</p>
@@ -2170,7 +2170,7 @@ Let's view the raw HTML of the link:view-source:asciidoctor.org[Asciidoctor home
 </div>
 <div class="paragraph">
 <p>Since <code>_blank</code> is the most common window name, we&#8217;ve introduced shorthand for it.
-Just end the link text with a caret (<code>+^+</code>):</p>
+Just end the link text with a caret (<code>^</code>):</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -2499,7 +2499,7 @@ A document title is an <em>optional</em> feature of an AsciiDoc document.
 </table>
 </div>
 <div class="paragraph">
-<p>To create a document title, begin the first line of the document with one equal sign followed by at least one space (``= ``), then the text of the title.
+<p>To create a document title, begin the first line of the document with one equal sign followed by at least one space (<code>= </code>), then the text of the title.
 This syntax is the simplest (and thus recommended) way to declare a document title.</p>
 </div>
 <div class="paragraph">
@@ -2951,7 +2951,7 @@ The content inside is rendered as <span class="entity">&amp;lt;</span>pre<span c
 <p>the endlines are preserved</p>
 </li>
 <li>
-<p>the phrase "<code>listing block</code>" is not italicized, despite having underscores around it.</p>
+<p>the phrase &#8220;listing block&#8221; is not italicized, despite having underscores around it.</p>
 </li>
 </ul>
 </div>
@@ -3357,7 +3357,7 @@ It is used to present information related to the main content.
 <div class="sect3">
 <h4 id="pass-blocks"><a class="anchor" href="#pass-blocks"></a>Passthrough blocks</h4>
 <div class="paragraph">
-<p>The "<code>anything goes</code>" mechanism in AsciiDoc is the passthrough block.
+<p>The &#8220;anything goes&#8221; mechanism in AsciiDoc is the passthrough block.
 As the name implies, this block passes the content of the block directly through to the output document.
 When you&#8217;ve encountered a complex requirement that you cannot meet using the AsciiDoc syntax, a passthrough block can come in very handy.</p>
 </div>
@@ -3706,7 +3706,7 @@ This will give you a real appreciation for the power that AsciiDoc puts in your 
 <p>While AsciiDoc syntax is designed to be readable in raw form, the intended audience for that format are writers and editors.
 Readers aren&#8217;t going to appreciate the raw text nearly as much.
 Aesthetics matter.
-You&#8217;ll want to apply nice typography with font sizes that adhere to the "<code>golden ratio</code>", colors, icons and images to give it the respect it deserves.
+You&#8217;ll want to apply nice typography with font sizes that adhere to the &#8220;golden ratio&#8221;, colors, icons and images to give it the respect it deserves.
 That&#8217;s where the Asciidoctor processor comes in (<strong>after</strong> you have done the writing).</p>
 </div>
 <div class="paragraph">
