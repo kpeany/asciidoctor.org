@@ -1,4 +1,4 @@
-<!DOCTYPE html><!--[if IE 8]><html class="no-js lt-ie9" lang="en"><![endif]--><!--[if gt IE 8]><!--><html class="no-js" lang="en"><!--<![endif]--><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><link rel="stylesheet" href="/stylesheets/styles.css"><script src="/javascripts/vendor/custom.modernizr.js"></script><title>Installing and Using Asciidoclet | Asciidoctor</title><meta name="author" content="John Ericksen"><link rel="author" href="/humans.txt"></head><body class="antialiased"><nav class="top-bar"><ul class="title-area"><li class="name"><h1><a href="/">Asciidoctor</a></h1></li><li class="toggle-topbar menu-icon"><a href="#"><span></span></a></li></ul><section class="top-bar-section"><ul class="right"><li><a href="/">About</a></li><li class="divider"></li><li><a href="/news/">News</a></li><li class="divider"></li><li><a href="http://gist.asciidoctor.org">Gist</a></li><li class="divider"></li><li><a href="https://github.com/asciidoctor">Code</a></li><li class="divider"></li><li><a href="http://discuss.asciidoctor.org">Discuss</a></li><li class="divider"></li><li><a href="/docs/">Docs</a></li><li class="divider"></li><li class="has-form"><a class="button" href="/docs/asciidoc-writers-guide/">Get Writing!</a></li></ul></section></nav><div class="container"><header><div class="row"><div class="large-12 columns"><h1>Installing and Using Asciidoclet</h1></div></div></header><div class="row"><div class="large-4 columns"><ul class="button-group toolbar" style="margin-bottom: -0.3333em"><li><a class="tiny secondary button toggle-navigation" href="#"><i class="fa fa-toggle-on"></i><i class="fa fa-toggle-off"></i> Nav</a></li><li><span class="separator"></span></li><li><a class="tiny secondary button" href="https://github.com/asciidoctor/asciidoctor.org/edit/master/docs/asciidoclet.adoc">Edit</a></li><li><a class="tiny secondary button" href="https://github.com/asciidoctor/asciidoctor.org/raw/master/docs/asciidoclet.adoc">Raw</a></li><li><a class="tiny secondary button" href="https://github.com/asciidoctor/asciidoctor.org/commits/master/docs/asciidoclet.adoc">History</a></li><li><i class="fa fa-github fa-fw"></i></li></ul></div></div><div class="row"><div class="large-4 columns secondary navigation"><div id="toc" class="toc"><div class="title" id="toctitle">Table of Contents</div><ul class="sectlevel1">
+<!DOCTYPE html><!--[if IE 8]><html class="no-js lt-ie9" lang="en"><![endif]--><!--[if gt IE 8]><!--><html class="no-js" lang="en"><!--<![endif]--><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><link rel="stylesheet" href="/stylesheets/styles.css"><script src="/javascripts/vendor/custom.modernizr.js"></script><title>Asciidoclet | Asciidoctor</title><link rel="author" href="/humans.txt"></head><body class="antialiased"><nav class="top-bar"><ul class="title-area"><li class="name"><h1><a href="/">Asciidoctor</a></h1></li><li class="toggle-topbar menu-icon"><a href="#"><span></span></a></li></ul><section class="top-bar-section"><ul class="right"><li><a href="/">About</a></li><li class="divider"></li><li><a href="/news/">News</a></li><li class="divider"></li><li><a href="http://gist.asciidoctor.org">Gist</a></li><li class="divider"></li><li><a href="https://github.com/asciidoctor">Code</a></li><li class="divider"></li><li><a href="http://discuss.asciidoctor.org">Discuss</a></li><li class="divider"></li><li><a href="/docs/">Docs</a></li><li class="divider"></li><li class="has-form"><a class="button" href="/docs/asciidoc-writers-guide/">Get Writing!</a></li></ul></section></nav><div class="container"><header><div class="row"><div class="large-12 columns"><h1>Asciidoclet</h1></div></div></header><div class="row"><div class="large-4 columns"><ul class="button-group toolbar" style="margin-bottom: -0.3333em"><li><a class="tiny secondary button toggle-navigation" href="#"><i class="fa fa-toggle-on"></i><i class="fa fa-toggle-off"></i> Nav</a></li><li><span class="separator"></span></li><li><a class="tiny secondary button" href="https://github.com/asciidoctor/asciidoctor.org/edit/master/docs/asciidoclet.adoc">Edit</a></li><li><a class="tiny secondary button" href="https://github.com/asciidoctor/asciidoctor.org/raw/master/docs/asciidoclet.adoc">Raw</a></li><li><a class="tiny secondary button" href="https://github.com/asciidoctor/asciidoctor.org/commits/master/docs/asciidoclet.adoc">History</a></li><li><i class="fa fa-github fa-fw"></i></li></ul></div></div><div class="row"><div class="large-4 columns secondary navigation"><div id="toc" class="toc"><div class="title" id="toctitle">Table of Contents</div><ul class="sectlevel1">
 <li><a href="#introduction">Introduction</a></li>
 <li><a href="#example">Example</a></li>
 <li><a href="#usage">Usage</a>
@@ -7,8 +7,10 @@
 <li><a href="#gradle">Gradle</a></li>
 <li><a href="#ant">Ant</a></li>
 <li><a href="#doclet-options">Doclet Options</a></li>
+<li><a href="#log-warning">Log Warning</a></li>
 </ul>
 </li>
+<li><a href="#additional-features">Additional Features</a></li>
 <li><a href="#resources-and-help">Resources and help</a></li>
 <li><a href="#license">License</a></li>
 </ul></div></div><div class="large-8 columns content"><div id="content"><div id="preamble">
@@ -285,6 +287,28 @@ Other files are assumed to be HTML and will be processed by the standard doclet.
 </dl>
 </div>
 </div>
+<div class="sect2">
+<h3 id="log-warning"><a class="anchor" href="#log-warning"></a>Log Warning</h3>
+<div class="paragraph">
+<p>Currently there is a intermittent benign warning message that is emitted during a run of Asciidoclet stating the following:</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre class="nowrap">WARN: tilt autoloading 'tilt/haml' in a non thread-safe way; explicit require 'tilt/haml' suggested.</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Unfortunately, until the underlying library removes this warning message, it will be logged during the build.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="additional-features"><a class="anchor" href="#additional-features"></a>Additional Features</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Make sure to see <a href="http://asciidoctor.org/news/2014/09/09/asciidoclet-1.5.0-released/">Asciidoclet 1.5.0 Release Notes</a> for additional features not documented here.</p>
+</div>
 </div>
 </div>
 <div class="sect1">
@@ -296,7 +320,13 @@ Other files are assumed to be HTML and will be processed by the standard doclet.
 <div class="ulist">
 <ul>
 <li>
+<p><a href="http://asciidoctor.org/news/2014/09/09/asciidoclet-1.5.0-released/">Asciidoclet 1.5.0 Release Notes</a></p>
+</li>
+<li>
 <p><a href="https://github.com/asciidoctor/asciidoclet">Asciidoclet Source Code</a></p>
+</li>
+<li>
+<p><a href="https://oss.sonatype.org/service/local/repositories/releases/archive/org/asciidoctor/asciidoclet/1.5.2/asciidoclet-1.5.2-javadoc.jar/!/index.html">Asciidoclet JavaDoc</a></p>
 </li>
 <li>
 <p><a href="https://github.com/asciidoctor/asciidoclet/issues">Asciidoclet Issue Tracker</a></p>
@@ -319,7 +349,7 @@ Other files are assumed to be HTML and will be processed by the standard doclet.
 <div class="sectionbody">
 <div class="literalblock">
 <div class="content">
-<pre class="nowrap">Copyright (C) 2013-2014 John Ericksen
+<pre class="nowrap">Copyright (C) 2013-2015 John Ericksen
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
