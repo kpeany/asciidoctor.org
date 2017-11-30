@@ -65,12 +65,12 @@
 </ul>
 </li>
 <li><a href="#what-else-can-asciidoc-do">What else can AsciiDoc do?</a></li>
-<li><a href="#rendering-your-document">Rendering your document</a>
+<li><a href="#converting-your-document">Converting your document</a>
 <ul class="sectlevel2">
 <li><a href="#converting-a-document-to-html-5">Converting a document to HTML 5</a></li>
 <li><a href="#converting-a-document-to-docbook">Converting a document to DocBook</a></li>
 <li><a href="#output-galore">Output galore</a></li>
-<li><a href="#where-else-is-asciidoc-rendered">Where else is AsciiDoc rendered?</a></li>
+<li><a href="#where-else-is-asciidoc-supported">Where else is AsciiDoc supported?</a></li>
 </ul>
 </li>
 <li><a href="#wrap-up">Wrap-up</a></li>
@@ -109,7 +109,7 @@ If you&#8217;re looking for a concise survey of the AsciiDoc syntax, consult the
 <p>How to add other structural elements such as lists, block quotes and source code</p>
 </li>
 <li>
-<p>How to render an AsciiDoc document to HTML, DocBook and PDF</p>
+<p>How to convert an AsciiDoc document to HTML, DocBook and PDF</p>
 </li>
 </ul>
 </div>
@@ -223,7 +223,7 @@ As you can see, it&#8217;s just like writing an e-mail.</p>
 <i class="fa icon-tip" title="Tip"></i>
 </td>
 <td class="content">
-If you want to find out how to render the document to HTML, DocBook or PDF, skip ahead to the section on <a href="#rendering-your-document">Rendering your document</a>.
+If you want to find out how to convert the document to HTML, DocBook or PDF, skip ahead to the section on <a href="#converting-your-document">Converting your document</a>.
 </td>
 </tr>
 </table>
@@ -473,7 +473,7 @@ For instance:</p>
 </div>
 </div>
 <div class="paragraph">
-<p>When rendering to HTML, the word &#8220;asciidoc&#8221; is wrapped in <code>&lt;span&gt;</code> tags and the role is used as the element&#8217;s CSS class:</p>
+<p>When converting to HTML, the word &#8220;asciidoc&#8221; is wrapped in <code>&lt;span&gt;</code> tags and the role is used as the element&#8217;s CSS class:</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -2570,8 +2570,8 @@ According to Wikipedia...</code></pre>
 </div>
 </div>
 <div class="paragraph">
-<p>The header now contains a document title, an author, a revision number and a date.
-This information will be formatted when the document is rendered.</p>
+<p>The header now contains a document title, an author, a revision number, and a date.
+This information will typically be displayed as a formatted header at the top of the output document.</p>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -2581,8 +2581,8 @@ This information will be formatted when the document is rendered.</p>
 </td>
 <td class="content">
 The header, including the document title, is <em>not required</em>.
-If absent, the AsciiDoc processor will happily render whatever content is present.
-The header is only used when rendering a full document.
+If absent, the AsciiDoc processor will happily convert whatever content is present.
+The header is only used when generating a full document.
 It&#8217;s excluded from the output of an embedded document.
 </td>
 </tr>
@@ -2743,7 +2743,7 @@ The number of equal signs represents the nesting level (using a 0-based index).<
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-When the document is rendered as HTML 5 (using the built-in <code>html5</code> backend), each section title becomes a heading element where the heading level matches the number of equal signs.
+When the document is converted to HTML 5 (using the built-in <code>html5</code> backend), each section title becomes a heading element where the heading level matches the number of equal signs.
 For example, a level 1 section (2 equal signs) maps to an <code>&lt;h2&gt;</code> element.
 </td>
 </tr>
@@ -2804,7 +2804,7 @@ Content of second section</code></pre>
 </td>
 <td class="content">
 In addition to the equals marker used for defining single-line section titles, Asciidoctor recognizes the hash symbol (<code>#</code>) from Markdown.
-That means the outline of a Markdown document will render just fine as an AsciiDoc document.
+That means the outline of a Markdown document will convert just fine as an AsciiDoc document.
 </td>
 </tr>
 </table>
@@ -2908,14 +2908,14 @@ These components are referred to as <em>delimited blocks</em> because they are s
 <div class="content">
 <pre class="CodeRay highlight nowrap"><code data-lang="asciidoc">----
 This is an example of a _listing block_.
-The content inside is rendered as &lt;pre&gt; text.
+The content inside is displayed as &lt;pre&gt; text.
 ----</code></pre>
 </div>
 </div>
 <div class="paragraph">
 <p>Within the boundaries of a delimited block, you can enter any content or blank lines.
 The block doesn&#8217;t end until the ending delimiter is found.
-The delimiters around the block determine the type of block, how the content is processed and rendered and what elements are used to wrap the content in the output.</p>
+The delimiters around the block determine the type of block, how the content is processed and converted and what elements are used to wrap the content in the output.</p>
 </div>
 <div class="paragraph">
 <p>Here&#8217;s how the block above appears when rendered as HTML:</p>
@@ -2923,7 +2923,7 @@ The delimiters around the block determine the type of block, how the content is 
 <div class="literalblock">
 <div class="content">
 <pre class="nowrap">This is an example of a _listing block_.
-The content inside is rendered as &lt;pre&gt; text.</pre>
+The content inside is displayed as &lt;pre&gt; text.</pre>
 </div>
 </div>
 <div class="paragraph">
@@ -2934,7 +2934,7 @@ The content inside is rendered as &lt;pre&gt; text.</pre>
 <pre class="CodeRay highlight nowrap"><code data-lang="html"><span class="tag">&lt;div</span> <span class="attribute-name">class</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">listingblock</span><span class="delimiter">&quot;</span></span><span class="tag">&gt;</span>
   <span class="tag">&lt;div</span> <span class="attribute-name">class</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">content monospaced</span><span class="delimiter">&quot;</span></span><span class="tag">&gt;</span>
     <span class="tag">&lt;pre&gt;</span>This is an example of a _listing block_.
-The content inside is rendered as <span class="entity">&amp;lt;</span>pre<span class="entity">&amp;gt;</span> text.<span class="tag">&lt;/pre&gt;</span>
+The content inside is displayed as <span class="entity">&amp;lt;</span>pre<span class="entity">&amp;gt;</span> text.<span class="tag">&lt;/pre&gt;</span>
   <span class="tag">&lt;/div&gt;</span>
 <span class="tag">&lt;/div&gt;</span></code></pre>
 </div>
@@ -3024,7 +3024,7 @@ Since a listing block is typically used for source code, substitutions are not d
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">sidebar</p></td>
 <td class="tableblock halign-left valign-top"><div class="literal"><pre>****</pre></div></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Aside text rendered outside the flow of the document</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Aside text displayed outside the flow of the document</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">normal</p></td>
 </tr>
 <tr>
@@ -3212,7 +3212,7 @@ If there is a name conflict, the last attribute defined wins.
 </table>
 </div>
 <div class="paragraph">
-<p>Some metadata is used as supplementary content, such as the title, whereas other metadata controls how the block is rendered, such as the style.</p>
+<p>Some metadata is used as supplementary content, such as the title, whereas other metadata, such as the style, controls how the block is converted.</p>
 </div>
 </div>
 <div class="sect2">
@@ -3304,7 +3304,7 @@ require 'asciidoctor'  # &lt;1&gt;
 Asciidoctor.convert_file 'mysample.adoc'  # &lt;2&gt;
 ----
 &lt;1&gt; Imports the library
-&lt;2&gt; Reads, parses and renders the file</code></pre>
+&lt;2&gt; Reads, parses, and converts the file</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -3328,7 +3328,7 @@ puts <span class="constant">Asciidoctor</span>.convert_file <span class="string"
 </tr>
 <tr>
 <td><i class="conum" data-value="2"></i><b>2</b></td>
-<td>Reads, parses and renders the file</td>
+<td>Reads, parses, and converts the file</td>
 </tr>
 </table>
 </div>
@@ -3694,13 +3694,13 @@ AsciiDoc is simple enough for a README, yet can scale to meet the requirements o
 <div class="paragraph">
 <p>That&#8217;s enough syntax for now.
 You&#8217;ve created your first AsciiDoc document.
-Now it&#8217;s time to render the document into a presentable format.
+Now it&#8217;s time to convert the document into a presentable format.
 This will give you a real appreciation for the power that AsciiDoc puts in your hands.</p>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="rendering-your-document"><a class="anchor" href="#rendering-your-document"></a>Rendering your document</h2>
+<h2 id="converting-your-document"><a class="anchor" href="#converting-your-document"></a>Converting your document</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>While AsciiDoc syntax is designed to be readable in raw form, the intended audience for that format are writers and editors.
@@ -3815,10 +3815,10 @@ We&#8217;ve just scratched the surface here.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="where-else-is-asciidoc-rendered"><a class="anchor" href="#where-else-is-asciidoc-rendered"></a>Where else is AsciiDoc rendered?</h3>
+<h3 id="where-else-is-asciidoc-supported"><a class="anchor" href="#where-else-is-asciidoc-supported"></a>Where else is AsciiDoc supported?</h3>
 <div class="paragraph">
 <p>The easiest way to experiment with AsciiDoc is online.
-AsciiDoc document in a GitHub repository or a <a href="http://gist.github.com">gist</a> is automatically rendered as HTML and displayed in the web interface.</p>
+AsciiDoc document in a GitHub repository or a <a href="http://gist.github.com">gist</a> is automatically converted to HTML and rendered in the web interface.</p>
 </div>
 <div class="paragraph">
 <p>If you have a project on GitHub, you can write the README or any other documentation in AsciiDoc and the GitHub interface will show the HTML output for visitors to view.</p>
