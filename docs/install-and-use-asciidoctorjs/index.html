@@ -137,7 +137,7 @@ This script includes:</p>
 <p>A string that contains an AsciiDoc source document</p>
 </li>
 <li>
-<p>A call to the Asciidoctor API to render the content of that string to HTML</p>
+<p>A call to the Asciidoctor API to convert the content of that string to HTML</p>
 </li>
 <li>
 <p>An event listener that inserts the generated HTML into the page</p>
@@ -150,7 +150,7 @@ This script includes:</p>
 <div class="paragraph">
 <p>Point your browser at <em>build/asciidoctor_example.html</em>.
 You should see the AsciiDoc Syntax Quick Reference document.
-The content on the page was rendered from AsciiDoc by asciidoctor.js when you loaded the page!</p>
+The content on the page was converted from AsciiDoc by asciidoctor.js when you loaded the page!</p>
 </div>
 </div>
 </div>
@@ -204,7 +204,7 @@ EOS</span></span></code></pre>
 </div>
 </div>
 <div class="paragraph">
-<p>We then use the global <code>$window</code> object provided by Opal to register a listener that inserts the rendered HTML document into the page.</p>
+<p>We then use the global <code>$window</code> object provided by Opal to register a listener that inserts the converted HTML document into the page.</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -225,7 +225,7 @@ compiled = env[<span class="string"><span class="delimiter">'</span><span class=
 </div>
 </div>
 <div class="paragraph">
-<p>When the <em>asciidoctor_example.js</em> script is loaded by the browser, the Ruby code (compiled as JavaScript) is executed, rendering the AsciiDoc document and inserting the result into the page.</p>
+<p>When the <em>asciidoctor_example.js</em> script is loaded by the browser, the Ruby code (compiled as JavaScript) is executed, converting the AsciiDoc document and inserting the result into the page.</p>
 </div>
 <div class="paragraph">
 <p>You can also invoke Asciidoctor directly from JavaScript.</p>
@@ -253,7 +253,7 @@ Thus, where you would execute <code>Asciidoctor.convert</code> in Ruby, you exec
 </div>
 </div>
 <div class="paragraph">
-<p>You would insert the rendered document into the page using the normal JavaScript DOM methods.</p>
+<p>You would insert the converted document into the page using the normal JavaScript DOM methods.</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -264,7 +264,7 @@ Thus, where you would execute <code>Asciidoctor.convert</code> in Ruby, you exec
 </div>
 </div>
 <div class="paragraph">
-<p>Passing the options <code>Hash</code> to the <code>render</code> method requires a little bit of Opal voodoo.</p>
+<p>Passing the options <code>Hash</code> to the <code>convert</code> method requires a little bit of Opal voodoo.</p>
 </div>
 <div class="listingblock">
 <div class="content">
