@@ -363,7 +363,22 @@ Actually things aren't that bad
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap">Unresolved directive in https://cdn.rawgit.com/asciidoctor/asciidoctor-reveal.js/v1.0.4/README.adoc - include::test/concealed-slide-titles.adoc[]</pre>
+<pre class="nowrap">= Concealed Slide Titles
+:backend: revealjs
+
+== !
+
+This
+
+[%notitle]
+== Presentation
+
+presentation's titles
+
+[%conceal]
+== Concealed
+
+should be concealed</pre>
 </div>
 </div>
 <div class="admonitionblock note">
@@ -677,7 +692,15 @@ Keep in mind that for title slides you must replace <code>data-</code> with
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap">Unresolved directive in https://cdn.rawgit.com/asciidoctor/asciidoctor-reveal.js/v1.0.4/README.adoc - include::test/title-slide-image.adoc[]</pre>
+<pre class="nowrap">= EPIC TITLE
+:imagesdir: images
+:title-slide-background-image: 70s.jpg
+:title-slide-transition: zoom
+:title-slide-transition-speed: fast
+
+== Next slide
+
+Content</pre>
 </div>
 </div>
 <div class="paragraph">
