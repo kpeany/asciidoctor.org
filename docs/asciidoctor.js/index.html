@@ -1,0 +1,179 @@
+<!DOCTYPE html><!--[if IE 8]><html class="no-js lt-ie9" lang="en"><![endif]--><!--[if gt IE 8]><!--><html class="no-js" lang="en"><!--<![endif]--><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><link rel="stylesheet" href="/stylesheets/styles.css"><script src="/javascripts/vendor/custom.modernizr.js"></script><title>Asciidoctor.js | Asciidoctor</title><meta name="description" content="Asciidoctor.js is a direct port of Asciidoctor to JavaScript. This guide is the documentation for setting up, building, and using Asciidoctor.js."><meta name="keywords" content="asciidoctor.js, Asciidoctor, AsciiDoc, Opal, transpile, syntax, JavaScript, reference"><link rel="author" href="/humans.txt"></head><body class="antialiased"><nav class="top-bar"><ul class="title-area"><li class="name"><h1><a href="/">Asciidoctor</a></h1></li><li class="toggle-topbar menu-icon"><a href="#"><span></span></a></li></ul><section class="top-bar-section"><ul class="right"><li><a href="/">About</a></li><li class="divider"></li><li><a href="/news/">News</a></li><li class="divider"></li><li><a href="http://gist.asciidoctor.org">Gist</a></li><li class="divider"></li><li><a href="https://github.com/asciidoctor">Code</a></li><li class="divider"></li><li><a href="http://discuss.asciidoctor.org">Discuss</a></li><li class="divider"></li><li><a href="/docs/">Docs</a></li><li class="divider"></li><li class="has-form"><a class="button" href="/docs/asciidoc-writers-guide/">Get Writing!</a></li></ul></section></nav><div class="container"><header><div class="row"><div class="large-12 columns"><h1>Asciidoctor.js</h1></div></div></header><div class="row"><div class="large-4 columns"><ul class="button-group toolbar" style="margin-bottom: -0.3333em"><li><a class="tiny secondary button toggle-navigation" href="#"><i class="fa fa-toggle-on"></i><i class="fa fa-toggle-off"></i> Nav</a></li><li><span class="separator"></span></li><li><a class="tiny secondary button" href="https://github.com/asciidoctor/asciidoctor.org/edit/master/docs/asciidoctor.js.adoc">Edit</a></li><li><a class="tiny secondary button" href="https://github.com/asciidoctor/asciidoctor.org/raw/master/docs/asciidoctor.js.adoc">Raw</a></li><li><a class="tiny secondary button" href="https://github.com/asciidoctor/asciidoctor.org/commits/master/docs/asciidoctor.js.adoc">History</a></li><li><i class="fa fa-github fa-fw"></i></li></ul></div></div><div class="row"><div class="large-4 columns secondary navigation"><div id="toc" class="toc"><div class="title" id="toctitle">Table of Contents</div><ul class="sectlevel1">
+<li><a href="#introduction">Introduction</a></li>
+<li><a href="#front-end-development">Front-end development</a></li>
+<li><a href="#back-end-development">Back-end development</a></li>
+<li><a href="#advanced-topics">Advanced topics</a></li>
+<li><a href="#contributing">Contributing</a></li>
+<li><a href="#copyright">Copyright</a></li>
+</ul></div></div><div class="large-8 columns content"><div id="content"><div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p>Asciidoctor.js brings AsciiDoc to the JavaScript world!</p>
+</div>
+<div class="paragraph">
+<p>This project uses <a href="http://opalrb.org">Opal</a> to transpile <a href="http://asciidoctor.org">Asciidoctor</a>, a modern implementation of AsciiDoc, from Ruby to JavaScript to produce <em>asciidoctor.js</em>.
+The <em>asciidoctor.js</em> script can be run on any JavaScript platform, including Node.js, Nashorn and, of course, a web browser.</p>
+</div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+Asciidoctor.js does <em>not</em> use Semantic Versioning as the release versions are aligned on <em>Asciidoctor (Ruby)</em>. It&#8217;s <strong>highly recommended</strong> to define the exact version in your <code>package.json</code> file (ie. without <code>^</code>). Please read the release notes when upgrading to the latest version as breaking changes can be introduced in non major release.
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="introduction"><a class="anchor" href="#introduction"></a>Introduction</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>You can use Asciidoctor.js either for back-end development using <a href="http://nodejs.org">Node.js</a> or front-end development using a browser.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="front-end-development"><a class="anchor" href="#front-end-development"></a>Front-end development</h2>
+<div class="sectionbody">
+<div class="literalblock">
+<div class="title">Installing Asciidoctor.js with npm</div>
+<div class="content">
+<pre class="nowrap">$ npm install asciidoctor.js --save</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Once the package installed, you can add the following <code>script</code> tag to your HTML page:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight nowrap"><code data-lang="html"><span class="tag">&lt;script</span> <span class="attribute-name">src</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">node_modules/asciidoctor.js/dist/asciidoctor.min.js</span><span class="delimiter">&quot;</span></span><span class="tag">&gt;</span><span class="tag">&lt;/script&gt;</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Here is a simple example that converts AsciiDoc to HTML5:</p>
+</div>
+<div class="listingblock">
+<div class="title">sample.js</div>
+<div class="content">
+<pre class="CodeRay highlight nowrap"><code data-lang="javascript"><span class="keyword">var</span> asciidoctor = Asciidoctor(); <i class="conum" data-value="1"></i><b>(1)</b>
+<span class="keyword">var</span> content = <span class="string"><span class="delimiter">&quot;</span><span class="content">http://asciidoctor.org[*Asciidoctor*] </span><span class="delimiter">&quot;</span></span> +
+    <span class="string"><span class="delimiter">&quot;</span><span class="content">running on http://opalrb.org[_Opal_] </span><span class="delimiter">&quot;</span></span> +
+    <span class="string"><span class="delimiter">&quot;</span><span class="content">brings AsciiDoc to the browser!</span><span class="delimiter">&quot;</span></span>;
+<span class="keyword">var</span> html = asciidoctor.convert(content); <i class="conum" data-value="2"></i><b>(2)</b>
+console.log(html); <i class="conum" data-value="3"></i><b>(3)</b></code></pre>
+</div>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><i class="conum" data-value="1"></i><b>1</b></td>
+<td>Instantiate the Asciidoctor.js library</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="2"></i><b>2</b></td>
+<td>Convert AsciiDoc content to HTML5 using Asciidoctor.js</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="3"></i><b>3</b></td>
+<td>Print the HTML5 output to the console</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="back-end-development"><a class="anchor" href="#back-end-development"></a>Back-end development</h2>
+<div class="sectionbody">
+<div class="literalblock">
+<div class="title">Installing Asciidoctor.js with npm</div>
+<div class="content">
+<pre class="nowrap">$ npm install asciidoctor.js --save</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Once the package is installed, the first thing to do is to load the <code>asciidoctor.js</code> module using <code>require</code>, then you&#8217;re ready to start using the API:</p>
+</div>
+<div class="listingblock">
+<div class="title">sample.js</div>
+<div class="content">
+<pre class="CodeRay highlight nowrap"><code data-lang="javascript"><span class="keyword">var</span> asciidoctor = require(<span class="string"><span class="delimiter">'</span><span class="content">asciidoctor.js</span><span class="delimiter">'</span></span>)(); <i class="conum" data-value="1"></i><b>(1)</b>
+<span class="keyword">var</span> content = <span class="string"><span class="delimiter">&quot;</span><span class="content">http://asciidoctor.org[*Asciidoctor*] </span><span class="delimiter">&quot;</span></span> +
+    <span class="string"><span class="delimiter">&quot;</span><span class="content">running on http://opalrb.org[_Opal_] </span><span class="delimiter">&quot;</span></span> +
+    <span class="string"><span class="delimiter">&quot;</span><span class="content">brings AsciiDoc to Node.js!</span><span class="delimiter">&quot;</span></span>;
+<span class="keyword">var</span> html = asciidoctor.convert(content); <i class="conum" data-value="2"></i><b>(2)</b>
+console.log(html); <i class="conum" data-value="3"></i><b>(3)</b></code></pre>
+</div>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><i class="conum" data-value="1"></i><b>1</b></td>
+<td>Instantiate the Asciidoctor.js library</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="2"></i><b>2</b></td>
+<td>Convert AsciiDoc content to HTML5 using Asciidoctor.js</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="3"></i><b>3</b></td>
+<td>Print the HTML5 output to the console</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Save the file as <code>sample.js</code> and run it using the <code>node</code> command:</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre class="nowrap">$ node sample.js</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>You should see the following output in your terminal:</p>
+</div>
+<div class="literalblock output">
+<div class="content">
+<pre class="nowrap">&lt;div class="paragraph"&gt;
+&lt;p&gt;&lt;a href="http://asciidoctor.org"&gt;&lt;strong&gt;Asciidoctor&lt;/strong&gt;&lt;/a&gt; running on &lt;a href="http://opalrb.org"&gt;&lt;em&gt;Opal&lt;/em&gt;&lt;/a&gt; brings AsciiDoc to Node.js!&lt;/p&gt;
+&lt;/div&gt;</pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="advanced-topics"><a class="anchor" href="#advanced-topics"></a>Advanced topics</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>If you want to know more about <em>Asciidoctor.js</em>, please read the <a href="manual.adoc">User Manual</a>.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="contributing"><a class="anchor" href="#contributing"></a>Contributing</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>In the spirit of <a href="https://www.gnu.org/philosophy/free-sw.html">free software</a>, <em>everyone</em> is encouraged to help improve this project.
+If you discover errors or omissions in the source code, documentation, or website content, please don&#8217;t hesitate to submit an issue or open a pull request with a fix.
+New contributors are always welcome!</p>
+</div>
+<div class="paragraph">
+<p>The <a href="CONTRIBUTING.adoc">Contributing</a> guide provides information on how to contribute.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="copyright"><a class="anchor" href="#copyright"></a>Copyright</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Copyright &#169; 2016 Dan Allen, Guillaume Grossetie, Anthonny Quérouil and the Asciidoctor Project.
+Free use of this software is granted under the terms of the MIT License.</p>
+</div>
+<div class="paragraph">
+<p>See the <a href="https://github.com/asciidoctor/asciidoctor.js/blob/master/LICENSE">LICENSE</a> file for details.</p>
+</div>
+</div>
+</div></div></div></div></div><footer><div class="row full-width"><div class="large-6 columns"><div class="row" style="margin-bottom: 1em"><div class="large-5 columns"><p><i class="fa fa-fw fa-download"></i> Download: <a class="rubygem" href="https://rubygems.org/gems/asciidoctor"><img src="https://img.shields.io/gem/v/asciidoctor.svg" alt="Asciidoctor gem version" style="margin-top: -2px"></a><br><i class="fa fa-fw fa-github"></i> Development: <a href="https://github.com/asciidoctor">GitHub</a><br><i class="fa fa-fw fa-group"></i> Discussions: <a href="http://discuss.asciidoctor.org">Nabble</a></p></div><div class="large-7 columns"><p><i class="fa fa-fw fa-comments"></i> Chat: <a href="https://gitter.im/asciidoctor/asciidoctor">Gitter</a><br><i class="fa fa-fw fa-twitter"></i> Twitter: <a class="twitter" href="https://twitter.com/asciidoctor">@asciidoctor</a><br><i class="fa fa-fw fa-google-plus-sign"></i> Google+: <a href="https://plus.google.com/116431294697916948181" rel="publisher">Asciidoctor</a></p></div></div></div><div class="large-6 large-text-right columns"><p style="margin-bottom: 1em">Thanks to our <a href="/supporters/">supporters</a> and <a href="/contributors/">contributors</a>!</p><p>Composed in AsciiDoc. Styled by Foundation. Baked with Awestruct.<br>&copy; Asciidoctor Project 2017. Content licensed under CC BY 3.0.</p></div></div></footer><script>document.write('<script src=' + ('__proto__' in {} ? '/javascripts/vendor/zepto' : '/javascripts/vendor/jquery') + '.js><\/script>')</script><script>$('.toggle-navigation').click(function() { $('.navigation').toggle(); $('.content').toggleClass('large-8'); $('.content').toggleClass('large-12'); $('.toolbar').toggleClass('off'); });</script><script src="/javascripts/foundation/foundation.js"></script><script src="/javascripts/foundation/foundation.topbar.js"></script><script>$(document).foundation();</script><script>!function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m);}(window,document,'script','//www.google-analytics.com/analytics.js','ga'),ga('create','UA-38215684-1','auto'),ga('send','pageview');</script></body></html>
