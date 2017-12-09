@@ -1,0 +1,1416 @@
+<!DOCTYPE html><!--[if IE 8]><html class="no-js lt-ie9" lang="en"><![endif]--><!--[if gt IE 8]><!--><html class="no-js" lang="en"><!--<![endif]--><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><link rel="stylesheet" href="/stylesheets/styles.css"><script src="/javascripts/vendor/custom.modernizr.js"></script><title>Asciidoctor EPUB3 | Asciidoctor</title><meta name="description" content="Learn how to convert your AsciiDoc document directly to EPUB3 or KF8/MOBI using the Asciidoctor EPUB3 converter."><meta name="keywords" content="asciidoctor-epub3, Asciidoctor, AsciiDoc, EPUB, EPUB3, KF8, mobi, Kindle, iBooks, OSX, Windows, Linux, mobile, Android, e-reader, e-book, convert, theme, Ruby, modern, day mode, night mode, sepia mode, semantic, readability, responsive, spine, converter"><link rel="author" href="/humans.txt"></head><body class="antialiased"><nav class="top-bar"><ul class="title-area"><li class="name"><h1><a href="/">Asciidoctor</a></h1></li><li class="toggle-topbar menu-icon"><a href="#"><span></span></a></li></ul><section class="top-bar-section"><ul class="right"><li><a href="/">About</a></li><li class="divider"></li><li><a href="/news/">News</a></li><li class="divider"></li><li><a href="http://gist.asciidoctor.org">Gist</a></li><li class="divider"></li><li><a href="https://github.com/asciidoctor">Code</a></li><li class="divider"></li><li><a href="http://discuss.asciidoctor.org">Discuss</a></li><li class="divider"></li><li><a href="/docs/">Docs</a></li><li class="divider"></li><li class="has-form"><a class="button" href="/docs/asciidoc-writers-guide/">Get Writing!</a></li></ul></section></nav><div class="container"><header><div class="row"><div class="large-12 columns"><h1>Asciidoctor EPUB3</h1></div></div></header><div class="row"><div class="large-4 columns"><ul class="button-group toolbar" style="margin-bottom: -0.3333em"><li><a class="tiny secondary button toggle-navigation" href="#"><i class="fa fa-toggle-on"></i><i class="fa fa-toggle-off"></i> Nav</a></li><li><span class="separator"></span></li><li><a class="tiny secondary button" href="https://github.com/asciidoctor/asciidoctor.org/edit/master/docs/asciidoctor-epub3.adoc">Edit</a></li><li><a class="tiny secondary button" href="https://github.com/asciidoctor/asciidoctor.org/raw/master/docs/asciidoctor-epub3.adoc">Raw</a></li><li><a class="tiny secondary button" href="https://github.com/asciidoctor/asciidoctor.org/commits/master/docs/asciidoctor-epub3.adoc">History</a></li><li><i class="fa fa-github fa-fw"></i></li></ul></div></div><div class="row"><div class="large-4 columns secondary navigation"><div id="toc" class="toc"><div class="title" id="toctitle">Table of Contents</div><ul class="sectlevel1">
+<li><a href="#introduction">Introduction</a>
+<ul class="sectlevel2">
+<li><a href="#project-mission">Project Mission</a></li>
+<li><a href="#notable-features">Notable Features</a></li>
+<li><a href="#project-status">Project Status</a></li>
+</ul>
+</li>
+<li><a href="#converter-workflow">Converter Workflow</a></li>
+<li><a href="#structuring-your-manuscript">Structuring your Manuscript</a>
+<ul class="sectlevel2">
+<li><a href="#composition-rules">Composition Rules</a></li>
+<li><a href="#declaring-the-spine">Declaring the Spine</a></li>
+</ul>
+</li>
+<li><a href="#prerequisites">Prerequisites</a></li>
+<li><a href="#getting-started">Getting Started</a>
+<ul class="sectlevel2">
+<li><a href="#install-the-published-gem">Install the Published Gem</a></li>
+<li><a href="#prepare-an-asciidoc-document">Prepare an AsciiDoc Document</a></li>
+<li><a href="#epub-related-asciidoc-attributes">EPUB-related AsciiDoc Attributes</a></li>
+</ul>
+</li>
+<li><a href="#performing-the-conversion">Performing the Conversion</a>
+<ul class="sectlevel2">
+<li><a href="#convert-asciidoc-to-epub3">Convert AsciiDoc to EPUB3</a></li>
+<li><a href="#validate-the-epub3-archive">Validate the EPUB3 Archive</a></li>
+<li><a href="#convert-asciidoc-to-kf8-mobi">Convert AsciiDoc to KF8/MOBI</a></li>
+<li><a href="#tuning-listing-captions">Tuning Listing Captions</a></li>
+<li><a href="#command-arguments">Command Arguments</a></li>
+<li><a href="#epub3-archive-structure">EPUB3 Archive Structure</a></li>
+</ul>
+</li>
+<li><a href="#working-with-images">Working with Images</a>
+<ul class="sectlevel2">
+<li><a href="#default-images">Default Images</a></li>
+<li><a href="#changing-the-cover-image">Changing the Cover Image</a></li>
+<li><a href="#how-to-organize-images-by-chapter">How to Organize Images by Chapter</a></li>
+</ul>
+</li>
+<li><a href="#about-the-theme">About the Theme</a>
+<ul class="sectlevel2">
+<li><a href="#fonts">Fonts</a></li>
+<li><a href="#device-specific-styles">Device-specific Styles</a></li>
+</ul>
+</li>
+<li><a href="#pushing-to-android">Pushing to Android</a></li>
+<li><a href="#e-book-reader-recommendations-and-quirks">E-book Reader Recommendations and Quirks</a>
+<ul class="sectlevel2">
+<li><a href="#send-to-kindle">Send to Kindle</a></li>
+</ul>
+</li>
+<li><a href="#authors">Authors</a></li>
+<li><a href="#copyright">Copyright</a></li>
+</ul></div></div><div class="large-8 columns content"><div id="content"><div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p>Asciidoctor EPUB3 is a set of Asciidoctor extensions for converting AsciiDoc documents directly to the EPUB3 and KF8/MOBI e-book formats.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="introduction"><a class="anchor" href="#introduction"></a>Introduction</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Asciidoctor EPUB3 is not merely a converter from AsciiDoc to EPUB3 and KF8/MOBI.
+Rather, it&#8217;s a tool for creating highly aesthetic, professional, <em>easy-to-read</em> e-books.
+Let&#8217;s face it, many of the technical e-books out there&#8212;&#8203;especially those produced from software documentation&#8212;&#8203;are <strong><em>hideous</em></strong>.
+Asciidoctor EPUB3 is on a mission to disrupt the status quo.</p>
+</div>
+<div class="sect2">
+<h3 id="project-mission"><a class="anchor" href="#project-mission"></a>Project Mission</h3>
+<div class="paragraph">
+<p>The Asciidoctor EPUB3 project aims to produce EPUB3 documents that meet the following objectives:</p>
+</div>
+<div class="dlist itemized">
+<dl>
+<dt>Fully Semantic</dt>
+<dd>
+<p>Produce deeply semantic XHTML5 documents, including use of the recommended <code>epub:type</code> attribute.</p>
+</dd>
+<dt>Exceptional Readability</dt>
+<dd>
+<p>Readers should be drawn into the text so that they read and absorb it.
+Maximize the readability of the text using carefully crafted styles that are focused on:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Custom, readable fonts with strong UTF-8 character support</p>
+</li>
+<li>
+<p>Sufficient line spacing and margins</p>
+</li>
+<li>
+<p>Modular font size scale</p>
+</li>
+<li>
+<p>Subtle, pleasing colors with good contrast</p>
+</li>
+<li>
+<p>A responsive design that scales well from small to large screens</p>
+</li>
+<li>
+<p>Widowed and orphaned content avoided where possible</p>
+</li>
+</ul>
+</div>
+</dd>
+<dt>Complete and Accurate Metadata</dt>
+<dd>
+<p>Fully populate the EPUB3 package metadata using information in the AsciiDoc source document.</p>
+</dd>
+<dt>Consistent Rendering</dt>
+<dd>
+<p>Render consistently across a broad range of EPUB3 (and select EPUB2+) e-readers and respond to any size screen.</p>
+</dd>
+<dt>Polish, Polish, and More Polish</dt>
+<dd>
+<p>Add polish to the final product such as font-based icons and callout numbers.</p>
+</dd>
+</dl>
+</div>
+<div class="paragraph">
+<p>We believe that the e-books produced by Asciidoctor EPUB3 are the <em>very best</em> output you can expect to find in digital publishing today.
+Of course, there&#8217;s always room for improvement, so we&#8217;ll continue to work with you to achieve and maintain this goal.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="notable-features"><a class="anchor" href="#notable-features"></a>Notable Features</h3>
+<div class="ulist">
+<ul>
+<li>
+<p>Direct AsciiDoc to EPUB3 conversion</p>
+</li>
+<li>
+<p>Direct AsciiDoc to KF8/MOBI conversion</p>
+</li>
+<li>
+<p>Highly-aesthetic and readable styles with optimized text legibility</p>
+</li>
+<li>
+<p>Respects font settings (if supported by the e-reader) without altering headings, code or icons</p>
+</li>
+<li>
+<p>EPUB3 metadata, manifest and spine (assembled by Gepub)</p>
+</li>
+<li>
+<p>Document metadata (title, authors, subject, keywords, etc.)</p>
+</li>
+<li>
+<p>Internal cross reference links</p>
+</li>
+<li>
+<p>Syntax highlighting with CodeRay or Pygments (must use inline styles)</p>
+</li>
+<li>
+<p>Unicode callout numbers</p>
+</li>
+<li>
+<p>Page breaks avoided in block content (so much as it&#8217;s supported by the e-reader)</p>
+</li>
+<li>
+<p>Orphan section titles avoided (so much as it&#8217;s supported by the e-reader)</p>
+</li>
+<li>
+<p>Table border settings honored</p>
+</li>
+<li>
+<p>Support for SVG images in the content</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="project-status"><a class="anchor" href="#project-status"></a>Project Status</h3>
+<div class="admonitionblock caution">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-caution" title="Caution"></i>
+</td>
+<td class="content">
+Asciidoctor EPUB3 is currently <em>alpha</em> software.
+Use accordingly.
+Although the bulk of AsciiDoc content is converted, there&#8217;s still work needed to fill in gaps where conversion is incomplete or unstyled.
+</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+Asciidoctor EPUB3 only produces variable layout (i.e., reflowable) EPUB3 documents since this layout is best suited for the types of documents typically written in AsciiDoc.
+We may explore the use of fixed layout documents in the future if the need arises.
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="converter-workflow"><a class="anchor" href="#converter-workflow"></a>Converter Workflow</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Asciidoctor EPUB3 takes an aggregate AsciiDoc document and any assets it references as input and produces an EPUB3 publication archive (often described as a “website in a box”).</p>
+</div>
+<div class="paragraph">
+<p>Asciidoctor EPUB3 can also produce KF8/MOBI files, the format required for viewing on Amazon Kindle.
+The conversion to KF8/MOBI is performed by generating a slightly modified EPUB3 publication, then passing it through the <a href="http://www.amazon.com/gp/feature.html?docId=1000765211">KindleGen</a> application.
+The EPUB3 publication, which can be thought of as the “digital master”, is altered to adhere to certain Amazon Kindle requirements.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="structuring-your-manuscript"><a class="anchor" href="#structuring-your-manuscript"></a>Structuring your Manuscript</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>An EPUB3 archive is composed of multiple files. The content of each “chapter” is typically stored in a dedicated XHTML file.
+Therefore, the Asciidoctor EPUB3 converter “chunks” the AsciiDoc source document into multiple XHTML files to add to the EPUB3 archive.
+While other converters handle this chunking task by automatically slicing up the XHTML output at predetermined heading levels, this converter takes a different approach, outlined next.</p>
+</div>
+<div class="sect2">
+<h3 id="composition-rules"><a class="anchor" href="#composition-rules"></a>Composition Rules</h3>
+<div class="paragraph">
+<p>There are several rules you must follow to successfully convert your AsciiDoc source documents into an EPUB3 publication archive.
+These rules may be loosened in the future, but they are mandatory at the moment.</p>
+</div>
+<div class="dlist">
+<dl>
+<dt class="hdlist1">Rule 1</dt>
+<dd>
+<p>Each chapter must begin in a dedicated file that resides at the root of the project.
+It must be included into the main document using the AsciiDoc include directive.
+The main document, which we call the “spine”, may only contain a document header and a sequence of include directives.
+See <a href="#declaring-the-spine">Declaring the Spine</a> for details.</p>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+The include directive may be used in the chapter files to include other files (even files in other folders).
+</td>
+</tr>
+</table>
+</div>
+</dd>
+<dt class="hdlist1">Rule 2</dt>
+<dd>
+<p>Each chapter must start with a document title (i.e., level-0 heading).
+The document header must declare an ID that matches the chapter filename (minus its file extension).</p>
+</dd>
+<dt class="hdlist1">Rule 3</dt>
+<dd>
+<p>No sections in a chapter may have the same ID as the chapter ID.</p>
+</dd>
+<dt class="hdlist1">Rule 4</dt>
+<dd>
+<p>The cross reference (i.e., xref) from one chapter to another must be in the format <code>xref:chapter-id#chapter-id[optional reftext]</code> (or <code>&lt;&lt;chapter-id#chapter-id,optional reftext&gt;&gt;</code>).
+If you want to reference a section in a chapter, update the fragment (i.e., the value that follows the hash) to match the target section ID.
+The reftext is optional since the reftext of the target is used by default.</p>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+To assign reference text (i.e., reftext) to chapter title, use the document attribute named <code>docreftext</code>.
+</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+Rule 2 states that the chapter ID must match the basename of the chapter file.
+In truth, the chapter ID can be a <em>derivative of</em> the chapter filename.
+In that case, an attribute reference can be used to prepend a prefix to an inter-document cross reference.
+For example, if you want each chapter file to begin with <code>chapter-</code>, you&#8217;d write the xref as <code>xref:{chapter-prefix}chapter-id#chapter-id[]</code>.
+You&#8217;d then assign an empty value to the <code>chapter-prefix</code> attribute when converting to an e-book and <code>chapter-</code> for all other formats.
+</td>
+</tr>
+</table>
+</div>
+</dd>
+</dl>
+</div>
+<div class="paragraph">
+<p>The next section goes into more detail about how to set up the spine document and include the chapter files.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="declaring-the-spine"><a class="anchor" href="#declaring-the-spine"></a>Declaring the Spine</h3>
+<div class="paragraph">
+<p>The spine (or master document) must be well-formed.
+Otherwise, Asciidoctor EPUB3 will not convert the document properly.
+If your AsciiDoc documents are not structured as explained in this section, you&#8217;ll need to change them.</p>
+</div>
+<div class="paragraph">
+<p>Asciidoctor uses top-level include directives (i.e., include directives in the master document) to indicate where each chapter split should occur.
+The chapter files should begin with an AsciiDoc document header, which consists of an ID, a document title (i.e., level-0 heading), an author name, and a set of attribute entries.
+Only the document title is required.</p>
+</div>
+<div class="paragraph">
+<p>The document title in the chapter file is used as the chapter title and the label for the chapter in the TOC.
+The chapter ID, combined with the <em>.xhtml</em> suffix, is used as the filename of the chapter inside the EPUB3 archive (though this could change in the future).
+We recommend that you base the filename of the chapter on the chapter ID.</p>
+</div>
+<div class="paragraph">
+<p>If you don&#8217;t specify an ID for a chapter, one will be generated automatically from the document title.
+The rules for generating a chapter ID from the document title are as follows:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>apply inline formatting, then remove XML elements</p>
+</li>
+<li>
+<p>remove the <code>&amp;#8217;</code> character reference (so <code>John&amp;#8217;s</code> becomes <code>Johns</code>)</p>
+</li>
+<li>
+<p>replace <code>&amp;amp;</code> with the word <code>and</code> (so <code>John &amp;amp; Jane</code> becomes <code>John and Jane</code>)</p>
+</li>
+<li>
+<p>expand all other character references</p>
+</li>
+<li>
+<p>lowercase all characters</p>
+</li>
+<li>
+<p>replace illegal ID characters with the character defined by the <code>idseparator</code> attribute</p>
+</li>
+<li>
+<p>prepend the value of the <code>idprefix</code> attribute</p>
+</li>
+<li>
+<p>prepend an underscore if the ID begins with a number</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>You can think of the master document as the spine of the book and the include directives the individual items being bound together.
+The target of each include directive in the master document is parsed and converted as a separate AsciiDoc document, with certain options and attributes passed down from the master to ensure consistent behavior.
+Each resulting XHTML document is then added to the EPUB3 archive as a chapter document and the master document becomes the navigation file (i.e, the table of contents).</p>
+</div>
+<div class="paragraph">
+<p>Here&#8217;s an example showing the structure of a spine document:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight nowrap"><code data-lang="asciidoc">= Book Title
+Author Name
+:doctype: book
+:imagesdir: images
+ifndef::ebook-format[:leveloffset: 1]
+//...and so on
+
+include::chapter-one.adoc[]
+
+include::chapter-two.adoc[]
+
+include::chapter-three.adoc[]</code></pre>
+</div>
+</div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+The spine document cannot contain any content other than include directives.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Here&#8217;s an example showing the structure of a chapter document:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight nowrap"><code data-lang="asciidoc">[#chapter-one]
+= Chapter One
+
+chapter content</code></pre>
+</div>
+</div>
+<div class="admonitionblock caution">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-caution" title="Caution"></i>
+</td>
+<td class="content">
+Although an explicit ID over the chapter title is not required, it&#8217;s recommended for stability.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>If your chapter files start with a level-1 section instead of a level-2 section, you need to make the opposite adjustment in the header of the spine document:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight nowrap"><code data-lang="asciidoc">ifndef::ebook-format[:leveloffset: -1]</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>If the master document does not contain any include directives, then the converter treats the document as the sole chapter in the EPUB3 archive and automatically produces a navigation file that references it.
+(Currently broken. See issue <a href="https://github.com/asciidoctor/asciidoctor-epub3/issues/47">#47</a>).</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+Eventually, we envision introducing a dedicated block macro to represent a spine item so that we don&#8217;t overload the meaning of the include directive.
+However, for the time being, the include directive fills this role.
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="prerequisites"><a class="anchor" href="#prerequisites"></a>Prerequisites</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>All that&#8217;s needed to use Asciidoctor EPUB3 is Ruby (1.9.3 or above; 2.2.x recommended) and a few Ruby gems, which we&#8217;ll explain how to install in the next section.</p>
+</div>
+<div class="paragraph">
+<p>To check if you have Ruby available, use the <code>ruby</code> command to query the installed version:</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre class="nowrap">$ ruby --version</pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="getting-started"><a class="anchor" href="#getting-started"></a>Getting Started</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>You can get Asciidoctor EPUB3 by <a href="#install-the-published-gem">installing the published gem</a>.</p>
+</div>
+<div class="sect2">
+<h3 id="install-the-published-gem"><a class="anchor" href="#install-the-published-gem"></a>Install the Published Gem</h3>
+<div class="paragraph">
+<p>Asciidoctor EPUB3 is published as a pre-release on RubyGems.org.
+You can install the published gem using the following command:</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre class="nowrap">$ NOKOGIRI_USE_SYSTEM_LIBRARIES=1 gem install asciidoctor-epub3 --pre</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>This optional environment variable tells the gem installer to link against the C libraries on the system, if available, instead of compiling the libraries from scratch.
+This speeds up the installation of Nokogiri considerably.</p>
+</div>
+<div class="paragraph">
+<p>If you want to syntax highlight source listings, you&#8217;ll also want to install CodeRay or Pygments.
+Choose one (or more) of the following:</p>
+</div>
+<div class="literalblock">
+<div class="title">CodeRay</div>
+<div class="content">
+<pre class="nowrap">$ gem install coderay</pre>
+</div>
+</div>
+<div class="literalblock">
+<div class="title">Pygments</div>
+<div class="content">
+<pre class="nowrap">$ gem install pygments.rb</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>You then activate syntax highlighting for a given document by adding the <code>source-highlighter</code> attribute to the document header (CodeRay shown):</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight nowrap"><code data-lang="asciidoc">:source-highlighter: coderay</code></pre>
+</div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+At the moment, Pygments is automatically used if it&#8217;s available.
+If a style is not specified, the black and white theme (i.e., bw) is used.
+This default is used so that the syntax highlighting is legibile regardless of which reading mode the reader selects (white, black, sepia, etc).
+To override this default, you must pass a valid Pygments style name to the <code>pygments-style</code> attribute when invoking the <code>asciidoctor-epub3</code> script (e.g., <code>-a pygments-style=pastie</code>).
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Assuming all the required gems install properly, verify you can run the <code>asciidoctor-epub3</code> script:</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre class="nowrap">$ asciidoctor-epub3 -v</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>If you see the version of Asciidoctor EPUB3 printed, you&#8217;re ready to use Asciidoctor EPUB3.
+Let&#8217;s get an AsciiDoc document ready to convert to EPUB3.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="prepare-an-asciidoc-document"><a class="anchor" href="#prepare-an-asciidoc-document"></a>Prepare an AsciiDoc Document</h3>
+<div class="paragraph">
+<p>If you don&#8217;t already have an AsciiDoc document, you can use the <em class="file">sample-book.adoc</em> file and its chapters found in the <em class="path">data/samples</em> directory of this project.</p>
+</div>
+<div class="listingblock">
+<div class="title">Master file named sample-book.adoc</div>
+<div class="content">
+<pre class="CodeRay highlight nowrap"><code data-lang="asciidoc">= Asciidoctor EPUB3: Sample Book
+Author Name
+v1.0, 2014-04-15
+:doctype: book
+:creator: {author}
+:producer: Asciidoctor
+:keywords: Asciidoctor, samples, e-book, EPUB3, KF8, MOBI, Asciidoctor.js
+:copyright: CC-BY-SA 3.0
+:imagesdir: images
+
+include::asciidoctor-epub3-readme.adoc[]
+
+include::sample-content.adoc[]
+
+include::asciidoctor-js-introduction.adoc[]
+
+include::asciidoctor-js-extension.adoc[]</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="epub-related-asciidoc-attributes"><a class="anchor" href="#epub-related-asciidoc-attributes"></a>EPUB-related AsciiDoc Attributes</h3>
+<div class="paragraph">
+<p>The metadata in the generated EPUB3 file is populated from attributes in the AsciiDoc document.
+The names of the attributes and the metadata elements to which they map are documented in this section.</p>
+</div>
+<div class="paragraph">
+<p>The term <em class="term">package metadata</em> in Table 1 is in reference to the <a href="http://www.idpf.org/epub/30/spec/epub30-publications.html#sec-metadata-elem">&lt;metadata&gt; element</a> in the EPUB3 package document (e.g., <em class="file">package.opf</em>).
+The <code>dc</code> namespace prefix is in reference to the <a href="http://dublincore.org/documents/2004/12/20/dces">Dublin Core Metadata Element Set</a>.</p>
+</div>
+<table class="tableblock frame-all grid-all spread">
+<caption class="title">Table 1. AsciiDoc attributes that control the EPUB3 metadata (i.e., package.opf)</caption>
+<colgroup>
+<col style="width: 25%;">
+<col style="width: 75%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Name</th>
+<th class="tableblock halign-left valign-top">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>uuid</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Populates the <strong>required</strong> unique identifier (<code>&lt;dc:identifier&gt;</code>) in the package metadata.
+An id will be generated automatically from the doctitle if not specified.
+The recommended practice is to identify the document by means of a string or number conforming to a formal identification system.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>lang</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Populates the content language / locale (<code>&lt;dc:language&gt;</code>) in the package metadata.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>scripts</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Controls the font subsets that are selected based on the specified scripts (e.g., alphabets).
+(values: <strong>latin</strong>, latin-ext, latin-cyrillic or multilingual)</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>revdate</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Populates the publication date (<code>&lt;dc:date&gt;</code>) in the package metadata.
+The date should be specified in a parsable format, such as <code>2014-01-01</code>.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>doctitle</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Populates the title (<code>&lt;dc:title&gt;</code>) in the package metadata.
+The title is added to the metadata in plain text format.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>author</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Populates the contributors (<code>&lt;dc:contributor&gt;</code>) in the package metadata.
+The authors in each chapter document are aggregated together with the authors in the master file.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>username</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Used to resolve an avatar for the author that is displayed in the header of a chapter when the <code>publication-type</code> is set to a value other than <code>book</code>.
+The avatar image should be located at the path <em>{imagesdir}/avatars/{username}.jpg</em>, where <code>{username}</code> is the value of this attribute.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>producer</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Populates the publisher (<code>&lt;dc:publisher&gt;</code>) in the package metadata.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>creator</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Populates the creator (<code>&lt;dc:creator&gt;</code>) in the package metadata.
+<strong>If the creator is not specified, Asciidoctor is set as the creator with the role "mfr" (an abbreviation for manufacturer).</strong></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>description</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Populates the description (<code>&lt;dc:description&gt;</code>) in the package metadata.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>keywords</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Populates the subjects (i.e., <code>&lt;dc:subject&gt;</code>) in the package metadata.
+The keywords should be represented as comma-separated values (CSV).</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>front-cover-image</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Populates the front cover image and the image on the cover page (EPUB3 only) in the package metadata.
+The image is also added to the e-book archive.
+The value may be specified as a path or inline image macro.
+Using the inline image macro is preferred as it allows the height and width to be specified.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>copyright</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Populates the rights statement (<code>&lt;dc:rights&gt;</code>) in the package metadata.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>source</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Populates the source reference (<code>&lt;dc:source&gt;</code>) in the package metadata.
+The recommended practice is to identify the referenced resource by means of a string or number conforming to a formal identification system.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>epub-properties</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">An optional override of the properties attribute for this document&#8217;s item in the manifest.
+<em>Only applies to a chapter document.</em></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>epub3-stylesdir</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The path to a directory that contains alternate epub3.css and epub3-css3-only.css files to customize the look and feel.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>doctype</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Effectively ignored.
+The master document is assumed to be a book and each chapter an article.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>publication-type</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Used to control the inclusion of special content in the generated HTML.
+If set to a value other than book, the byline information (author and avatar) is included below the chapter header.
+Suggested values include: book (default), anthology, magazine, journal, article.</p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>When using the EPUB3 converter, the <code>ebook-format</code> attribute resolves to the name of the e-book format being generated (epub3 or kf8) and the corresponding attribute <code>ebook-format-&lt;name&gt;</code> is defined, where <code>&lt;name&gt;</code> is <code>epub3</code> or <code>kf8</code>.
+You can use these attributes in a preprocessor directive if you only want to show certain content to readers using a particular device.
+For instance, if you want to display a message to readers on Kindle, you can use:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight nowrap"><code data-lang="asciidoc">ifdef::ebook-format-kf8[Hello Kindle reader!]</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>With that out of the way, it&#8217;s time to convert the AsciiDoc document directly to EPUB3.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="performing-the-conversion"><a class="anchor" href="#performing-the-conversion"></a>Performing the Conversion</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>You can convert AsciiDoc documents to EPUB3 and KF8/MOBI from the commandline using the <code>asciidoctor-epub3</code> script provided with the Asciidoctor EPUB3 project.</p>
+</div>
+<div class="sect2">
+<h3 id="convert-asciidoc-to-epub3"><a class="anchor" href="#convert-asciidoc-to-epub3"></a>Convert AsciiDoc to EPUB3</h3>
+<div class="paragraph">
+<p>Converting an AsciiDoc document to EPUB3 is as simple as passing your document to the <code>asciidoctor-epub3</code> command.
+This command should be available on your PATH if you installed the <code>asciidoctor-epub3</code> gem.
+Otherwise, you can find the command in the <em class="path">bin</em> folder of the project.
+We also recommend specifying an output directory using the <code>-D</code> option flag.</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre class="nowrap">$ asciidoctor-epub3 -D output data/samples/sample-book.adoc</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>When the script completes, you&#8217;ll see the file <em class="file">sample-book.epub</em> appear in the <em class="path">output</em> directory.
+Open that file with an EPUB reader (aka e-reader) to view the result.</p>
+</div>
+<div class="paragraph">
+<p>Below are several screenshots of this sample book as it appears on an Android phone.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="/images/screenshots/chapter-title.png" alt="chapter title">
+</div>
+<div class="title">Figure 1. An example of a chapter title and abstract shown side-by-side in Day and Night mode</div>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="/images/screenshots/section-title-paragraph.png" alt="section title paragraph">
+</div>
+<div class="title">Figure 2. An example of a section title followed by paragraph text separated by a literal block</div>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="/images/screenshots/figure-admonition.png" alt="figure admonition">
+</div>
+<div class="title">Figure 3. An example of a figure and an admonition</div>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="/images/screenshots/sidebar.png" alt="sidebar">
+</div>
+<div class="title">Figure 4. An example of a sidebar</div>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="/images/screenshots/table.png" alt="table">
+</div>
+<div class="title">Figure 5. An example of a table</div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+The <code>asciidoctor-epub3</code> command is a temporary solution for invoking the Asciidoctor EPUB3 converter.
+We plan to remove this script once we have completed proper integration with the <code>asciidoctor</code> command.
+</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+As another example, point <code>asciidoctor-epub3</code> at the <a href="https://github.com/opendevise/github-guides-asciidoc">GitHub Guides</a> that we&#8217;ve ported to AsciiDoc, then compare the output to the real <a href="https://guides.github.com">GitHub Guides</a>.
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect2">
+<h3 id="validate-the-epub3-archive"><a class="anchor" href="#validate-the-epub3-archive"></a>Validate the EPUB3 Archive</h3>
+<div class="paragraph">
+<p>Next, let&#8217;s validate the EPUB3 archive to ensure it built correctly.</p>
+</div>
+<div class="literalblock">
+<div class="title">EPUB3 with validation</div>
+<div class="content">
+<pre class="nowrap">$ asciidoctor-epub3 -D output -a ebook-validate data/samples/sample-book.adoc</pre>
+</div>
+</div>
+<div class="literalblock output">
+<div class="title">Validation success</div>
+<div class="content">
+<pre class="nowrap">Epubcheck Version 3.0.1
+
+Validating against EPUB version 3.0
+No errors or warnings detected.</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>If the EPUB3 archive contains any errors, they will be output in your terminal.</p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="title">EPUB Standard &amp; Validator</div>
+<div class="paragraph">
+<p>The electronic publication (EPUB) standard is developed by the <a href="http://www.idpf.org/">International Digital Publishing Forum (IDPF)</a>.
+<a href="http://www.idpf.org/epub/31/spec/epub-spec.html">EPUB 3.1</a>, released in January 2017, is the latest version of this standard.</p>
+</div>
+<div class="paragraph">
+<p>An EPUB3 archive contains:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>a package document (metadata, file manifest, spine)</p>
+</li>
+<li>
+<p>a navigation document (table of contents)</p>
+</li>
+<li>
+<p>one or more content documents</p>
+</li>
+<li>
+<p>assets (images, fonts, stylesheets, etc.)</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>The IDPF also supports <a href="https://github.com/idpf/epubcheck">EpubCheck</a>.
+EpubCheck parses and validates the file against the EPUB schema.</p>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>If you want to browse the contents of the EPUB3 file that is generated, or preview the XHTML files in a regular web browser, add the <code>-a ebook-extract</code> flag to the <code>asciidoctor-epub3</code> command.
+The EPUB3 file will be extracted to a directory adjacent to the generated file, but without the file extension.</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre class="nowrap">$ asciidoctor-epub3 -D output -a ebook-extract data/samples/sample-book.adoc</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>In this example, the contents of the EPUB3 will be extracted to the <em class="path">output/sample-book</em> directory.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="convert-asciidoc-to-kf8-mobi"><a class="anchor" href="#convert-asciidoc-to-kf8-mobi"></a>Convert AsciiDoc to KF8/MOBI</h3>
+<div class="paragraph">
+<p>Creating a KF8/MOBI archive directly from an AsciiDoc document is done with the same generation script (<code>asciidoctor-epub3</code>).
+You just need to specify the format (<code>-a ebook-format</code>) as <code>kf8</code>.</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre class="nowrap">$ asciidoctor-epub3 -D output -a ebook-format=kf8 data/samples/sample-book.adoc</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>When the script completes, you&#8217;ll see the file <em class="file">sample-book.mobi</em> as well as <em class="file">sample-book-kf8.epub</em> (the precursor) appear in the <em class="path">output</em> directory.</p>
+</div>
+<div class="paragraph">
+<p>KindleGen does mandatory validation so you don&#8217;t need to run the <code>validate</code> command after converting to KF8/MOBI.</p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="title">What is KF8?</div>
+<div class="paragraph">
+<p>Kindle Format 8 (KF8) is Amazon&#8217;s next generation file format offering a wide range of new features and enhancements&#8212;&#8203;including HTML5 and CSS3 support&#8212;&#8203;that publishers can use to create a broad range of books.
+The format is close enough to EPUB3 that it&#8217;s safe to think of it simply as an EPUB3 implementation under most circumstances.
+You can read more about the format on the <a href="http://www.amazon.com/gp/feature.html?docId=1000729511">Kindle Format 8 page</a>.</p>
+</div>
+<div class="paragraph">
+<p>Amazon continues to use the <em>.mobi</em> file extension for KF8 archives, despite the fact that they&#8217;ve switched from the Mobipocket format to the EPUB3-like KF8 format.
+That&#8217;s why we refer to the format in this project as KF8/MOBI.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="tuning-listing-captions"><a class="anchor" href="#tuning-listing-captions"></a>Tuning Listing Captions</h3>
+<div class="paragraph">
+<p>Unlike the built-in converters, the EPUB3 converter is configured to add a signifier (e.g., <code>Listing</code>) at the start the caption for all listing and source blocks that have a title.
+This behavior is triggered because the <code>listing-caption</code> attribute is set by default.</p>
+</div>
+<div class="paragraph">
+<p>If you don&#8217;t want the signifier to be included at the beginning of the caption on listing and source blocks, simply unset the <code>listing-caption</code> when invoking Asciidoctor EPUB3.</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre class="nowrap">$ asciidoctor-epub3 -a listing-caption! book.adoc</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Now the behavior will match that of the built-in converters.
+For more information about this attribute and other related attributes, see <a href="http://asciidoctor.org/docs/user-manual/#builtin-attributes-i18n">internationalization and numbering</a>.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="command-arguments"><a class="anchor" href="#command-arguments"></a>Command Arguments</h3>
+<div class="dlist">
+<dl>
+<dt class="hdlist1"><strong>-h, --help</strong> </dt>
+<dd>
+<p>Show the usage message</p>
+</dd>
+<dt class="hdlist1"><strong>-D, --destination-dir</strong> </dt>
+<dd>
+<p>Writes files to specified directory (defaults to the current directory)</p>
+</dd>
+<dt class="hdlist1"><strong>-a ebook-extract</strong> </dt>
+<dd>
+<p>Extracts the EPUB3 to a folder in the destination directory after the file is generated</p>
+</dd>
+<dt class="hdlist1"><strong>-a ebook-format=&lt;format&gt;</strong> </dt>
+<dd>
+<p>Specifies the ebook format to generate (epub3 or kf8, default: epub3)</p>
+</dd>
+<dt class="hdlist1"><strong>-a ebook-validate</strong> </dt>
+<dd>
+<p>Runs Epubcheck 3.0.1 to validate output file against the EPUB3 specification</p>
+</dd>
+<dt class="hdlist1"><strong>-a ebook-compress=&lt;0|1|2|none|standard|huffdic&gt;</strong> </dt>
+<dd>
+<p>Controls the compression type used by kindlegen (0=none [default if unset], 1=standard [default if empty], 2=huffdic)</p>
+</dd>
+<dt class="hdlist1"><strong>-v, --version</strong> </dt>
+<dd>
+<p>Display the program version</p>
+</dd>
+</dl>
+</div>
+</div>
+<div class="sect2">
+<h3 id="epub3-archive-structure"><a class="anchor" href="#epub3-archive-structure"></a>EPUB3 Archive Structure</h3>
+<div class="paragraph">
+<p>Here&#8217;s a sample manifest of files found in an EPUB3 document produced by Asciidoctor EPUB3.</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre class="nowrap">META-INF/
+  container.xml
+OEBPS/
+  fonts/
+    font-awesome.ttf
+    font-icons.ttf
+    mplus-1mn-latin-bold.ttf
+    mplus-1mn-latin-light.ttf
+    mplus-1mn-latin-medium.ttf
+    mplus-1mn-latin-regular.ttf
+    mplus-1p-latin-bold.ttf
+    mplus-1p-latin-light.ttf
+    mplus-1p-latin-regular.ttf
+    noto-serif-bold-italic.ttf
+    noto-serif-bold.ttf
+    noto-serif-italic.ttf
+    noto-serif-regular.ttf
+  images/
+    avatars/
+      default.png
+    figure-01.png
+    figure-02.png
+  styles/
+    epub3-css3-only.css
+    epub3.css
+  chapter-01.xhtml
+  chapter-02.xhtml
+  ...
+  cover.xhtml
+  nav.xhtml
+  package.opf
+  toc.ncx
+mimetype</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="working-with-images"><a class="anchor" href="#working-with-images"></a>Working with Images</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Images referenced in your AsciiDoc document must be stored in the images catalog.
+The images catalog is defined by the <code>imagesdir</code> attribute.
+If set, the value of this attribute is resolved relative to the spine document and must be at or below (i.e., within) the directory of that document.
+(In other words, it cannot point to a location outside the document directory).
+If this attribute is not set, the images catalog defaults to the directory of the spine document.
+Asciidoctor EPUB3 will discover all local image references and insert those images into the EPUB3 archive at the same relative path.</p>
+</div>
+<div class="admonitionblock warning">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-warning" title="Warning"></i>
+</td>
+<td class="content">
+Asciidoctor EPUB3 does not currently discover and package inline images.
+See issue <a href="https://github.com/asciidoctor/asciidoctor-epub3/issues/30">#30</a>.
+</td>
+</tr>
+</table>
+</div>
+<div class="sect2">
+<h3 id="default-images"><a class="anchor" href="#default-images"></a>Default Images</h3>
+<div class="paragraph">
+<p>The sample book contains placeholder images for an author avatar and a book cover.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="changing-the-cover-image"><a class="anchor" href="#changing-the-cover-image"></a>Changing the Cover Image</h3>
+<div class="paragraph">
+<p>Ereaders have different image resolution and file size limits regarding a book&#8217;s cover.
+Kindle covers tend to be 1050x1600 (16:9 resolution), which is the size of the sample cover provided with Asciidoctor EPUB3.
+To ensure your cover displays correctly, you&#8217;ll want to review the documentation or publisher guidelines for the e-reading platform you&#8217;re targeting.</p>
+</div>
+<div class="admonitionblock warning">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-warning" title="Warning"></i>
+</td>
+<td class="content">
+We&#8217;ve found that if the book cover is more than 1600px on any side, Aldiko will not render it and may even crash.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Feel free to use the SVG of the sample cover in the <em class="path">data/images</em> folder as a template for creating your own cover.
+Once your image is ready, you can replace the placeholder cover image by defining the <code>front-cover-image</code> attribute in the header of the master document.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight nowrap"><code data-lang="asciidoc">:front-cover-image: image:cover.png[Front Cover,1050,1600]</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The image is resolved relative to the directory specified in the <code>imagesdir</code> attribute, which defaults to the directory of the spine document.
+The image can be in any format, though we recommend using PNG, JPG, or SVG as they are the most portable formats.</p>
+</div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+<strong>You should always specify the dimensions of the cover image.</strong>
+This ensures the viewer will preserve the aspect ratio if it needs to be scaled to fit the screen.
+If you don&#8217;t specify a width and height, then the dimensions are assumed to be 1050x1600.
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect2">
+<h3 id="how-to-organize-images-by-chapter"><a class="anchor" href="#how-to-organize-images-by-chapter"></a>How to Organize Images by Chapter</h3>
+<div class="paragraph">
+<p>You can set the <code>imagesdir</code> attribute per chapter (as long as the attribute is not overridden by the API).
+To do so, use an attribute entry to set the value of the <code>imagesdir</code> attribute on the line above the include directive for a chapter.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight nowrap"><code data-lang="asciidoc">:imagesdir: chapter-one/images
+include::chapter-one.adoc[]
+
+:imagesdir: chapter-two/images
+include::chapter-two.adoc[]</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="about-the-theme"><a class="anchor" href="#about-the-theme"></a>About the Theme</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>EPUB3 and KF8/MOBI files are styled using CSS3.
+However, each e-reading platform honors a reduced set of CSS3 styles, and the styles they allow and how they implement them are rarely documented.
+All we&#8217;ve got to say is <em>thank goodness for CSS hacks, media queries and years of CSS experience!</em></p>
+</div>
+<div class="paragraph">
+<p>The theme provided with Asciidoctor EPUB3 has been crafted to display EPUB3 and KF8/MOBI files as consistently as possible across the most common EPUB3 platforms and to degrade gracefully in select EPUB2 platforms.
+The theme maintains readability regardless of the reading mode (i.e., day, night or sepia) or the display device&#8217;s pixel density and screen resolution.</p>
+</div>
+<div class="paragraph">
+<p>The theme&#8217;s CSS files are located in the <em class="path">data/style</em> directory.</p>
+</div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+Asciidoctor EPUB3 only provides one theme, and, at this time, you can not replace it with a custom theme using the <code>stylesheet</code> attribute.
+However, you can use your own <em class="path">epub3.css</em> and <em class="path">epub3-css3-only.css</em> files by specifying the directory where they are located using the <code>epub3-stylesdir</code> attribute.
+</td>
+</tr>
+</table>
+</div>
+<div class="sect2">
+<h3 id="fonts"><a class="anchor" href="#fonts"></a>Fonts</h3>
+<div class="paragraph">
+<p>Asciidoctor EPUB3 embeds a set of fonts and font icons.
+The theme&#8217;s fonts are located in the <em class="path">data/fonts</em> directory.</p>
+</div>
+<div class="paragraph">
+<p>The M+ Outline fonts are used for titles, headings, literal (monospace) text, and annotation numbers.
+The body text uses Noto Serif.
+Admonition icons and the end-of-chapter mark are from the Font Awesome icon font.
+Refer to the <a href="https://github.com/asciidoctor/asciidoctor-epub3/blob/master/NOTICE.adoc">NOTICE</a> file for further information about the fonts.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="device-specific-styles"><a class="anchor" href="#device-specific-styles"></a>Device-specific Styles</h3>
+<div class="paragraph">
+<p>For readers that support JavaScript, Asciidoctor EPUB3 adds a CSS class to the body element of each chapter that corresponds to the name of the reader as reported by the <a href="http://www.idpf.org/epub/301/spec/epub-contentdocs.html#app-epubReadingSystem">epubReadingSystem</a> JavaScript object.
+This enhancement allows you to use styles targeted specifically at that reader.</p>
+</div>
+<div class="paragraph">
+<p>Below you can find the readers that are known to support this feature and the CSS class name that gets added to the body element.</p>
+</div>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 33.3333%;">
+<col style="width: 33.3333%;">
+<col style="width: 33.3334%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Reader</th>
+<th class="tableblock halign-left valign-top">HTML Element</th>
+<th class="tableblock halign-left valign-top">CSS Class Name</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Gitden</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">body</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">gitden-reader</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Namo PubTreeViewer</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">body</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">namo-epub-library</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Readium</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">body</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">readium-js-viewer</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">iBooks</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">body</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">ibooks</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Adobe RMSDK &gt;= 11</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">body</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">rmsdk</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Google Books</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">div</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">gb-reader-container</p></td>
+</tr>
+</tbody>
+</table>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+Kobo does not support the epubReadingSystem JavaScript object, despite the fact that it does support JavaScript.
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="pushing-to-android"><a class="anchor" href="#pushing-to-android"></a>Pushing to Android</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>While it&#8217;s certainly possible to view the EPUB3 on your desktop/laptop, you&#8217;ll probably want to test it where it&#8217;s most likely going to be read&#8212;&#8203;on a reading device such as a smartphone or a tablet.
+Assuming you have an Android device available, transferring the EPUB3 to the device is easy once you get a bit of setup out of the way.</p>
+</div>
+<div class="paragraph">
+<p>You transfer files from your computer to an Android phone over a USB connection using a command from the Android SDK Tools called <code>adb</code>.
+Follow these steps to get it setup:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Download the Android SDK Tools zip from the table labeled <strong>SDK Tools Only</strong> on the <a href="http://developer.android.com/sdk/index.html">Get the Android SDK</a> page</p>
+</li>
+<li>
+<p>Extract the archive</p>
+</li>
+<li>
+<p>Locate the path to the <code>adb</code> command (Hint: Look in the platform-tools folder)</p>
+</li>
+<li>
+<p>Set the environment variable named ADB to the path of the <code>adb</code> command</p>
+<div class="literalblock">
+<div class="content">
+<pre class="nowrap">$ export ADB=~/apps/android-sdk/platform-tools/adb</pre>
+</div>
+</div>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>Now you can use the <code>adb-push-ebook</code> script provided by Asciidoctor EPUB3 to push the EPUB3 and KF8/MOBI files to your Android device.</p>
+</div>
+<div class="literalblock">
+<div class="title">Publish both EPUB3 and KF8 files to Android device</div>
+<div class="content">
+<pre class="nowrap">$ adb-push-ebook output/sample-book</pre>
+</div>
+</div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+Don&#8217;t include the file extension since the script will check for both the .epub and .mobi files.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>The <code>adb-push-ebook</code> script copies the files to the following locations on the device:</p>
+</div>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">File type</th>
+<th class="tableblock halign-left valign-top">Destination on Android device</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">*.epub</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">/sdcard/</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">*.mobi</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">/sdcard/Android/data/com.amazon.kindle/files/</p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>Amazon Kindle should immediately detect the new file and display it in your “On Device” library.
+You&#8217;ll have to manually import the EPUB3 into your e-reader of choice.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="e-book-reader-recommendations-and-quirks"><a class="anchor" href="#e-book-reader-recommendations-and-quirks"></a>E-book Reader Recommendations and Quirks</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>EPUB3 e-readers will provide the best reading experience when viewing the book generated by Asciidoctor EPUB3.
+Here&#8217;s a list of some of the e-readers we know to have good EPUB3 support and the systems on which they run:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="http://www.amazon.com/gp/feature.html?docId=1000493771">Amazon Kindle</a> (most platforms)</p>
+</li>
+<li>
+<p><a href="http://gitden.com/gitdenreader">Gitden</a> (Android and iOS)</p>
+</li>
+<li>
+<p><a href="http://www.apple.com/ibooks">iBooks</a> (iOS, OSX)</p>
+</li>
+<li>
+<p><a href="https://chrome.google.com/webstore/detail/readium/fepbnnnkkadjhjahcafoaglimekefifl?hl=en-US">Readium</a> (Chrome)</p>
+</li>
+<li>
+<p><a href="http://www.kobo.com/apps">Kobo</a> (Android, iOS, OSX and Windows)</p>
+</li>
+<li>
+<p><a href="http://www.namo.com/site/namo/menu/5074.do">Namo PubTreeViewer</a> (Android, iOS and Windows)</p>
+</li>
+<li>
+<p><a href="http://calibre-ebook.com">Calibre (ebook-viewer)</a> (Linux, OSX, Windows)</p>
+</li>
+</ul>
+</div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+To get the full experience, <strong>ensure that the e-reader is configured to use the publisher&#8217;s styles</strong>.
+Different e-readers word this setting in different ways.
+Look for the option screen that allows you to set the fonts and font colors and disable it.
+With publisher&#8217;s styles active, you&#8217;ll still be able to adjust the relative size of the fonts and margins and toggle between day, night and sepia mode.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>When the book is viewed in EPUB2 e-readers and Kindle apps/devices which have reached their end-of-life (EOL), the e-book relies on the strong semantics of the HTML and some fallback styles to render properly.
+EPUB2 e-readers, such as Aldiko, don&#8217;t understand CSS3 styles and therefore miss out on some of subtleties in the formatting.</p>
+</div>
+<div class="paragraph">
+<p>As mentioned in the <a href="#about-the-theme">theme section</a>, the stylesheet attempts to provide as consistent a reading experience as possible in the common EPUB3 e-readers, despite the different CSS implementation rules and limitations unique to each e-book application.
+Most of these obstacles were addressed using media queries or explicit classes.
+Some we haven&#8217;t conquered.
+Yet.</p>
+</div>
+<div class="paragraph">
+<p>The <a href="#kindle-quirks">Kindle quirks list</a> shows you just a few of the constraints we encountered.
+To see all of the workarounds and why we chose certain style options, check out the code and comments in the <em class="file">epub3.css</em> and <em class="file">epub3-css-only.css</em> files.</p>
+</div>
+<div id="kindle-quirks" class="ulist">
+<div class="title">Kindle Quirks</div>
+<ul>
+<li>
+<p>overrules margins and line heights like a medieval tyrant</p>
+</li>
+<li>
+<p><code>font-family</code> can&#8217;t be set on <code>&lt;body&gt;</code></p>
+</li>
+<li>
+<p>requires <code>!important</code> on text-decoration</p>
+</li>
+<li>
+<p><code>position: relative</code> isn&#8217;t permitted</p>
+</li>
+<li>
+<p>strips (or unwraps) <code>&lt;header&gt;</code> tags</p>
+</li>
+<li>
+<p><code>@page</code> isn&#8217;t supported</p>
+</li>
+<li>
+<p><code>page-break: avoid</code> isn&#8217;t supported</p>
+</li>
+<li>
+<p><code>page-break-*</code> cannot be applied using a compound or nested CSS selector; must be a simple ID or class</p>
+</li>
+<li>
+<p><code>max-width</code> isn&#8217;t supported</p>
+</li>
+<li>
+<p><code>widows</code> are left in the cold</p>
+</li>
+<li>
+<p>won&#8217;t style footers without an explicit class</p>
+</li>
+<li>
+<p><code>-webkit-hyphens: auto</code> causes Kindle for Mac (and perhaps others) to crash</p>
+</li>
+<li>
+<p><code>text-rendering: optimizeLegibility</code> causes file to be rejected by KFP (and causes the text to disappear in some previewers)</p>
+</li>
+<li>
+<p>Kindle Direct Publishing (KDP) strips out select font-related CSS rules (e.g., <code>font-family</code>) under certain conditions (for reasons that have proved nearly impossible to reverse engineer); the known workaround is to add a layer of indirection by using <code>@import</code> to hide the CSS files from the script</p>
+</li>
+</ul>
+</div>
+<div class="sect2">
+<h3 id="send-to-kindle"><a class="anchor" href="#send-to-kindle"></a>Send to Kindle</h3>
+<div class="admonitionblock warning">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-warning" title="Warning"></i>
+</td>
+<td class="content">
+Don&#8217;t use it!
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p><a href="https://www.amazon.com/gp/sendtokindle/">“Send to Kindle”</a> is a tempting choice for transferring MOBI files to a Kindle device.
+However, it&#8217;s utterly broken.
+If you use this tool, don&#8217;t be surprised if you see missing font-based icons, default fonts, and other font and style errors in your manuscript.
+It&#8217;s known to strip out all the font files and break the encoding of the document.</p>
+</div>
+<div class="paragraph">
+<p>We <strong>strongly</strong> recommend you transfer the file to your device using either a USB cable or a sync service such as Dropbox.
+Whispersync will detect the new file (usually looking in the Books folder) and add it to the “On Device” library.</p>
+</div>
+<div class="paragraph">
+<p>It&#8217;s important to note that “Send to Kindle” is not reflective of the experience readers will have when shopping in the Kindle store.
+If you use Kindle Direct Publishing (KDP) to publish your book, the integrity of your book will be preserved (to the degree that Amazon allows).</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="authors"><a class="anchor" href="#authors"></a>Authors</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Asciidoctor EPUB3 was written by <a href="https://github.com/mojavelinux">Dan Allen</a> and <a href="https://github.com/graphitefriction">Sarah White</a> of OpenDevise on behalf of the Asciidoctor Project.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="copyright"><a class="anchor" href="#copyright"></a>Copyright</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Copyright &#169; 2014-2017 OpenDevise Inc. and the Asciidoctor Project.
+Free use of this software is granted under the terms of the MIT License.</p>
+</div>
+<div class="paragraph">
+<p>For the full text of the license, see the <a href="https://github.com/asciidoctor/asciidoctor-epub3/blob/master/LICENSE.adoc">LICENSE</a> file.
+Refer to the <a href="https://github.com/asciidoctor/asciidoctor-epub3/blob/master/NOTICE.adoc">NOTICE</a> file for information about third-party Open Source software in use.</p>
+</div>
+</div>
+</div></div></div></div></div><footer><div class="row full-width"><div class="large-6 columns"><div class="row" style="margin-bottom: 1em"><div class="large-5 columns"><p><i class="fa fa-fw fa-download"></i> Download: <a class="rubygem" href="https://rubygems.org/gems/asciidoctor"><img src="https://img.shields.io/gem/v/asciidoctor.svg" alt="Asciidoctor gem version" style="margin-top: -2px"></a><br><i class="fa fa-fw fa-github"></i> Development: <a href="https://github.com/asciidoctor">GitHub</a><br><i class="fa fa-fw fa-group"></i> Discussions: <a href="http://discuss.asciidoctor.org">Nabble</a></p></div><div class="large-7 columns"><p><i class="fa fa-fw fa-comments"></i> Chat: <a href="https://gitter.im/asciidoctor/asciidoctor">Gitter</a><br><i class="fa fa-fw fa-twitter"></i> Twitter: <a class="twitter" href="https://twitter.com/asciidoctor">@asciidoctor</a><br><i class="fa fa-fw fa-google-plus-sign"></i> Google+: <a href="https://plus.google.com/116431294697916948181" rel="publisher">Asciidoctor</a></p></div></div></div><div class="large-6 large-text-right columns"><p style="margin-bottom: 1em">Thanks to our <a href="/supporters/">supporters</a> and <a href="/contributors/">contributors</a>!</p><p>Composed in AsciiDoc. Styled by Foundation. Baked with Awestruct.<br>&copy; Asciidoctor Project 2017. Content licensed under CC BY 3.0.</p></div></div></footer><script>document.write('<script src=' + ('__proto__' in {} ? '/javascripts/vendor/zepto' : '/javascripts/vendor/jquery') + '.js><\/script>')</script><script>$('.toggle-navigation').click(function() { $('.navigation').toggle(); $('.content').toggleClass('large-8'); $('.content').toggleClass('large-12'); $('.toolbar').toggleClass('off'); });</script><script src="/javascripts/foundation/foundation.js"></script><script src="/javascripts/foundation/foundation.topbar.js"></script><script>$(document).foundation();</script><script>!function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m);}(window,document,'script','//www.google-analytics.com/analytics.js','ga'),ga('create','UA-38215684-1','auto'),ga('send','pageview');</script></body></html>
