@@ -11940,8 +11940,11 @@ Since this change is specific to the website architecture described, you want to
 <h2 id="include-directive"><a class="anchor" href="#include-directive"></a><a class="link" href="#include-directive">31. Include Directive</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>The include directive, <code>include::path[attributes]</code>, allows you to insert content from another file into the current document.
-You can use the include directive to:</p>
+<p>The include directive (<code>include::path[attributes]</code>) let&#8217;s you import content from another file into the current document.
+You can use it multiple times in the same document.</p>
+</div>
+<div class="paragraph">
+<p>This directive is useful if you want to:</p>
 </div>
 <div class="ulist">
 <ul>
@@ -11963,9 +11966,14 @@ You can use the include directive to:</p>
 </ul>
 </div>
 <div class="paragraph">
-<p>It&#8217;s important to understand that the include directive is <em>not</em> aware of the document structure.
-It effectively copies the content from the other file and pastes it at the location of the include directive.
-This is called a preprocessor operation.</p>
+<p>Although the include directive looks like a block macro, it&#8217;s not one.
+Instead, it&#8217;s a preprocessor directive like ifdef and ifeval.
+It gets processed before the lines are parsed into a document structure.</p>
+</div>
+<div class="paragraph">
+<p>Therefore, the include directive is <em>not</em> aware of the surrounding document structure.
+It effectively reads lines from another file and inserts them in place of the include directive.
+Only then does the parser read those lines.</p>
 </div>
 <div class="admonitionblock caution">
 <table>
@@ -26894,7 +26902,7 @@ In source listings, is the callout the last thing on the line?</p></td>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2017-12-10 06:41:17 UTC
+Last updated 2017-12-10 07:05:32 UTC
 </div>
 </div>
 <script type="text/x-mathjax-config">
