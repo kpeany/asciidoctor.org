@@ -4366,7 +4366,8 @@ Until our next adventure!
 <div class="sect2">
 <h3 id="revision-number-date-and-remark"><a class="anchor" href="#revision-number-date-and-remark"></a><a class="link" href="#revision-number-date-and-remark">17.3. Revision Number, Date and Remark</a></h3>
 <div class="paragraph">
-<p>A document&#8217;s revision information contains three optional attributes.</p>
+<p>The revision information is read from the third (non-attribute) line of the header, beneath the author information line.
+A document&#8217;s revision information has slots for three implicit attributes.</p>
 </div>
 <div class="hdlist">
 <table>
@@ -4375,10 +4376,11 @@ Until our next adventure!
 <code>revnumber</code>
 </td>
 <td class="hdlist2">
-<p>The document&#8217;s version number which must contain at least one numeric character.
-Any letters or symbols preceding the numeric character will not be rendered.
-If the <code>revdate</code> is absent, the <code>revnumber</code> must be followed by a comma (e.g., <code>v1.0,</code>) or (as of Asciidoctor 1.5.3) begin with a "v" character (e.g., <code>v1.0</code>).
-If the <code>revdate</code> is present, it must be separated from the <code>revnumber</code> by a comma.</p>
+<p>The document&#8217;s version number.
+In order to be recognized, the version number must contain at least one numeric character.
+Any letters or symbols preceding the numeric character are ignored.
+If the implicit <code>revnumber</code> is on a line by itself, it must begin with the &#8220;v&#8221; character (e.g., <code>v1.0</code>) or be followed by a comma (e.g., <code>1.0,</code>)
+If the implicit <code>revdate</code> is present, it must be separated from the <code>revnumber</code> by a comma (e.g., <code>2010-10-10, v1.0</code>).</p>
 </td>
 </tr>
 <tr>
@@ -4401,7 +4403,7 @@ When the <code>revnumber</code> or <code>revremark</code> attributes are set, bu
 </table>
 </div>
 <div class="paragraph">
-<p>The revision information is listed on the third line of the header, beneath the author information line.</p>
+<p>Here&#8217;s an example of a revision line.</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -4447,7 +4449,7 @@ Version Notes: {revremark}</code></pre>
 </div>
 </div>
 <div class="paragraph">
-<p>When rendered, the revnumber in the byline is preceded by the word <em>Version</em>; however, when referenced in the body of the document, only the numerical value is displayed.
+<p>The revnumber in the byline is prefixed by the word <em>Version</em>; however, when referenced in the body of the document, only the numerical value is displayed.
 The <code>version-label</code> attribute controls the version number label in the byline.
 The revision information attributes can also be explicitly set in the header.</p>
 </div>
@@ -4498,7 +4500,7 @@ Version Notes: {revremark}</code></pre>
 </div>
 </div>
 <div class="paragraph">
-<p>In the rendered document, notice that the <em>V</em> preceding the revnumber is capitalized in the byline but not when the attribute is referenced in the body of the document.</p>
+<p>In the converted document, notice that the <em>V</em> preceding the revnumber is capitalized in the byline but not when the attribute is referenced in the body of the document.</p>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -26902,7 +26904,7 @@ In source listings, is the callout the last thing on the line?</p></td>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2017-12-10 07:05:32 UTC
+Last updated 2017-12-13 07:21:54 UTC
 </div>
 </div>
 <script type="text/x-mathjax-config">
