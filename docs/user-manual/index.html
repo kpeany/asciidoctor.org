@@ -6076,7 +6076,7 @@ In those cases, you&#8217;ll need to use additional markup to <a href="#preventi
 <h3 id="bold-and-italic"><a class="anchor" href="#bold-and-italic"></a><a class="link" href="#bold-and-italic">22.1. Bold and Italic</a></h3>
 <div class="paragraph">
 <p>The two most common ways of emphasizing a word is to format it as bold or italic.
-To render a word or phrase with bold styling, place an asterisk (<code>*</code>) at the beginning and end of the text you wish to format.
+To apply bold styling to a word or phrase, place an asterisk (<code>*</code>) at the beginning and end of the text you wish to format.
 To bold a letter or letters in a string of text, place two asterisks (<code>**</code>) before and after the letter or letters.</p>
 </div>
 <div class="paragraph">
@@ -18801,7 +18801,7 @@ Here are the equivalents of the old attributes using the new values:</p>
 </div>
 <div class="paragraph">
 <p>You have two AsciiDoc documents, adventure.adoc and insurance.adoc, saved in the same folder.
-You want to add the same content to the head of both documents when they&#8217;re rendered to HTML.</p>
+You want to add the same content to the head of both documents when they&#8217;re converted to HTML.</p>
 </div>
 <div class="olist arabic">
 <ol class="arabic">
@@ -18882,7 +18882,7 @@ v1.0, 2013-06-01
 </div>
 </div>
 <div class="paragraph">
-<p>Then the rendered DocBook output would be:</p>
+<p>Then the converted DocBook output would be:</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -18914,7 +18914,7 @@ v1.0, 2013-06-01
 <table>
 <tr>
 <td><i class="conum" data-value="1"></i><b>1</b></td>
-<td>The revnumber attribute reference was replaced by the source document&#8217;s revision number in the rendered output.</td>
+<td>The revnumber attribute reference was replaced by the source document&#8217;s revision number in the converted output.</td>
 </tr>
 </table>
 </div>
@@ -19987,8 +19987,8 @@ While the structure of the bibliography entry is entirely freeform, AsciiDoc pro
 With this anchor, you can reference the entry from anywhere in the text using a normal cross reference macro (e.g., <code>&lt;&lt;label&gt;&gt;</code>).</p>
 </div>
 <div class="paragraph">
-<p>By default, the reference to bibliography entry is rendered as [&lt;label&gt;], where &lt;label&gt; is the ID of the entry.
-If you specify xreftext on the bibliography anchor (e.g., <code>[[[label,xreftext]]]</code>), the reference to the bibliography entry is rendered as [&lt;xreftext&gt;] instead.</p>
+<p>By default, the reference to bibliography entry is converted to [&lt;label&gt;], where &lt;label&gt; is the ID of the entry.
+If you specify xreftext on the bibliography anchor (e.g., <code>[[[label,xreftext]]]</code>), the reference to the bibliography entry converts to [&lt;xreftext&gt;] instead.</p>
 </div>
 <div class="paragraph">
 <p>The bibliography entries themselves are declared as items in an unordered list.
@@ -26904,7 +26904,7 @@ In source listings, is the callout the last thing on the line?</p></td>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2017-12-13 07:21:54 UTC
+Last updated 2017-12-13 07:24:45 UTC
 </div>
 </div>
 <script type="text/x-mathjax-config">
