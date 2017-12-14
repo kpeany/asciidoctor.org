@@ -5776,7 +5776,7 @@ Never do today what you can put off `'til tomorrow.</code></pre>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Sidebar</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>[sidebar]</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>****</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Aside text and content rendered outside the flow of the document</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Aside text and content displayed outside the flow of the document</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Normal</p></td>
 </tr>
 <tr>
@@ -5933,7 +5933,7 @@ Our team desperately needs coffee, but none of us dare open the office door.</p>
 <div class="sect2">
 <h3 id="line-breaks"><a class="anchor" href="#line-breaks"></a><a class="link" href="#line-breaks">21.1. Line Breaks</a></h3>
 <div class="paragraph">
-<p>Since adjacent lines of text are combined into a single paragraph when Asciidoctor renders a document, that means you can wrap paragraph text or put each sentence or phrase on a separate line.
+<p>Since adjacent lines of text are combined into a single paragraph when Asciidoctor converts a document, that means you can wrap paragraph text or put each sentence or phrase on a separate line.
 The line breaks won&#8217;t appear in the output.</p>
 </div>
 <div class="paragraph">
@@ -6195,7 +6195,7 @@ The <a href="#preventing-substitutions">preventing substitutions</a> and <a href
 <p>Subscript and superscript text is common in mathematical expressions and chemical formulas.
 When rendered, the size of subscripted and superscripted text is reduced.
 Subscripted text is placed at the baseline and superscripted text above the baseline.
-The size and precise placement of the text depends on the font and other stylesheet parameters applied to the rendered document.</p>
+The size and precise placement of the text depends on the font and other stylesheet parameters applied to the converted document.</p>
 </div>
 <div class="paragraph">
 <p>Text is subscripted when you enclose it in a set of tildes (<code>~</code>) and superscripted with a set of carets (<code>^</code>)</p>
@@ -9224,26 +9224,25 @@ For example, you can apply the AsciiDoc element styles to an individual cell by 
 <pre class="nowrap">[cols="2"]
 |===
 
-a|This cell is prefixed with an `a` so the following list is rendered with the AsciiDoc list element styles.
+a|This cell is prefixed with an `a`, so the processor interpets the following lines as an AsciiDoc list.
 
 * List item 1
 * List item 2
 * List item 3
-|This cell *is not* prefixed with an `a` so the following list is not rendered with the AsciiDoc list element styles.
+|This cell *is not* prefixed with an `a`, so the processor does not interpret the following lines as an AsciiDoc list.
 
 * List item 1
 * List item 2
 * List item 3
 
-a|This cell is prefixed with an `a` so the following paragraph is rendered with the `lead` style.
+a|This cell is prefixed with an `a`, so the processor honors the `lead` style on the following paragraph.
 
 [.lead]
 I am a paragraph styled with the lead attribute.
-|This cell *is not* prefixed with an `a` so the following paragraph is not rendered with the `lead` style.
+|This cell *is not* prefixed with an `a`, so the processor does not honor the `lead` style on the following paragraph.
 
 [.lead]
 I am a paragraph styled with the lead attribute.
-
 |===</pre>
 </div>
 </div>
@@ -9256,7 +9255,7 @@ I am a paragraph styled with the lead attribute.
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-top"><div><div class="paragraph">
-<p>This cell is prefixed with an <code>a</code> so the following list is rendered with the AsciiDoc list element styles.</p>
+<p>This cell is prefixed with an <code>a</code>, so the processor interpets the following lines as an AsciiDoc list.</p>
 </div>
 <div class="ulist">
 <ul>
@@ -9271,19 +9270,19 @@ I am a paragraph styled with the lead attribute.
 </li>
 </ul>
 </div></div></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">This cell <strong>is not</strong> prefixed with an <code>a</code> so the following list is not rendered with the AsciiDoc list element styles.</p>
+<td class="tableblock halign-left valign-top"><p class="tableblock">This cell <strong>is not</strong> prefixed with an <code>a</code>, so the processor does not interpret the following lines as an AsciiDoc list.</p>
 <p class="tableblock">* List item 1
 * List item 2
 * List item 3</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><div><div class="paragraph">
-<p>This cell is prefixed with an <code>a</code> so the following paragraph is rendered with the <code>lead</code> style.</p>
+<p>This cell is prefixed with an <code>a</code>, so the processor honors the <code>lead</code> style on the following paragraph.</p>
 </div>
 <div class="paragraph lead">
 <p>I am a paragraph styled with the lead attribute.</p>
 </div></div></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">This cell <strong>is not</strong> prefixed with an <code>a</code> so the following paragraph is not rendered with the <code>lead</code> style.</p>
+<td class="tableblock halign-left valign-top"><p class="tableblock">This cell <strong>is not</strong> prefixed with an <code>a</code>, so the processor does not honor the <code>lead</code> style on the following paragraph.</p>
 <p class="tableblock">[.lead]
 I am a paragraph styled with the lead attribute.</p></td>
 </tr>
@@ -15697,7 +15696,7 @@ When your document is processed, the backslash is removed so it doesn&#8217;t di
 <p>Literal paragraphs and blocks display the text you write exactly as you enter it.
 Literal text is treated as preformatted text.
 The text is shown in a fixed-width font and endlines are preserved.
-Only <a href="#special-characters">special characters</a> and callouts are replaced when the document is rendered.</p>
+Only <a href="#special-characters">special characters</a> and callouts are replaced when the document is converted.</p>
 </div>
 <div class="paragraph">
 <p>Literal blocks are defined three ways:</p>
@@ -15780,7 +15779,7 @@ Computer: Calculating ...
 </div>
 </div>
 <div class="paragraph">
-<p>Notice in the output that the bold text formatting is not rendered nor are the three, consecutive periods replaced by the ellipsis Unicode character.</p>
+<p>Notice in the output that the bold text formatting is not applied to the text nor are the three consecutive periods replaced by the ellipsis Unicode character.</p>
 </div>
 <div class="exampleblock">
 <div class="title">Result: Literal delimited block</div>
@@ -15807,7 +15806,7 @@ Computer: Calculating ...</pre>
 <div class="sectionbody">
 <div class="paragraph">
 <p>Like literal blocks, the content in listing blocks is displayed exactly as you entered it.
-Listing block content is rendered as <code>&lt;pre&gt;</code> text.
+Listing block content is converted to <code>&lt;pre&gt;</code> text.
 The content in listing blocks is only subject to <a href="#special-characters">special character</a> and callout substitutions.</p>
 </div>
 <div class="paragraph">
@@ -26904,7 +26903,7 @@ In source listings, is the callout the last thing on the line?</p></td>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2017-12-13 07:24:45 UTC
+Last updated 2017-12-14 08:25:08 UTC
 </div>
 </div>
 <script type="text/x-mathjax-config">
