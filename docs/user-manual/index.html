@@ -4605,7 +4605,7 @@ puts title_parts.subtitle</code></pre>
 <h3 id="metadata"><a class="anchor" href="#metadata"></a><a class="link" href="#metadata">17.5. Metadata</a></h3>
 <div class="paragraph">
 <p>Document metadata, such as a description of the document, keywords, and the title, can be assigned to attributes in the header.
-When rendered to HTML, the values of these attributes will correspond to tags contained in the <code>&lt;head&gt;</code> section of an HTML document.</p>
+When converted to HTML, the values of these attributes will correspond to tags contained in the <code>&lt;head&gt;</code> section of an HTML document.</p>
 </div>
 <div class="sect3">
 <h4 id="description"><a class="anchor" href="#description"></a><a class="link" href="#description">17.5.1. Description</a></h4>
@@ -4632,7 +4632,7 @@ This journey begins on a bleary Monday morning.</code></pre>
 </table>
 </div>
 <div class="paragraph">
-<p>When rendered to HTML, the document description value is assigned to the HTML <code>&lt;meta&gt;</code> tag.</p>
+<p>When converted to HTML, the document description value is assigned to the HTML <code>&lt;meta&gt;</code> tag.</p>
 </div>
 <div class="exampleblock">
 <div class="title">HTML output</div>
@@ -4696,7 +4696,7 @@ You can override this behaviour by setting the <code>title</code> attribute in t
 <div class="sect3">
 <h4 id="custom-metadata-styles-and-functions"><a class="anchor" href="#custom-metadata-styles-and-functions"></a><a class="link" href="#custom-metadata-styles-and-functions">17.5.4. Custom Metadata, Styles and Functions</a></h4>
 <div class="paragraph">
-<p>You can add content, such as custom metadata, stylesheet, and script information, to the header of a rendered document with document information (<code>docinfo</code>) files.
+<p>You can add content, such as custom metadata, stylesheet, and script information, to the header of the output document using docinfo (&#8220;document information&#8221;) files.
 The <a href="#docinfo-file">docinfo file</a> section details what these files can contain and how to use them.</p>
 </div>
 </div>
@@ -11081,7 +11081,7 @@ Typical URLs contain a scheme, domain name, file name, and extension.</p>
 <p>To prevent automatic linking of an URL, prepend it with a backslash (<code>\</code>).</p>
 </div>
 <div class="paragraph">
-<p>If you prefer URLs to be rendered without a visible scheme, set the <code>hide-uri-scheme</code> attribute in the document&#8217;s header.</p>
+<p>If you prefer URLs to be shown without a visible scheme, set the <code>hide-uri-scheme</code> attribute in the document&#8217;s header.</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -11163,7 +11163,7 @@ If the <code>linkattrs</code> document attribute is set, the square brackets als
 <div class="content">
 <div class="title">Troubleshooting Complex URLs</div>
 <div class="paragraph">
-<p>A URL may not render correctly when it contains characters such as underscores (<code>_</code>) or carets (<code>^</code>).
+<p>A URL may not display correctly when it contains characters such as underscores (<code>_</code>) or carets (<code>^</code>).
 This problem occurs because the markup parser interprets parts of the URL (i.e., the link target) as valid <a href="#text-formatting">text formatting markup</a>.
 Most lightweight markup languages have this issue because they don&#8217;t use a grammar-based parser.
 Asciidoctor plans to handle URLs more carefully in the future (see <a href="https://github.com/asciidoctor/asciidoctor/issues/281">issue #281</a>), which may be solved by moving to a grammar-based parser (see <a href="https://github.com/asciidoctor/asciidoctor/issues/61">issue #61</a>).
@@ -20225,7 +20225,7 @@ Another outrageous statement.footnoteref:[disclaimer] <i class="conum" data-valu
 </table>
 </div>
 <div class="paragraph">
-<p>When rendered, the footnotes will be numbered consecutively throughout the article.</p>
+<p>The footnotes will be numbered consecutively throughout the article.</p>
 </div>
 <div class="exampleblock">
 <div class="title">Rendered footnotes</div>
@@ -20361,7 +20361,7 @@ Those converters are still in development and will be documented once releases b
 <div class="sect2">
 <h3 id="using-the-command-line"><a class="anchor" href="#using-the-command-line"></a><a class="link" href="#using-the-command-line">67.1. Using the Command Line</a></h3>
 <div class="paragraph">
-<p>In this section, we&#8217;ll create a sample document, then process and render it with Asciidoctor&#8217;s <code>html5</code> converter.</p>
+<p>In this section, we&#8217;ll create a sample document, then process and convert it with Asciidoctor&#8217;s <code>html5</code> converter.</p>
 </div>
 <div class="olist arabic">
 <ol class="arabic">
@@ -20399,7 +20399,7 @@ You may not be familiar with these http://en.wikipedia.org/wiki/Wolpertinger[rav
 <p>Switch to the directory that contains the mysample.adoc document</p>
 </li>
 <li>
-<p>Call the Asciidoctor processor with the <code>asciidoctor</code> command, followed by the name of the document you want to render</p>
+<p>Call the Asciidoctor processor with the <code>asciidoctor</code> command, followed by the name of the document you want to convert</p>
 </li>
 </ol>
 </div>
@@ -21438,7 +21438,7 @@ endif::safe-mode-secure[]</code></pre>
 </div>
 </div>
 <div class="paragraph">
-<p>This feature is particularly handy for rendering content on GitHub, where the safe mode is set to its most restrictive setting, secure.</p>
+<p>This feature is particularly handy for displaying content on GitHub, where the safe mode is set to its most restrictive setting, secure.</p>
 </div>
 </div>
 </div>
@@ -22644,7 +22644,7 @@ Use <a href="https://github.com/asciidoctor/asciidoctor.org/issues/454">Issue 45
 <div class="sect2">
 <h3 id="front-matter-added-for-static-site-generators"><a class="anchor" href="#front-matter-added-for-static-site-generators"></a><a class="link" href="#front-matter-added-for-static-site-generators">82.1. Front Matter Added for Static Site Generators</a></h3>
 <div class="paragraph">
-<p>Many static site generators (i.e., Jekyll, Middleman, Awestruct) rely on "front matter" added to the top of the document to determine how to render the content.
+<p>Many static site generators (i.e., Jekyll, Middleman, Awestruct) rely on "front matter" added to the top of the document to determine how to convert the content.
 Front matter typically starts on the first line of a file and is bounded by block delimiters (e.g., ---).</p>
 </div>
 <div class="paragraph">
@@ -22673,7 +22673,7 @@ content</pre>
 </table>
 </div>
 <div class="paragraph">
-<p>The static site generator removes these lines before passing the document to the AsciiDoc processor to be rendered.
+<p>The static site generator removes these lines before passing the document to the AsciiDoc processor to be converted.
 Outside of the tool, however, these extra lines can throw off the processor.</p>
 </div>
 <div class="paragraph">
@@ -24420,7 +24420,7 @@ When working with open blocks, you may need to add custom styles (such as a red 
 </div>
 </li>
 <li>
-<p><em>Why don&#8217;t URLs containing underscores (<code>_</code>) or carets (<code>^</code>) work after they&#8217;re rendered?</em></p>
+<p><em>Why don&#8217;t URLs containing underscores (<code>_</code>) or carets (<code>^</code>) work after they&#8217;re converted?</em></p>
 <div class="openblock">
 <div class="content">
 <div class="paragraph">
@@ -26903,7 +26903,7 @@ In source listings, is the callout the last thing on the line?</p></td>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2017-12-14 08:25:08 UTC
+Last updated 2017-12-15 06:54:23 UTC
 </div>
 </div>
 <script type="text/x-mathjax-config">
