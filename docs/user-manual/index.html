@@ -1779,8 +1779,8 @@ puts doc.attributes</code></pre>
 </div>
 </div>
 <div class="paragraph">
-<p>More than likely, you will want to render the document.
-To render a file containing AsciiDoc markup to HTML 5, use:</p>
+<p>More than likely, you will want to convert the document.
+To convert a file containing AsciiDoc markup to HTML 5, use:</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -1791,7 +1791,7 @@ To render a file containing AsciiDoc markup to HTML 5, use:</p>
 <p>The command will output to the file <code>mysample.html</code> in the same directory.</p>
 </div>
 <div class="paragraph">
-<p>You can render the file to DocBook 5.0 by setting the <code>:backend</code> option to <code>'docbook'</code>:</p>
+<p>You can convert the file to DocBook 5.0 by setting the <code>:backend</code> option to <code>'docbook'</code>:</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -3972,7 +3972,7 @@ If you do not want the header of a document to be displayed, set the <code>nohea
 <div class="content">
 <div class="title">Front matter</div>
 <div class="paragraph">
-<p>Many static site generators, such as Jekyll and Middleman, rely on front matter added to the top of the document to determine how to render the content.
+<p>Many static site generators, such as Jekyll and Middleman, rely on front matter added to the top of the document to determine how to convert the content.
 Asciidoctor has a number of attributes available to correctly handle front matter.
 See the <a href="#static-website-generators">static website generators</a> section to learn how Asciidoctor integrates with static website generators.</p>
 </div>
@@ -6267,7 +6267,7 @@ The vial&#8217;s label read: E=mc<sup>2</sup>; <code>the scent of science</code>
 <div class="sect2">
 <h3 id="custom-styling-with-attributes"><a class="anchor" href="#custom-styling-with-attributes"></a><a class="link" href="#custom-styling-with-attributes">22.5. Custom Styling With Attributes</a></h3>
 <div class="paragraph">
-<p>When text is enclosed in a set of single or double hash symbols (<code>#</code>), and no style is assigned to it, the text will be rendered as highlighted (<code>&lt;marked&gt;</code>).</p>
+<p>When text is enclosed in a set of single or double hash symbols (<code>#</code>), and no style is assigned to it, the text will be rendered as highlighted text (text wrapped in <code>&lt;mark&gt;</code>).</p>
 </div>
 <div class="listingblock">
 <div class="title">Highlighted style syntax</div>
@@ -6329,7 +6329,7 @@ The vial&#8217;s label read: E=mc<sup>2</sup>; <code>the scent of science</code>
 </div>
 </div>
 <div class="paragraph">
-<p>When rendered to HTML, the word <em>asciidoctor</em> is wrapped in <code>&lt;span&gt;</code> tags and the role <code>userinput</code> is used as the element&#8217;s CSS class.</p>
+<p>When converted to HTML, the word <em>asciidoctor</em> is wrapped in <code>&lt;span&gt;</code> tags and the role <code>userinput</code> is used as the element&#8217;s CSS class.</p>
 </div>
 <div class="listingblock">
 <div class="title">HTML output</div>
@@ -8341,7 +8341,7 @@ If the <code>cols</code> attribute is not set, the first non-blank line inside t
 <p>The number of columns in a table is determined by the number of cells found in the first non-blank line after the table delimiter (<code>|===</code>) or by the values assigned to the <code>cols</code> attribute.</p>
 </div>
 <div class="paragraph">
-<p>For example, the syntax in the two examples below will both render a table with two columns.</p>
+<p>For example, the syntax in the two examples below will both converted to a table with two columns.</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -8916,7 +8916,7 @@ When no style name is provided column contents will be processed as regular inli
 <td class="tableblock halign-left valign-top"><p class="tableblock">AsciiDoc</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>a</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Any block-level elements (paragraphs, delimited blocks, and block macros) may be contained within the column.
-The elements will be processed and rendered.</p></td>
+The elements will be processed and converted.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Emphasis</p></td>
@@ -13924,7 +13924,7 @@ While werewolves are hardy community members, keep in mind the following dietary
 </div>
 <div class="paragraph">
 <p>In the examples above, the admonition is rendered in a callout box with the style label in the gutter.
-You can replace the rendered labels with icons by setting the <code>icons</code> attribute on the document.
+You can replace the textual labels with icons by setting the <code>icons</code> attribute on the document.
 This is how the WARNING admonition paragraph renders when icons is set and assigned the <code>font</code> value.</p>
 </div>
 <div class="listingblock">
@@ -20536,7 +20536,7 @@ Additionally, you can inspect mysample.html in your browser and see <code>&lt;li
 <h3 id="managing-images"><a class="anchor" href="#managing-images"></a><a class="link" href="#managing-images">67.4. Managing Images</a></h3>
 <div class="paragraph">
 <p>Images are not embedded in the HTML output by default.
-If you have image references in your document, you&#8217;ll have to save the image files in the same directory as your rendered document.</p>
+If you have image references in your document, you&#8217;ll have to save the image files in the same directory as your converted document.</p>
 </div>
 <div class="paragraph">
 <p>As an alternative, you can embed the images directly into the document by setting the <code>data-uri</code> document attribute.</p>
@@ -22784,8 +22784,8 @@ puts doc.attributes</code></pre>
 </div>
 </div>
 <div class="paragraph">
-<p>More than likely, you will want to render the document.
-To render a file containing AsciiDoc markup to HTML 5, use:</p>
+<p>More than likely, you will want to convert the document.
+To convert a file containing AsciiDoc markup to HTML 5, use:</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -22796,7 +22796,7 @@ To render a file containing AsciiDoc markup to HTML 5, use:</p>
 <p>The command will output to the file <code>mysample.html</code> in the same directory.</p>
 </div>
 <div class="paragraph">
-<p>You can render the file to DocBook 5.0 by setting the <code>:backend</code> option to <code>'docbook'</code>:</p>
+<p>You can convert the file to DocBook 5.0 by setting the <code>:backend</code> option to <code>'docbook'</code>:</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -22810,7 +22810,7 @@ If you&#8217;re on Linux, you can view the file using <a href="https://wiki.gnom
 <div class="sect2">
 <h3 id="convert-strings"><a class="anchor" href="#convert-strings"></a><a class="link" href="#convert-strings">83.1. Convert Strings</a></h3>
 <div class="paragraph">
-<p>To render an AsciiDoc-formatted string:</p>
+<p>To convert an AsciiDoc-formatted string:</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -22818,7 +22818,7 @@ If you&#8217;re on Linux, you can view the file using <a href="https://wiki.gnom
 </div>
 </div>
 <div class="paragraph">
-<p>When rendering a string, the header and footer are excluded by default to make Asciidoctor consistent with other lightweight markup engines like Markdown.
+<p>When converting a string, the header and footer are excluded by default to make Asciidoctor consistent with other lightweight markup engines like Markdown.
 If you want the header and footer, just enable it using the <code>:header_footer</code> option:</p>
 </div>
 <div class="listingblock">
@@ -22845,7 +22845,7 @@ If you only want the inline markup to be processed, set the <code>:doctype</code
 </div>
 </div>
 <div class="paragraph">
-<p>When rendering a string the TOC is only included by default when using the <code>:header_footer</code> option as shown above.
+<p>When converting a string, the TOC is only included by default when using the <code>:header_footer</code> option as shown above.
 However, you can force it to be included without the header and footer by setting the <code>toc</code> attribute with a value of <code>macro</code> and using the <code>toc::[]</code> macro in the string itself.</p>
 </div>
 <div class="paragraph">
@@ -26903,7 +26903,7 @@ In source listings, is the callout the last thing on the line?</p></td>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2017-12-15 06:54:23 UTC
+Last updated 2017-12-16 06:56:08 UTC
 </div>
 </div>
 <script type="text/x-mathjax-config">
