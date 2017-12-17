@@ -4151,7 +4151,7 @@ Refer to <a href="https://github.com/asciidoctor/asciidoctor/issues/1493">issue 
 <div class="sect3">
 <h4 id="document-title-visibility"><a class="anchor" href="#document-title-visibility"></a><a class="link" href="#document-title-visibility">17.1.3. Document title visibility</a></h4>
 <div class="paragraph">
-<p>You can control whether or not the document title is shown in the rendered document using the <code>showtitle</code> attribute.</p>
+<p>You can control whether or not the document title appears in the converted document using the <code>showtitle</code> attribute.</p>
 </div>
 <div class="paragraph">
 <p>When converting a standalone document, the document title is shown by default.
@@ -15040,9 +15040,9 @@ See the section about <a href="#applying-substitutions">applying custom substitu
 <p>The replacements substitution also recognizes <a href="http://en.wikipedia.org/wiki/List_of_XML_and_HTML_character_entity_references">HTML and XML character entity references</a> as well as <a href="http://en.wikipedia.org/wiki/List_of_Unicode_characters">decimal and hexadecimal Unicode code points</a> and substitutes them for their corresponding decimal form Unicode code point.</p>
 </div>
 <div class="paragraph">
-<p>For example, to render the <code>&sect;</code> symbol you could write <code>&amp;sect;</code>, <code>&amp;#x00A7;</code>, or <code>&amp;#167;</code>.
+<p>For example, to produce the <code>&sect;</code> symbol you could write <code>&amp;sect;</code>, <code>&amp;#x00A7;</code>, or <code>&amp;#167;</code>.
 When the document is processed, <code>replacements</code> will replace the section symbol reference, regardless of whether it is a character entity reference or a numeric character reference, with <code>&amp;#167;</code>.
-In turn, <code>&amp;#167;</code> will render as <code>&sect;</code>.</p>
+In turn, <code>&amp;#167;</code> will display as <code>&sect;</code>.</p>
 </div>
 <div id="char-ref-sidebar" class="sidebarblock">
 <div class="content">
@@ -15061,13 +15061,13 @@ The name must be prefixed with an ampersand (<code>&amp;</code>) and end with a 
 <div class="ulist">
 <ul>
 <li>
-<p><code>&amp;dagger;</code> renders as &dagger;</p>
+<p><code>&amp;dagger;</code> displays as &dagger;</p>
 </li>
 <li>
-<p><code>&amp;euro;</code> renders as &euro;</p>
+<p><code>&amp;euro;</code> displays as &euro;</p>
 </li>
 <li>
-<p><code>&amp;loz;</code> renders as &loz;</p>
+<p><code>&amp;loz;</code> displays as &loz;</p>
 </li>
 </ul>
 </div>
@@ -15090,19 +15090,19 @@ The name must be prefixed with an ampersand (<code>&amp;</code>) and end with a 
 <div class="ulist">
 <ul>
 <li>
-<p><code>&amp;#x2020;</code> or <code>&amp;#8224;</code> render as &#8224;</p>
+<p><code>&amp;#x2020;</code> or <code>&amp;#8224;</code> displays as &#8224;</p>
 </li>
 <li>
-<p><code>&amp;#x20AC;</code> or <code>&amp;#8364;</code> render as &#8364;</p>
+<p><code>&amp;#x20AC;</code> or <code>&amp;#8364;</code> displays as &#8364;</p>
 </li>
 <li>
-<p><code>&amp;#x25CA;</code> or <code>&amp;#9674;</code> render as &#x25CA;</p>
+<p><code>&amp;#x25CA;</code> or <code>&amp;#9674;</code> displays as &#x25CA;</p>
 </li>
 </ul>
 </div>
 <div class="paragraph">
 <p>Developers may be more familiar with using <strong>Unicode escape sequences</strong> to perform text substitutions.
-For example, to render an <code>&#64;</code> sign using a Unicode escape sequence, you would prefix the hexadecimal Unicode code point with a backslash (<code>\</code>) and an uppercase or lowercase <code>u</code>, i.e. <code>u0040</code>.
+For example, to produce an <code>&#64;</code> sign using a Unicode escape sequence, you would prefix the hexadecimal Unicode code point with a backslash (<code>\</code>) and an uppercase or lowercase <code>u</code>, i.e. <code>u0040</code>.
 However, Asciidoctor doesn&#8217;t process and replace Unicode escape sequences at this time.</p>
 </div>
 </div>
@@ -17012,7 +17012,7 @@ Give it a try!</p>
 </div>
 </div>
 <div class="paragraph">
-<p>Here&#8217;s how the HTML converter renders the above syntax when the <code>icons</code> attribute is assigned the <code>font</code> value.</p>
+<p>Here&#8217;s how the HTML converter converts the above syntax when the <code>icons</code> attribute is assigned the <code>font</code> value.</p>
 </div>
 <div class="listingblock">
 <div class="title">Result: HTML output</div>
@@ -17052,7 +17052,7 @@ Give it a try!</p>
 </div>
 <div class="paragraph">
 <p>If you aren&#8217;t using font-based icons, Asciidoctor looks for icon images on disk, in the <code>iconsdir</code>, naturally.
-Here&#8217;s how the HTML converter renders an icon when the <code>icons</code> attribute is not set or empty.</p>
+Here&#8217;s how the HTML converter converts an icon macro when the <code>icons</code> attribute is not set or empty.</p>
 </div>
 <div class="listingblock">
 <div class="title">Result: HTML output</div>
@@ -17063,7 +17063,8 @@ Here&#8217;s how the HTML converter renders an icon when the <code>icons</code> 
 </div>
 </div>
 <div class="paragraph">
-<p>Here&#8217;s how it renders in the DocBook backend, regardless of the icons attribute value.</p>
+<p>Here&#8217;s how the DocBook converter converts to icon macro.
+DocBook does not support font-based icons, so the DocBook output is not affected by the value of the <code>icons</code> attribute.</p>
 </div>
 <div class="listingblock">
 <div class="title">Result: DocBook output</div>
@@ -17201,7 +17202,7 @@ icon:heart[fw] heart</pre>
 <dl>
 <dt class="hdlist1"><code>link</code></dt>
 <dd>
-<p>The URI target used for the icon, which will be rendered as a link</p>
+<p>The URI target used for the icon, which will wrap the converted icon in a link</p>
 </dd>
 <dt class="hdlist1"><code>window</code></dt>
 <dd>
@@ -17210,7 +17211,7 @@ icon:heart[fw] heart</pre>
 </dl>
 </div>
 <div class="paragraph">
-<p>Here&#8217;s an example of an icon rendered as a link:</p>
+<p>Here&#8217;s an example of an icon with a link:</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -18077,7 +18078,7 @@ If the reader pasted that code and tried to run it, likely the extra characters 
 <div class="paragraph">
 <p>On the other side of the coin, you don&#8217;t want the callout annotations or CSS messing up your raw source code either.
 You can tuck your callouts neatly behind line comments.
-Asciidoctor will recognize the line comments characters in front of a callout number, optionally offset by a space, and remove them when rendering the document.</p>
+Asciidoctor will recognize the line comments characters in front of a callout number, optionally offset by a space, and remove them when converting the document.</p>
 </div>
 <div class="paragraph">
 <p>Here are the line comments that are supported:</p>
@@ -21919,7 +21920,7 @@ foundation.css   golo.css               readthedocs.css</pre>
 </div>
 <div class="paragraph">
 <p>Open a browser, navigate to <em class="path">mysample.html</em> and checkout the result!
-If you inspect the <em class="path">mysample.html</em> document, you should see that the stylesheet is embedded in the rendered document.</p>
+If you inspect the <em class="path">mysample.html</em> document, you should see that the stylesheet is embedded in the converted document.</p>
 </div>
 <div class="sidebarblock">
 <div class="content">
@@ -26903,7 +26904,7 @@ In source listings, is the callout the last thing on the line?</p></td>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2017-12-16 06:56:08 UTC
+Last updated 2017-12-17 07:31:47 UTC
 </div>
 </div>
 <script type="text/x-mathjax-config">
