@@ -1099,7 +1099,7 @@ Asciidoctor adds a default stylesheet to the HTML5 document, as shown, to provid
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="/images/zen-screenshot.png" alt="Preview of AsciiDoc source and corresponding rendered HTML">
+<img src="/images/zen-screenshot.png" alt="Preview of AsciiDoc source and corresponding HTML">
 </div>
 </div>
 </div>
@@ -1132,15 +1132,15 @@ Tilt is one of the most popular gems in the Ruby ecosystem.</p>
 <div class="paragraph">
 <div class="title">Parser and object model</div>
 <p>Leveraging the Ruby stack isn&#8217;t the only benefit of Asciidoctor.
-Unlike the AsciiDoc Python implementation, Asciidoctor parses and renders the source document in discrete steps.
-This makes rendering the document optional and gives Ruby programs the opportunity to extract, add or replace information in the document by interacting with the document object model Asciidoctor assembles.
+Unlike the AsciiDoc Python implementation, Asciidoctor parses and converts the source document in discrete steps.
+This makes conversion optional and gives Ruby programs the opportunity to extract, add or replace information in the document by interacting with the document object model Asciidoctor assembles.
 Developers can use the full power of the Ruby programming language to play with the content in the document.</p>
 </div>
 <div class="paragraph">
 <div class="title">Performance and security</div>
 <p>No coverage of Asciidoctor would be complete without mention of its <em>speed</em>.
 Despite not being an original goal of the project, Asciidoctor has proven startlingly fast.
-It loads, parses and renders documents <strong>25 times as fast</strong> as the Python implementation.
+It loads, parses, and converts documents a <strong>100 times as fast</strong> as the Python implementation.
 That&#8217;s good news for developer productivity and good news for GitHub or any server-side application that needs to render AsciiDoc markup.
 Asciidoctor also offers several levels of security, further justifying its suitability for server-side deployments.</p>
 </div>
@@ -1712,7 +1712,7 @@ To confirm that Asciidoctor is available, execute:</p>
 </div>
 </div>
 <div class="paragraph">
-<p>To invoke Asciidoctor from the CLI and render an <code>.adoc</code> file, execute:</p>
+<p>To invoke Asciidoctor from the CLI and convert an <code>.adoc</code> file, execute:</p>
 </div>
 <div class="literalblock">
 <div class="content">
@@ -4321,7 +4321,7 @@ What else would you expect from a member of the Rocky Mountain {lastname} Clan?
 </div>
 </div>
 <div class="paragraph">
-<p>The <code>html5</code> and <code>docbook</code> converters can render documents with multiple authors.
+<p>The <code>html5</code> and <code>docbook</code> converters can convert documents with multiple authors.
 Multiple authors and their emails are separated by semicolons (<code>;</code>) when they&#8217;re listed on the same line.</p>
 </div>
 <div class="listingblock">
@@ -4795,14 +4795,21 @@ The <a href="#docinfo-file">docinfo file</a> section details what these files ca
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>no-header-footer</code>, <code>-s</code></p></td>
 <td class="tableblock halign-left valign-top"></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Suppresses the rendering of the header and footer</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Generate an embeddable document; exclude the document frame</p></td>
 <td class="tableblock halign-left valign-top"></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">all</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>noheader</code></p></td>
 <td class="tableblock halign-left valign-top"></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Suppresses the rendering of the header</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Suppresses the output of the header</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">all</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>nofooter</code></p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Suppresses the output of the footer</p></td>
 <td class="tableblock halign-left valign-top"></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">all</p></td>
 </tr>
@@ -4851,7 +4858,7 @@ The <a href="#docinfo-file">docinfo file</a> section details what these files ca
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>version-label</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>Version</code>, User defined</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">The label preceding the <code>revnumber</code> in a render document&#8217;s byline</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The label preceding the <code>revnumber</code> in a converted document&#8217;s byline</p></td>
 <td class="tableblock halign-left valign-top"></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">html</p></td>
 </tr>
@@ -4951,7 +4958,7 @@ The number of equal signs in front of the title represents the nesting level (us
 </td>
 <td class="content">
 In addition to the equals sign marker used for defining single-line section titles, Asciidoctor recognizes the hash symbol (<code>#</code>) from Markdown.
-That means the outline of a Markdown document will render just fine as an AsciiDoc document.
+That means the outline of a Markdown document will be converted just fine as an AsciiDoc document.
 </td>
 </tr>
 </table>
@@ -5013,7 +5020,7 @@ Content of second section</code></pre>
 <div class="sect2">
 <h3 id="titles-as-html-headings"><a class="anchor" href="#titles-as-html-headings"></a><a class="link" href="#titles-as-html-headings">19.1. Titles as HTML Headings</a></h3>
 <div class="paragraph">
-<p>When the document is rendered as HTML 5 (using the built-in <code>html5</code> backend), each section title becomes a heading element where the heading level matches the number of equal signs.
+<p>When the document is converted to HTML 5 (using the built-in <code>html5</code> backend), each section title becomes a heading element where the heading level matches the number of equal signs.
 For example, a level 1 section (<code>==</code>) maps to an <code>&lt;h2&gt;</code> element.</p>
 </div>
 </div>
@@ -5598,7 +5605,7 @@ If there is a name conflict, the last attribute defined wins.
 </table>
 </div>
 <div class="paragraph">
-<p>Some metadata is used as supplementary content, such as the title, whereas other metadata controls how the block is rendered, such as the block name.</p>
+<p>Some metadata is used as supplementary content, such as the title, whereas other metadata controls how the block is converted, such as the block name.</p>
 </div>
 </div>
 <div class="sect2">
@@ -5620,7 +5627,7 @@ sidebar block
 <div class="paragraph">
 <p>Within the boundaries of a delimited block, you can enter any content or blank lines.
 The block doesn&#8217;t end until the ending delimiter is found.
-The delimiters around the block determine the type of block, how the content is processed and rendered and what elements are used to wrap the content in the output.</p>
+The delimiters around the block determine the type of block, how the content is processed and converted, and what elements are used to wrap the content in the output.</p>
 </div>
 <div class="sect3">
 <h4 id="delimiter-lines"><a class="anchor" href="#delimiter-lines"></a><a class="link" href="#delimiter-lines">20.3.1. Delimiter lines</a></h4>
@@ -6011,7 +6018,7 @@ This is the ultimate paragraph.</code></pre>
 </div>
 </div>
 <div class="paragraph">
-<p>When you render a document using the default backend and stylesheet, the first paragraph of the preamble is automatically styled as a lead paragraph.</p>
+<p>When you convert a document to HTML and view it using the default stylesheet, the first paragraph of the preamble is automatically styled as a lead paragraph.</p>
 </div>
 </div>
 </div>
@@ -7128,7 +7135,7 @@ Not all items in the list have to be checklist items, as the previous example sh
 </table>
 </div>
 <div class="paragraph">
-<p>When checklists are rendered to HTML, the checkbox markup is transformed into an HTML checkbox with the appropriate checked state.
+<p>When checklists are converted to HTML, the checkbox markup is transformed into an HTML checkbox with the appropriate checked state.
 The <code>data-item-complete</code> attribute on the checkbox is set to 1 if the item is checked, 0 if not.
 The checkbox is used in place of the item&#8217;s bullet.</p>
 </div>
@@ -13121,7 +13128,7 @@ Text below images.</code></pre>
 </div>
 </div>
 <div class="paragraph">
-<p>When this example is rendered and viewed a browser, the paragraph text appears to the right of the images.
+<p>When this example is converted, then viewed a browser, the paragraph text appears to the right of the images.
 To fix this behavior, you just need to "group" the images together in a block with self-contained floats.
 Here&#8217;s how it&#8217;s done:</p>
 </div>
@@ -14672,7 +14679,7 @@ For example, on the command line, type <code>-a toc-title="Sections, Tables &amp
 <p>The <code>quotes</code> substitution replaces the formatting markup on inline elements.</p>
 </div>
 <div class="paragraph">
-<p>For example, when a document is rendered to HTML, any asterisks enclosing text are replaced with <code>&lt;strong&gt;</code> HTML tags.</p>
+<p>For example, when a document is converted to HTML, any asterisks enclosing text are replaced with <code>&lt;strong&gt;</code> HTML tags.</p>
 </div>
 <div class="listingblock">
 <div class="title">Syntax input</div>
@@ -15518,11 +15525,11 @@ System.out.println("Hello *bold* text"). <i class="conum" data-value="2"></i><b>
 <table>
 <tr>
 <td><i class="conum" data-value="1"></i><b>1</b></td>
-<td>The <code>verbatim</code> value enables the callouts to be rendered.</td>
+<td>The <code>verbatim</code> value enables the callouts to be processed.</td>
 </tr>
 <tr>
 <td><i class="conum" data-value="2"></i><b>2</b></td>
-<td>The <code>quotes</code> value enables the text formatting to be rendered.</td>
+<td>The <code>quotes</code> value enables the text formatting to be processed.</td>
 </tr>
 </table>
 </div>
@@ -18063,7 +18070,7 @@ get <span class="string"><span class="delimiter">'</span><span class="content">/
 </div>
 </div>
 <div class="paragraph">
-<p>Since callout number can interfere with the syntax of the code they are annotating, Asciidoctor provides several features to hide the callout numbers from both the source and the rendered document.
+<p>Since callout number can interfere with the syntax of the code they are annotating, Asciidoctor provides several features to hide the callout numbers from both the source and the converted document.
 The sections that follow detail these features.</p>
 </div>
 <div class="sect2">
@@ -21276,7 +21283,7 @@ This mode allows assets (such as the stylesheet) to be embedded in the document.
 SERVER
 </td>
 <td class="hdlist2">
-<p>A safe mode level that disallows the document from setting attributes that would affect the rendering of the document.
+<p>A safe mode level that disallows the document from setting attributes that would affect conversion of the document.
 This level trims docfile to its relative path and prevents the document from:</p>
 <div class="openblock">
 <div class="content">
@@ -22860,7 +22867,7 @@ Any of it!</p>
 <h2 id="provide-custom-templates"><a class="anchor" href="#provide-custom-templates"></a><a class="link" href="#provide-custom-templates">84. Provide Custom Templates</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Asciidoctor allows you to override the converter methods used to render almost any individual AsciiDoc element.
+<p>Asciidoctor allows you to override the converter methods used to convert almost any individual AsciiDoc element.
 If you provide a directory of <a href="https://github.com/rtomayko/tilt">Tilt</a>-compatible templates, named in such a way that Asciidoctor can figure out which template goes with which element, Asciidoctor will use the templates in this directory instead of its built-in templates for any elements for which it finds a matching template.
 It will fallback to its default templates for everything else.</p>
 </div>
@@ -22872,12 +22879,12 @@ It will fallback to its default templates for everything else.</p>
 </div>
 <div class="paragraph">
 <p>The Document and Section templates should begin with document. and section., respectively.
-The file extension is used by Tilt to determine which view framework it will use to use to render the template.
+The file extension is used by Tilt to determine which view framework it will use to use to interpret the template.
 For instance, if you want to write the template in ERB, you&#8217;d name these two templates document.html.erb and section.html.erb.
 To use Haml, you&#8217;d name them document.html.haml and section.html.haml.</p>
 </div>
 <div class="paragraph">
-<p>Templates for block elements, like a Paragraph or Sidebar, would begin with block_&lt;style&gt;..
+<p>Templates for block elements, like a paragraph or sidebar, would begin with block_&lt;style&gt;..
 For instance, to override the default Paragraph template with an ERB template, put a file named block_paragraph.html.erb in the template directory you pass to the Document constructor using the :template_dir option.</p>
 </div>
 <div class="paragraph">
@@ -22948,7 +22955,7 @@ When that switch occurs, there will either be some sort of adapter or required m
 </dd>
 <dt class="hdlist1">Postprocessor</dt>
 <dd>
-<p>Processes the output after the document has been rendered, but before it&#8217;s written to disk.</p>
+<p>Processes the output after the document has been converted, but before it&#8217;s written to disk.</p>
 </dd>
 <dt class="hdlist1">DocinfoProcessor</dt>
 <dd>
@@ -25146,7 +25153,7 @@ To turn off table caption labels and numbers, add the <code>table-caption</code>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">version-label</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">The label preceding the revnumber in a rendered document’s byline</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The label preceding the revnumber in a converted document&#8217;s byline</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Version</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><em>any</em></p></td>
 <td class="tableblock halign-center valign-top"><p class="tableblock"><span class="icon green"><i class="fa fa-check"></i></span></p></td>
@@ -25523,7 +25530,7 @@ Also used as a fallback when the document title is not specified.
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">nofooter</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Suppresses rendering of the footer.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Suppresses output of the footer.</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><em>not set</em></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><em>empty</em></p></td>
 <td class="tableblock halign-center valign-top"><p class="tableblock"><span class="icon green"><i class="fa fa-check"></i></span></p></td>
@@ -25539,7 +25546,7 @@ Also used as a fallback when the document title is not specified.
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">noheader</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Suppresses rendering of the header.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Suppresses output of the header.</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><em>not set</em></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><em>empty</em></p></td>
 <td class="tableblock halign-center valign-top"><p class="tableblock"><span class="icon green"><i class="fa fa-check"></i></span></p></td>
@@ -26904,7 +26911,7 @@ In source listings, is the callout the last thing on the line?</p></td>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2017-12-17 07:31:47 UTC
+Last updated 2017-12-18 06:28:59 UTC
 </div>
 </div>
 <script type="text/x-mathjax-config">
