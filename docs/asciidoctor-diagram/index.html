@@ -16,7 +16,9 @@
 <li><a href="#graphviz">GraphViz</a></li>
 <li><a href="#meme-2">Meme</a></li>
 <li><a href="#mermaid">Mermaid</a></li>
+<li><a href="#msc">Msc</a></li>
 <li><a href="#plantuml">PlantUML</a></li>
+<li><a href="#syntrax">Syntrax</a></li>
 </ul>
 </li>
 </ul>
@@ -27,7 +29,7 @@
 <p>Asciidoctor Diagram is a set of Asciidoctor extensions that enable you to add diagrams, which you describe using plain text, to your AsciiDoc document.</p>
 </div>
 <div class="paragraph">
-<p>The extensions support BlockDiag (BlockDiag, SeqDiag, ActDiag, NwDiag), Ditaa, GraphViz, Mermaid, PlantUML, Shaape and WaveDrom syntax.</p>
+<p>The extensions supports the BlockDiag (<a href="http://blockdiag.com">BlockDiag</a>, <a href="http://blockdiag.com/en/seqdiag/index.html">SeqDiag</a>, <a href="http://blockdiag.com/en/actdiag/index.html">ActDiag</a>, <a href="http://blockdiag.com/en/nwdiag/index.html">NwDiag</a>), <a href="http://ditaa.sourceforge.net/">Ditaa</a>, <a href="https://github.com/BurntSushi/erd">Erd</a>, <a href="http://www.graphviz.org/content/dot-language">GraphViz</a>, <a href="http://knsv.github.io/mermaid/">Mermaid</a>, <a href="http://www.mcternan.me.uk/mscgen/">Msc</a>, <a href="http://plantuml.sourceforge.net">PlantUML</a>, <a href="https://github.com/christiangoltz/shaape">Shaape</a>, <a href="https://github.com/ivanceras/svgbobrus">SvgBob</a>, <a href="https://kevinpt.github.io/syntrax/">Syntrax</a>, <a href="http://www.umlet.com/">UMLet</a> and <a href="http://wavedrom.com">WaveDrom</a> syntax.</p>
 </div>
 <div class="paragraph">
 <p>Each extension runs the diagram processor to generate an SVG, PNG, or TXT file from the input text.
@@ -196,6 +198,14 @@ Diagram in appropriate syntax
 <td class="tableblock halign-center valign-top"></td>
 </tr>
 <tr>
+<td class="tableblock halign-right valign-top"><p class="tableblock"><a href="http://www.mcternan.me.uk/mscgen/">msc</a></p></td>
+<td class="tableblock halign-center valign-top"></td>
+<td class="tableblock halign-center valign-top"></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><span class="icon"><i class="fa fa-check"></i></span></p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><span class="icon"><i class="fa fa-check"></i></span></p></td>
+<td class="tableblock halign-center valign-top"></td>
+</tr>
+<tr>
 <td class="tableblock halign-right valign-top"><p class="tableblock"><a href="http://blockdiag.com/en/nwdiag/index.html">nwdiag</a></p></td>
 <td class="tableblock halign-center valign-top"></td>
 <td class="tableblock halign-center valign-top"><p class="tableblock"><span class="icon"><i class="fa fa-check"></i></span></p></td>
@@ -239,6 +249,22 @@ Diagram in appropriate syntax
 <td class="tableblock halign-right valign-top"><p class="tableblock"><a href="https://github.com/christiangoltz/shaape">shaape</a></p></td>
 <td class="tableblock halign-center valign-top"></td>
 <td class="tableblock halign-center valign-top"></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><span class="icon"><i class="fa fa-check"></i></span></p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><span class="icon"><i class="fa fa-check"></i></span></p></td>
+<td class="tableblock halign-center valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-right valign-top"><p class="tableblock"><a href="https://github.com/ivanceras/svgbobrus">svgbob</a></p></td>
+<td class="tableblock halign-center valign-top"></td>
+<td class="tableblock halign-center valign-top"></td>
+<td class="tableblock halign-center valign-top"></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><span class="icon"><i class="fa fa-check"></i></span></p></td>
+<td class="tableblock halign-center valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-right valign-top"><p class="tableblock"><a href="https://kevinpt.github.io/syntrax/">syntrax</a></p></td>
+<td class="tableblock halign-center valign-top"></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><span class="icon"><i class="fa fa-check"></i></span></p></td>
 <td class="tableblock halign-center valign-top"><p class="tableblock"><span class="icon"><i class="fa fa-check"></i></span></p></td>
 <td class="tableblock halign-center valign-top"><p class="tableblock"><span class="icon"><i class="fa fa-check"></i></span></p></td>
 <td class="tableblock halign-center valign-top"></td>
@@ -415,7 +441,7 @@ The command implicitly sets the <code>-r</code> and <code>-b</code> flags for EP
 </div>
 </div>
 <div class="paragraph">
-<p><code>&lt;extension_name&gt;</code> can be one of <code>blockdiag</code>, <code>ditaa</code>, <code>erd</code>, <code>graphviz</code>, <code>meme</code>, <code>mermaid</code>, <code>plantuml</code>, <code>shaape</code>, or <code>wavedrom</code>.</p>
+<p><code>&lt;extension_name&gt;</code> can be one of <code>blockdiag</code>, <code>ditaa</code>, <code>erd</code>, <code>graphviz</code>, <code>meme</code>, <code>mermaid</code>, <code>msc</code>, <code>plantuml</code>, <code>shaape</code>, <code>svgbob</code>, <code>syntrax</code>, or <code>wavedrom</code>.</p>
 </div>
 <div class="paragraph">
 <p>Requiring one or more of these files will automatically register the extensions for all processed documents.</p>
@@ -540,6 +566,11 @@ The following table lists the tools that are required for each diagram type, the
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>mermaid</code></p></td>
 </tr>
 <tr>
+<td class="tableblock halign-right valign-top"><p class="tableblock">msc</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="http://www.mcternan.me.uk/mscgen/">Mscgen</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>mscgen</code></p></td>
+</tr>
+<tr>
 <td class="tableblock halign-right valign-top"><p class="tableblock">nwdiag</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="http://blockdiag.com/en/nwdiag/index.html">NwDiag</a></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>nwdiag</code></p></td>
@@ -568,6 +599,16 @@ The following table lists the tools that are required for each diagram type, the
 <td class="tableblock halign-right valign-top"><p class="tableblock">shaape</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://github.com/christiangoltz/shaape">Shaape</a></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>shaape</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-right valign-top"><p class="tableblock">svgbob</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://github.com/ivanceras/svgbobrus">SvgBob</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>svgbob</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-right valign-top"><p class="tableblock">syntrax</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://kevinpt.github.io/syntrax/">Syntrax</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>syntrax</code></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-right valign-top"><p class="tableblock">umlet</p></td>
@@ -853,6 +894,30 @@ The attribute name at the block level should be prefixed with the name of the di
 </table>
 </div>
 <div class="sect3">
+<h4 id="msc"><a class="anchor" href="#msc"></a>Msc</h4>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 33.3333%;">
+<col style="width: 33.3333%;">
+<col style="width: 33.3334%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-right valign-top">Name</th>
+<th class="tableblock halign-left valign-top">Default value</th>
+<th class="tableblock halign-left valign-top">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-right valign-top"><p class="tableblock">font</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">unspecified</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The name of the font that should be used by mscgen</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect3">
 <h4 id="plantuml"><a class="anchor" href="#plantuml"></a>PlantUML</h4>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
@@ -872,6 +937,45 @@ The attribute name at the block level should be prefixed with the name of the di
 <td class="tableblock halign-right valign-top"><p class="tableblock">config</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">unspecified</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Path to a config file to pass to PlantUML.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect3">
+<h4 id="syntrax"><a class="anchor" href="#syntrax"></a>Syntrax</h4>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 33.3333%;">
+<col style="width: 33.3333%;">
+<col style="width: 33.3334%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-right valign-top">Name</th>
+<th class="tableblock halign-left valign-top">Default value</th>
+<th class="tableblock halign-left valign-top">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-right valign-top"><p class="tableblock">heading</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">unspecifed</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Diagram title</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-right valign-top"><p class="tableblock">scale</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">A scale factor that is applied to the image.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-right valign-top"><p class="tableblock">style</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">unspecifed</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Path to a style config file to pass to Syntrax.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-right valign-top"><p class="tableblock">transparent</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">false</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Makes the background of the image transparent instead of opaque white.</p></td>
 </tr>
 </tbody>
 </table>
