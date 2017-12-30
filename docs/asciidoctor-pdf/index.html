@@ -33,6 +33,7 @@
 <li><a href="#asciidoctor-mathematical">Asciidoctor Mathematical</a></li>
 </ul>
 </li>
+<li><a href="#shaded-blocks-and-performance">Shaded Blocks and Performance</a></li>
 <li><a href="#autofitting-text">Autofitting Text</a></li>
 <li><a href="#printing-page-ranges">Printing Page Ranges</a></li>
 <li><a href="#index-catalog">Index Catalog</a></li>
@@ -774,6 +775,17 @@ You control this setting using the <code>mathematical-format</code> AsciiDoc att
 <div class="paragraph">
 <p>Refer to the <a href="https://github.com/asciidoctor/asciidoctor-mathematical#readme">README</a> for Asciidoctor Mathematical to learn about additional settings and options.</p>
 </div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="shaded-blocks-and-performance"><a class="anchor" href="#shaded-blocks-and-performance"></a>Shaded Blocks and Performance</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Certain blocks are rendered with a shaded background, such as verbatim (listing, literal, and source), sidebar, and example blocks.
+In order to calculate the dimensions of the shaded region, Asciidoctor PDF has to &#8220;dry run&#8221; the block to determine how many pages it consumes.
+While this strategy has a low impact when processing shorter blocks, it can drastically deteriorate performance when processing a block that spans dozens of pages.
+As a general rule of thumb, you should avoid using shaded blocks which span more than a handful of pages.</p>
 </div>
 </div>
 </div>
