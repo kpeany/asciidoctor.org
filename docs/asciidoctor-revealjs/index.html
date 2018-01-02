@@ -1,56 +1,1037 @@
-<!DOCTYPE html><!--[if IE 8]><html class="no-js lt-ie9" lang="en"><![endif]--><!--[if gt IE 8]><!--><html class="no-js" lang="en"><!--<![endif]--><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><link rel="stylesheet" href="/stylesheets/styles.css"><script src="/javascripts/vendor/custom.modernizr.js"></script><title>Asciidoctor Reveal.js | Asciidoctor</title><meta name="keywords" content="Asciidoctor Reveal.js, AsciiDoc, Asciidoctor, reveal.js, slides"><link rel="author" href="/humans.txt"></head><body class="antialiased"><nav class="top-bar"><ul class="title-area"><li class="name"><h1><a href="/">Asciidoctor</a></h1></li><li class="toggle-topbar menu-icon"><a href="#"><span></span></a></li></ul><section class="top-bar-section"><ul class="right"><li><a href="/">About</a></li><li class="divider"></li><li><a href="/news/">News</a></li><li class="divider"></li><li><a href="http://gist.asciidoctor.org">Gist</a></li><li class="divider"></li><li><a href="https://github.com/asciidoctor">Code</a></li><li class="divider"></li><li><a href="http://discuss.asciidoctor.org">Discuss</a></li><li class="divider"></li><li><a href="/docs/">Docs</a></li><li class="divider"></li><li class="has-form"><a class="button" href="/docs/asciidoc-writers-guide/">Get Writing!</a></li></ul></section></nav><div class="container"><h1>undefined method `attr?' for nil:NilClass</h1>
-<h2>Rendering file /home/travis/build/asciidoctor/asciidoctor.org/docs/asciidoctor-revealjs.adoc resulted in a failure.</h2>
-<p>Line: unknown</p>
-<p>Backtrace:</p>
-<pre>/home/travis/build/asciidoctor/asciidoctor.org/_layouts/docs.html.slim:22:in `block in singleton class'
-/home/travis/build/asciidoctor/asciidoctor.org/_layouts/docs.html.slim:1:in `instance_eval'
-/home/travis/build/asciidoctor/asciidoctor.org/_layouts/docs.html.slim:1:in `singleton class'
-/home/travis/build/asciidoctor/asciidoctor.org/_layouts/docs.html.slim:-1:in `__tilt_12242800'
-/home/travis/build/asciidoctor/asciidoctor.org/.bundle/gems/ruby/2.4.0/gems/tilt-2.0.2/lib/tilt/template.rb:164:in `call'
-/home/travis/build/asciidoctor/asciidoctor.org/.bundle/gems/ruby/2.4.0/gems/tilt-2.0.2/lib/tilt/template.rb:164:in `evaluate'
-/home/travis/build/asciidoctor/asciidoctor.org/.bundle/gems/ruby/2.4.0/gems/tilt-2.0.2/lib/tilt/template.rb:99:in `render'
-/home/travis/build/asciidoctor/asciidoctor.org/.bundle/gems/ruby/2.4.0/gems/awestruct-0.5.7/lib/awestruct/handlers/base_tilt_handler.rb:134:in `rendered_content'
-/home/travis/build/asciidoctor/asciidoctor.org/.bundle/gems/ruby/2.4.0/gems/awestruct-0.5.7/lib/awestruct/handlers/layout_handler.rb:47:in `rendered_content'
-/home/travis/build/asciidoctor/asciidoctor.org/.bundle/gems/ruby/2.4.0/gems/awestruct-0.5.7/lib/awestruct/page.rb:143:in `rendered_content'
-/home/travis/build/asciidoctor/asciidoctor.org/.bundle/gems/ruby/2.4.0/gems/awestruct-0.5.7/lib/awestruct/handlers/layout_handler.rb:55:in `block in rendered_content'
-/home/travis/build/asciidoctor/asciidoctor.org/.bundle/gems/ruby/2.4.0/gems/awestruct-0.5.7/lib/awestruct/handlers/layout_handler.rb:40:in `for_layout_chain'
-/home/travis/build/asciidoctor/asciidoctor.org/.bundle/gems/ruby/2.4.0/gems/awestruct-0.5.7/lib/awestruct/handlers/layout_handler.rb:51:in `rendered_content'
-/home/travis/build/asciidoctor/asciidoctor.org/.bundle/gems/ruby/2.4.0/gems/awestruct-0.5.7/lib/awestruct/page.rb:143:in `rendered_content'
-/home/travis/build/asciidoctor/asciidoctor.org/.bundle/gems/ruby/2.4.0/gems/awestruct-0.5.7/lib/awestruct/engine.rb:427:in `generate_page'
-/home/travis/build/asciidoctor/asciidoctor.org/.bundle/gems/ruby/2.4.0/gems/awestruct-0.5.7/lib/awestruct/engine.rb:403:in `block in generate_output'
-/home/travis/build/asciidoctor/asciidoctor.org/.bundle/gems/ruby/2.4.0/gems/parallel-1.12.1/lib/parallel.rb:484:in `call_with_index'
-/home/travis/build/asciidoctor/asciidoctor.org/.bundle/gems/ruby/2.4.0/gems/parallel-1.12.1/lib/parallel.rb:455:in `process_incoming_jobs'
-/home/travis/build/asciidoctor/asciidoctor.org/.bundle/gems/ruby/2.4.0/gems/parallel-1.12.1/lib/parallel.rb:437:in `block in worker'
-/home/travis/build/asciidoctor/asciidoctor.org/.bundle/gems/ruby/2.4.0/gems/parallel-1.12.1/lib/parallel.rb:428:in `fork'
-/home/travis/build/asciidoctor/asciidoctor.org/.bundle/gems/ruby/2.4.0/gems/parallel-1.12.1/lib/parallel.rb:428:in `worker'
-/home/travis/build/asciidoctor/asciidoctor.org/.bundle/gems/ruby/2.4.0/gems/parallel-1.12.1/lib/parallel.rb:419:in `block in create_workers'
-/home/travis/build/asciidoctor/asciidoctor.org/.bundle/gems/ruby/2.4.0/gems/parallel-1.12.1/lib/parallel.rb:418:in `each'
-/home/travis/build/asciidoctor/asciidoctor.org/.bundle/gems/ruby/2.4.0/gems/parallel-1.12.1/lib/parallel.rb:418:in `each_with_index'
-/home/travis/build/asciidoctor/asciidoctor.org/.bundle/gems/ruby/2.4.0/gems/parallel-1.12.1/lib/parallel.rb:418:in `create_workers'
-/home/travis/build/asciidoctor/asciidoctor.org/.bundle/gems/ruby/2.4.0/gems/parallel-1.12.1/lib/parallel.rb:358:in `work_in_processes'
-/home/travis/build/asciidoctor/asciidoctor.org/.bundle/gems/ruby/2.4.0/gems/parallel-1.12.1/lib/parallel.rb:264:in `map'
-/home/travis/build/asciidoctor/asciidoctor.org/.bundle/gems/ruby/2.4.0/gems/awestruct-0.5.7/lib/awestruct/engine.rb:401:in `generate_output'
-/home/travis/build/asciidoctor/asciidoctor.org/.bundle/gems/ruby/2.4.0/gems/awestruct-0.5.7/lib/awestruct/engine.rb:121:in `run'
-/home/travis/build/asciidoctor/asciidoctor.org/.bundle/gems/ruby/2.4.0/gems/awestruct-0.5.7/lib/awestruct/cli/generate.rb:22:in `run'
-/home/travis/build/asciidoctor/asciidoctor.org/.bundle/gems/ruby/2.4.0/gems/awestruct-0.5.7/lib/awestruct/cli/invoker.rb:150:in `invoke_generate'
-/home/travis/build/asciidoctor/asciidoctor.org/.bundle/gems/ruby/2.4.0/gems/awestruct-0.5.7/lib/awestruct/cli/invoker.rb:74:in `invoke!'
-/home/travis/build/asciidoctor/asciidoctor.org/.bundle/gems/ruby/2.4.0/gems/awestruct-0.5.7/bin/awestruct:9:in `<top (required)>'
-/home/travis/build/asciidoctor/asciidoctor.org/.bundle/gems/ruby/2.4.0/bin/awestruct:23:in `load'
-/home/travis/build/asciidoctor/asciidoctor.org/.bundle/gems/ruby/2.4.0/bin/awestruct:23:in `<top (required)>'
-/home/travis/.rvm/rubies/ruby-2.4.1/lib/ruby/site_ruby/2.4.0/bundler/cli/exec.rb:75:in `load'
-/home/travis/.rvm/rubies/ruby-2.4.1/lib/ruby/site_ruby/2.4.0/bundler/cli/exec.rb:75:in `kernel_load'
-/home/travis/.rvm/rubies/ruby-2.4.1/lib/ruby/site_ruby/2.4.0/bundler/cli/exec.rb:28:in `run'
-/home/travis/.rvm/rubies/ruby-2.4.1/lib/ruby/site_ruby/2.4.0/bundler/cli.rb:424:in `exec'
-/home/travis/.rvm/rubies/ruby-2.4.1/lib/ruby/site_ruby/2.4.0/bundler/vendor/thor/lib/thor/command.rb:27:in `run'
-/home/travis/.rvm/rubies/ruby-2.4.1/lib/ruby/site_ruby/2.4.0/bundler/vendor/thor/lib/thor/invocation.rb:126:in `invoke_command'
-/home/travis/.rvm/rubies/ruby-2.4.1/lib/ruby/site_ruby/2.4.0/bundler/vendor/thor/lib/thor.rb:387:in `dispatch'
-/home/travis/.rvm/rubies/ruby-2.4.1/lib/ruby/site_ruby/2.4.0/bundler/cli.rb:27:in `dispatch'
-/home/travis/.rvm/rubies/ruby-2.4.1/lib/ruby/site_ruby/2.4.0/bundler/vendor/thor/lib/thor/base.rb:466:in `start'
-/home/travis/.rvm/rubies/ruby-2.4.1/lib/ruby/site_ruby/2.4.0/bundler/cli.rb:18:in `start'
-/home/travis/.rvm/rubies/ruby-2.4.1/lib/ruby/gems/2.4.0/gems/bundler-1.16.0/exe/bundle:30:in `block in <top (required)>'
-/home/travis/.rvm/rubies/ruby-2.4.1/lib/ruby/site_ruby/2.4.0/bundler/friendly_errors.rb:122:in `with_friendly_errors'
-/home/travis/.rvm/rubies/ruby-2.4.1/lib/ruby/gems/2.4.0/gems/bundler-1.16.0/exe/bundle:22:in `<top (required)>'
-/home/travis/.rvm/gems/ruby-2.4.1/bin/bundle:23:in `load'
-/home/travis/.rvm/gems/ruby-2.4.1/bin/bundle:23:in `<main>'
-/home/travis/.rvm/gems/ruby-2.4.1/bin/ruby_executable_hooks:15:in `eval'
-/home/travis/.rvm/gems/ruby-2.4.1/bin/ruby_executable_hooks:15:in `<main>'</pre></div><footer><div class="row full-width"><div class="large-6 columns"><div class="row" style="margin-bottom: 1em"><div class="large-5 columns"><p><i class="fa fa-fw fa-download"></i> Download: <a class="rubygem" href="https://rubygems.org/gems/asciidoctor"><img src="https://img.shields.io/gem/v/asciidoctor.svg" alt="Asciidoctor gem version" style="margin-top: -2px"></a><br><i class="fa fa-fw fa-github"></i> Development: <a href="https://github.com/asciidoctor">GitHub</a><br><i class="fa fa-fw fa-group"></i> Discussions: <a href="http://discuss.asciidoctor.org">Nabble</a></p></div><div class="large-7 columns"><p><i class="fa fa-fw fa-comments"></i> Chat: <a href="https://gitter.im/asciidoctor/asciidoctor">Gitter</a><br><i class="fa fa-fw fa-twitter"></i> Twitter: <a class="twitter" href="https://twitter.com/asciidoctor">@asciidoctor</a><br><i class="fa fa-fw fa-google-plus-sign"></i> Google+: <a href="https://plus.google.com/116431294697916948181" rel="publisher">Asciidoctor</a></p></div></div></div><div class="large-6 large-text-right columns"><p style="margin-bottom: 1em">Thanks to our <a href="/supporters/">supporters</a> and <a href="/contributors/">contributors</a>!</p><p>Composed in AsciiDoc. Styled by Foundation. Baked with Awestruct.<br>&copy; Asciidoctor Project 2017. Content licensed under CC BY 3.0.</p></div></div></footer><script>document.write('<script src=' + ('__proto__' in {} ? '/javascripts/vendor/zepto' : '/javascripts/vendor/jquery') + '.js><\/script>')</script><script>$('.toggle-navigation').click(function() { $('.navigation').toggle(); $('.content').toggleClass('large-8'); $('.content').toggleClass('large-12'); $('.toolbar').toggleClass('off'); });</script><script src="/javascripts/foundation/foundation.js"></script><script src="/javascripts/foundation/foundation.topbar.js"></script><script>$(document).foundation();</script><script>!function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m);}(window,document,'script','//www.google-analytics.com/analytics.js','ga'),ga('create','UA-38215684-1','auto'),ga('send','pageview');</script></body></html>
+<!DOCTYPE html><!--[if IE 8]><html class="no-js lt-ie9" lang="en"><![endif]--><!--[if gt IE 8]><!--><html class="no-js" lang="en"><!--<![endif]--><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><link rel="stylesheet" href="/stylesheets/styles.css"><script src="/javascripts/vendor/custom.modernizr.js"></script><title>Asciidoctor Reveal.js | Asciidoctor</title><meta name="keywords" content="Asciidoctor Reveal.js, AsciiDoc, Asciidoctor, reveal.js, slides"><link rel="author" href="/humans.txt"></head><body class="antialiased"><nav class="top-bar"><ul class="title-area"><li class="name"><h1><a href="/">Asciidoctor</a></h1></li><li class="toggle-topbar menu-icon"><a href="#"><span></span></a></li></ul><section class="top-bar-section"><ul class="right"><li><a href="/">About</a></li><li class="divider"></li><li><a href="/news/">News</a></li><li class="divider"></li><li><a href="http://gist.asciidoctor.org">Gist</a></li><li class="divider"></li><li><a href="https://github.com/asciidoctor">Code</a></li><li class="divider"></li><li><a href="http://discuss.asciidoctor.org">Discuss</a></li><li class="divider"></li><li><a href="/docs/">Docs</a></li><li class="divider"></li><li class="has-form"><a class="button" href="/docs/asciidoc-writers-guide/">Get Writing!</a></li></ul></section></nav><div class="container"><header><div class="row"><div class="large-12 columns"><h1>Asciidoctor Reveal.js</h1></div></div></header><div class="row"><div class="large-4 columns"><ul class="button-group toolbar" style="margin-bottom: -0.3333em"><li><a class="tiny secondary button toggle-navigation" href="#"><i class="fa fa-toggle-on"></i><i class="fa fa-toggle-off"></i> Nav</a></li><li><span class="separator"></span></li><li><a class="tiny secondary button" href="https://github.com/asciidoctor/asciidoctor.org/edit/master/docs/asciidoctor-revealjs.adoc">Edit</a></li><li><a class="tiny secondary button" href="https://github.com/asciidoctor/asciidoctor.org/raw/master/docs/asciidoctor-revealjs.adoc">Raw</a></li><li><a class="tiny secondary button" href="https://github.com/asciidoctor/asciidoctor.org/commits/master/docs/asciidoctor-revealjs.adoc">History</a></li><li><a href="https://github.com/asciidoctor/asciidoctor-reveal.js" title="Project Repository"><i class="fa fa-github fa-fw"></i></a></li></ul></div></div><div class="row"><div class="large-4 columns secondary navigation"><div id="toc" class="toc"><div class="title" id="toctitle">Table of Contents</div><ul class="sectlevel1">
+<li><a href="#ruby-setup">Ruby Setup</a>
+<ul class="sectlevel2">
+<li><a href="#prerequisites">Prerequisites</a></li>
+<li><a href="#install">Install</a></li>
+<li><a href="#rendering-the-asciidoc-into-slides">Rendering the AsciiDoc into slides</a></li>
+</ul>
+</li>
+<li><a href="#node-javascript-setup">Node / JavaScript Setup</a>
+<ul class="sectlevel2">
+<li><a href="#prerequisites-2">Prerequisites</a></li>
+<li><a href="#install-2">Install</a></li>
+<li><a href="#rendering-the-asciidoc-into-slides-2">Rendering the AsciiDoc into slides</a></li>
+</ul>
+</li>
+<li><a href="#syntax-examples">Syntax Examples</a>
+<ul class="sectlevel2">
+<li><a href="#basic-presentation-with-speaker-notes">Basic presentation with speaker notes</a></li>
+<li><a href="#slides-without-titles">Slides without titles</a></li>
+</ul>
+</li>
+<li><a href="#slide-three">Slide Three</a></li>
+<li><a href="#grand-announcement">Grand Announcement</a></li>
+<li><a href="#the-great-goat">The Great Goat</a></li>
+<li><a href="#nice-background">Nice background!</a></li>
+<li><a href="#nice-background-2">Nice background!</a></li>
+<li><a href="#a-youtube-video">a youtube video</a></li>
+<li><a href="#zoom-zoom">Zoom zoom</a></li>
+<li><a href="#speed">Speed</a></li>
+<li><a href="#slide-four">Slide Four</a></li>
+<li><a href="#trains-we-love-trains">Trains, we love trains!</a></li>
+<li><a href="#title-slide">Title slide</a></li>
+<li><a href="#title-slide-2">Title slide</a>
+<ul class="sectlevel2">
+<li><a href="#content-meant-for-multiple-converters">Content meant for multiple converters</a></li>
+<li><a href="#css-override">CSS override</a></li>
+<li><a href="#slide-state">Slide state</a></li>
+<li><a href="#admonitions">Admonitions</a></li>
+<li><a href="#reveal-js-options">Reveal.js Options</a></li>
+<li><a href="#minimum-requirements">Minimum Requirements</a></li>
+<li><a href="#copyright-and-licensing">Copyright and Licensing</a></li>
+<li><a href="#stay-connected">Stay Connected</a></li>
+</ul>
+</li>
+</ul></div></div><div class="large-8 columns content"><div id="content"><div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p><a href="https://github.com/asciidoctor/asciidoctor-reveal.js">Asciidoctor reveal.js</a> is a converter for <a href="https://github.com/asciidoctor/asciidoctor">Asciidoctor</a> and <a href="https://github.com/asciidoctor/asciidoctor.js">Asciidoctor.js</a> that transforms an AsciiDoc document into an HTML5 presentation designed to be executed by the <a href="http://lab.hakim.se/reveal-js/">reveal.js</a> presentation framework.</p>
+</div>
+<div class="paragraph">
+<p>There are two main technology stacks that can transform AsciiDoc into HTML5 / reveal.js:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Asciidoctor / Ruby / Bundler (See <a href="#ruby-setup">Ruby Setup</a>)</p>
+</li>
+<li>
+<p>Asciidoctor.js / JavaScript (Node.js) / NPM (See <a href="#node-javascript-setup">Node / JavaScript Setup</a>)</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Right now the Asciidoctor / Ruby stack is the better tested one but with the changes in v1.1.0 they have feature parity.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="ruby-setup"><a class="anchor" href="#ruby-setup"></a>Ruby Setup</h2>
+<div class="sectionbody">
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+asciidoctor-reveal.js is now a Ruby Gem.
+To ensure repeatability, we recommend that you manage your presentation projects using bundler.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>For a quick start clone our <a href="https://github.com/obilodeau/presentation-revealjs-starter">starter repository</a> and follow instructions there.</p>
+</div>
+<div class="paragraph">
+<p>For more complete instructions, read on.</p>
+</div>
+<div class="sect2">
+<h3 id="prerequisites"><a class="anchor" href="#prerequisites"></a>Prerequisites</h3>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Install <a href="http://bundler.io/">bundler</a> (if not already installed)  using your system&#8217;s package manager or with:</p>
+<div class="literalblock">
+<div class="content">
+<pre class="nowrap">$ gem install bundler</pre>
+</div>
+</div>
+</li>
+<li>
+<p>If you&#8217;re using RVM, make sure you switch away from any gemset:</p>
+<div class="literalblock">
+<div class="content">
+<pre class="nowrap">$ rvm use default</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>or</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre class="nowrap">$ rvm use system</pre>
+</div>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect2">
+<h3 id="install"><a class="anchor" href="#install"></a>Install</h3>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+These instructions should be repeated for every presentation project.
+</td>
+</tr>
+</table>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Create project directory</p>
+<div class="literalblock">
+<div class="content">
+<pre class="nowrap">$ mkdir my-awesome-presentation
+$ cd my-awesome-presentation</pre>
+</div>
+</div>
+</li>
+<li>
+<p>Create a file named <code>Gemfile</code> with the following content:</p>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight nowrap"><code data-lang="ruby">source <span class="string"><span class="delimiter">'</span><span class="content">https://rubygems.org</span><span class="delimiter">'</span></span>
+
+gem <span class="string"><span class="delimiter">'</span><span class="content">asciidoctor-revealjs</span><span class="delimiter">'</span></span> <span class="comment"># latest released version</span></code></pre>
+</div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+For some reason, when you use the system Ruby on Fedora, you also have to add the json gem to the Gemfile.
+</td>
+</tr>
+</table>
+</div>
+</li>
+<li>
+<p>Install the gems into the project</p>
+<div class="literalblock">
+<div class="content">
+<pre class="nowrap">$ bundle config --local github.https true
+$ bundle --path=.bundle/gems --binstubs=.bundle/.bin</pre>
+</div>
+</div>
+</li>
+<li>
+<p>Optional: Copy or clone reveal.js presentation framework.
+Allows you to modify themes or view slides offline.</p>
+<div class="literalblock">
+<div class="content">
+<pre class="nowrap">$ git clone -b 3.6.0 --depth 1 https://github.com/hakimel/reveal.js.git</pre>
+</div>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect2">
+<h3 id="rendering-the-asciidoc-into-slides"><a class="anchor" href="#rendering-the-asciidoc-into-slides"></a>Rendering the AsciiDoc into slides</h3>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Create content in a file (*.adoc, *.ad, etc.).
+See examples in <a href="#syntax-examples">Syntax Examples</a> section to get started.</p>
+</li>
+<li>
+<p>Generate HTML presentation from the AsciiDoc source</p>
+<div class="literalblock">
+<div class="content">
+<pre class="nowrap">$ bundle exec asciidoctor-revealjs CONTENT_FILE.adoc</pre>
+</div>
+</div>
+</li>
+</ol>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+If you are using <a href="https://pages.github.com/">GitHub Pages</a>, plan ahead by keeping your source files on <code>master</code> branch and all output files on the <code>gh-pages</code> branch.
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="node-javascript-setup"><a class="anchor" href="#node-javascript-setup"></a>Node / JavaScript Setup</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="prerequisites-2"><a class="anchor" href="#prerequisites-2"></a>Prerequisites</h3>
+<div class="paragraph">
+<p>First you must install and configure <a href="https://nodejs.org/en/download/">Node.js</a> on your machine.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="install-2"><a class="anchor" href="#install-2"></a>Install</h3>
+<div class="paragraph">
+<p>Using npm:</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre class="nowrap">$ npm i --save asciidoctor-reveal.js</pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="rendering-the-asciidoc-into-slides-2"><a class="anchor" href="#rendering-the-asciidoc-into-slides-2"></a>Rendering the AsciiDoc into slides</h3>
+<div class="paragraph">
+<p>Once the package is installed, you can convert AsciiDoc files using reveal.js converter.
+Here we are converting a file named <code>presentation.adoc</code> into a reveal.js presentation using Node.js:</p>
+</div>
+<div class="listingblock">
+<div class="title">asciidoctor-revealjs.js</div>
+<div class="content">
+<pre class="CodeRay highlight nowrap"><code data-lang="javascript"><span class="comment">// Load asciidoctor.js and asciidoctor-reveal.js</span>
+<span class="keyword">var</span> asciidoctor = require(<span class="string"><span class="delimiter">'</span><span class="content">asciidoctor.js</span><span class="delimiter">'</span></span>)();
+require(<span class="string"><span class="delimiter">'</span><span class="content">asciidoctor-reveal.js</span><span class="delimiter">'</span></span>);
+
+<span class="comment">// Convert the document 'presentation.adoc' using the reveal.js converter</span>
+<span class="keyword">var</span> attributes = {<span class="key"><span class="delimiter">'</span><span class="content">revealjsdir</span><span class="delimiter">'</span></span>: <span class="string"><span class="delimiter">'</span><span class="content">node_modules/reveal.js@</span><span class="delimiter">'</span></span>};
+<span class="keyword">var</span> options = {<span class="key">safe</span>: <span class="string"><span class="delimiter">'</span><span class="content">safe</span><span class="delimiter">'</span></span>, <span class="key">backend</span>: <span class="string"><span class="delimiter">'</span><span class="content">revealjs</span><span class="delimiter">'</span></span>, <span class="key">attributes</span>: attributes};
+asciidoctor.convertFile(<span class="string"><span class="delimiter">'</span><span class="content">presentation.adoc</span><span class="delimiter">'</span></span>, options); <i class="conum" data-value="1"></i><b>(1)</b></code></pre>
+</div>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><i class="conum" data-value="1"></i><b>1</b></td>
+<td>Creates a file named <code>presentation.html</code> (in the directory where command is run)</td>
+</tr>
+</table>
+</div>
+<div class="listingblock">
+<div class="title">presentation.adoc</div>
+<div class="content">
+<pre class="CodeRay highlight nowrap"><code data-lang="asciidoc">= Title Slide
+// depending on your npm version, you might need to override the default
+// 'revealjsdir' value by removing the comments from the line below:
+//:revealjsdir: node_modules/asciidoctor-reveal.js/node_modules/reveal.js
+
+== Slide One
+
+* Foo
+* Bar
+* World</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>To render the slides, run:</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre class="nowrap">node asciidoctor-revealjs.js</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>You can open the <code>presentation.html</code> file in your browser and enjoy!</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="syntax-examples"><a class="anchor" href="#syntax-examples"></a>Syntax Examples</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Let&#8217;s see some examples of <code>revealjs</code> backend features.
+Additional examples can be found in the AsciiDoc files (.adoc) in <code>examples/</code>.</p>
+</div>
+<div class="sect2">
+<h3 id="basic-presentation-with-speaker-notes"><a class="anchor" href="#basic-presentation-with-speaker-notes"></a>Basic presentation with speaker notes</h3>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight nowrap"><code data-lang="asciidoc">= Title Slide
+
+== Slide One
+
+* Foo
+* Bar
+* World
+
+== Slide Two
+
+Hello World - Good Bye Cruel World
+
+[NOTE.speaker]
+--
+Actually things aren't that bad
+--</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>In previous snippet we are creating a slide titled Slide One with bullets and another one titled Slide Two with centered text (reveal.js&#8217; default behavior) with <a href="https://github.com/hakimel/reveal.js#speaker-notes">speaker notes</a>.</p>
+</div>
+<div class="paragraph">
+<p>Starting with Reveal.js 3.5 speaker notes supports configurable layouts:
+<span class="image"><img src="https://cloud.githubusercontent.com/assets/629429/21808439/b941eb52-d743-11e6-9936-44ef80c60580.gif" alt="b941eb52 d743 11e6 9936 44ef80c60580"></span></p>
+</div>
+<div class="paragraph">
+<p>Speaker notes are opened by pressing <code>s</code>.
+With Reveal.js 3.5 they require a webserver to work.
+This limitation is not present in 3.6.
+You can get a Web server running quickly with:</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre class="nowrap">ruby -run -e httpd . -p 5000 -b 127.0.0.1</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Then open your browser at: <a href="http://localhost:5000/" class="bare">http://localhost:5000/</a></p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="slides-without-titles"><a class="anchor" href="#slides-without-titles"></a>Slides without titles</h3>
+<div class="paragraph">
+<p>There are a few ways to have no titles on slides.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Setting your title to <code>!</code></p>
+</li>
+<li>
+<p>Adding the <code>notitle</code> option to your slide</p>
+</li>
+<li>
+<p>Adding the <code>conceal</code> option to your slide</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Here is an example of the three techniques in action:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight nowrap"><code data-lang="asciidoc">Unresolved directive in https://cdn.rawgit.com/asciidoctor/asciidoctor-reveal.js/v1.1.0/README.adoc - include::test/concealed-slide-titles.adoc[]
+
+NOTE: `conceal` and `notitle` have the advantage that the slide still has an id so it can be linked to.
+
+
+=== Background colors
+
+[source, asciidoc]</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="slide-three"><a class="anchor" href="#slide-three"></a>Slide Three</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Is very yellow</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="nowrap">Slide Three applies the attribute {uri-revealjs-gh}#slide-backgrounds[data-background-color] to the `reveal.js` &lt;section&gt; tag.
+Anything accepted by CSS color formats works.
+
+
+=== Background images
+
+[source, asciidoc]</pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="grand-announcement"><a class="anchor" href="#grand-announcement"></a>Grand Announcement</h2>
+<div class="sectionbody">
+<div class="imageblock">
+<div class="content">
+<img src="/images/cover.jpg" alt="background">
+</div>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="nowrap">This will put `cover.jpg` as the slide's background image.
+It sets reveal.js`' `data-background-image` attribute.
+The `size` attribute is also supported.
+See the {uri-revealjs-gh}#image-backgrounds[relevant reveal.js documentation] for details.
+
+NOTE: Background images file names are now relative to the `:imagedir:` attribute if set.
+
+NOTE: The `canvas` keyword can be used instead of `background` for the same effect.
+
+[source, asciidoc]</pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="the-great-goat"><a class="anchor" href="#the-great-goat"></a>The Great Goat</h2>
+<div class="sectionbody">
+<div class="imageblock">
+<div class="content">
+<img src="https://upload.wikimedia.org/wikipedia/commons/b/b2/Hausziege_04.jpg" alt="canvas">
+</div>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="nowrap">As you can see, you can use a URL to specify your image resource too.
+
+
+[#background_videos]
+=== Background videos
+
+A background video for a slide can be specified using the `background-video` element attribute.
+
+[source, asciidoc]</pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="nice-background"><a class="anchor" href="#nice-background"></a>Nice background!</h2>
+<div class="sectionbody">
+<div class="listingblock">
+<div class="content">
+<pre class="nowrap">For convenience `background-video-loop` and `background-video-muted` attributes are mapped to `loop` and `muted` options which can be specified with `options="loop,muted"`.
+
+For example:
+
+[source, asciidoc]</pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="nice-background-2"><a class="anchor" href="#nice-background-2"></a>Nice background!</h2>
+<div class="sectionbody">
+<div class="listingblock">
+<div class="content">
+<pre class="nowrap">See {uri-revealjs-gh}#video-backgrounds[the relevant reveal.js documentation] for details.
+Note that the `data-` prefix is not required in asciidoc files.
+
+
+=== Background iframes
+
+The background can be replaced with anything a browser can render in an iframe using the `background-iframe` reveal.js feature.
+
+[source, asciidoc]</pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="a-youtube-video"><a class="anchor" href="#a-youtube-video"></a>a youtube video</h2>
+<div class="sectionbody">
+<div class="listingblock">
+<div class="content">
+<pre class="nowrap">See {uri-revealjs-gh}#iframe-backgrounds[the relevant reveal.js documentation] for details.
+
+
+=== Slide Transitions
+
+[source, asciidoc]</pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="zoom-zoom"><a class="anchor" href="#zoom-zoom"></a>Zoom zoom</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>This slide will override the presentation transition and zoom!</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="speed"><a class="anchor" href="#speed"></a>Speed</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Choose from three transition speeds: default, fast or slow!</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="nowrap">See {uri-revealjs-gh}#slide-transitions[the relevant reveal.js documentation] for details.
+
+
+=== Fragments
+
+[source, asciidoc]</pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="slide-four"><a class="anchor" href="#slide-four"></a>Slide Four</h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p>this</p>
+</li>
+<li>
+<p>is</p>
+</li>
+<li>
+<p>revealed</p>
+</li>
+<li>
+<p>gradually</p>
+</li>
+</ul>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="nowrap">Slide Four has bullets that are revealed one after the other.
+This is what `reveal.js` calls http://lab.hakim.se/reveal-js/#/fragments[fragments].
+Applying the step option or role on a list (`[%step]` or `[.step]`) will do the trick.
+Here is {uri-revealjs-gh}#fragments[the relevant reveal.js
+documentation] on the topic.
+Note that only `fade-in` is supported for lists at the moment.
+
+
+=== Stretch class attribute
+
+Reveal.js supports a special class that will give all available screen space to an HTML node.
+This class element is named `stretch`.
+
+Sometimes it's desirable to have an element, like an image or video, stretch to consume as much space as possible within a given slide.
+
+To apply that class to block simply use asciidoctor's class assignment:
+
+    [.stretch]
+
+See {uri-revealjs-gh}#stretching-elements[reveal.js documentation on stretching elements].
+
+
+=== Videos
+
+In addition to &lt;&lt;Background videos,background videos&gt;&gt;, videos can be inserted directly into slides.
+The syntax is the standard http://asciidoctor.org/docs/user-manual/#video[asciidoc video block macro] syntax.
+
+[source, asciidoc]</pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="trains-we-love-trains"><a class="anchor" href="#trains-we-love-trains"></a>Trains, we love trains!</h2>
+<div class="sectionbody">
+<div class="videoblock">
+<div class="content">
+<iframe src="https://www.youtube.com/embed/kZH9JtPBq7k?rel=0&amp;start=34&amp;autoplay=1" frameborder="0" allowfullscreen></iframe>
+</div>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="nowrap">By default videos are given as much space as possible.
+To override that behavior use the `width` and `height` named attributes.
+
+
+=== Syntax highlighting
+
+[source, asciidoc]
+....
+== Slide Five
+
+Uses highlighted code
+
+[source, python]</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>print "Hello World"</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="nowrap">....
+
+`revealjs` uses https://highlightjs.org/[highlight.js] to do its syntax highlighting by default.
+By default `[source]` blocks and blocks delimited by `----` will be highlighted.
+An explicit `[listing]` block will not be highlighted.
+`highlight.js` does language auto-detection but using the `language="..."` attribute will hint the highlighter.
+For example this will highlight this source code as Perl:
+
+[source, asciidoc]
+....
+== Slide Five
+
+[source,perl]</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>print "$0: hello world\n"</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="nowrap">....
+
+[NOTE]
+Currently `revealjs` uses a rather old version of https://highlightjs.org/[highlight.js] that does not handle callouts correctly.
+To fix this download a current version of https://highlightjs.org/[highlight.js] and copy it to `reveal.js/plugin/highlight/highlight.js`.
+
+Alternatively, you can use http://coderay.rubychan.de[Coderay] or http://pygments.org[Pygments] as the highlighter.
+These handle callouts correctly.
+
+To use http://coderay.rubychan.de[Coderay]:
+
+[source, asciidoc]</pre>
+</div>
+</div>
+</div>
+</div>
+<h1 id="title-slide" class="sect0"><a class="anchor" href="#title-slide"></a>Title slide</h1>
+<div class="listingblock">
+<div class="content">
+<pre class="nowrap">To use http://pygments.org[Pygments]:
+
+[source, asciidoc]</pre>
+</div>
+</div>
+<h1 id="title-slide-2" class="sect0"><a class="anchor" href="#title-slide-2"></a>Title slide</h1>
+<div class="listingblock">
+<div class="content">
+<pre class="nowrap">=== Vertical slides
+
+[source, asciidoc]
+....
+== Slide Six
+
+Top slide
+
+=== Slide Six.One
+
+This is a vertical subslide
+....
+
+Slide Six uses the vertical slide feature of `reveal.js`.
+Slide Six.One will be rendered vertically below Slide Six.
+Here is {uri-revealjs-gh}#markup[the relevant reveal.js
+documentation] on that topic.
+
+
+
+=== Title slide customization
+
+The title slide is customized via Asciidoc attributes.
+These are the global variable assigned at the top of a document under the lead
+title that look like this: `:name: value`.
+
+This converter supports changing the color, image, video, iframe and
+transitions of the title slide.
+
+Read {uri-revealjs-gh}#slide-backgrounds[the relevant
+reveal.js documentation] to understand what attributes need to be set.
+Keep in mind that for title slides you must replace `data-` with
+`title-slide-`.
+
+Here is an example:
+
+[source, asciidoc]</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Unresolved directive in <a href="https://cdn.rawgit.com/asciidoctor/asciidoctor-reveal.js/v1.1.0/README.adoc" class="bare">https://cdn.rawgit.com/asciidoctor/asciidoctor-reveal.js/v1.1.0/README.adoc</a> - include::test/title-slide-image.adoc[]</p>
+</div>
+<div class="paragraph">
+<p>The title slide is also added a <code>title</code> CSS class to help with template
+customization.</p>
+</div>
+<div class="sect2">
+<h3 id="content-meant-for-multiple-converters"><a class="anchor" href="#content-meant-for-multiple-converters"></a>Content meant for multiple converters</h3>
+<div class="paragraph">
+<p>Some content can be created with both slides and book in mind.</p>
+</div>
+<div class="paragraph">
+<p>To mark slides split points you can use preprocessor conditionals combined
+with a backend declaration.
+Breaking points are set using slides with no title <code>=== !</code> wrapped in a
+conditional: <code>ifdef::backend-revealjs[=== !]</code>.
+In the end, the whole document has to be compiled with the backend option:
+<code>-b revealjs</code></p>
+</div>
+<div class="paragraph">
+<p>For example:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight nowrap"><code data-lang="asciidoc">== Main section
+
+=== Sub Section
+
+Small +
+Multiline +
+intro
+
+. very
+. long
+. list
+. of
+. items
+
+ifdef::backend-revealjs[=== !]
+
+Some overview diagram
+
+ifdef::backend-revealjs[=== !]
+
+Detailed view diagram</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="css-override"><a class="anchor" href="#css-override"></a>CSS override</h3>
+<div class="paragraph">
+<p>If you use the <code>:customcss:</code> document attribute, a CSS file of the name given in the attribute is added to the list of CSS resources loaded by the rendered HTML.
+Doing so, you can then easily override specific elements of your theme per presentation.</p>
+</div>
+<div class="paragraph">
+<p>For example, to do proper position-independent text placement of a title slide with a specific background you can use:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight nowrap"><code data-lang="css"><span class="class">.reveal</span> <span class="tag">section</span><span class="class">.title</span> <span class="tag">h1</span> {
+    <span class="key">margin-top</span>: <span class="float">2.3em</span>;
+}
+
+<span class="class">.reveal</span> <span class="tag">section</span><span class="class">.title</span> <span class="tag">small</span> {
+    <span class="key">margin-top</span>: <span class="float">15.3em</span>;
+    <span class="key">font-weight</span>: <span class="value">bold</span>;
+    <span class="key">color</span>: <span class="value">white</span>;
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>If the <code>:customcss:</code> attribute value is empty then <code>asciidoctor-revealjs.css</code> is the CSS resource that the presentation is linked to.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="slide-state"><a class="anchor" href="#slide-state"></a>Slide state</h3>
+<div class="paragraph">
+<p>Reveal.js supports a <a href="https://github.com/hakimel/reveal.js#slide-states">data-state</a> tag that can be added on slides which gets rendered into <code>&lt;section&gt;</code> tags.
+In AsciiDoc the <code>data-state</code> can be applied to a slide by adding a state attribute to a section like this:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight nowrap"><code data-lang="asciidoc">[state=topic]
+== Epic Topic</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>That state can be queried from Javascript or used in CSS to apply further customization to your slide deck.
+For example, by combining this feature with the <a href="#css-override">CSS override</a> one, you can alter fonts for specific pages with this CSS:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight nowrap"><code data-lang="css"><span class="directive">@import</span> <span class="string"><span class="delimiter">'</span><span class="content">https://fonts.googleapis.com/css?family=Baloo+Bhai</span><span class="delimiter">'</span></span>;
+
+<span class="tag">section</span>[<span class="attribute-name">data-state=&quot;topic&quot;</span>] <span class="tag">h2</span> {
+    <span class="key">font-family</span>: <span class="string"><span class="delimiter">'</span><span class="content">Baloo Bhai</span><span class="delimiter">'</span></span>, <span class="value">cursive</span>;
+    <span class="key">font-size</span>: <span class="float">4em</span>;
+}</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="admonitions"><a class="anchor" href="#admonitions"></a>Admonitions</h3>
+<div class="paragraph">
+<p>Asciidoctor font-based <a href="http://asciidoctor.org/docs/user-manual/#admonition">admonitions</a> are supported.
+Make sure to add the following attribute to your document:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight nowrap"><code data-lang="asciidoc">:icons: font</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Here is an example slide:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight nowrap"><code data-lang="asciidoc">== But first
+
+WARNING: This presentation is dangerous!</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Here are details about Asciidoctor&#8217;s <a href="http://asciidoctor.org/docs/user-manual/#admonition-icons">Admonition icons</a> support.</p>
+</div>
+</div>
+<div class="sect1">
+<h2 id="reveal-js-options"><a class="anchor" href="#reveal-js-options"></a>Reveal.js Options</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>There are some attributes that can be set at the top of the document which they are specific of <code>revealjs</code> converter.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+Default settings are based on <code>reveal.js</code> default settings.
+</td>
+</tr>
+</table>
+</div>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 25%;">
+<col style="width: 25%;">
+<col style="width: 50%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Attribute</th>
+<th class="tableblock halign-left valign-top">Value(s)</th>
+<th class="tableblock halign-left valign-top">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>:revealjs_theme:</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">beige, <strong>black</strong>, league, night, serif, simple, sky, solarized, white</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Chooses one of reveal.js&#8217; <a href="https://github.com/hakimel/reveal.js#theming">built-in themes</a>.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>:revealjs_customtheme:</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">&lt;file|URL&gt;</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Overrides CSS with given file or URL.
+Default is disabled.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>:highlightjs-theme:</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">&lt;file|URL&gt;</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Overrides <a href="https://highlightjs.org">highlight.js</a> CSS style with given file or URL.
+Default is built-in <em class="path">lib/css/zenburn.css</em>.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>:revealjsdir:</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">&lt;file|URL&gt;</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Overrides reveal.js directory.
+Example: ../reveal.js or
+<a href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.3.0" class="bare">https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.3.0</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>:revealjs_controls:</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>true</strong>, false</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Display controls in the bottom right corner.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>:revealjs_progress:</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>true</strong>, false</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Display a presentation progress bar.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>:revealjs_slideNumber:</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">true, <strong>false</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Display the page number of the current slide.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>:revealjs_history:</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">true, <strong>false</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Push each slide change to the browser history.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>:revealjs_keyboard:</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>true</strong>, false</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Enable keyboard shortcuts for navigation.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>:revealjs_overview:</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>true</strong>, false</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Enable the slide overview mode.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>:revealjs_touch:</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>true</strong>, false</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Enables touch navigation on devices with touch input.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>:revealjs_center:</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>true</strong>, false</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Vertical centering of slides.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>:revealjs_loop:</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">true, <strong>false</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Loop the presentation.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>:revealjs_rtl:</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">true, <strong>false</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Change the presentation direction to be RTL.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>:revealjs_fragments:</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>true</strong>, false</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Turns fragments on and off globally.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>:revealjs_embedded:</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">true, <strong>false</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Flags if the presentation is running in an embedded mode (i.e., contained within a limited portion of the screen).</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>:revealjs_autoSlide:</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">&lt;integer&gt;</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Delay in milliseconds between automatically proceeding to the next slide.
+Disabled when set to <strong>0</strong> (the default).
+This value can be overwritten by using a <code>data-autoslide</code> attribute on your slides.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>:revealjs_autoSlideStoppable:</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>true</strong>, false</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Stop auto-sliding after user input.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>:revealjs_mouseWheel:</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">true, <strong>false</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Enable slide navigation via mouse wheel.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>:revealjs_hideAddressBar:</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>true</strong>, false</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Hides the address bar on mobile devices.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>:revealjs_previewLinks:</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">true, <strong>false</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Opens links in an iframe preview overlay.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>:revealjs_transition:</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">none, fade, <strong>slide</strong>, convex, concave, zoom</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Transition style.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>:revealjs_transitionSpeed:</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>default</strong>, fast, slow</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Transition speed.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>:revealjs_backgroundTransition:</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">none, <strong>fade</strong>, slide, convex, concave, zoom</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Transition style for full page slide backgrounds.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>:revealjs_viewDistance:</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">&lt;integer&gt;</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Number of slides away from the current that are visible. Default: 3</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>:revealjs_parallaxBackgroundImage:</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">&lt;file|URL&gt;</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Parallax background image.
+Defaults to none</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>:revealjs_parallaxBackgroundSize:</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">&lt;CSS size syntax&gt;</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Parallax background size (accepts any CSS syntax).
+Defaults to none</p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>If you want to build a custom theme or customize an existing one you should
+look at the
+<a href="https://github.com/hakimel/reveal.js/blob/master/css/theme/README.md">reveal.js
+theme documentation</a> and use the <code>revealjs_customtheme</code> AsciiDoc attribute to
+activate it.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="minimum-requirements"><a class="anchor" href="#minimum-requirements"></a>Minimum Requirements</h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p>asciidoctor 1.5.6</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="copyright-and-licensing"><a class="anchor" href="#copyright-and-licensing"></a>Copyright and Licensing</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Copyright &#169; 2012-2017 Olivier Bilodeau, Guillaume Grossetie, Dan Allen, Rahman Usta, Charles Moulliard and the Asciidoctor Project.
+Free use of this software is granted under the terms of the MIT License.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="stay-connected"><a class="anchor" href="#stay-connected"></a>Stay Connected</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>If you encounter a bug or need additional reveal.js features ported to this converter, visit the <a href="https://github.com/asciidoctor/asciidoctor-reveal.js/issues">issue tracker</a> and file an issue.</p>
+</div>
+<div class="paragraph">
+<p>If you have questions or would like to help develop this project, please join the <a href="http://discuss.asciidoctor.org">Asciidoctor discussion list</a>.</p>
+</div>
+</div>
+</div></div></div></div></div><footer><div class="row full-width"><div class="large-6 columns"><div class="row" style="margin-bottom: 1em"><div class="large-5 columns"><p><i class="fa fa-fw fa-download"></i> Download: <a class="rubygem" href="https://rubygems.org/gems/asciidoctor"><img src="https://img.shields.io/gem/v/asciidoctor.svg" alt="Asciidoctor gem version" style="margin-top: -2px"></a><br><i class="fa fa-fw fa-github"></i> Development: <a href="https://github.com/asciidoctor">GitHub</a><br><i class="fa fa-fw fa-group"></i> Discussions: <a href="http://discuss.asciidoctor.org">Nabble</a></p></div><div class="large-7 columns"><p><i class="fa fa-fw fa-comments"></i> Chat: <a href="https://gitter.im/asciidoctor/asciidoctor">Gitter</a><br><i class="fa fa-fw fa-twitter"></i> Twitter: <a class="twitter" href="https://twitter.com/asciidoctor">@asciidoctor</a><br><i class="fa fa-fw fa-google-plus-sign"></i> Google+: <a href="https://plus.google.com/116431294697916948181" rel="publisher">Asciidoctor</a></p></div></div></div><div class="large-6 large-text-right columns"><p style="margin-bottom: 1em">Thanks to our <a href="/supporters/">supporters</a> and <a href="/contributors/">contributors</a>!</p><p>Composed in AsciiDoc. Styled by Foundation. Baked with Awestruct.<br>&copy; Asciidoctor Project 2018. Content licensed under CC BY 3.0.</p></div></div></footer><script>document.write('<script src=' + ('__proto__' in {} ? '/javascripts/vendor/zepto' : '/javascripts/vendor/jquery') + '.js><\/script>')</script><script>$('.toggle-navigation').click(function() { $('.navigation').toggle(); $('.content').toggleClass('large-8'); $('.content').toggleClass('large-12'); $('.toolbar').toggleClass('off'); });</script><script src="/javascripts/foundation/foundation.js"></script><script src="/javascripts/foundation/foundation.topbar.js"></script><script>$(document).foundation();</script><script>!function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m);}(window,document,'script','//www.google-analytics.com/analytics.js','ga'),ga('create','UA-38215684-1','auto'),ga('send','pageview');</script></body></html>
