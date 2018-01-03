@@ -9173,15 +9173,15 @@ These components, listed and defined below, are all optional.</p>
 <div class="content">
 <pre class="nowrap">[cols="3"]
 |===
-^|Prefix the +{vbar}+ with +{caret}+ to center content horizontally
-&lt;|Prefix the +{vbar}+ with `&lt;` to align the content to the left horizontally
-&gt;|Prefix the +{vbar}+ with `&gt;` to align the content to the right horizontally
+^|Prefix the `{vbar}` with `{caret}` to center content horizontally
+&lt;|Prefix the `{vbar}` with `&lt;` to align the content to the left horizontally
+&gt;|Prefix the `{vbar}` with `&gt;` to align the content to the right horizontally
 
-.^|Prefix the +{vbar}+ with a `.` and +{caret}+ to center the content in the cell vertically
-.&lt;|Prefix the +{vbar}+ with a `.` and `&lt;` to align the content to the top of the cell
-.&gt;|Prefix the +{vbar}+ with a `.` and `&gt;` to align the content to the bottom of the cell
+.^|Prefix the `{vbar}` with a `.` and `{caret}` to center the content in the cell vertically
+.&lt;|Prefix the `{vbar}` with a `.` and `&lt;` to align the content to the top of the cell
+.&gt;|Prefix the `{vbar}` with a `.` and `&gt;` to align the content to the bottom of the cell
 
-3+^.^|This content spans three columns (+3{plus}+) and is centered horizontally (+{caret}+) and vertically (+.{caret}+) within the cell.
+3+^.^|This content spans three columns (`3{plus}`) and is centered horizontally (`{caret}`) and vertically (`.{caret}`) within the cell.
 
 |===</pre>
 </div>
@@ -9195,17 +9195,17 @@ These components, listed and defined below, are all optional.</p>
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-center valign-top"><p class="tableblock">Prefix the {vbar} with {caret} to center content horizontally</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Prefix the {vbar} with <code>&lt;</code> to align the content to the left horizontally</p></td>
-<td class="tableblock halign-right valign-top"><p class="tableblock">Prefix the {vbar} with <code>&gt;</code> to align the content to the right horizontally</p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock">Prefix the <code>|</code> with <code>^</code> to center content horizontally</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Prefix the <code>|</code> with <code>&lt;</code> to align the content to the left horizontally</p></td>
+<td class="tableblock halign-right valign-top"><p class="tableblock">Prefix the <code>|</code> with <code>&gt;</code> to align the content to the right horizontally</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">Prefix the {vbar} with a <code>.</code> and {caret} to center the content in the cell vertically</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Prefix the {vbar} with a <code>.</code> and <code>&lt;</code> to align the content to the top of the cell</p></td>
-<td class="tableblock halign-left valign-bottom"><p class="tableblock">Prefix the {vbar} with a <code>.</code> and <code>&gt;</code> to align the content to the bottom of the cell</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Prefix the <code>|</code> with a <code>.</code> and <code>^</code> to center the content in the cell vertically</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Prefix the <code>|</code> with a <code>.</code> and <code>&lt;</code> to align the content to the top of the cell</p></td>
+<td class="tableblock halign-left valign-bottom"><p class="tableblock">Prefix the <code>|</code> with a <code>.</code> and <code>&gt;</code> to align the content to the bottom of the cell</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-center valign-middle" colspan="3"><p class="tableblock">This content spans three columns (3{plus}) and is centered horizontally ({caret}) and vertically (.{caret}) within the cell.</p></td>
+<td class="tableblock halign-center valign-middle" colspan="3"><p class="tableblock">This content spans three columns (<code>3&#43;</code>) and is centered horizontally (<code>^</code>) and vertically (<code>.^</code>) within the cell.</p></td>
 </tr>
 </tbody>
 </table>
@@ -16705,7 +16705,7 @@ If you have suggestions, we want to hear from you!</p>
 <i class="fa icon-important" title="Important"></i>
 </td>
 <td class="content">
-You <strong>must</strong> set the <code>experimental</code> attribute to enable these macros.
+You <strong>must</strong> set the <code>experimental</code> attribute to enable the UI macros.
 </td>
 </tr>
 </table>
@@ -16713,7 +16713,7 @@ You <strong>must</strong> set the <code>experimental</code> attribute to enable 
 <div class="sect2">
 <h3 id="keyboard-shortcuts"><a class="anchor" href="#keyboard-shortcuts"></a><a class="link" href="#keyboard-shortcuts">47.1. Keyboard shortcuts</a></h3>
 <div class="paragraph">
-<p>Asciidoctor recognizes a macro for creating keyboard shortcuts using the syntax kbd:[key(+key)*].</p>
+<p>Asciidoctor recognizes a macro for creating keyboard shortcuts using the syntax <code>kbd:[key(+key)*]</code>.</p>
 </div>
 <div class="listingblock">
 <div class="title">Keyboard macro syntax</div>
@@ -21247,61 +21247,61 @@ To produce that variant, add the <code>-s</code> flag:</p>
 <h2 id="running-asciidoctor-securely"><a class="anchor" href="#running-asciidoctor-securely"></a><a class="link" href="#running-asciidoctor-securely">75. Running Asciidoctor Securely</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Asciidoctor provides security levels that control the read and write access of attributes, the include directive, macros, and scripts while a document is processing.
+<p>Asciidoctor provides security levels that control the read and write access of attributes, the <code>include</code> directive, macros, and scripts while a document is processing.
 Each level includes the restrictions enabled in the prior security level.</p>
 </div>
 <div class="hdlist">
 <table>
 <tr>
 <td class="hdlist1">
-UNSAFE
+<code>UNSAFE</code>
 </td>
 <td class="hdlist2">
 <p>A safe mode level that disables any security features enforced by Asciidoctor.
 Ruby is still subject to its own restrictions.</p>
 <div class="paragraph">
 <p><strong>This is the default safe mode for the CLI.</strong>
-Its integer value is 0.</p>
+Its integer value is <code>0</code>.</p>
 </div>
 </td>
 </tr>
 <tr>
 <td class="hdlist1">
-SAFE
+<code>SAFE</code>
 </td>
 <td class="hdlist2">
 <p>This safe mode level prevents access to files which reside outside of the parent directory of the source file.
-The include directive is enabled, but paths to include files must be within the parent directory.
+The <code>include</code> directive is enabled, but paths to <code>include</code> files must be within the parent directory.
 This mode allows assets (such as the stylesheet) to be embedded in the document.</p>
 <div class="paragraph">
-<p>Its integer value is 1.</p>
+<p>Its integer value is <code>1</code>.</p>
 </div>
 </td>
 </tr>
 <tr>
 <td class="hdlist1">
-SERVER
+<code>SERVER</code>
 </td>
 <td class="hdlist2">
 <p>A safe mode level that disallows the document from setting attributes that would affect conversion of the document.
-This level trims docfile to its relative path and prevents the document from:</p>
+This level trims <code>docfile</code> to its relative path and prevents the document from:</p>
 <div class="openblock">
 <div class="content">
 <div class="ulist">
 <ul>
 <li>
-<p>setting source-highlighter, doctype, docinfo and backend</p>
+<p>setting <code>source-highlighter</code>, <code>doctype</code>, <code>docinfo</code> and <code>backend</code></p>
 </li>
 <li>
-<p>seeing docdir</p>
+<p>seeing <code>docdir</code></p>
 </li>
 </ul>
 </div>
 <div class="paragraph">
-<p>It allows icons and linkcss.</p>
+<p>It allows <code>icons</code> and <code>linkcss</code>.</p>
 </div>
 <div class="paragraph">
-<p>Its integer value is 10.</p>
+<p>Its integer value is <code>10</code>.</p>
 </div>
 </div>
 </div>
@@ -21309,7 +21309,7 @@ This level trims docfile to its relative path and prevents the document from:</p
 </tr>
 <tr>
 <td class="hdlist1">
-SECURE
+<code>SECURE</code>
 </td>
 <td class="hdlist2">
 <p>A safe mode level that disallows the document from attempting to read files from the file system and including their contents into the document.
@@ -21322,7 +21322,7 @@ Additionally, it:</p>
 <p>disables icons</p>
 </li>
 <li>
-<p>disables the include directive</p>
+<p>disables the <code>include</code> directive</p>
 </li>
 <li>
 <p>data can not be retrieved from URIs</p>
@@ -21331,16 +21331,16 @@ Additionally, it:</p>
 <p>prevents access to stylesheets and JavaScripts</p>
 </li>
 <li>
-<p>sets the backend to html5</p>
+<p>sets the backend to <code>html5</code></p>
 </li>
 <li>
-<p>disables docinfo files</p>
+<p>disables <code>docinfo</code> files</p>
 </li>
 <li>
-<p>disables data-uri</p>
+<p>disables <code>data-uri</code></p>
 </li>
 <li>
-<p>disables docdir and docfile</p>
+<p>disables <code>docdir</code> and <code>docfile</code></p>
 </li>
 <li>
 <p>disables source highlighting</p>
@@ -21351,7 +21351,8 @@ Additionally, it:</p>
 <p>Asciidoctor extensions may still embed content into the document depending whether they honor the safe mode setting.</p>
 </div>
 <div class="paragraph">
-<p><strong>This is the default safe mode for the API.</strong> Its integer value is 20.</p>
+<p><strong>This is the default safe mode for the API.</strong>
+Its integer value is <code>20</code>.</p>
 </div>
 </div>
 </div>
@@ -22873,19 +22874,20 @@ It will fallback to its default templates for everything else.</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="CodeRay highlight nowrap"><code data-lang="ruby"> puts <span class="constant">Asciidoctor</span>.convert <span class="string"><span class="delimiter">'</span><span class="content">*This* is Asciidoctor.</span><span class="delimiter">'</span></span>, <span class="symbol">:header_footer</span> =&gt; <span class="predefined-constant">true</span>,
-   <span class="symbol">:template_dir</span> =&gt; <span class="string"><span class="delimiter">'</span><span class="content">templates</span><span class="delimiter">'</span></span></code></pre>
+<pre class="CodeRay highlight nowrap"><code data-lang="ruby">puts <span class="constant">Asciidoctor</span>.convert <span class="string"><span class="delimiter">'</span><span class="content">*This* is Asciidoctor.</span><span class="delimiter">'</span></span>, <span class="symbol">:header_footer</span> =&gt; <span class="predefined-constant">true</span>,
+  <span class="symbol">:template_dir</span> =&gt; <span class="string"><span class="delimiter">'</span><span class="content">templates</span><span class="delimiter">'</span></span></code></pre>
 </div>
 </div>
 <div class="paragraph">
-<p>The Document and Section templates should begin with document. and section., respectively.
+<p>The Document and Section templates should begin with <code>document</code> and <code>section</code>, respectively.
 The file extension is used by Tilt to determine which view framework it will use to use to interpret the template.
-For instance, if you want to write the template in ERB, you&#8217;d name these two templates document.html.erb and section.html.erb.
-To use Haml, you&#8217;d name them document.html.haml and section.html.haml.</p>
+For instance, if you want to write the template in ERB, you&#8217;d name these two templates <code>document.html.erb</code> and <code>section.html.erb</code>.
+The first file extension, <code>.html</code>, maps to the converter and the second, <code>.erb</code> maps to the template engine.
+To use Haml as the template engine, you&#8217;d name the templates <code>document.html.haml</code> and <code>section.html.haml</code>.</p>
 </div>
 <div class="paragraph">
-<p>Templates for block elements, like a paragraph or sidebar, would begin with block_&lt;style&gt;..
-For instance, to override the default Paragraph template with an ERB template, put a file named block_paragraph.html.erb in the template directory you pass to the Document constructor using the :template_dir option.</p>
+<p>Templates for block elements, like a paragraph or sidebar, are named after the block they handle.
+For instance, to override the default paragraph template with an ERB template, put a file named <code>paragraph.html.erb</code> in the template directory you pass to the <code>Document</code> constructor using the <code>:template_dir</code> option.</p>
 </div>
 <div class="paragraph">
 <p>For more usage examples, see the (massive) <a href="https://github.com/asciidoctor/asciidoctor/tree/master/test">test suite</a>.</p>
@@ -26911,7 +26913,7 @@ In source listings, is the callout the last thing on the line?</p></td>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2018-01-03 06:19:25 UTC
+Last updated 2018-01-03 06:53:45 UTC
 </div>
 </div>
 <script type="text/x-mathjax-config">
