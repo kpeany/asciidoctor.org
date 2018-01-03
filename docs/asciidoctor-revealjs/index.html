@@ -17,31 +17,27 @@
 <ul class="sectlevel2">
 <li><a href="#basic-presentation-with-speaker-notes">Basic presentation with speaker notes</a></li>
 <li><a href="#slides-without-titles">Slides without titles</a></li>
-</ul>
-</li>
-<li><a href="#slide-three">Slide Three</a></li>
-<li><a href="#grand-announcement">Grand Announcement</a></li>
-<li><a href="#the-great-goat">The Great Goat</a></li>
-<li><a href="#nice-background">Nice background!</a></li>
-<li><a href="#nice-background-2">Nice background!</a></li>
-<li><a href="#a-youtube-video">a youtube video</a></li>
-<li><a href="#zoom-zoom">Zoom zoom</a></li>
-<li><a href="#speed">Speed</a></li>
-<li><a href="#slide-four">Slide Four</a></li>
-<li><a href="#trains-we-love-trains">Trains, we love trains!</a></li>
-<li><a href="#title-slide">Title slide</a></li>
-<li><a href="#title-slide-2">Title slide</a>
-<ul class="sectlevel2">
+<li><a href="#background-colors">Background colors</a></li>
+<li><a href="#background-images">Background images</a></li>
+<li><a href="#background_videos">Background videos</a></li>
+<li><a href="#background-iframes">Background iframes</a></li>
+<li><a href="#slide-transitions">Slide Transitions</a></li>
+<li><a href="#fragments">Fragments</a></li>
+<li><a href="#stretch-class-attribute">Stretch class attribute</a></li>
+<li><a href="#videos">Videos</a></li>
+<li><a href="#syntax-highlighting">Syntax highlighting</a></li>
+<li><a href="#vertical-slides">Vertical slides</a></li>
+<li><a href="#title-slide-customization">Title slide customization</a></li>
 <li><a href="#content-meant-for-multiple-converters">Content meant for multiple converters</a></li>
 <li><a href="#css-override">CSS override</a></li>
 <li><a href="#slide-state">Slide state</a></li>
 <li><a href="#admonitions">Admonitions</a></li>
+</ul>
+</li>
 <li><a href="#reveal-js-options">Reveal.js Options</a></li>
 <li><a href="#minimum-requirements">Minimum Requirements</a></li>
 <li><a href="#copyright-and-licensing">Copyright and Licensing</a></li>
 <li><a href="#stay-connected">Stay Connected</a></li>
-</ul>
-</li>
 </ul></div></div><div class="large-8 columns content"><div id="content"><div id="preamble">
 <div class="sectionbody">
 <div class="paragraph">
@@ -369,333 +365,328 @@ You can get a Web server running quickly with:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="CodeRay highlight nowrap"><code data-lang="asciidoc">Unresolved directive in https://cdn.rawgit.com/asciidoctor/asciidoctor-reveal.js/v1.1.0/README.adoc - include::test/concealed-slide-titles.adoc[]
+<pre class="CodeRay highlight nowrap"><code data-lang="asciidoc">Unresolved directive in https://cdn.rawgit.com/asciidoctor/asciidoctor-reveal.js/v1.1.0/README.adoc - include::test/concealed-slide-titles.adoc[]</code></pre>
+</div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<code>conceal</code> and <code>notitle</code> have the advantage that the slide still has an id so it can be linked to.
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect2">
+<h3 id="background-colors"><a class="anchor" href="#background-colors"></a>Background colors</h3>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight nowrap"><code data-lang="asciidoc">[background-color=&quot;yellow&quot;]
+== Slide Three
 
-NOTE: `conceal` and `notitle` have the advantage that the slide still has an id so it can be linked to.
-
-
-=== Background colors
-
-[source, asciidoc]</code></pre>
+Is very yellow</code></pre>
 </div>
 </div>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="slide-three"><a class="anchor" href="#slide-three"></a>Slide Three</h2>
-<div class="sectionbody">
 <div class="paragraph">
-<p>Is very yellow</p>
+<p>Slide Three applies the attribute <a href="https://github.com/hakimel/reveal.js#slide-backgrounds">data-background-color</a> to the <code>reveal.js</code> &lt;section&gt; tag.
+Anything accepted by CSS color formats works.</p>
 </div>
+</div>
+<div class="sect2">
+<h3 id="background-images"><a class="anchor" href="#background-images"></a>Background images</h3>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap">Slide Three applies the attribute {uri-revealjs-gh}#slide-backgrounds[data-background-color] to the `reveal.js` &lt;section&gt; tag.
-Anything accepted by CSS color formats works.
+<pre class="CodeRay highlight nowrap"><code data-lang="asciidoc">[%notitle]
+== Grand Announcement
 
-
-=== Background images
-
-[source, asciidoc]</pre>
+image::cover.jpg[background, size=cover]</code></pre>
 </div>
 </div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="grand-announcement"><a class="anchor" href="#grand-announcement"></a>Grand Announcement</h2>
-<div class="sectionbody">
-<div class="imageblock">
-<div class="content">
-<img src="/images/cover.jpg" alt="background">
-</div>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="nowrap">This will put `cover.jpg` as the slide's background image.
-It sets reveal.js`' `data-background-image` attribute.
-The `size` attribute is also supported.
-See the {uri-revealjs-gh}#image-backgrounds[relevant reveal.js documentation] for details.
-
-NOTE: Background images file names are now relative to the `:imagedir:` attribute if set.
-
-NOTE: The `canvas` keyword can be used instead of `background` for the same effect.
-
-[source, asciidoc]</pre>
-</div>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="the-great-goat"><a class="anchor" href="#the-great-goat"></a>The Great Goat</h2>
-<div class="sectionbody">
-<div class="imageblock">
-<div class="content">
-<img src="https://upload.wikimedia.org/wikipedia/commons/b/b2/Hausziege_04.jpg" alt="canvas">
-</div>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="nowrap">As you can see, you can use a URL to specify your image resource too.
-
-
-[#background_videos]
-=== Background videos
-
-A background video for a slide can be specified using the `background-video` element attribute.
-
-[source, asciidoc]</pre>
-</div>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="nice-background"><a class="anchor" href="#nice-background"></a>Nice background!</h2>
-<div class="sectionbody">
-<div class="listingblock">
-<div class="content">
-<pre class="nowrap">For convenience `background-video-loop` and `background-video-muted` attributes are mapped to `loop` and `muted` options which can be specified with `options="loop,muted"`.
-
-For example:
-
-[source, asciidoc]</pre>
-</div>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="nice-background-2"><a class="anchor" href="#nice-background-2"></a>Nice background!</h2>
-<div class="sectionbody">
-<div class="listingblock">
-<div class="content">
-<pre class="nowrap">See {uri-revealjs-gh}#video-backgrounds[the relevant reveal.js documentation] for details.
-Note that the `data-` prefix is not required in asciidoc files.
-
-
-=== Background iframes
-
-The background can be replaced with anything a browser can render in an iframe using the `background-iframe` reveal.js feature.
-
-[source, asciidoc]</pre>
-</div>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="a-youtube-video"><a class="anchor" href="#a-youtube-video"></a>a youtube video</h2>
-<div class="sectionbody">
-<div class="listingblock">
-<div class="content">
-<pre class="nowrap">See {uri-revealjs-gh}#iframe-backgrounds[the relevant reveal.js documentation] for details.
-
-
-=== Slide Transitions
-
-[source, asciidoc]</pre>
-</div>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="zoom-zoom"><a class="anchor" href="#zoom-zoom"></a>Zoom zoom</h2>
-<div class="sectionbody">
 <div class="paragraph">
-<p>This slide will override the presentation transition and zoom!</p>
+<p>This will put <code>cover.jpg</code> as the slide&#8217;s background image.
+It sets reveal.js&#8217; <code>data-background-image</code> attribute.
+The <code>size</code> attribute is also supported.
+See the <a href="https://github.com/hakimel/reveal.js#image-backgrounds">relevant reveal.js documentation</a> for details.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+Background images file names are now relative to the <code>:imagedir:</code> attribute if set.
+</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+The <code>canvas</code> keyword can be used instead of <code>background</code> for the same effect.
+</td>
+</tr>
+</table>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight nowrap"><code data-lang="asciidoc">[%notitle]
+== The Great Goat
+
+image::https://upload.wikimedia.org/wikipedia/commons/b/b2/Hausziege_04.jpg[canvas,size=contain]</code></pre>
 </div>
 </div>
-</div>
-<div class="sect1">
-<h2 id="speed"><a class="anchor" href="#speed"></a>Speed</h2>
-<div class="sectionbody">
 <div class="paragraph">
-<p>Choose from three transition speeds: default, fast or slow!</p>
+<p>As you can see, you can use a URL to specify your image resource too.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="background_videos"><a class="anchor" href="#background_videos"></a>Background videos</h3>
+<div class="paragraph">
+<p>A background video for a slide can be specified using the <code>background-video</code> element attribute.</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap">See {uri-revealjs-gh}#slide-transitions[the relevant reveal.js documentation] for details.
-
-
-=== Fragments
-
-[source, asciidoc]</pre>
+<pre class="CodeRay highlight nowrap"><code data-lang="asciidoc">[background-video=&quot;https://my.video/file.mp4&quot;,background-video-loop=true,background-video-muted=true]
+== Nice background!</code></pre>
 </div>
 </div>
+<div class="paragraph">
+<p>For convenience <code>background-video-loop</code> and <code>background-video-muted</code> attributes are mapped to <code>loop</code> and <code>muted</code> options which can be specified with <code>options="loop,muted"</code>.</p>
 </div>
-</div>
-<div class="sect1">
-<h2 id="slide-four"><a class="anchor" href="#slide-four"></a>Slide Four</h2>
-<div class="sectionbody">
-<div class="ulist">
-<ul>
-<li>
-<p>this</p>
-</li>
-<li>
-<p>is</p>
-</li>
-<li>
-<p>revealed</p>
-</li>
-<li>
-<p>gradually</p>
-</li>
-</ul>
+<div class="paragraph">
+<p>For example:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap">Slide Four has bullets that are revealed one after the other.
-This is what `reveal.js` calls http://lab.hakim.se/reveal-js/#/fragments[fragments].
-Applying the step option or role on a list (`[%step]` or `[.step]`) will do the trick.
-Here is {uri-revealjs-gh}#fragments[the relevant reveal.js
-documentation] on the topic.
-Note that only `fade-in` is supported for lists at the moment.
-
-
-=== Stretch class attribute
-
-Reveal.js supports a special class that will give all available screen space to an HTML node.
-This class element is named `stretch`.
-
-Sometimes it's desirable to have an element, like an image or video, stretch to consume as much space as possible within a given slide.
-
-To apply that class to block simply use asciidoctor's class assignment:
-
-    [.stretch]
-
-See {uri-revealjs-gh}#stretching-elements[reveal.js documentation on stretching elements].
-
-
-=== Videos
-
-In addition to &lt;&lt;Background videos,background videos&gt;&gt;, videos can be inserted directly into slides.
-The syntax is the standard http://asciidoctor.org/docs/user-manual/#video[asciidoc video block macro] syntax.
-
-[source, asciidoc]</pre>
+<pre class="CodeRay highlight nowrap"><code data-lang="asciidoc">[background-video=&quot;https://my.video/file.mp4&quot;,options=&quot;loop,muted&quot;]
+== Nice background!</code></pre>
 </div>
 </div>
+<div class="paragraph">
+<p>See <a href="https://github.com/hakimel/reveal.js#video-backgrounds">the relevant reveal.js documentation</a> for details.
+Note that the <code>data-</code> prefix is not required in asciidoc files.</p>
 </div>
 </div>
-<div class="sect1">
-<h2 id="trains-we-love-trains"><a class="anchor" href="#trains-we-love-trains"></a>Trains, we love trains!</h2>
-<div class="sectionbody">
-<div class="videoblock">
-<div class="content">
-<iframe src="https://www.youtube.com/embed/kZH9JtPBq7k?rel=0&amp;start=34&amp;autoplay=1" frameborder="0" allowfullscreen></iframe>
-</div>
+<div class="sect2">
+<h3 id="background-iframes"><a class="anchor" href="#background-iframes"></a>Background iframes</h3>
+<div class="paragraph">
+<p>The background can be replaced with anything a browser can render in an iframe using the <code>background-iframe</code> reveal.js feature.</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap">By default videos are given as much space as possible.
-To override that behavior use the `width` and `height` named attributes.
+<pre class="CodeRay highlight nowrap"><code data-lang="asciidoc">[%notitle,background-iframe=&quot;https://www.youtube.com/embed/LaApqL4QjH8?rel=0&amp;start=3&amp;enablejsapi=1&amp;autoplay=1&amp;loop=1&amp;controls=0&amp;modestbranding=1&quot;]
+== a youtube video</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>See <a href="https://github.com/hakimel/reveal.js#iframe-backgrounds">the relevant reveal.js documentation</a> for details.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="slide-transitions"><a class="anchor" href="#slide-transitions"></a>Slide Transitions</h3>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight nowrap"><code data-lang="asciidoc">[transition=zoom, %notitle]
+== Zoom zoom
 
+This slide will override the presentation transition and zoom!
 
-=== Syntax highlighting
+[transition-speed=fast, %notitle]
+== Speed
 
-[source, asciidoc]
-....
-== Slide Five
+Choose from three transition speeds: default, fast or slow!</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>See <a href="https://github.com/hakimel/reveal.js#slide-transitions">the relevant reveal.js documentation</a> for details.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="fragments"><a class="anchor" href="#fragments"></a>Fragments</h3>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight nowrap"><code data-lang="asciidoc">== Slide Four
+
+[%step]
+* this
+* is
+* revealed
+* gradually</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Slide Four has bullets that are revealed one after the other.
+This is what <code>reveal.js</code> calls <a href="http://lab.hakim.se/reveal-js/#/fragments">fragments</a>.
+Applying the step option or role on a list (<code>[%step]</code> or <code>[.step]</code>) will do the trick.
+Here is <a href="https://github.com/hakimel/reveal.js#fragments">the relevant reveal.js
+documentation</a> on the topic.
+Note that only <code>fade-in</code> is supported for lists at the moment.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="stretch-class-attribute"><a class="anchor" href="#stretch-class-attribute"></a>Stretch class attribute</h3>
+<div class="paragraph">
+<p>Reveal.js supports a special class that will give all available screen space to an HTML node.
+This class element is named <code>stretch</code>.</p>
+</div>
+<div class="paragraph">
+<p>Sometimes it&#8217;s desirable to have an element, like an image or video, stretch to consume as much space as possible within a given slide.</p>
+</div>
+<div class="paragraph">
+<p>To apply that class to block simply use asciidoctor&#8217;s class assignment:</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre class="nowrap">[.stretch]</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>See <a href="https://github.com/hakimel/reveal.js#stretching-elements">reveal.js documentation on stretching elements</a>.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="videos"><a class="anchor" href="#videos"></a>Videos</h3>
+<div class="paragraph">
+<p>In addition to <a href="#background_videos">background videos</a>, videos can be inserted directly into slides.
+The syntax is the standard <a href="http://asciidoctor.org/docs/user-manual/#video">asciidoc video block macro</a> syntax.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight nowrap"><code data-lang="asciidoc">== Trains, we love trains!
+
+video::kZH9JtPBq7k[youtube, start=34, options=autoplay]</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>By default videos are given as much space as possible.
+To override that behavior use the <code>width</code> and <code>height</code> named attributes.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="syntax-highlighting"><a class="anchor" href="#syntax-highlighting"></a>Syntax highlighting</h3>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight nowrap"><code data-lang="asciidoc">== Slide Five
 
 Uses highlighted code
 
-[source, python]</pre>
+[source, python]
+----
+print &quot;Hello World&quot;
+----</code></pre>
 </div>
 </div>
 <div class="paragraph">
-<p>print "Hello World"</p>
+<p><code>revealjs</code> uses <a href="https://highlightjs.org/">highlight.js</a> to do its syntax highlighting by default.
+By default <code>[source]</code> blocks and blocks delimited by <code>----</code> will be highlighted.
+An explicit <code>[listing]</code> block will not be highlighted.
+<code>highlight.js</code> does language auto-detection but using the <code>language="&#8230;&#8203;"</code> attribute will hint the highlighter.
+For example this will highlight this source code as Perl:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap">....
+<pre class="CodeRay highlight nowrap"><code data-lang="asciidoc">== Slide Five
 
-`revealjs` uses https://highlightjs.org/[highlight.js] to do its syntax highlighting by default.
-By default `[source]` blocks and blocks delimited by `----` will be highlighted.
-An explicit `[listing]` block will not be highlighted.
-`highlight.js` does language auto-detection but using the `language="..."` attribute will hint the highlighter.
-For example this will highlight this source code as Perl:
-
-[source, asciidoc]
-....
-== Slide Five
-
-[source,perl]</pre>
+[source,perl]
+----
+print &quot;$0: hello world\n&quot;
+----</code></pre>
+</div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+Currently <code>revealjs</code> uses a rather old version of <a href="https://highlightjs.org/">highlight.js</a> that does not handle callouts correctly.
+To fix this download a current version of <a href="https://highlightjs.org/">highlight.js</a> and copy it to <code>reveal.js/plugin/highlight/highlight.js</code>.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Alternatively, you can use <a href="http://coderay.rubychan.de">Coderay</a> or <a href="http://pygments.org">Pygments</a> as the highlighter.
+These handle callouts correctly.</p>
+</div>
+<div class="paragraph">
+<p>To use <a href="http://coderay.rubychan.de">Coderay</a>:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight nowrap"><code data-lang="asciidoc">= Title slide
+:source-highlighter: coderay</code></pre>
 </div>
 </div>
 <div class="paragraph">
-<p>print "$0: hello world\n"</p>
+<p>To use <a href="http://pygments.org">Pygments</a>:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap">....
-
-[NOTE]
-Currently `revealjs` uses a rather old version of https://highlightjs.org/[highlight.js] that does not handle callouts correctly.
-To fix this download a current version of https://highlightjs.org/[highlight.js] and copy it to `reveal.js/plugin/highlight/highlight.js`.
-
-Alternatively, you can use http://coderay.rubychan.de[Coderay] or http://pygments.org[Pygments] as the highlighter.
-These handle callouts correctly.
-
-To use http://coderay.rubychan.de[Coderay]:
-
-[source, asciidoc]</pre>
+<pre class="CodeRay highlight nowrap"><code data-lang="asciidoc">= Title slide
+:source-highlighter: pygments</code></pre>
 </div>
 </div>
 </div>
-</div>
-<h1 id="title-slide" class="sect0"><a class="anchor" href="#title-slide"></a>Title slide</h1>
+<div class="sect2">
+<h3 id="vertical-slides"><a class="anchor" href="#vertical-slides"></a>Vertical slides</h3>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap">To use http://pygments.org[Pygments]:
-
-[source, asciidoc]</pre>
-</div>
-</div>
-<h1 id="title-slide-2" class="sect0"><a class="anchor" href="#title-slide-2"></a>Title slide</h1>
-<div class="listingblock">
-<div class="content">
-<pre class="nowrap">=== Vertical slides
-
-[source, asciidoc]
-....
-== Slide Six
+<pre class="CodeRay highlight nowrap"><code data-lang="asciidoc">== Slide Six
 
 Top slide
 
 === Slide Six.One
 
-This is a vertical subslide
-....
-
-Slide Six uses the vertical slide feature of `reveal.js`.
-Slide Six.One will be rendered vertically below Slide Six.
-Here is {uri-revealjs-gh}#markup[the relevant reveal.js
-documentation] on that topic.
-
-
-
-=== Title slide customization
-
-The title slide is customized via Asciidoc attributes.
-These are the global variable assigned at the top of a document under the lead
-title that look like this: `:name: value`.
-
-This converter supports changing the color, image, video, iframe and
-transitions of the title slide.
-
-Read {uri-revealjs-gh}#slide-backgrounds[the relevant
-reveal.js documentation] to understand what attributes need to be set.
-Keep in mind that for title slides you must replace `data-` with
-`title-slide-`.
-
-Here is an example:
-
-[source, asciidoc]</pre>
+This is a vertical subslide</code></pre>
 </div>
 </div>
 <div class="paragraph">
-<p>Unresolved directive in <a href="https://cdn.rawgit.com/asciidoctor/asciidoctor-reveal.js/v1.1.0/README.adoc" class="bare">https://cdn.rawgit.com/asciidoctor/asciidoctor-reveal.js/v1.1.0/README.adoc</a> - include::test/title-slide-image.adoc[]</p>
+<p>Slide Six uses the vertical slide feature of <code>reveal.js</code>.
+Slide Six.One will be rendered vertically below Slide Six.
+Here is <a href="https://github.com/hakimel/reveal.js#markup">the relevant reveal.js
+documentation</a> on that topic.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="title-slide-customization"><a class="anchor" href="#title-slide-customization"></a>Title slide customization</h3>
+<div class="paragraph">
+<p>The title slide is customized via Asciidoc attributes.
+These are the global variable assigned at the top of a document under the lead
+title that look like this: <code>:name: value</code>.</p>
+</div>
+<div class="paragraph">
+<p>This converter supports changing the color, image, video, iframe and
+transitions of the title slide.</p>
+</div>
+<div class="paragraph">
+<p>Read <a href="https://github.com/hakimel/reveal.js#slide-backgrounds">the relevant
+reveal.js documentation</a> to understand what attributes need to be set.
+Keep in mind that for title slides you must replace <code>data-</code> with
+<code>title-slide-</code>.</p>
+</div>
+<div class="paragraph">
+<p>Here is an example:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight nowrap"><code data-lang="asciidoc">Unresolved directive in https://cdn.rawgit.com/asciidoctor/asciidoctor-reveal.js/v1.1.0/README.adoc - include::test/title-slide-image.adoc[]</code></pre>
+</div>
 </div>
 <div class="paragraph">
 <p>The title slide is also added a <code>title</code> CSS class to help with template
 customization.</p>
+</div>
 </div>
 <div class="sect2">
 <h3 id="content-meant-for-multiple-converters"><a class="anchor" href="#content-meant-for-multiple-converters"></a>Content meant for multiple converters</h3>
@@ -815,6 +806,8 @@ WARNING: This presentation is dangerous!</code></pre>
 </div>
 <div class="paragraph">
 <p>Here are details about Asciidoctor&#8217;s <a href="http://asciidoctor.org/docs/user-manual/#admonition-icons">Admonition icons</a> support.</p>
+</div>
+</div>
 </div>
 </div>
 <div class="sect1">
