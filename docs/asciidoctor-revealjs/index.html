@@ -364,8 +364,28 @@ You can get a Web server running quickly with:</p>
 <p>Here is an example of the three techniques in action:</p>
 </div>
 <div class="listingblock">
+<div class="title">concealed-slide-titles.adoc</div>
 <div class="content">
-<pre class="CodeRay highlight nowrap"><code data-lang="asciidoc">Unresolved directive in https://cdn.rawgit.com/asciidoctor/asciidoctor-reveal.js/v1.1.0/README.adoc - include::test/concealed-slide-titles.adoc[]</code></pre>
+<pre class="CodeRay highlight nowrap"><code data-lang="asciidoc">// .concealed-slide-titles
+// The three different ways to hide slide titles
+// :include: //div[@class=&quot;slides&quot;]
+// :header_footer:
+= Concealed Slide Titles
+:backend: revealjs
+
+== !
+
+This
+
+[%notitle]
+== Presentation
+
+presentation's titles
+
+[%conceal]
+== Concealed
+
+should be concealed</code></pre>
 </div>
 </div>
 <div class="admonitionblock note">
@@ -573,6 +593,21 @@ To override that behavior use the <code>width</code> and <code>height</code> nam
 </div>
 <div class="sect2">
 <h3 id="syntax-highlighting"><a class="anchor" href="#syntax-highlighting"></a>Syntax highlighting</h3>
+<div class="paragraph">
+<p>Reveal.js is well integrated with <a href="https://highlightjs.org/">highlight.js</a> for syntax highlighting.
+Asciidoctor-reveal.js supports that.
+You can activate highlight.js syntax highlighting (disabled by default) by setting the <code>source-highlighter</code> document attribute as follows:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight nowrap"><code data-lang="asciidoc">= Presentation Title
+// [...] other document attributes
+:source-highlighter: highlightjs</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Once enabled you can write code blocks as usual:</p>
+</div>
 <div class="listingblock">
 <div class="content">
 <pre class="CodeRay highlight nowrap"><code data-lang="asciidoc">== Slide Five
@@ -586,8 +621,7 @@ print &quot;Hello World&quot;
 </div>
 </div>
 <div class="paragraph">
-<p><code>revealjs</code> uses <a href="https://highlightjs.org/">highlight.js</a> to do its syntax highlighting by default.
-By default <code>[source]</code> blocks and blocks delimited by <code>----</code> will be highlighted.
+<p>By default <code>[source]</code> blocks and blocks delimited by <code>----</code> will be highlighted.
 An explicit <code>[listing]</code> block will not be highlighted.
 <code>highlight.js</code> does language auto-detection but using the <code>language="&#8230;&#8203;"</code> attribute will hint the highlighter.
 For example this will highlight this source code as Perl:</p>
@@ -609,33 +643,12 @@ print &quot;$0: hello world\n&quot;
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-Currently <code>revealjs</code> uses a rather old version of <a href="https://highlightjs.org/">highlight.js</a> that does not handle callouts correctly.
-To fix this download a current version of <a href="https://highlightjs.org/">highlight.js</a> and copy it to <code>reveal.js/plugin/highlight/highlight.js</code>.
+Alternatively, you can use <a href="http://coderay.rubychan.de">Coderay</a> or <a href="http://pygments.org">Pygments</a> as syntax highlighters if you are using the Asciidoctor/Ruby/Bundler toolchain (not Asciidoctor.js/Javascript/NPM).
+Check the <code>examples/</code> directory for examples and notes about what needs to be done for them to work.
+They are considered unsupported by the asciidoctor-reveal.js project.
 </td>
 </tr>
 </table>
-</div>
-<div class="paragraph">
-<p>Alternatively, you can use <a href="http://coderay.rubychan.de">Coderay</a> or <a href="http://pygments.org">Pygments</a> as the highlighter.
-These handle callouts correctly.</p>
-</div>
-<div class="paragraph">
-<p>To use <a href="http://coderay.rubychan.de">Coderay</a>:</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="CodeRay highlight nowrap"><code data-lang="asciidoc">= Title slide
-:source-highlighter: coderay</code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p>To use <a href="http://pygments.org">Pygments</a>:</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="CodeRay highlight nowrap"><code data-lang="asciidoc">= Title slide
-:source-highlighter: pygments</code></pre>
-</div>
 </div>
 </div>
 <div class="sect2">
@@ -670,22 +683,32 @@ title that look like this: <code>:name: value</code>.</p>
 transitions of the title slide.</p>
 </div>
 <div class="paragraph">
-<p>Read <a href="https://github.com/hakimel/reveal.js#slide-backgrounds">the relevant
-reveal.js documentation</a> to understand what attributes need to be set.
-Keep in mind that for title slides you must replace <code>data-</code> with
-<code>title-slide-</code>.</p>
+<p>Read <a href="https://github.com/hakimel/reveal.js#slide-backgrounds">the relevant reveal.js documentation</a> to understand what attributes need to be set.
+Keep in mind that for title slides you must replace <code>data-</code> with <code>title-slide-</code>.</p>
 </div>
 <div class="paragraph">
 <p>Here is an example:</p>
 </div>
 <div class="listingblock">
+<div class="title">title-slide-image.adoc</div>
 <div class="content">
-<pre class="CodeRay highlight nowrap"><code data-lang="asciidoc">Unresolved directive in https://cdn.rawgit.com/asciidoctor/asciidoctor-reveal.js/v1.1.0/README.adoc - include::test/title-slide-image.adoc[]</code></pre>
+<pre class="CodeRay highlight nowrap"><code data-lang="asciidoc">// .image
+// Use of the title-slide-background-image feature of reveal.js
+// :include: //div[@class=&quot;slides&quot;]
+// :header_footer:
+= EPIC TITLE
+:imagesdir: images
+:title-slide-background-image: 70s.jpg
+:title-slide-transition: zoom
+:title-slide-transition-speed: fast
+
+== Next slide
+
+Content</code></pre>
 </div>
 </div>
 <div class="paragraph">
-<p>The title slide is also added a <code>title</code> CSS class to help with template
-customization.</p>
+<p>The title slide is also added a <code>title</code> CSS class to help with template customization.</p>
 </div>
 </div>
 <div class="sect2">
@@ -1012,7 +1035,7 @@ activate it.</p>
 <h2 id="copyright-and-licensing"><a class="anchor" href="#copyright-and-licensing"></a>Copyright and Licensing</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Copyright &#169; 2012-2017 Olivier Bilodeau, Guillaume Grossetie, Dan Allen, Rahman Usta, Charles Moulliard and the Asciidoctor Project.
+<p>Copyright &#169; 2012-2018 Olivier Bilodeau, Guillaume Grossetie, Dan Allen, Rahman Usta, Charles Moulliard and the Asciidoctor Project.
 Free use of this software is granted under the terms of the MIT License.</p>
 </div>
 </div>
