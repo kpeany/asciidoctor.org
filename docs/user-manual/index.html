@@ -1573,7 +1573,7 @@ You can add line numbers to source listings by adding the word `numbered` in the
 <td class="tableblock halign-left valign-top"><p class="tableblock"><em>n/a</em></p></td>
 <td class="tableblock halign-left valign-top"><div><div class="listingblock">
 <div class="content">
-<pre class="CodeRay highlight"><code data-lang="asciidoc">[.path]#Gemfile#</code></pre>
+<pre class="CodeRay highlight"><code data-lang="asciidoc">[.path]_Gemfile_</code></pre>
 </div>
 </div></div></td>
 </tr>
@@ -11822,8 +11822,8 @@ It also captures the intent of the author to establish a reference to a section 
 <p>This cross reference creates a link to the section with the ID <em>images</em>.</p>
 </div>
 <div class="paragraph">
-<p>Let&#8217;s assume the cross reference is defined in the document <em class="file">document-a.adoc</em>.
-If the target section is in a separate document, <em class="file">document-b.adoc</em>, the author may be tempted to write:</p>
+<p>Let&#8217;s assume the cross reference is defined in the document <em class="path">document-a.adoc</em>.
+If the target section is in a separate document, <em class="path">document-b.adoc</em>, the author may be tempted to write:</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -11832,7 +11832,7 @@ If the target section is in a separate document, <em class="file">document-b.ado
 </div>
 <div class="paragraph">
 <p>However, this link is coupled to HTML output.
-What&#8217;s worse, if <em class="file">document-b.adoc</em> is included in the same document as <em class="file">document-a.adoc</em>, the link will refer to a document that doesn&#8217;t even exist!</p>
+What&#8217;s worse, if <em class="path">document-b.adoc</em> is included in the same document as <em class="path">document-a.adoc</em>, the link will refer to a document that doesn&#8217;t even exist!</p>
 </div>
 <div class="paragraph">
 <p>These problems can be alleviated by using an inter-document xref:</p>
@@ -11848,8 +11848,8 @@ Preceding the hash is the name of the reference document (the file extension is 
 We&#8217;ve also added a label since Asciidoctor cannot (yet) resolve the section title in a separate document.</p>
 </div>
 <div class="paragraph">
-<p>When Asciidoctor generates the link for this cross reference, it first checks to see if <em class="file">document-b.adoc</em> is included in the same document as <em class="file">document-a.doc</em>.
-If not, it will generate a link to <em class="file">document-b.html</em>, intelligently substituting the original file extension with the file extension of the output file.</p>
+<p>When Asciidoctor generates the link for this cross reference, it first checks to see if <em class="path">document-b.adoc</em> is included in the same document as <em class="path">document-a.doc</em>.
+If not, it will generate a link to <em class="path">document-b.html</em>, intelligently substituting the original file extension with the file extension of the output file.</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -11857,7 +11857,7 @@ If not, it will generate a link to <em class="file">document-b.html</em>, intell
 </div>
 </div>
 <div class="paragraph">
-<p>If <em class="file">document-b.adoc</em> is included in the same document as <em class="file">document-a.doc</em>, then the document will be dropped in the link target and look like the output of a normal cross reference:</p>
+<p>If <em class="path">document-b.adoc</em> is included in the same document as <em class="path">document-a.doc</em>, then the document will be dropped in the link target and look like the output of a normal cross reference:</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -20609,7 +20609,7 @@ You may not be familiar with these http://en.wikipedia.org/wiki/Wolpertinger[rav
 <p><em>embedded</em> by default</p>
 </li>
 <li>
-<p><em>copied</em> to the file <em class="file">asciidoctor-coderay.css</em> inside the <code>stylesdir</code> folder within the output directory if <code>linkcss</code> is set</p>
+<p><em>copied</em> to the file <em class="path">asciidoctor-coderay.css</em> inside the <code>stylesdir</code> folder within the output directory if <code>linkcss</code> is set</p>
 </li>
 </ul>
 </div>
@@ -20623,7 +20623,7 @@ You may not be familiar with these http://en.wikipedia.org/wiki/Wolpertinger[rav
 <p><em>embedded</em> by default</p>
 </li>
 <li>
-<p><em>copied</em> to the file <em class="file">asciidoctor-pygments.css</em> inside the <code>stylesdir</code> folder within the output directory if <code>linkcss</code> is set</p>
+<p><em>copied</em> to the file <em class="path">asciidoctor-pygments.css</em> inside the <code>stylesdir</code> folder within the output directory if <code>linkcss</code> is set</p>
 </li>
 </ul>
 </div>
@@ -21091,7 +21091,7 @@ Use <a href="https://github.com/asciidoctor/asciidoctor.org/issues/449">Issue 44
 <p>You can pass multiple source files or a filename pattern to the Asciidoctor CLI and it will convert each file given in turn.</p>
 </div>
 <div class="paragraph">
-<p>Let&#8217;s assume there exist two AsciiDoc files in the current directory, <span class="file">a.adoc</span> and <span class="file">b.adoc</span>.
+<p>Let&#8217;s assume there exist two AsciiDoc files in the current directory, <em class="path">a.adoc</em> and <em class="path">b.adoc</em>.
 You can pass both files to Asciidoctor using a single command, as follows:</p>
 </div>
 <div class="literalblock">
@@ -21100,7 +21100,7 @@ You can pass both files to Asciidoctor using a single command, as follows:</p>
 </div>
 </div>
 <div class="paragraph">
-<p>Asciidoctor will convert both files, transforming <span class="file">a.adoc</span> to <span class="file">a.html</span> and <span class="file">b.adoc</span> to <span class="file">b.html</span>.</p>
+<p>Asciidoctor will convert both files, transforming <em class="path">a.adoc</em> to <em class="path">a.html</em> and <em class="path">b.adoc</em> to <em class="path">b.html</em>.</p>
 </div>
 <div class="paragraph">
 <p>To save some typing, you can use the glob operator (<code>*</code>) to match all AsciiDoc files in the current directory using a single argument:</p>
@@ -26913,7 +26913,7 @@ In source listings, is the callout the last thing on the line?</p></td>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2018-01-08 07:43:39 UTC
+Last updated 2018-01-11 07:16:37 UTC
 </div>
 </div>
 <script type="text/x-mathjax-config">
