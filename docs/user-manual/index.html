@@ -9166,6 +9166,59 @@ These components, listed and defined below, are all optional.</p>
 </tbody>
 </table>
 <div class="paragraph">
+<p>Of course you can combine spanning over columns and rows.
+The number before the dot (<code>.</code>) is the number of columns to span and the number after the dot (<code>.</code>) is the number of rows to span.</p>
+</div>
+<div class="listingblock">
+<div class="title">Cell spanning columns and rows</div>
+<div class="content">
+<pre class="nowrap">|===
+
+|Column 1, row 1 |Column 2, row 1 |Column 3, row 1 |Column 4, row 1
+
+|Column 1, row 2
+2.3+|Content in a single cell that spans over rows and columns
+|Column 4, row 2
+
+|Column 1, row 3
+|Column 4, row 3
+
+|Column 1, row 4
+|Column 4, row 4
+|===</pre>
+</div>
+</div>
+<table class="tableblock frame-all grid-all" style="width: 90%;">
+<caption class="title">Result: Rendered table where a cell spans over columns and rows</caption>
+<colgroup>
+<col style="width: 25%;">
+<col style="width: 25%;">
+<col style="width: 25%;">
+<col style="width: 25%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Column 1, row 1</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Column 2, row 1</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Column 3, row 1</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Column 4, row 1</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Column 1, row 2</p></td>
+<td class="tableblock halign-left valign-top" colspan="2" rowspan="3"><p class="tableblock">Content in a single cell that spans over rows and columns</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Column 4, row 2</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Column 1, row 3</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Column 4, row 3</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Column 1, row 4</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Column 4, row 4</p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
 <p>The alignment component for cells works the same as the <a href="#cols-align">column specifier alignment component</a>.</p>
 </div>
 <div class="listingblock">
@@ -26913,7 +26966,7 @@ In source listings, is the callout the last thing on the line?</p></td>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2018-01-18 06:35:20 UTC
+Last updated 2018-01-25 07:05:20 UTC
 </div>
 </div>
 <script type="text/x-mathjax-config">
