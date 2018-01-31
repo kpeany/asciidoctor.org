@@ -600,13 +600,19 @@ Maven v3.2.1 or above required, and since asciidoctor-maven-plugin v1.5.6 only m
 </div>
 </div>
 <div class="paragraph">
-<p>All of your AsciiDoc-based files should be placed in <em class="path">src/site/asciidoc</em> with an extension of <code>.adoc</code>.
+<p>The Asciidoctor Doxia module follows the maven-site-plugin conventions for file location, and delegates all resource management to it.</p>
+</div>
+<div class="paragraph">
+<p>First, all of your AsciiDoc-based files should be placed in <em class="path">src/site/asciidoc</em> with an extension of <code>.adoc</code>.
 These files will be rendered into the <em class="path">target/site</em> directory.
 For example, the file <em class="path">src/site/asciidoc/usage.adoc</em> will be rendered into <em class="path">target/site/usage.html</em>.</p>
 </div>
 <div class="paragraph">
-<p>The Asciidoctor base directory (i.e., document root) is configured as <em class="path">src/site/asciidoc</em> by default, though this can be overridden.
-Also note that AsciiDoc files are converted to embeddable HTML and inserted into the site&#8217;s page layout.
+<p>Then, all resources (images, css, etc.) should be placed in <em class="path">src/site/resources</em>.
+These will be automatically copied into <em class="path">target/site</em>.</p>
+</div>
+<div class="paragraph">
+<p>Also note that AsciiDoc files are converted to embeddable HTML and inserted into the site&#8217;s page layout.
 This disables certain features such as a the sidebar toc.</p>
 </div>
 <div class="paragraph">
@@ -628,10 +634,13 @@ This disables certain features such as a the sidebar toc.</p>
 <h3 id="configuration-2"><a class="anchor" href="#configuration-2"></a>Configuration</h3>
 <div class="paragraph">
 <p>As of version 1.5.3 of the plugin, you can configure Asciidoctor by specifying configuration properties in the plugin declaration, just like with the main plugin goal.
-There is one important difference, however.
-All the configuration for Asciidoctor in the site integration must be nested inside an <code>&lt;asciidoc&gt;</code> element.
-This is necessary since the <code>&lt;configuration&gt;</code> element is used to configure more than just the Asciidoctor integration.</p>
+There are two important differences, however.</p>
 </div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>All the configuration for Asciidoctor in the site integration must be nested inside an <code>&lt;asciidoc&gt;</code> element.
+This is necessary since the <code>&lt;configuration&gt;</code> element is used to configure more than just the Asciidoctor integration.</p>
 <div class="paragraph">
 <p>Here&#8217;s an example that shows how to set options, attributes and ignore partial AsciiDoc files (i.e., files that begin with an underscore).</p>
 </div>
@@ -676,21 +685,68 @@ This is necessary since the <code>&lt;configuration&gt;</code> element is used t
 <i class="fa icon-important" title="Important"></i>
 </td>
 <td class="content">
-The Asciidoctor base directory (i.e., document root) is configured as <em class="path">src/site/asciidoc</em> by default, though this can be overridden using the <code>baseDir</code> configuration option.
+<div class="paragraph">
+<p>The Asciidoctor base directory (i.e., document root) is configured as <em class="path">src/site/asciidoc</em> by default, though this can be overridden.
+To do so, you can use either maven-site-plugin <code>siteDirectory</code> or Asciidoctor <code>baseDir</code> configuration options.
+Note that the first will affect the default resources directory also.</p>
+</div>
 </td>
 </tr>
 </table>
 </div>
 <div class="paragraph">
-<p>You&#8217;ll notice that excludes have been added for certain AsciiDoc files.
+<p>You&#8217;ll notice in the example that excludes have been added for certain AsciiDoc files.
 This prevents the site integration from processing partial files (i.e., includes) as individual pages.
 You can tune this pattern to your liking.
 There&#8217;s currently no way (that we can tell) to configure this automatically.</p>
 </div>
+</li>
+<li>
+<p>For simplicity and the fact that resources are managed by maven-site-plugin, not all options found in the asciidoctor-maven-plugin are available in the <code>&lt;asciidoc&gt;</code> element.</p>
 <div class="paragraph">
-<p>We&#8217;ve also activated the built-in template converter by specifying a templates directory (i.e., <code>templatesDir</code>).
+<p>The supported ones are:</p>
+</div>
+<div class="dlist">
+<dl>
+<dt class="hdlist1">baseDir</dt>
+<dd>
+<p>Sames as the plugin&#8217;s <code>baseDir</code>.
+Sets the root path for resources.
+Not set by default, AsciiDoc documents will be searched in <em class="path">src/site/asciidoc</em>.
+External resources should be located in <em class="path">src/site/resources</em>.</p>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+Consider using maven-site-plugin&#8217;s <code>siteDirectory</code> instead for better integration with the site functions (ie. resource copying).
+</td>
+</tr>
+</table>
+</div>
+</dd>
+<dt class="hdlist1">templatesDir (also template_dir)</dt>
+<dd>
+<p>Built-in template are supported by specifying a templates directory (i.e., <code>templatesDir</code>).
 This feature enables you to provide a custom template for converting any node in the tree (e.g., document, section, listing, etc).
 Custom templates can be extremely helpful when trying to customize the appearance of your site.</p>
+</dd>
+<dt class="hdlist1">templatesDirs (also template_dirs)</dt>
+<dd>
+<p>Allows to set multiple templates.
+Note that each one should be enclosed in a <code>&lt;dir&gt;</code> element.</p>
+</dd>
+<dt class="hdlist1">requires</dt>
+<dd>
+<p>Sames as the plugin&#8217;s <code>requires</code>.
+Specifies additional Ruby libraries not packaged in AsciidoctorJ, <code>empty</code> by default.</p>
+</dd>
+</dl>
+</div>
+</li>
+</ol>
 </div>
 </div>
 </div>

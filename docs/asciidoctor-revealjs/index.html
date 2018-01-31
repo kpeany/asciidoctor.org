@@ -194,6 +194,16 @@ See examples in <a href="#syntax-examples">Syntax Examples</a> section to get st
 <p>Generate HTML presentation from the AsciiDoc source</p>
 <div class="literalblock">
 <div class="content">
+<pre class="nowrap">$ bundle exec asciidoctor-revealjs \
+  -a revealjsdir=https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.6.0 CONTENT_FILE.adoc</pre>
+</div>
+</div>
+</li>
+<li>
+<p>If you did the optional step of having a local reveal.js clone you can
+convert AsciiDoc source with</p>
+<div class="literalblock">
+<div class="content">
 <pre class="nowrap">$ bundle exec asciidoctor-revealjs CONTENT_FILE.adoc</pre>
 </div>
 </div>
