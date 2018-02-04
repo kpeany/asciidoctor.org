@@ -1270,7 +1270,7 @@ The optional &lt;code&gt;--save&lt;/code&gt; flag automatically adds the package
 &lt;div class=&quot;listingblock&quot;&gt;
 &lt;div class=&quot;content&quot;&gt;
 &lt;pre class=&quot;CodeRay highlight nowrap&quot;&gt;&lt;code data-lang=&quot;javascript&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;var&lt;/span&gt; asciidoc = &lt;span class=&quot;string&quot;&gt;&lt;span class=&quot;delimiter&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;content&quot;&gt;http://asciidoctor.org[*Asciidoctor*] &lt;/span&gt;&lt;span class=&quot;delimiter&quot;&gt;&quot;&lt;/span&gt;&lt;/span&gt; +
-    &lt;span class=&quot;string&quot;&gt;&lt;span class=&quot;delimiter&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;content&quot;&gt;running on http://opalrb.org[_Opal_] &lt;/span&gt;&lt;span class=&quot;delimiter&quot;&gt;&quot;&lt;/span&gt;&lt;/span&gt; +
+    &lt;span class=&quot;string&quot;&gt;&lt;span class=&quot;delimiter&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;content&quot;&gt;running on https://opalrb.com[_Opal_] &lt;/span&gt;&lt;span class=&quot;delimiter&quot;&gt;&quot;&lt;/span&gt;&lt;/span&gt; +
     &lt;span class=&quot;string&quot;&gt;&lt;span class=&quot;delimiter&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;content&quot;&gt;brings AsciiDoc to the browser!&lt;/span&gt;&lt;span class=&quot;delimiter&quot;&gt;&quot;&lt;/span&gt;&lt;/span&gt;;
 &lt;span class=&quot;keyword&quot;&gt;var&lt;/span&gt; options = Opal.hash2([&lt;span class=&quot;string&quot;&gt;&lt;span class=&quot;delimiter&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;content&quot;&gt;doctype&lt;/span&gt;&lt;span class=&quot;delimiter&quot;&gt;'&lt;/span&gt;&lt;/span&gt;, &lt;span class=&quot;string&quot;&gt;&lt;span class=&quot;delimiter&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;content&quot;&gt;attributes&lt;/span&gt;&lt;span class=&quot;delimiter&quot;&gt;'&lt;/span&gt;&lt;/span&gt;], {&lt;span class=&quot;key&quot;&gt;doctype&lt;/span&gt;: &lt;span class=&quot;string&quot;&gt;&lt;span class=&quot;delimiter&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;content&quot;&gt;inline&lt;/span&gt;&lt;span class=&quot;delimiter&quot;&gt;'&lt;/span&gt;&lt;/span&gt;, &lt;span class=&quot;key&quot;&gt;attributes&lt;/span&gt;: [&lt;span class=&quot;string&quot;&gt;&lt;span class=&quot;delimiter&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;content&quot;&gt;showtitle&lt;/span&gt;&lt;span class=&quot;delimiter&quot;&gt;'&lt;/span&gt;&lt;/span&gt;]});
 &lt;span class=&quot;keyword&quot;&gt;var&lt;/span&gt; html = Opal.Asciidoctor.&lt;span class=&quot;predefined&quot;&gt;$convert&lt;/span&gt;(asciidoc, options);
@@ -1321,7 +1321,7 @@ The optional &lt;code&gt;--save&lt;/code&gt; flag automatically adds the package
 }
 
 &lt;span class=&quot;keyword&quot;&gt;var&lt;/span&gt; content = &lt;span class=&quot;string&quot;&gt;&lt;span class=&quot;delimiter&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;content&quot;&gt;http://asciidoctor.org[*Asciidoctor*] &lt;/span&gt;&lt;span class=&quot;delimiter&quot;&gt;&quot;&lt;/span&gt;&lt;/span&gt; +
-    &lt;span class=&quot;string&quot;&gt;&lt;span class=&quot;delimiter&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;content&quot;&gt;running on http://opalrb.org[_Opal_] &lt;/span&gt;&lt;span class=&quot;delimiter&quot;&gt;&quot;&lt;/span&gt;&lt;/span&gt; +
+    &lt;span class=&quot;string&quot;&gt;&lt;span class=&quot;delimiter&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;content&quot;&gt;running on https://opalrb.com[_Opal_] &lt;/span&gt;&lt;span class=&quot;delimiter&quot;&gt;&quot;&lt;/span&gt;&lt;/span&gt; +
     &lt;span class=&quot;string&quot;&gt;&lt;span class=&quot;delimiter&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;content&quot;&gt;brings AsciiDoc to Node.js!&lt;/span&gt;&lt;span class=&quot;delimiter&quot;&gt;&quot;&lt;/span&gt;&lt;/span&gt;;
 &lt;span class=&quot;keyword&quot;&gt;var&lt;/span&gt; options = opal.hash2(
     [&lt;span class=&quot;string&quot;&gt;&lt;span class=&quot;delimiter&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;content&quot;&gt;doctype&lt;/span&gt;&lt;span class=&quot;delimiter&quot;&gt;'&lt;/span&gt;&lt;/span&gt;, &lt;span class=&quot;string&quot;&gt;&lt;span class=&quot;delimiter&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;content&quot;&gt;attributes&lt;/span&gt;&lt;span class=&quot;delimiter&quot;&gt;'&lt;/span&gt;&lt;/span&gt;],
@@ -1371,7 +1371,7 @@ console.log(html); &lt;i class=&quot;conum&quot; data-value=&quot;6&quot;&gt;&lt
 &lt;/div&gt;
 &lt;div class=&quot;literalblock output&quot;&gt;
 &lt;div class=&quot;content&quot;&gt;
-&lt;pre class=&quot;nowrap&quot;&gt;&amp;lt;a href=&quot;http://asciidoctor.org&quot;&amp;gt;&amp;lt;strong&amp;gt;Asciidoctor&amp;lt;/strong&amp;gt;&amp;lt;/a&amp;gt; running on &amp;lt;a href=&quot;http://opalrb.org&quot;&amp;gt;&amp;lt;em&amp;gt;Opal&amp;lt;/em&amp;gt;&amp;lt;/a&amp;gt; brings AsciiDoc to Node.js!&amp;lt;/p&amp;gt;&lt;/pre&gt;
+&lt;pre class=&quot;nowrap&quot;&gt;&amp;lt;a href=&quot;http://asciidoctor.org&quot;&amp;gt;&amp;lt;strong&amp;gt;Asciidoctor&amp;lt;/strong&amp;gt;&amp;lt;/a&amp;gt; running on &amp;lt;a href=&quot;https://opalrb.com&quot;&amp;gt;&amp;lt;em&amp;gt;Opal&amp;lt;/em&amp;gt;&amp;lt;/a&amp;gt; brings AsciiDoc to Node.js!&amp;lt;/p&amp;gt;&lt;/pre&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;div class=&quot;admonitionblock important&quot;&gt;
@@ -1382,7 +1382,7 @@ console.log(html); &lt;i class=&quot;conum&quot; data-value=&quot;6&quot;&gt;&lt
 &lt;/td&gt;
 &lt;td class=&quot;content&quot;&gt;
 To be successful with Asciidoctor.js, it’s important to understand how to work with Ruby objects in the JavaScript environment.
-We recommend that you browse the &lt;a href=&quot;http://opalrb.org/docs/using_ruby_from_javascript&quot;&gt;Opal documentation&lt;/a&gt; to learn how method names are mapped and what data types it expects.
+We recommend that you browse the &lt;a href=&quot;https://opalrb.com/docs/using_ruby_from_javascript&quot;&gt;Opal documentation&lt;/a&gt; to learn how method names are mapped and what data types it expects.
 &lt;/td&gt;
 &lt;/tr&gt;
 &lt;/table&gt;
@@ -9595,7 +9595,7 @@ When I first......
 &lt;div id=&quot;preamble&quot;&gt;
 &lt;div class=&quot;sectionbody&quot;&gt;
 &lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;We’ve combined &lt;a href=&quot;http://asciidoctor.org&quot;&gt;Asciidoctor&lt;/a&gt; and &lt;a href=&quot;http://opalrb.org&quot;&gt;Opal&lt;/a&gt; to bring AsciiDoc rendering to the browser!&lt;/p&gt;
+&lt;p&gt;We’ve combined &lt;a href=&quot;http://asciidoctor.org&quot;&gt;Asciidoctor&lt;/a&gt; and &lt;a href=&quot;https://opalrb.com&quot;&gt;Opal&lt;/a&gt; to bring AsciiDoc rendering to the browser!&lt;/p&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
@@ -9608,7 +9608,7 @@ When I first......
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;&lt;a href=&quot;https://github.com/asciidoctor/asciidoctor.js&quot;&gt;asciidoctor.js&lt;/a&gt; uses the &lt;a href=&quot;http://opalrb.org&quot;&gt;Opal&lt;/a&gt; Ruby-to-JavaScript cross compiler to generate a direct JavaScript port of &lt;a href=&quot;http://asciidoctor.org&quot;&gt;Asciidoctor&lt;/a&gt;, an implementation of AsciiDoc. The result is AsciiDoc rendering in the browser!&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://github.com/asciidoctor/asciidoctor.js&quot;&gt;asciidoctor.js&lt;/a&gt; uses the &lt;a href=&quot;https://opalrb.com&quot;&gt;Opal&lt;/a&gt; Ruby-to-JavaScript cross compiler to generate a direct JavaScript port of &lt;a href=&quot;http://asciidoctor.org&quot;&gt;Asciidoctor&lt;/a&gt;, an implementation of AsciiDoc. The result is AsciiDoc rendering in the browser!&lt;/p&gt;
 &lt;/div&gt;
 &lt;div class=&quot;paragraph&quot;&gt;
 &lt;p&gt;The project consists primarily of a Rake build script that executes the Opal compiler on the Asciidoctor source code to produce the asciidoctor.js script.&lt;/p&gt;
@@ -9713,7 +9713,7 @@ Dan Allen
 2013-05-21
 
 We've combined http://asciidoctor.org[Asciidoctor] and
-http://opalrb.org[Opal] to bring AsciiDoc rendering to the browser!&lt;/span&gt;&lt;span class=&quot;delimiter&quot;&gt;)&lt;/span&gt;&lt;/span&gt;
+https://opalrb.com[Opal] to bring AsciiDoc rendering to the browser!&lt;/span&gt;&lt;span class=&quot;delimiter&quot;&gt;)&lt;/span&gt;&lt;/span&gt;
 
 &lt;span class=&quot;global-variable&quot;&gt;$window&lt;/span&gt;.addEventListener &lt;span class=&quot;string&quot;&gt;&lt;span class=&quot;delimiter&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;content&quot;&gt;DOMContentLoaded&lt;/span&gt;&lt;span class=&quot;delimiter&quot;&gt;'&lt;/span&gt;&lt;/span&gt;, proc {
   html_doc = &lt;span class=&quot;constant&quot;&gt;Asciidoctor&lt;/span&gt;.render(data, &lt;span class=&quot;symbol&quot;&gt;:safe&lt;/span&gt; =&amp;gt; &lt;span class=&quot;symbol&quot;&gt;:safe&lt;/span&gt;,

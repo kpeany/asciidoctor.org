@@ -118,7 +118,7 @@ The optional <code>--save</code> flag automatically adds the package to your pro
 <div class="listingblock">
 <div class="content">
 <pre class="CodeRay highlight nowrap"><code data-lang="javascript"><span class="keyword">var</span> asciidoc = <span class="string"><span class="delimiter">&quot;</span><span class="content">http://asciidoctor.org[*Asciidoctor*] </span><span class="delimiter">&quot;</span></span> +
-    <span class="string"><span class="delimiter">&quot;</span><span class="content">running on http://opalrb.org[_Opal_] </span><span class="delimiter">&quot;</span></span> +
+    <span class="string"><span class="delimiter">&quot;</span><span class="content">running on https://opalrb.com[_Opal_] </span><span class="delimiter">&quot;</span></span> +
     <span class="string"><span class="delimiter">&quot;</span><span class="content">brings AsciiDoc to the browser!</span><span class="delimiter">&quot;</span></span>;
 <span class="keyword">var</span> options = Opal.hash2([<span class="string"><span class="delimiter">'</span><span class="content">doctype</span><span class="delimiter">'</span></span>, <span class="string"><span class="delimiter">'</span><span class="content">attributes</span><span class="delimiter">'</span></span>], {<span class="key">doctype</span>: <span class="string"><span class="delimiter">'</span><span class="content">inline</span><span class="delimiter">'</span></span>, <span class="key">attributes</span>: [<span class="string"><span class="delimiter">'</span><span class="content">showtitle</span><span class="delimiter">'</span></span>]});
 <span class="keyword">var</span> html = Opal.Asciidoctor.<span class="predefined">$convert</span>(asciidoc, options);
@@ -169,7 +169,7 @@ The optional <code>--save</code> flag automatically adds the package to your pro
 }
 
 <span class="keyword">var</span> content = <span class="string"><span class="delimiter">&quot;</span><span class="content">http://asciidoctor.org[*Asciidoctor*] </span><span class="delimiter">&quot;</span></span> +
-    <span class="string"><span class="delimiter">&quot;</span><span class="content">running on http://opalrb.org[_Opal_] </span><span class="delimiter">&quot;</span></span> +
+    <span class="string"><span class="delimiter">&quot;</span><span class="content">running on https://opalrb.com[_Opal_] </span><span class="delimiter">&quot;</span></span> +
     <span class="string"><span class="delimiter">&quot;</span><span class="content">brings AsciiDoc to Node.js!</span><span class="delimiter">&quot;</span></span>;
 <span class="keyword">var</span> options = opal.hash2(
     [<span class="string"><span class="delimiter">'</span><span class="content">doctype</span><span class="delimiter">'</span></span>, <span class="string"><span class="delimiter">'</span><span class="content">attributes</span><span class="delimiter">'</span></span>],
@@ -219,7 +219,7 @@ console.log(html); <i class="conum" data-value="6"></i><b>(6)</b></code></pre>
 </div>
 <div class="literalblock output">
 <div class="content">
-<pre class="nowrap">&lt;a href="http://asciidoctor.org"&gt;&lt;strong&gt;Asciidoctor&lt;/strong&gt;&lt;/a&gt; running on &lt;a href="http://opalrb.org"&gt;&lt;em&gt;Opal&lt;/em&gt;&lt;/a&gt; brings AsciiDoc to Node.js!&lt;/p&gt;</pre>
+<pre class="nowrap">&lt;a href="http://asciidoctor.org"&gt;&lt;strong&gt;Asciidoctor&lt;/strong&gt;&lt;/a&gt; running on &lt;a href="https://opalrb.com"&gt;&lt;em&gt;Opal&lt;/em&gt;&lt;/a&gt; brings AsciiDoc to Node.js!&lt;/p&gt;</pre>
 </div>
 </div>
 <div class="admonitionblock important">
@@ -230,7 +230,7 @@ console.log(html); <i class="conum" data-value="6"></i><b>(6)</b></code></pre>
 </td>
 <td class="content">
 To be successful with Asciidoctor.js, it&#8217;s important to understand how to work with Ruby objects in the JavaScript environment.
-We recommend that you browse the <a href="http://opalrb.org/docs/using_ruby_from_javascript">Opal documentation</a> to learn how method names are mapped and what data types it expects.
+We recommend that you browse the <a href="https://opalrb.com/docs/using_ruby_from_javascript">Opal documentation</a> to learn how method names are mapped and what data types it expects.
 </td>
 </tr>
 </table>
