@@ -2181,7 +2181,7 @@ Don’t panic, though!
 We also introduced a compatibility mode.&lt;/p&gt;
 &lt;/div&gt;
 &lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;Refer to the &lt;a href=&quot;http://asciidoctor.org/docs/migration/&quot;&gt;migration guide&lt;/a&gt; for information about the affected syntax and how to migrate (or prepare to migrate) your content.
+&lt;p&gt;Refer to the &lt;a href=&quot;https://asciidoctor.org/docs/migration/&quot;&gt;migration guide&lt;/a&gt; for information about the affected syntax and how to migrate (or prepare to migrate) your content.
 By making these syntax changes, we’re working to make AsciiDoc more consistent and easier to learn.&lt;/p&gt;
 &lt;/div&gt;
 &lt;/div&gt;
@@ -2243,7 +2243,7 @@ To give you a picture of how fast it is now, the Spring Framework Reference Guid
 &lt;div class=&quot;paragraph&quot;&gt;
 &lt;p&gt;Asciidoctor is now in use by even more open source projects, including Groovy, Griffon, GroovyFX, Infinispan, Weld, Hibernate OGM, Spring Data and git-scm.com.
 It’s also used to produce NFJS, the Magazine.
-Best of all, &lt;a href=&quot;https://github.com/graphitefriction&quot;&gt;Sarah&lt;/a&gt; has been hard at work filling in Asciidoctor’s own &lt;a href=&quot;http://asciidoctor.org/docs/user-manual&quot;&gt;user manual&lt;/a&gt; and helping teams understand how to &lt;a href=&quot;http://graphitefriction.com/decks&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;write better documentation&lt;/a&gt;.&lt;/p&gt;
+Best of all, &lt;a href=&quot;https://github.com/graphitefriction&quot;&gt;Sarah&lt;/a&gt; has been hard at work filling in Asciidoctor’s own &lt;a href=&quot;https://asciidoctor.org/docs/user-manual&quot;&gt;user manual&lt;/a&gt; and helping teams understand how to &lt;a href=&quot;http://graphitefriction.com/decks&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;write better documentation&lt;/a&gt;.&lt;/p&gt;
 &lt;/div&gt;
 &lt;div class=&quot;paragraph&quot;&gt;
 &lt;p&gt;In case you didn’t notice, the Asciidoctor project is on &lt;span class=&quot;icon red&quot;&gt;&lt;i class=&quot;fa fa-fire&quot;&gt;&lt;/i&gt;&lt;/span&gt;.
@@ -2267,7 +2267,7 @@ On that note, let’s get to what’s in this new release!&lt;/p&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;With a simple declaration of the &lt;a href=&quot;http://asciidoctor.org/docs/user-manual/#stem&quot;&gt;&lt;code&gt;stem&lt;/code&gt;&lt;/a&gt; attribute, you can now write &lt;a href=&quot;http://asciidoctor.org/docs/user-manual/#inline-stem-content&quot;&gt;inline&lt;/a&gt; and &lt;a href=&quot;http://asciidoctor.org/docs/user-manual/#block-stem-content&quot;&gt;block&lt;/a&gt; formulas in plain text too!&lt;/p&gt;
+&lt;p&gt;With a simple declaration of the &lt;a href=&quot;https://asciidoctor.org/docs/user-manual/#stem&quot;&gt;&lt;code&gt;stem&lt;/code&gt;&lt;/a&gt; attribute, you can now write &lt;a href=&quot;https://asciidoctor.org/docs/user-manual/#inline-stem-content&quot;&gt;inline&lt;/a&gt; and &lt;a href=&quot;https://asciidoctor.org/docs/user-manual/#block-stem-content&quot;&gt;block&lt;/a&gt; formulas in plain text too!&lt;/p&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;div class=&quot;sect2&quot;&gt;
@@ -2302,7 +2302,7 @@ Pepijn Van Eeckhoudt (&lt;a href=&quot;https://github.com/pepijnve&quot;&gt;@pep
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;See the &lt;a href=&quot;http://asciidoctor.org/docs/asciidoctor-diagram&quot;&gt;Asciidoctor Diagram guide&lt;/a&gt; to learn how to create diagrams from ASCII art in your AsciiDoc documents.&lt;/p&gt;
+&lt;p&gt;See the &lt;a href=&quot;https://asciidoctor.org/docs/asciidoctor-diagram&quot;&gt;Asciidoctor Diagram guide&lt;/a&gt; to learn how to create diagrams from ASCII art in your AsciiDoc documents.&lt;/p&gt;
 &lt;/div&gt;
 &lt;div class=&quot;paragraph&quot;&gt;
 &lt;p&gt;Curious how to load extensions like Asciidoctor Diagram from the commandline interface?
@@ -2348,7 +2348,7 @@ However, it was only possible to load these extensions when invoking Asciidoctor
 It’s time we embrace it.&lt;/p&gt;
 &lt;/div&gt;
 &lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;DocBook 5 is now the default output when you use the &lt;a href=&quot;http://asciidoctor.org/docs/user-manual/#docbook&quot;&gt;&lt;code&gt;docbook&lt;/code&gt; backend&lt;/a&gt;.
+&lt;p&gt;DocBook 5 is now the default output when you use the &lt;a href=&quot;https://asciidoctor.org/docs/user-manual/#docbook&quot;&gt;&lt;code&gt;docbook&lt;/code&gt; backend&lt;/a&gt;.
 If you still need to produce DocBook 4.5, use the &lt;code&gt;docbook45&lt;/code&gt; backend.&lt;/p&gt;
 &lt;/div&gt;
 &lt;/div&gt;
@@ -2363,7 +2363,7 @@ However, it makes XML parsers &lt;span class=&quot;icon&quot;&gt;&lt;i class=&qu
 &lt;p&gt;To accommodate tools that use XML parsers to read the generated HTML, Asciidoctor can now output the XHTML variant of HTML5, known as &lt;a href=&quot;http://www.w3.org/TR/html5/introduction.html#html-vs-xhtml&quot;&gt;XHTML5&lt;/a&gt;.&lt;/p&gt;
 &lt;/div&gt;
 &lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;To output XHTML5 instead of HTML5, set the backend to &lt;a href=&quot;http://asciidoctor.org/docs/user-manual/#xhtml&quot;&gt;&lt;code&gt;xhtml&lt;/code&gt;&lt;/a&gt; or, to be more explicit, &lt;code&gt;xhtml5&lt;/code&gt;.
+&lt;p&gt;To output XHTML5 instead of HTML5, set the backend to &lt;a href=&quot;https://asciidoctor.org/docs/user-manual/#xhtml&quot;&gt;&lt;code&gt;xhtml&lt;/code&gt;&lt;/a&gt; or, to be more explicit, &lt;code&gt;xhtml5&lt;/code&gt;.
 The “x” at the beginning of the name cleverly tells Asciidoctor to close short tags, assign values to boolean attributes and add the &lt;code&gt;xmlns&lt;/code&gt; attribute to the root element.&lt;/p&gt;
 &lt;/div&gt;
 &lt;div class=&quot;paragraph&quot;&gt;
@@ -2438,7 +2438,7 @@ Not only do these changes reduce slip ups by the parser, they also strengthen th
 &lt;/div&gt;
 &lt;div class=&quot;paragraph&quot;&gt;
 &lt;p&gt;Compat mode is used to enable legacy syntax when the new syntax deviates from it.
-See the &lt;a href=&quot;http://asciidoctor.org/docs/migration/&quot;&gt;migration guide&lt;/a&gt; for more information about migrating your AsciiDoc documents and the transitional syntax that’s available.&lt;/p&gt;
+See the &lt;a href=&quot;https://asciidoctor.org/docs/migration/&quot;&gt;migration guide&lt;/a&gt; for more information about migrating your AsciiDoc documents and the transitional syntax that’s available.&lt;/p&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;div class=&quot;sect3&quot;&gt;
@@ -2448,7 +2448,7 @@ See the &lt;a href=&quot;http://asciidoctor.org/docs/migration/&quot;&gt;migrati
 Single plus (&lt;code&gt;+&lt;/code&gt;) and double plus (&lt;code&gt;++&lt;/code&gt;) are used to format text as monospace, whereas triple plus (&lt;code&gt;+++&lt;/code&gt;) and quadruple plus (&lt;code&gt;++++&lt;/code&gt;) are used to escape text from processing.&lt;/p&gt;
 &lt;/div&gt;
 &lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;We made AsciiDoc more intuitive and easier to teach by always using &lt;code&gt;+&lt;/code&gt; as a &lt;a href=&quot;http://asciidoctor.org/docs/user-manual/#passthru&quot;&gt;passthrough formatting mark&lt;/a&gt;.
+&lt;p&gt;We made AsciiDoc more intuitive and easier to teach by always using &lt;code&gt;+&lt;/code&gt; as a &lt;a href=&quot;https://asciidoctor.org/docs/user-manual/#passthru&quot;&gt;passthrough formatting mark&lt;/a&gt;.
 Instead of using the single plus and double plus for monospaced formatting, we’ve made them constrained and unconstrained literals (i.e., “render it as it looks”), respectively.
 For example:&lt;/p&gt;
 &lt;/div&gt;
@@ -2496,7 +2496,7 @@ However, that’s because AsciiDoc has additional features, such as attribute re
 &lt;div class=&quot;paragraph&quot;&gt;
 &lt;p&gt;There will be a period of time during which you’ll have to process your document with both Asciidoctor 0.1.4 and 1.5.0 (mostly while we wait on GitHub to upgrade).
 We’ve added special logic in the processor to handle a hybrid syntax to use in the interim.
-Please refer to the &lt;a href=&quot;http://asciidoctor.org/docs/migration/&quot;&gt;migration guide&lt;/a&gt; for details.&lt;/p&gt;
+Please refer to the &lt;a href=&quot;https://asciidoctor.org/docs/migration/&quot;&gt;migration guide&lt;/a&gt; for details.&lt;/p&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;div class=&quot;sect3&quot;&gt;
@@ -2517,7 +2517,7 @@ You now place the backtick inside the quote character, adjacent to the quoted ph
 &lt;/div&gt;
 &lt;div class=&quot;paragraph&quot;&gt;
 &lt;p&gt;This change brings the backtick closer in proximity to the quote and thus makes parsing more deterministic.
-See the user manual for &lt;a href=&quot;http://asciidoctor.org/docs/user-manual/#curved&quot;&gt;more curved quote and apostrophe examples&lt;/a&gt;.&lt;/p&gt;
+See the user manual for &lt;a href=&quot;https://asciidoctor.org/docs/user-manual/#curved&quot;&gt;more curved quote and apostrophe examples&lt;/a&gt;.&lt;/p&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;div class=&quot;sect3&quot;&gt;
@@ -2533,7 +2533,7 @@ We never recommended them for this purpose anyway.
 Furthermore, they conflict with the new curved quote syntax, so they had to go.&lt;/p&gt;
 &lt;/div&gt;
 &lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;Refer to the &lt;a href=&quot;http://asciidoctor.org/docs/migration/&quot;&gt;migration guide&lt;/a&gt; to help ensure a smooth transition to the new syntax.&lt;/p&gt;
+&lt;p&gt;Refer to the &lt;a href=&quot;https://asciidoctor.org/docs/migration/&quot;&gt;migration guide&lt;/a&gt; to help ensure a smooth transition to the new syntax.&lt;/p&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
@@ -2568,7 +2568,7 @@ include::chapter-01.adoc[]
 &lt;div class=&quot;paragraph&quot;&gt;
 &lt;p&gt;The Groovy developers use the include and tag directives a lot.
 They discovered that tag directives within a broader tagged range get carried over into the document.
-Asciidoctor now drops these lines so you can &lt;a href=&quot;http://asciidoctor.org/docs/user-manual/#selecting-parts-of-a-document-to-include&quot;&gt;nest fine-grained ranges within broader ranges&lt;/a&gt;.&lt;/p&gt;
+Asciidoctor now drops these lines so you can &lt;a href=&quot;https://asciidoctor.org/docs/user-manual/#selecting-parts-of-a-document-to-include&quot;&gt;nest fine-grained ranges within broader ranges&lt;/a&gt;.&lt;/p&gt;
 &lt;/div&gt;
 &lt;div class=&quot;paragraph&quot;&gt;
 &lt;p&gt;The tag directives are also searched using a more strict match to avoid false matches.&lt;/p&gt;
@@ -2578,7 +2578,7 @@ Asciidoctor now drops these lines so you can &lt;a href=&quot;http://asciidoctor
 &lt;h3 id=&quot;span-class-icon-i-class-fa-fa-refresh-i-span-substitution-modifiers&quot;&gt;&lt;a class=&quot;anchor&quot; href=&quot;#span-class-icon-i-class-fa-fa-refresh-i-span-substitution-modifiers&quot;&gt;&lt;/a&gt;&lt;span class=&quot;icon&quot;&gt;&lt;i class=&quot;fa fa-refresh&quot;&gt;&lt;/i&gt;&lt;/span&gt; Substitution modifiers&lt;/h3&gt;
 &lt;div class=&quot;paragraph&quot;&gt;
 &lt;p&gt;When you needed to customize the substitutions on a block, you used to have to list out all the substitutions you wanted to enable.
-It’s now possible to add or remove substitutions to the default substitution set &lt;a href=&quot;http://asciidoctor.org/docs/user-manual/#applying-substitutions&quot;&gt;using the &lt;code&gt;+&lt;/code&gt; and &lt;code&gt;-&lt;/code&gt; modifiers&lt;/a&gt; (e.g., &lt;code&gt;[subs=+quotes]&lt;/code&gt;).
+It’s now possible to add or remove substitutions to the default substitution set &lt;a href=&quot;https://asciidoctor.org/docs/user-manual/#applying-substitutions&quot;&gt;using the &lt;code&gt;+&lt;/code&gt; and &lt;code&gt;-&lt;/code&gt; modifiers&lt;/a&gt; (e.g., &lt;code&gt;[subs=+quotes]&lt;/code&gt;).
 That should save a lot of unnecessary typing!&lt;/p&gt;
 &lt;/div&gt;
 &lt;/div&gt;
@@ -2600,7 +2600,7 @@ So, they end up long-handing it for the sole purpose of hiding the prefix.&lt;/p
 &lt;/div&gt;
 &lt;div class=&quot;literalblock&quot;&gt;
 &lt;div class=&quot;content&quot;&gt;
-&lt;pre class=&quot;nowrap&quot;&gt;http://asciidoctor.org[asciidoctor.org]&lt;/pre&gt;
+&lt;pre class=&quot;nowrap&quot;&gt;https://asciidoctor.org[asciidoctor.org]&lt;/pre&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;div class=&quot;paragraph&quot;&gt;
@@ -2610,14 +2610,14 @@ So, they end up long-handing it for the sole purpose of hiding the prefix.&lt;/p
 &lt;div class=&quot;content&quot;&gt;
 &lt;pre class=&quot;nowrap&quot;&gt;:hide-uri-scheme:
 
-http://asciidoctor.org&lt;/pre&gt;
+https://asciidoctor.org&lt;/pre&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;div class=&quot;exampleblock&quot;&gt;
 &lt;div class=&quot;title&quot;&gt;Rendered URL when hide-url-scheme is set&lt;/div&gt;
 &lt;div class=&quot;content&quot;&gt;
 &lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;&lt;a href=&quot;http://asciidoctor.org&quot; class=&quot;bare&quot;&gt;asciidoctor.org&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://asciidoctor.org&quot; class=&quot;bare&quot;&gt;asciidoctor.org&lt;/a&gt;&lt;/p&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
