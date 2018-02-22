@@ -929,11 +929,7 @@ table.CodeRay td.code>pre{padding:0}
 <li><a href="#external-preview">77.4. External Preview</a></li>
 </ul>
 </li>
-<li><a href="#slideshows">78. Slideshows</a>
-<ul class="sectlevel2">
-<li><a href="#deckjs">78.1. Deck.js</a></li>
-</ul>
-</li>
+<li><a href="#slide-decks">78. Slide Decks</a></li>
 <li><a href="#custom-backends">79. Custom Backends</a>
 <ul class="sectlevel2">
 <li><a href="#creating-a-backend">79.1. Creating a Backend</a></li>
@@ -20400,7 +20396,7 @@ Requires the <a href="https://github.com/asciidoctor/asciidoctor-mallard">asciid
 </dl>
 </div>
 <div class="paragraph">
-<p>There are also converters available for HTML5 presentation systems such as Bespoke.js, reveal.js and deck.js.
+<p>There are also converters available for HTML5 presentation systems such as reveal.js and Bespoke.js.
 Those converters are still in development and will be documented once releases become available.</p>
 </div>
 </div>
@@ -20696,7 +20692,7 @@ You may not be familiar with these http://en.wikipedia.org/wiki/Wolpertinger[rav
 </div>
 </div>
 <div class="paragraph">
-<p>To produce XHTML instead of HTML when using converter templates (such as those for deck.js), set the <code>htmlsyntax</code> attribute to <code>xml</code> in addition to the backend option:</p>
+<p>To produce XHTML instead of HTML when using converter templates, set the <code>htmlsyntax</code> attribute to <code>xml</code> in addition to the backend option:</p>
 </div>
 <div class="listingblock">
 <div class="title">Produce XHTML using custom templates</div>
@@ -22040,341 +22036,28 @@ You can quickly serve HTML files in the root directory of the project using the 
 </div>
 </div>
 <div class="sect1">
-<h2 id="slideshows"><a class="anchor" href="#slideshows"></a><a class="link" href="#slideshows">78. Slideshows</a></h2>
+<h2 id="slide-decks"><a class="anchor" href="#slide-decks"></a><a class="link" href="#slide-decks">78. Slide Decks</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>The conversion to HTML-based slides is handled by a custom backend.
-The backends usually requires that you adhere to a set of conventions to define a slide and its content.
-But there&#8217;s nothing in that content that restricts the document from being converted to a regular HTML page or PDF.</p>
+<p>In addition to generating normal documents from AsciiDoc (e.g., a book or article), you can also use AsciiDoc to create HTML-based slide decks.
+The converters for creating HTML-based slides add some additional structure rules to the document for defining slides.
+However, nothing in this structure restricts you from still being able to publish the content as a normal document too.</p>
 </div>
 <div class="paragraph">
-<p>The first backend created was the one for deck.js.
-Asciidoctor has backends for generating dzslides and reveal.js presentations as well.
-Backends for other presentation frameworks are in the works.</p>
-</div>
-<div class="sect2">
-<h3 id="deckjs"><a class="anchor" href="#deckjs"></a><a class="link" href="#deckjs">78.1. Deck.js</a></h3>
-<div class="paragraph">
-<p>The <a href="https://github.com/asciidoctor/asciidoctor-backends">deck.js backend</a> for Asciidoctor is a collection of Haml templates that transform an AsciiDoc document to HTML 5-based slides animated by <a href="http://imakewebthings.com/deck.js">deck.js</a>.</p>
-</div>
-<div class="sect3">
-<h4 id="gem-requirements"><a class="anchor" href="#gem-requirements"></a><a class="link" href="#gem-requirements">78.1.1. Gem Requirements</a></h4>
-<div class="paragraph">
-<p>The Asciidoctor deck.js backend requires the following gems:</p>
+<p>The conversion from AsciiDoc to an HTML-based slide deck is handled by one of the following converters from the Asciidoctor ecosystem:</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>asciidoctor</p>
+<p><a href="https://github.com/asciidoctor/asciidoctor-reveal.js">Asciidoctor Reveal.js</a>&#8201;&#8212;&#8201;Converts an AsciiDoc document into a Reveal.js presentation</p>
 </li>
 <li>
-<p>tilt</p>
-</li>
-<li>
-<p>haml</p>
+<p><a href="https://github.com/asciidoctor/asciidoctor-bespoke">Asciidoctor Bespoke</a>&#8201;&#8212;&#8201;Converts an AsciiDoc document into a Bespoke presentation</p>
 </li>
 </ul>
 </div>
 <div class="paragraph">
-<p>To determine what gems are installed on your system, open a terminal window and type:</p>
-</div>
-<div class="literalblock">
-<div class="content">
-<pre class="nowrap">$ gem list --local</pre>
-</div>
-</div>
-<div class="paragraph">
-<p>A list of installed gems will be returned.</p>
-</div>
-<div class="paragraph">
-<p>If you&#8217;re missing the <code>asciidoctor</code>, <code>tilt</code>, or <code>haml</code> gems, install them from the command line with <code>gem install</code>.</p>
-</div>
-<div class="literalblock">
-<div class="content">
-<pre class="nowrap">$ gem install asciidoctor tilt haml</pre>
-</div>
-</div>
-</div>
-<div class="sect3">
-<h4 id="backend-and-deck-js-installation"><a class="anchor" href="#backend-and-deck-js-installation"></a><a class="link" href="#backend-and-deck-js-installation">78.1.2. Backend and deck.js Installation</a></h4>
-<div class="olist arabic">
-<ol class="arabic">
-<li>
-<p>Download or <code>git clone</code> the <a href="https://github.com/asciidoctor/asciidoctor-backends">Asciidoctor backends</a> repository.</p>
-<div class="literalblock">
-<div class="content">
-<pre class="nowrap">$ git clone git://github.com/asciidoctor/asciidoctor-backends.git</pre>
-</div>
-</div>
-</li>
-<li>
-<p>Create a directory named <code>deck.js</code> inside your working directory (i.e. where your AsciiDoc document resides).</p>
-</li>
-<li>
-<p><a href="https://github.com/imakewebthings/deck.js/archive/latest.zip">Download</a> and extract the deck.js archive or <code>git clone</code> the <a href="https://github.com/imakewebthings/deck.js">deck.js</a> repository into the <code>deck.js</code> directory you created in step 2.</p>
-<div class="literalblock">
-<div class="content">
-<pre class="nowrap">$ git clone git://github.com/imakewebthings/deck.js.git</pre>
-</div>
-</div>
-</li>
-<li>
-<p>If you plan to split your slides, <a href="https://github.com/houqp/deck.split.js">download the <code>deck.split.js</code> extension</a> and copy it into the <code>deck.js/extensions</code> directory.</p>
-</li>
-<li>
-<p>If you want to use the fullscreen photo feature, create an <code>images</code> directory in your working directory.</p>
-</li>
-</ol>
-</div>
-</div>
-<div class="sect3">
-<h4 id="deckjs-backend-attributes"><a class="anchor" href="#deckjs-backend-attributes"></a><a class="link" href="#deckjs-backend-attributes">78.1.3. Deckjs Backend Attributes</a></h4>
-<div class="paragraph">
-<p>There are a number of document attributes specific to the <code>deckjs</code> backend.</p>
-</div>
-<table class="tableblock frame-all grid-all spread">
-<caption class="title"><code>deckjs</code> backend document attributes</caption>
-<colgroup>
-<col style="width: 40%;">
-<col style="width: 20%;">
-<col style="width: 40%;">
-</colgroup>
-<thead>
-<tr>
-<th class="tableblock halign-left valign-top">Attribute</th>
-<th class="tableblock halign-left valign-top">Description</th>
-<th class="tableblock halign-left valign-top">Example</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">:backend: deckjs</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Activates the deck.js backend to convert the document as a deck.js presentation</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>:backend: deckjs</code></p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">:deckjs_theme: &lt;theme&gt;</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Sets the deck.js theme to neon, swiss or web-2.0</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>:deckjs_theme: web-2.0</code></p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">:deckjs_transition: &lt;type&gt;</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Sets the transition style to horizontal-slide, vertical-slide or fade</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>:deckjs_transition: fade</code></p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">:customjs: &lt;javascript location&gt;</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Sets a custom javascript file; can be used as a deck.js custom configuration</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>:customjs: &lt;javascript location&gt;</code></p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">:customcss: &lt;css location&gt;</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Sets a custom css file</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>:customcss: &lt;css location&gt;</code></p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">:menu:</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Toggle to and from a grid layout overview of all the slides by pressing the <code>m</code> key</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>:menu:</code></p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">:navigation:</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Renders clickable previous and next navigation icons on the slides</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>:navigation:</code></p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">:status:</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Renders the current slide number and total number of slides</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>:status:</code></p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">:split:</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Registers the split module for use in the document</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>:split:</code></p></td>
-</tr>
-</tbody>
-</table>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-You can also specify a custom stylesheet using the <code>stylesheet</code> attribute, which customizes AsciiDoc elements like section, paragraph, images, etc.
-</td>
-</tr>
-</table>
-</div>
-<div class="paragraph">
-<p>The attributes described in the table above are set in the header of your document.</p>
-</div>
-<div class="literalblock">
-<div class="title">Header with <code>deckjs</code> backend attributes</div>
-<div class="content">
-<pre class="nowrap">= Presentation Title
-Presenter Name
-:backend: deckjs
-:deckjs_theme: web-2.0
-:deckjs_transition: horizontal-slide
-:navigation:</pre>
-</div>
-</div>
-</div>
-<div class="sect3">
-<h4 id="slide-syntax-examples"><a class="anchor" href="#slide-syntax-examples"></a><a class="link" href="#slide-syntax-examples">78.1.4. Slide syntax Examples</a></h4>
-<div class="paragraph">
-<p>Structuring a slideshow and writing the slide content uses the same syntax as a typical AsciiDoc document, with a few added features.</p>
-</div>
-<div class="paragraph">
-<p>Let&#8217;s see some examples of the <code>deckjs</code> backend features:</p>
-</div>
-<div class="listingblock">
-<div class="title">Slide titles and background images</div>
-<div class="content">
-<pre class="nowrap">= Title of Presentation <i class="conum" data-value="1"></i><b>(1)</b>
-Presenter Name
-:backend: deckjs
-:deckjs_transition: fade
-:navigation:
-
-== Title of Slide One <i class="conum" data-value="2"></i><b>(2)</b>
-
-This is the first slide after the title slide.
-
-[canvas-image="images/example.jpg"] <i class="conum" data-value="3"></i><b>(3)</b>
-== Slide Two's Title will not be displayed <i class="conum" data-value="4"></i><b>(4)</b>
-
-[role="canvas-caption", position="center-up"] <i class="conum" data-value="5"></i><b>(5)</b>
-This text is displayed on top of the example.jpg image.</pre>
-</div>
-</div>
-<div class="colist arabic">
-<table>
-<tr>
-<td><i class="conum" data-value="1"></i><b>1</b></td>
-<td>The presentation title and author&#8217;s name will be displayed on the title slide.</td>
-</tr>
-<tr>
-<td><i class="conum" data-value="2"></i><b>2</b></td>
-<td>Each new slide is designated by a level 1 section title (<code>==</code>).</td>
-</tr>
-<tr>
-<td><i class="conum" data-value="3"></i><b>3</b></td>
-<td>The <code>canvas-image</code> attribute embeds a fullscreen image as a slide background. Position the attribute above the title of the slide you want the image applied to.</td>
-</tr>
-<tr>
-<td><i class="conum" data-value="4"></i><b>4</b></td>
-<td>When the <code>canvas-image</code> attribute is applied to a slide, that slide&#8217;s title will not be displayed.</td>
-</tr>
-<tr>
-<td><i class="conum" data-value="5"></i><b>5</b></td>
-<td><code>canvas-caption</code> applies a colored box around the caption text. <code>position</code> specifies the location of the caption block (bottom-left, top-left, bottom-right, top-right, center-up, center-down)</td>
-</tr>
-</table>
-</div>
-<div class="listingblock">
-<div class="title">Stepped paragraphs, lists, and blocks</div>
-<div class="content">
-<pre class="nowrap">== Stepped paragraphs
-
-[options="step"]
-This paragraph is displayed first.
-
-[options="step"]
-Then this paragraph is displayed when the _Next_ arrow is clicked.
-
-== Stepped list items
-
-[options="step"]
-* A bullet is displayed each time the _Next_ arrow is clicked.
-* B
-* C
-
-== Stepped blocks
-
-[options="step"]
-----
-Block one
-----
-
-[options="step"]
-----
-Block two
-----</pre>
-</div>
-</div>
-<div class="paragraph">
-<p>The <code>step</code> option reveals each paragraph, bullet, etc. separately each time you click the <em>Next</em> arrow.</p>
-</div>
-<div class="admonitionblock warning">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-warning" title="Warning"></i>
-</td>
-<td class="content">
-The original AsciiDoc <code>deckjs</code> backend for the AsciiDoc processor used the option <code>incremental</code> instead of <code>step</code>.
-We&#8217;ve changed it to <code>step</code> in order to save you some typing.
-</td>
-</tr>
-</table>
-</div>
-<div class="listingblock">
-<div class="title">Split</div>
-<div class="content">
-<pre class="nowrap">= Presentation Title
-Presenter Name
-:backend: deckjs
-:split: <i class="conum" data-value="1"></i><b>(1)</b>
-
-== This Slide is Split
-
-This Slide will act like
-
-&lt;&lt;&lt; <i class="conum" data-value="2"></i><b>(2)</b>
-
-three individual slides with the same title
-
-&lt;&lt;&lt;
-
-once the document is converted.</pre>
-</div>
-</div>
-<div class="colist arabic">
-<table>
-<tr>
-<td><i class="conum" data-value="1"></i><b>1</b></td>
-<td>To create multiple, consecutive slides with the same title, set the <code>split</code> attribute in the document header.</td>
-</tr>
-<tr>
-<td><i class="conum" data-value="2"></i><b>2</b></td>
-<td>Then, within a slide, insert <code>&lt;&lt;&lt;</code> to specify the slide breaks.</td>
-</tr>
-</table>
-</div>
-</div>
-<div class="sect3">
-<h4 id="converting"><a class="anchor" href="#converting"></a><a class="link" href="#converting">78.1.5. Converting</a></h4>
-<div class="paragraph">
-<p>To convert your presentation as HTML5, execute the command:</p>
-</div>
-<div class="literalblock">
-<div class="content">
-<pre class="nowrap">$ asciidoctor -T ../asciidoctor-backends/haml presentation.adoc</pre>
-</div>
-</div>
-<div class="olist arabic">
-<ol class="arabic">
-<li>
-<p>The command <code>-T</code> (<code>--template-dir</code>) tells the Asciidoctor processor to override the built-in backends.</p>
-</li>
-<li>
-<p>Directly after <code>-T</code> is the path to where you saved or cloned the Asciidoctor backends repository containing the <code>deckjs</code> backend (step 1 under the <a href="#backend-and-deck-js-installation">installation section</a>).</p>
-</li>
-</ol>
-</div>
-</div>
+<p>There&#8217;s also a converter for making deck.js slide decks, but we discourage using it as deck.js itself is very outdated.</p>
 </div>
 </div>
 </div>
@@ -26966,7 +26649,7 @@ In source listings, is the callout the last thing on the line?</p></td>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2018-02-14 11:21:55 UTC
+Last updated 2018-02-22 08:11:28 UTC
 </div>
 </div>
 <script type="text/x-mathjax-config">

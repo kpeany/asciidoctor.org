@@ -535,7 +535,6 @@ table.CodeRay td.code>pre{padding:0}
 <li><a href="#does-asciidoctor-only-process-text-that-is-us-ascii-encoded">Does Asciidoctor only process text that is US-ASCII encoded?</a></li>
 <li><a href="#how-do-i-make-relative-links-to-other-asciidoc-files-to-work-correctly-on-github">How do I make relative links to other AsciiDoc files to work correctly on GitHub?</a></li>
 <li><a href="#what-is-the-media-type-for-asciidoc">What is the media type for AsciiDoc?</a></li>
-<li><a href="#how-do-i-enable-syntax-highlighting-in-the-deck-js-backend">How do I enable syntax highlighting in the deck.js backend?</a></li>
 </ul>
 </li>
 <li><a href="#troubleshooting">Troubleshooting</a>
@@ -661,57 +660,6 @@ Since this change is specific to the website architecture described, you want to
 <p>Either one will do, though it probably makes sense to align with Markdown on this one.</p>
 </div>
 </div>
-<div class="sect2">
-<h3 id="how-do-i-enable-syntax-highlighting-in-the-deck-js-backend"><a class="anchor" href="#how-do-i-enable-syntax-highlighting-in-the-deck-js-backend"></a>How do I enable syntax highlighting in the deck.js backend?</h3>
-<div class="paragraph">
-<p>You begin by setting the <code>source-highlighter</code> attribute to one of the accepted values, such as <code>coderay</code>.</p>
-</div>
-<div class="literalblock">
-<div class="content">
-<pre class="nowrap">:source-highlighter: coderay</pre>
-</div>
-</div>
-<div class="paragraph">
-<p>That only gets you half way, though.
-The problem is that Asciidoctor only performs syntax highlighting when the "base" backend attribute (i.e., basebackend attribute) is html.
-The basebackend attribute is determined by removing the trailing numbers from the backend name.
-For instance, html5 becomes html.
-However, deckjs becomes&#8230;&#8203;deckjs.
-There in lies our problem (see <a href="https://github.com/asciidoctor/asciidoctor/issues/891">issue #891</a>).</p>
-</div>
-<div class="paragraph">
-<p>The workaround is to set the backend to html5 (or just don&#8217;t set it) and point the -T command argument to the <em class="path">haml/deckjs</em> folder under the <a href="https://github.com/asciidoctor/asciidoctor-backends">asciidoctor-backends</a> directory.
-For example:</p>
-</div>
-<div class="literalblock">
-<div class="content">
-<pre class="nowrap">$ asciidoctor -T /path/to/asciidoctor-backends/haml/deckjs deck.adoc</pre>
-</div>
-</div>
-<div class="paragraph">
-<p>Notice that the backend attribute <em>is not set</em>.
-The templates will be used in exactly the same way as if you had set the backend to <code>deckjs</code>, except this time syntax highlighting will work!</p>
-</div>
-<div class="admonitionblock tip">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-tip" title="Tip"></i>
-</td>
-<td class="content">
-<div class="paragraph">
-<p>If you want to have CodeRay embed the styles inline instead of using CSS classes, set the following attribute in your AsciiDoc document:</p>
-</div>
-<div class="literalblock">
-<div class="content">
-<pre class="nowrap">:coderay-css: style</pre>
-</div>
-</div>
-</td>
-</tr>
-</table>
-</div>
-</div>
 </div>
 </div>
 <div class="sect1">
@@ -795,7 +743,7 @@ However, when you use this approach, Asciidoctor won&#8217;t recognize it as a U
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2018-02-14 11:21:55 UTC
+Last updated 2018-02-22 08:11:28 UTC
 </div>
 </div>
 </body>
