@@ -47,12 +47,8 @@
 <li><a href="#pushing-to-android">Pushing to Android</a></li>
 <li><a href="#e-book-reader-recommendations-and-quirks">E-book Reader Recommendations and Quirks</a>
 <ul class="sectlevel2">
-<li><a href="#kindle-direct-publishing">Kindle Direct Publishing</a>
-<ul class="sectlevel3">
-<li><a href="#look-inside">Look Inside</a></li>
-</ul>
-</li>
 <li><a href="#send-to-kindle">Send to Kindle</a></li>
+<li><a href="#look-inside">Look Inside</a></li>
 </ul>
 </li>
 <li><a href="#authors">Authors</a></li>
@@ -1368,34 +1364,6 @@ To see all of the workarounds and why we chose certain style options, check out 
 </ul>
 </div>
 <div class="sect2">
-<h3 id="kindle-direct-publishing"><a class="anchor" href="#kindle-direct-publishing"></a>Kindle Direct Publishing</h3>
-<div class="paragraph">
-<p>If you want to publish your book to the Amazon Kindle store, and have your styles and fonts preserved, you must use <a href="https://kdp.amazon.com">Kindle Direct Publishing</a>.
-No other method of publishing to the Amazon Kindle store will leave your book intact.</p>
-</div>
-<div class="paragraph">
-<p>This workflow also allows you to preview the book the way your readers will see it.
-So it&#8217;s a good way to acceptance test your custom styles to discover which ones are honored and which ones are ignored.</p>
-</div>
-<div class="sect3">
-<h4 id="look-inside"><a class="anchor" href="#look-inside"></a>Look Inside</h4>
-<div class="paragraph">
-<p>The Amazon Kindle store offers a “Look Inside” feature for reader.
-This so-called feature aims to gives readers a glimpse at the contents of the book.
-Sadly, it does no such thing.
-Instead, it shows pages from the legacy MOBI document that kindlegen adds to your e-book file, not the higher fidelity KF8 document.
-This means the preview won&#8217;t look at all like what the Kindle reader or application will actually show.
-Custom fonts, font-based icons, and most styles will be missing.</p>
-</div>
-<div class="paragraph">
-<p>This situation is unfortunate for authors.
-What we recommend is to complain loudly to Amazon that they are hurting your sales by displaying a crippled version of your product.
-Tell them that under no circumstances should they show an altered version of your product.
-Another option is to contact Amazon to opt-out of this program.</p>
-</div>
-</div>
-</div>
-<div class="sect2">
 <h3 id="send-to-kindle"><a class="anchor" href="#send-to-kindle"></a>Send to Kindle</h3>
 <div class="admonitionblock warning">
 <table>
@@ -1410,7 +1378,7 @@ Don&#8217;t use it!
 </table>
 </div>
 <div class="paragraph">
-<p><a href="https://www.amazon.com/gp/sendtokindle/">Send to Kindle</a> is a tempting choice for transferring MOBI files to a Kindle device.
+<p><a href="https://www.amazon.com/gp/sendtokindle/">“Send to Kindle”</a> is a tempting choice for transferring MOBI files to a Kindle device.
 However, it&#8217;s utterly broken.
 If you use this tool, don&#8217;t be surprised if you see missing font-based icons, default fonts, and other font and style errors in your manuscript.
 It&#8217;s known to strip out all the font files and break the encoding of the document.</p>
@@ -1422,6 +1390,21 @@ Once transferred, Whispersync will detect the new file (usually looking in the B
 <div class="paragraph">
 <p>It&#8217;s important to note that “Send to Kindle” is not reflective of the experience readers will have when shopping in the Kindle store.
 If you use Kindle Direct Publishing (KDP) to publish your book, the integrity of your book will be preserved (to the degree that Amazon allows).</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="look-inside"><a class="anchor" href="#look-inside"></a>Look Inside</h3>
+<div class="paragraph">
+<p>The Amazon Kindle store has a “Look Inside” feature, which aims to gives readers a glimpse at the contents of the book.
+Sadly, it does no such thing.
+Instead, it shows pages from the legacy MOBI document that kindlegen adds to your e-book file, not the higher fidelity KF8 document.
+Therefore, the preview won&#8217;t look at all like what the Kindle reader or application will actually show.
+Custom fonts, font-based icons, and most styles will be missing.</p>
+</div>
+<div class="paragraph">
+<p>This situation is unfortunate for authors.
+What I recommend is to complain loudly to Amazon that they are hurting your sales by displaying a crippled version of your product.
+Another option is to contact Amazon to opt-out of this so-called feature.</p>
 </div>
 </div>
 </div>
