@@ -1362,7 +1362,7 @@ Since AsciiDoc supports a broader range of syntax than Markdown, this side-by-si
 </div></div></td>
 <td class="tableblock halign-left valign-top"><div><div class="listingblock">
 <div class="content">
-<pre class="CodeRay highlight"><code data-lang="asciidoc">link:{ctx_path}/assets/mydoc.pdf[get the PDF]</code></pre>
+<pre class="CodeRay highlight"><code data-lang="asciidoc">link:{site-url}/assets/mydoc.pdf[get the PDF]</code></pre>
 </div>
 </div></div></td>
 </tr>
@@ -1371,7 +1371,7 @@ Since AsciiDoc supports a broader range of syntax than Markdown, this side-by-si
 <td class="tableblock halign-left valign-top"><p class="tableblock"><em>n/a</em></p></td>
 <td class="tableblock halign-left valign-top"><div><div class="listingblock">
 <div class="content">
-<pre class="CodeRay highlight"><code data-lang="asciidoc">&lt;&lt;attribute-catalog&gt;&gt;</code></pre>
+<pre class="CodeRay highlight"><code data-lang="asciidoc">&lt;&lt;installation&gt;&gt;</code></pre>
 </div>
 </div></div></td>
 </tr>
@@ -1421,8 +1421,7 @@ Since AsciiDoc supports a broader range of syntax than Markdown, this side-by-si
 </div></div></td>
 <td class="tableblock halign-left valign-top"><div><div class="listingblock">
 <div class="content">
-<pre class="CodeRay highlight"><code data-lang="asciidoc">[quote]
-____
+<pre class="CodeRay highlight"><code data-lang="asciidoc">____
 Quoted text.
 
 Another paragraph in quote.
@@ -1465,8 +1464,8 @@ public class Person {
 <div class="content">
 <pre class="CodeRay highlight"><code data-lang="asciidoc">* apples
 * oranges
-** temple
-** navel
+ ** temple
+ ** navel
 * bananas</code></pre>
 </div>
 </div></div></td>
@@ -1512,9 +1511,18 @@ _ _ _</code></pre>
 </div></div></td>
 </tr>
 <tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Typographic (aka &#8220;Smart&#8221;) Quotes</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Enabled through an extension switch, but offer little control in how they are applied.</p></td>
+<td class="tableblock halign-left valign-top"><div><div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="asciidoc">One of Jekyll's best aspects is that it is &quot;`blog aware`&quot;.</code></pre>
+</div>
+</div></div></td>
+</tr>
+<tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Document header</p></td>
 <td class="tableblock halign-left valign-top"><div><div class="listingblock">
-<div class="title">As front matter</div>
+<div class="title">Slapped on as front matter</div>
 <div class="content">
 <pre class="CodeRay highlight"><code data-lang="markdown">---
 layout: docs
@@ -1526,6 +1534,7 @@ permalink: /docs/writing-posts/
 </div>
 </div></div></td>
 <td class="tableblock halign-left valign-top"><div><div class="listingblock">
+<div class="title">Native support!</div>
 <div class="content">
 <pre class="CodeRay highlight"><code data-lang="asciidoc">= Writing posts
 :awestruct-layout: base
@@ -1540,19 +1549,38 @@ permalink: /docs/writing-posts/
 <td class="tableblock halign-left valign-top"><p class="tableblock"><em>n/a</em></p></td>
 <td class="tableblock halign-left valign-top"><div><div class="listingblock">
 <div class="content">
-<pre class="CodeRay highlight"><code data-lang="asciidoc">[TIP, caption='ProTip(TM)']
-.Show line numbers
-You can add line numbers to source listings by adding the word `numbered` in the attribute list after the language name.</code></pre>
+<pre class="CodeRay highlight"><code data-lang="asciidoc">TIP: You can add line numbers to source listings by adding the word `numbered` in the attribute list after the language name.</code></pre>
 </div>
 </div></div></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Typographic (aka &#8220;Smart&#8221;) Quotes</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Enabled through an extension switch, but offer little control in how they are applied.</p></td>
-<td class="tableblock halign-left valign-top"><div><div class="listingblock">
+<td class="tableblock halign-left valign-top"><p class="tableblock">Sidebars</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em>n/a</em></p></td>
+<td class="tableblock halign-left valign-top"><div><div class="sidebarblock">
 <div class="content">
-<pre class="CodeRay highlight"><code data-lang="asciidoc">One of Jekyll's best aspects is that it is &quot;`blog aware`&quot;.</code></pre>
+<div class="title">Lightweight Markup</div>
+<div class="paragraph">
+<p>Writing languages that let you type less and express more.</p>
 </div>
+</div>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Block titles</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em>n/a</em></p></td>
+<td class="tableblock halign-left valign-top"><div><div class="ulist">
+<div class="title">Grocery list</div>
+<ul>
+<li>
+<p>Milk</p>
+</li>
+<li>
+<p>Eggs</p>
+</li>
+<li>
+<p>Bread</p>
+</li>
+</ul>
 </div></div></td>
 </tr>
 <tr>
@@ -26649,7 +26677,7 @@ In source listings, is the callout the last thing on the line?</p></td>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2018-02-24 06:38:00 UTC
+Last updated 2018-02-25 20:33:58 UTC
 </div>
 </div>
 <script type="text/x-mathjax-config">
