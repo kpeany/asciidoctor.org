@@ -3786,7 +3786,10 @@ The asterisks around the word are preserved.
 \{author} is not resolved to the author name.
 The curly brackets around the word are preserved.
 
-The backslash character is automatically removed.</pre>
+`A\--Z` connects A to Z in monospace using two dashes.
+The dashes are not replaced by an em dash.
+
+In these cases, the backslash character is automatically removed.</pre>
 </div>
 </div>
 <div class="exampleblock result">
@@ -3800,12 +3803,31 @@ The asterisks around the word are preserved.</p>
 The curly brackets around the word are preserved.</p>
 </div>
 <div class="paragraph">
-<p>The backslash character is automatically removed.</p>
+<p><code>A--Z</code> connects A to Z in monospace using two dashes.
+The dashes are not replaced by an em dash.</p>
+</div>
+<div class="paragraph">
+<p>In these cases, the backslash character is automatically removed.</p>
 </div>
 </div>
 </div>
 <div class="listingblock">
-<div class="title">Triple plus and inline passthrough macro</div>
+<div class="title">Passthrough (&#8220;plus for passthrough&#8221;)</div>
+<div class="content">
+<pre class="nowrap">`+Text inside {backtick} characters+` is formatted as `monospace`.
+Disable additional formatting by enclosing it in plus characters.</pre>
+</div>
+</div>
+<div class="exampleblock result">
+<div class="content">
+<div class="paragraph">
+<p><code>Text inside {backtick} characters</code> is formatted as <code>monospace</code>.
+Disable additional formatting by enclosing it in plus characters.</p>
+</div>
+</div>
+</div>
+<div class="listingblock">
+<div class="title">Raw (triple plus and inline pass macro)</div>
 <div class="content">
 <pre class="nowrap">+++&lt;u&gt;underline me&lt;/u&gt;+++ is underlined.
 
