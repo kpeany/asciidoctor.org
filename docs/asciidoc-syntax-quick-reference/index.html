@@ -1729,7 +1729,7 @@ You can control the video settings using <a href="user-manual/#video">additional
 <h2 id="source-code"><a class="anchor" href="#source-code"></a>Source Code</h2>
 <div class="sectionbody">
 <div class="listingblock">
-<div class="title">Inline</div>
+<div class="title">Inline (monospace only)</div>
 <div class="content">
 <pre class="nowrap">Reference code like `types` or `methods` inline.</pre>
 </div>
@@ -1738,6 +1738,21 @@ You can control the video settings using <a href="user-manual/#video">additional
 <div class="content">
 <div class="paragraph">
 <p>Reference code like <code>types</code> or <code>methods</code> inline.</p>
+</div>
+</div>
+</div>
+<div class="listingblock">
+<div class="title">Inline (literal)</div>
+<div class="content">
+<pre class="nowrap">Output literal monospace text such as `+{backtick}+` by
+enclosing the text in pluses, then again in backticks.</pre>
+</div>
+</div>
+<div class="exampleblock result">
+<div class="content">
+<div class="paragraph">
+<p>Output literal monospace text such as <code>{backtick}</code> by
+enclosing the text in pluses, then again in backticks.</p>
 </div>
 </div>
 </div>
@@ -3814,15 +3829,15 @@ The dashes are not replaced by an em dash.</p>
 <div class="listingblock">
 <div class="title">Passthrough (&#8220;plus for passthrough&#8221;)</div>
 <div class="content">
-<pre class="nowrap">`+Text inside {backtick} characters+` is formatted as `monospace`.
-Disable additional formatting by enclosing it in plus characters.</pre>
+<pre class="nowrap">`+Text inside {plus} characters+` is not formatted.
+However, special characters like +&lt;+ and +&gt;+ are still escaped.</pre>
 </div>
 </div>
 <div class="exampleblock result">
 <div class="content">
 <div class="paragraph">
-<p><code>Text inside {backtick} characters</code> is formatted as <code>monospace</code>.
-Disable additional formatting by enclosing it in plus characters.</p>
+<p><code>Text inside {plus} characters</code> is not formatted.
+However, special characters like &lt; and &gt; are still escaped.</p>
 </div>
 </div>
 </div>
