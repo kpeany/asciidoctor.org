@@ -554,8 +554,13 @@ table.CodeRay td.code>pre{padding:0}
 <h3 id="does-asciidoctor-only-process-text-that-is-us-ascii-encoded"><a class="anchor" href="#does-asciidoctor-only-process-text-that-is-us-ascii-encoded"></a>Does Asciidoctor only process text that is US-ASCII encoded?</h3>
 <div class="paragraph">
 <p>No.
-Asciidoctor has full support for Unicode.
+Asciidoctor has full Unicode support (UTF-8 by default, UTF-16 with a BOM).
 👌</p>
+</div>
+<div class="paragraph">
+<p>The &#8220;Ascii&#8221; in AsciiDoc and Asciidoctor merely refers to the range of characters from which the special characters in the syntax (section title markers, block delimiters, macro and block names, etc.) are drawn.
+In other words, you only need to use characters from US-ASCII to form the structure of an AsciiDoc document.
+The content itself, which includes attribute values, may contain characters from any character plane in Unicode.</p>
 </div>
 <div class="paragraph">
 <p>Asciidoctor assumes input is encoded in UTF-8 and it encodes output documents in UTF-8 as well.</p>
@@ -743,7 +748,7 @@ However, when you use this approach, Asciidoctor won&#8217;t recognize it as a U
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2018-03-07 21:09:40 UTC
+Last updated 2018-03-10 06:29:11 UTC
 </div>
 </div>
 </body>
