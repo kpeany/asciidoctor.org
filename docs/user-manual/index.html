@@ -719,15 +719,16 @@ table.CodeRay td.code>pre{padding:0}
 </li>
 <li><a href="#include-directive">31. Include Directive</a>
 <ul class="sectlevel2">
-<li><a href="#include-basics">31.1. Basics</a></li>
-<li><a href="#include-resolution">31.2. File resolution</a></li>
-<li><a href="#include-partitioning">31.3. Partitioning large documents and using leveloffset</a></li>
-<li><a href="#include-nonasciidoc">31.4. AsciiDoc vs non-AsciiDoc files</a></li>
-<li><a href="#include-partial">31.5. Select Portions of a Document to Include</a></li>
-<li><a href="#normalize-block-indentation">31.6. Normalize Block Indentation</a></li>
-<li><a href="#include-uri">31.7. Include Content from a URI</a></li>
-<li><a href="#caching-uri-content">31.8. Caching URI Content</a></li>
-<li><a href="#include-multiple">31.9. Include a File Multiple Times in the Same Document</a></li>
+<li><a href="#include-anatomy">31.1. Anatomy</a></li>
+<li><a href="#include-processing">31.2. Processing</a></li>
+<li><a href="#include-resolution">31.3. File resolution</a></li>
+<li><a href="#include-partitioning">31.4. Partitioning large documents and using leveloffset</a></li>
+<li><a href="#include-nonasciidoc">31.5. AsciiDoc vs non-AsciiDoc files</a></li>
+<li><a href="#include-partial">31.6. Select Portions of a Document to Include</a></li>
+<li><a href="#normalize-block-indentation">31.7. Normalize Block Indentation</a></li>
+<li><a href="#include-uri">31.8. Include Content from a URI</a></li>
+<li><a href="#caching-uri-content">31.9. Caching URI Content</a></li>
+<li><a href="#include-multiple">31.10. Include a File Multiple Times in the Same Document</a></li>
 </ul>
 </li>
 <li><a href="#images">32. Images</a>
@@ -12051,16 +12052,6 @@ You can use it multiple times in the same document.</p>
 </li>
 </ul>
 </div>
-<div class="paragraph">
-<p>Although the include directive looks like a block macro, it&#8217;s not one.
-Instead, it&#8217;s a preprocessor directive like ifdef and ifeval.
-It gets processed before the lines are parsed into a document structure.</p>
-</div>
-<div class="paragraph">
-<p>Therefore, the include directive is <em>not</em> aware of the surrounding document structure.
-It effectively reads lines from another file and inserts them in place of the include directive.
-Only then does the parser read those lines.</p>
-</div>
 <div class="admonitionblock caution">
 <table>
 <tr>
@@ -12069,14 +12060,14 @@ Only then does the parser read those lines.</p>
 </td>
 <td class="content">
 The include directive is <em>disabled</em> when Asciidoctor is run in secure mode.
-In secure mode, include directives get converted to links in the output document.
+In this mode, the include directive is converted to a link in the output document.
 To learn more about secure mode, refer to the section <a href="#running-asciidoctor-securely">Running Asciidoctor Securely</a>.
 </td>
 </tr>
 </table>
 </div>
 <div class="sect2">
-<h3 id="include-basics"><a class="anchor" href="#include-basics"></a><a class="link" href="#include-basics">31.1. Basics</a></h3>
+<h3 id="include-anatomy"><a class="anchor" href="#include-anatomy"></a><a class="link" href="#include-anatomy">31.1. Anatomy</a></h3>
 <div class="paragraph">
 <p>The include directive has the following anatomy:</p>
 </div>
@@ -12090,17 +12081,35 @@ To learn more about secure mode, refer to the section <a href="#running-asciidoc
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap">= Document Title
-
-include::content.adoc[]</pre>
+<pre class="nowrap">include::content.adoc[]</pre>
 </div>
 </div>
 <div class="paragraph">
-<p>The sections that follow go into detail about how the include file is resolved and how each attribute is used.</p>
+<p>The sections that follow go into detail about when the include is processed, how the include file is resolved, and how each attribute is used.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="include-resolution"><a class="anchor" href="#include-resolution"></a><a class="link" href="#include-resolution">31.2. File resolution</a></h3>
+<h3 id="include-processing"><a class="anchor" href="#include-processing"></a><a class="link" href="#include-processing">31.2. Processing</a></h3>
+<div class="paragraph">
+<p>Although the include directive shares the same syntax as a block macro, it is not a block macro and not processed like one.
+Instead, it&#8217;s a <em>preprocessor</em> directive, like <code>ifdef</code> and <code>ifeval</code>.
+It&#8217;s important that you understand the distinction between the two.</p>
+</div>
+<div class="paragraph">
+<p>A preprocessor directive is processed when the lines are read and before the document structure is parsed.
+Therefore, it&#8217;s <em>not</em> aware of the surrounding document structure.
+A preprocessor directive merely adds lines to the reader or takes lines away.
+The include directive always adds lines.</p>
+</div>
+<div class="paragraph">
+<p>The best way to think of the include directive is to imagine that it is being replaced by the lines from the include file (i.e., the imported lines).
+Only then does the parser read and interpret those lines.
+That&#8217;s also why it&#8217;s important to surround the include directive by blank lines if it imports in a discrete structure.
+You only want to place include files directly adjacent to one another if the imported content should be directly adjacent.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="include-resolution"><a class="anchor" href="#include-resolution"></a><a class="link" href="#include-resolution">31.3. File resolution</a></h3>
 <div class="paragraph">
 <p>The path used in an include directive may be either relative or absolute.</p>
 </div>
@@ -12164,7 +12173,7 @@ If a path violates the security restrictions, it may be truncated.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="include-partitioning"><a class="anchor" href="#include-partitioning"></a><a class="link" href="#include-partitioning">31.3. Partitioning large documents and using leveloffset</a></h3>
+<h3 id="include-partitioning"><a class="anchor" href="#include-partitioning"></a><a class="link" href="#include-partitioning">31.4. Partitioning large documents and using leveloffset</a></h3>
 <div class="paragraph">
 <p>When your document gets large, you can split it up into subsections for easier editing as follows:</p>
 </div>
@@ -12252,7 +12261,7 @@ Absolute levels become awkward when you have nested includes since they aren&#82
 </div>
 </div>
 <div class="sect2">
-<h3 id="include-nonasciidoc"><a class="anchor" href="#include-nonasciidoc"></a><a class="link" href="#include-nonasciidoc">31.4. AsciiDoc vs non-AsciiDoc files</a></h3>
+<h3 id="include-nonasciidoc"><a class="anchor" href="#include-nonasciidoc"></a><a class="link" href="#include-nonasciidoc">31.5. AsciiDoc vs non-AsciiDoc files</a></h3>
 <div class="paragraph">
 <p>The include directive performs a simple file merge, so it works with any text file.
 The content of all included content is normalized.
@@ -12292,7 +12301,7 @@ The content is inserted as is (after being normalized).</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="include-partial"><a class="anchor" href="#include-partial"></a><a class="link" href="#include-partial">31.5. Select Portions of a Document to Include</a></h3>
+<h3 id="include-partial"><a class="anchor" href="#include-partial"></a><a class="link" href="#include-partial">31.6. Select Portions of a Document to Include</a></h3>
 <div class="paragraph">
 <p>The include directive supports selecting only portions of the document to include.
 Using the <code>tags</code> attribute (or <code>tag</code> attribute for the singular case), you can select lines that fall between regions marked with user-defined tags.
@@ -12304,7 +12313,7 @@ If commas are used, the entire value must be enclosed in quotes.
 Using the semi-colon as the data separator eliminates this requirement.</p>
 </div>
 <div class="sect3">
-<h4 id="by-tagged-regions"><a class="anchor" href="#by-tagged-regions"></a><a class="link" href="#by-tagged-regions">31.5.1. By tagged regions</a></h4>
+<h4 id="by-tagged-regions"><a class="anchor" href="#by-tagged-regions"></a><a class="link" href="#by-tagged-regions">31.6.1. By tagged regions</a></h4>
 <div class="paragraph">
 <p>Tags are useful when you want to display specific regions of content from an include file instead of all of its content.
 You can select regions of content between tag/end directives using the <code>tags</code> attribute.
@@ -12456,7 +12465,7 @@ snippet b</code></pre>
 </div>
 </div>
 <div class="sect3">
-<h4 id="tag-filtering"><a class="anchor" href="#tag-filtering"></a><a class="link" href="#tag-filtering">31.5.2. Tag filtering</a></h4>
+<h4 id="tag-filtering"><a class="anchor" href="#tag-filtering"></a><a class="link" href="#tag-filtering">31.6.2. Tag filtering</a></h4>
 <div class="paragraph">
 <p>The previous section showed how to select tagged regions explictly, but you can also use wildcards and exclusions:</p>
 </div>
@@ -12535,7 +12544,7 @@ Technically, the order you list them doesn&#8217;t matter, but it&#8217;s custom
 </div>
 </div>
 <div class="sect3">
-<h4 id="by-line-ranges"><a class="anchor" href="#by-line-ranges"></a><a class="link" href="#by-line-ranges">31.5.3. By line ranges</a></h4>
+<h4 id="by-line-ranges"><a class="anchor" href="#by-line-ranges"></a><a class="link" href="#by-line-ranges">31.6.3. By line ranges</a></h4>
 <div class="paragraph">
 <p>To include content by line range, assign a starting line number and an ending line number separated by a pair of dots (e.g., <code>lines=1..5</code>) to the <code>lines</code> attribute.</p>
 </div>
@@ -12572,7 +12581,7 @@ Since commas are normally used to separate individual attributes, you must quote
 </div>
 </div>
 <div class="sect2">
-<h3 id="normalize-block-indentation"><a class="anchor" href="#normalize-block-indentation"></a><a class="link" href="#normalize-block-indentation">31.6. Normalize Block Indentation</a></h3>
+<h3 id="normalize-block-indentation"><a class="anchor" href="#normalize-block-indentation"></a><a class="link" href="#normalize-block-indentation">31.7. Normalize Block Indentation</a></h3>
 <div class="paragraph">
 <p>Source code snippets from external files are often padded with a leading block indent.
 This leading block indent is relevant in its original context.
@@ -12642,7 +12651,7 @@ end</pre>
 </div>
 </div>
 <div class="sect2">
-<h3 id="include-uri"><a class="anchor" href="#include-uri"></a><a class="link" href="#include-uri">31.7. Include Content from a URI</a></h3>
+<h3 id="include-uri"><a class="anchor" href="#include-uri"></a><a class="link" href="#include-uri">31.8. Include Content from a URI</a></h3>
 <div class="paragraph">
 <p>The include directive recognizes when the target is a URI and can include the content referenced by that URI.</p>
 </div>
@@ -12723,7 +12732,7 @@ A URL is simply a URI that points to a resource over a network, or web address.<
 </div>
 </div>
 <div class="sect2">
-<h3 id="caching-uri-content"><a class="anchor" href="#caching-uri-content"></a><a class="link" href="#caching-uri-content">31.8. Caching URI Content</a></h3>
+<h3 id="caching-uri-content"><a class="anchor" href="#caching-uri-content"></a><a class="link" href="#caching-uri-content">31.9. Caching URI Content</a></h3>
 <div class="paragraph">
 <p>Reading content from a URI is obviously much slower than reading it from a local file.</p>
 </div>
@@ -12748,7 +12757,7 @@ A URL is simply a URI that points to a resource over a network, or web address.<
 </div>
 </div>
 <div class="sect2">
-<h3 id="include-multiple"><a class="anchor" href="#include-multiple"></a><a class="link" href="#include-multiple">31.9. Include a File Multiple Times in the Same Document</a></h3>
+<h3 id="include-multiple"><a class="anchor" href="#include-multiple"></a><a class="link" href="#include-multiple">31.10. Include a File Multiple Times in the Same Document</a></h3>
 <div class="paragraph">
 <p>A document can include the same file any number of times.
 The problem comes if there are IDs in the included file; the output document (HTML or DocBook) will then have duplicate IDs which will make it not well-formed.
@@ -26678,7 +26687,7 @@ In source listings, is the callout the last thing on the line?</p></td>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2018-03-14 06:16:46 UTC
+Last updated 2018-03-15 06:34:36 UTC
 </div>
 </div>
 <script type="text/x-mathjax-config">
