@@ -2924,25 +2924,47 @@ If you want the table of contents to be placed on the right side of the document
 The value assigned to an attribute in the document header will replace the intrinsic value (assuming the attribute is not locked).</p>
 </div>
 <div class="paragraph">
-<p>Attributes are also used to store URLs.</p>
+<p>Attributes can also used to store URLs.</p>
 </div>
 <div class="listingblock">
 <div class="title">URL attribute entry</div>
 <div class="content">
-<pre class="nowrap">:uri-fedpkg: https://apps.fedoraproject.org/packages/asciidoc</pre>
+<pre class="nowrap">:url-fedpkg: https://apps.fedoraproject.org/packages/rubygem-asciidoctor</pre>
 </div>
 </div>
 <div class="paragraph">
 <p>Now you can refer to this attribute entry anywhere in the document (where attribute substitution is performed) by surrounding its name in curly braces:</p>
 </div>
 <div class="listingblock">
-<div class="title">uri-fedpkg attribute usage example</div>
+<div class="title">url-fedpkg attribute usage example</div>
 <div class="content">
-<pre class="nowrap">Information about the AsciiDoc package in Fedora is found at {uri-fedpkg}.</pre>
+<pre class="nowrap">Did you know there's an {url-fedpkg}[Asciidoctor package for Fedora]?</pre>
 </div>
 </div>
 <div class="paragraph">
-<p>You can also set the base path to images (default: <em>empty</em>), icons (default: <code>./images/icons</code>), stylesheets (default: <code>./stylesheets</code>) and JavaScript files (default: <code>./javascripts</code>).</p>
+<p>To save even more typing, you can store the whole link in an attribute value.</p>
+</div>
+<div class="listingblock">
+<div class="title">URL attribute entry</div>
+<div class="content">
+<pre class="nowrap">:url-fedpkg: https://apps.fedoraproject.org/packages/rubygem-asciidoctor[Asciidoctor package for Fedora]</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Now you reference the attribute whereever you want this link inserted.</p>
+</div>
+<div class="listingblock">
+<div class="title">link-fedpkg attribute usage example</div>
+<div class="content">
+<pre class="nowrap">Did you know there's an {link-fedpkg}?</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Note that the link substitution occurs after the attribute reference is resolved.
+This works thanks to the default order of substitutions in a paragraph.</p>
+</div>
+<div class="paragraph">
+<p>You can also use attributs to set the base path to images (default: <em>empty</em>), icons (default: <code>./images/icons</code>), stylesheets (default: <code>./stylesheets</code>) and JavaScript files (default: <code>./javascripts</code>).</p>
 </div>
 <div class="listingblock">
 <div class="title">Base path config example</div>
@@ -26689,7 +26711,7 @@ In source listings, is the callout the last thing on the line?</p></td>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2018-03-17 06:11:08 UTC
+Last updated 2018-03-17 06:12:21 UTC
 </div>
 </div>
 <script type="text/x-mathjax-config">
