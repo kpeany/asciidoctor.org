@@ -2119,7 +2119,8 @@ https://asciidoctor.org</code></pre>
 </div>
 </div>
 <div class="paragraph">
-<p>When a URL does not start with one of the <a href="#schemes">common schemes</a>, you must use the <code>link</code> macro.
+<p>When a URL does not start with one of the <a href="#schemes">common schemes</a>, or the URL is not surrounded by word boundaries, you must use the <code>link</code> macro.
+The <code>link</code> macro is a stronger version of a URI macro, which you can think of like an unconstrained macro.
 The URL is preceded by <code>link:</code> and followed by square brackets.
 The square brackets may include optional link text.
 The URL is used for the text of the link if link text is not specified.
@@ -2132,19 +2133,22 @@ If the <code>linkattrs</code> document attribute is set, the square brackets als
 </div>
 </div>
 <div class="paragraph">
-<p>First, let&#8217;s look at an example of a link macro that contains link text.</p>
+<p>Let&#8217;s consider a case where we need to use the link macro (instead of just a URI macro) to expand a link when it&#8217;s not adjacent to a word boundary (i.e., unconstrained).</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap">Let's view the raw HTML of the link:view-source:asciidoctor.org[Asciidoctor homepage].</pre>
+<pre class="nowrap">search/link:https://ecosia.org[Ecosia]</pre>
 </div>
 </div>
 <div class="exampleblock">
 <div class="content">
 <div class="paragraph">
-<p>Let&#8217;s view the raw HTML of the <a href="view-source:asciidoctor.org">Asciidoctor homepage</a>.</p>
+<p>search/<a href="https://ecosia.org">Ecosia</a></p>
 </div>
 </div>
+</div>
+<div class="paragraph">
+<p>If we didn&#8217;t use the <code>link:</code> prefix in this case, the URL macro would not be detected by the parser.</p>
 </div>
 </div>
 <div class="sect3">
