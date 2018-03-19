@@ -4410,6 +4410,31 @@ Until our next adventure!
 </div>
 </div>
 </div>
+<div class="sect3">
+<h4 id="attribute-references-in-the-author-line"><a class="anchor" href="#attribute-references-in-the-author-line"></a><a class="link" href="#attribute-references-in-the-author-line">17.2.1. Attribute references in the author line</a></h4>
+<div class="paragraph">
+<p>The implicit author line was not intented to support attribute references.
+It&#8217;s best used as a shorthand for defining the author and email.
+While attribute references do get replaced in the author line (as part of the header substitution group), they aren&#8217;t substituted until <em>after</em> the line is parsed, which can produce undesirable and sometimes surprising results.</p>
+</div>
+<div class="paragraph">
+<p>If you want to use attribute references for the author or email, you should revert to defining the attributes explicitly using attribute entries.</p>
+</div>
+<div class="listingblock">
+<div class="title">Using attribute references to set author and email</div>
+<div class="content">
+<pre class="CodeRay highlight nowrap"><code data-lang="asciidoc">= Document Title
+:author_name: ACME Industries
+:author_email: info@acme.com
+:author: {author_name}
+:email: {author_email}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Just remember that the author line is for static text.
+Once you graduate beyond static text, you should switch to using attribute entries to define the built-in author attributes, which will give you much more power.</p>
+</div>
+</div>
 </div>
 <div class="sect2">
 <h3 id="revision-number-date-and-remark"><a class="anchor" href="#revision-number-date-and-remark"></a><a class="link" href="#revision-number-date-and-remark">17.3. Revision Number, Date and Remark</a></h3>
@@ -26715,7 +26740,7 @@ In source listings, is the callout the last thing on the line?</p></td>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2018-03-18 06:28:26 UTC
+Last updated 2018-03-19 06:22:46 UTC
 </div>
 </div>
 <script type="text/x-mathjax-config">
