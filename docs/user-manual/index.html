@@ -4413,12 +4413,13 @@ Until our next adventure!
 <div class="sect3">
 <h4 id="attribute-references-in-the-author-line"><a class="anchor" href="#attribute-references-in-the-author-line"></a><a class="link" href="#attribute-references-in-the-author-line">17.2.1. Attribute references in the author line</a></h4>
 <div class="paragraph">
-<p>The implicit author line was not intented to support attribute references.
-It&#8217;s best used as a shorthand for defining the author and email.
-While attribute references do get replaced in the author line (as part of the header substitution group), they aren&#8217;t substituted until <em>after</em> the line is parsed, which can produce undesirable and sometimes surprising results.</p>
+<p>The implicit author line was not intended to support arbitrary placement of attribute references.
+While attribute references are replaced in the author line (as part of the header substitution group), they aren&#8217;t substituted until <em>after</em> the line is parsed.
+This ordering can sometimes produce undesirable or surprising results.
+It&#8217;s best to use the author line strictly as a shorthand for defining a fixed author and email.</p>
 </div>
 <div class="paragraph">
-<p>If you want to use attribute references for the author or email, you should revert to defining the attributes explicitly using attribute entries.</p>
+<p>If you do need to use attribute references in the author or email value, you should revert to defining the attributes explicitly using attribute entries.</p>
 </div>
 <div class="listingblock">
 <div class="title">Using attribute references to set author and email</div>
@@ -26752,7 +26753,7 @@ In source listings, is the callout the last thing on the line?</p></td>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2018-03-28 06:45:15 UTC
+Last updated 2018-03-28 06:58:19 UTC
 </div>
 </div>
 <script type="text/x-mathjax-config">
